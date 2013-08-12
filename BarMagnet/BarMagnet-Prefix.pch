@@ -11,4 +11,9 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+	#import <FK/FKPrelude.h>
+	#import "NSArray+Functions.h"
+	#import "StringHandler.h"
+	#import "NSNumber+TransferRateFormatting.h"
+	#import "TestFlight.h"
 #endif

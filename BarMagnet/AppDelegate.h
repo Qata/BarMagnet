@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+@class PingHandler;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
+{
+	PingHandler * pingHandler;
+}
 
 @property (strong, nonatomic) UIWindow *window;
 
