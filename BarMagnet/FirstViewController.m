@@ -24,7 +24,6 @@
 	[self setTitle:@"Torrents"];
 	[[[TorrentDelegate sharedInstance] currentlySelectedClient] setDefaultViewController:[self navigationController]];
 	cancelNextRefresh = NO;
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveClearFieldNotification:) name:@"clear_field_notification" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveUpdateTableNotification) name:@"update_torrent_jobs_table" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pushDetailView:) name:@"push_detail_view" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pushControlView:) name:@"push_control_view" object:nil];
@@ -41,11 +40,6 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-}
-
-- (void)receiveClearFieldNotification:(NSNotification *)notification
-{
-	[[self tabBarController] setSelectedIndex:0];
 }
 
 - (void)receiveUpdateTableNotification
