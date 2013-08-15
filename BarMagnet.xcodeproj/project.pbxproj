@@ -73,6 +73,7 @@
 		23AC45F4179BED2E00AD5F22 /* Synology.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AC45F3179BED2E00AD5F22 /* Synology.m */; };
 		23AF74DC1796A16200AC4ED5 /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AF74DB1796A16200AC4ED5 /* HelpViewController.m */; };
 		23AF74E01796D5F700AC4ED5 /* StaticDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AF74DF1796D5F700AC4ED5 /* StaticDataTableViewController.m */; };
+		23B12B1717BBA1DD00814DD8 /* NSOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B12B1617BBA1DD00814DD8 /* NSOption.m */; };
 		23B1BFE6177C3817000A0B07 /* Deluge.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B1BFD9177C3817000A0B07 /* Deluge.m */; };
 		23B1BFE7177C3817000A0B07 /* qBittorrent.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B1BFDB177C3817000A0B07 /* qBittorrent.m */; };
 		23B1BFE8177C3817000A0B07 /* ruTorrent.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B1BFDD177C3817000A0B07 /* ruTorrent.m */; };
@@ -148,7 +149,7 @@
 		2331414D177FE9390062B0FE /* magnet@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "magnet@2x.png"; sourceTree = "<group>"; };
 		23314150177FE95E0062B0FE /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
 		23314151177FE95E0062B0FE /* gear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gear@2x.png"; sourceTree = "<group>"; };
-		233C9F0117B934AD00405CA7 /* libfunctionalkit.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libfunctionalkit.a; path = "../../Bar Magnet Shared Sources/Sources/External/functionalkit/build/Debug-iphoneos/libfunctionalkit.a"; sourceTree = "<group>"; };
+		233C9F0117B934AD00405CA7 /* libfunctionalkit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libfunctionalkit.a; path = "../../Bar Magnet Shared Sources/Sources/External/functionalkit/build/Debug-iphoneos/libfunctionalkit.a"; sourceTree = "<group>"; };
 		233C9F0417B9354300405CA7 /* FileHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileHandler.h; path = "../../../Bar Magnet Shared Sources/FileHandler.h"; sourceTree = "<group>"; };
 		233C9F0517B9354300405CA7 /* FileHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FileHandler.m; path = "../../../Bar Magnet Shared Sources/FileHandler.m"; sourceTree = "<group>"; };
 		233C9F1117B93A3100405CA7 /* TorrentFileHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TorrentFileHandler.h; path = "../../../Bar Magnet Shared Sources/TorrentFileHandler.h"; sourceTree = "<group>"; };
@@ -251,6 +252,8 @@
 		23AF74DB1796A16200AC4ED5 /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
 		23AF74DE1796D5F700AC4ED5 /* StaticDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaticDataTableViewController.h; sourceTree = "<group>"; };
 		23AF74DF1796D5F700AC4ED5 /* StaticDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaticDataTableViewController.m; sourceTree = "<group>"; };
+		23B12B1517BBA1DD00814DD8 /* NSOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSOption.h; sourceTree = "<group>"; };
+		23B12B1617BBA1DD00814DD8 /* NSOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSOption.m; sourceTree = "<group>"; };
 		23B1BFD8177C3817000A0B07 /* Deluge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Deluge.h; path = "../../../Bar Magnet Shared Sources/Deluge.h"; sourceTree = "<group>"; };
 		23B1BFD9177C3817000A0B07 /* Deluge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Deluge.m; path = "../../../Bar Magnet Shared Sources/Deluge.m"; sourceTree = "<group>"; };
 		23B1BFDA177C3817000A0B07 /* qBittorrent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = qBittorrent.h; path = "../../../Bar Magnet Shared Sources/qBittorrent.h"; sourceTree = "<group>"; };
@@ -658,6 +661,8 @@
 			children = (
 				230F9EFD1781AA0E00705546 /* NSNumber+TransferRateFormatting.h */,
 				230F9EFE1781AA0E00705546 /* NSNumber+TransferRateFormatting.m */,
+				23B12B1517BBA1DD00814DD8 /* NSOption.h */,
+				23B12B1617BBA1DD00814DD8 /* NSOption.m */,
 				233C9F0417B9354300405CA7 /* FileHandler.h */,
 				233C9F0517B9354300405CA7 /* FileHandler.m */,
 				23A0E5C617894C0A00898812 /* NSArray+Functions.h */,
@@ -849,6 +854,7 @@
 				233C9F1317B93A3100405CA7 /* TorrentFileHandler.m in Sources */,
 				23B1C00C177C4AC4000A0B07 /* TorrentDelegate.m in Sources */,
 				23B1C00D177C4AC4000A0B07 /* TorrentDelegateConfig.m in Sources */,
+				23B12B1717BBA1DD00814DD8 /* NSOption.m in Sources */,
 				23B1C019177C4B3C000A0B07 /* StringHandler.m in Sources */,
 				23B1C01F177C4B88000A0B07 /* NSData+Base64.m in Sources */,
 			);
