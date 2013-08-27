@@ -29,8 +29,16 @@
 
 - (id)initWithURL:(NSURL *)URL {
     self.webViewController = [[SVWebViewController alloc] initWithURL:URL];
-    if (self = [super initWithRootViewController:self.webViewController]) {
-        self.webViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:webViewController action:@selector(doneButtonClicked:)];
+    if (self = [super initWithRootViewController:self.webViewController])
+	{
+		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+		{
+			self.webViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:webViewController action:@selector(doneButtonClicked:)];
+		}
+		else
+		{
+			self.webViewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:webViewController action:@selector(doneButtonClicked:)];
+		}
     }
     return self;
 }
@@ -40,7 +48,6 @@
     [super viewWillAppear:NO];
     
     self.webViewController.title = self.title;
-	//self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonItemStyleDone target:[[self navigationItem] leftBarButtonItem] action:@selector(dismissViewControllerAnimated:completion:)];
     self.navigationBar.tintColor = self.barsTintColor;
 }
 

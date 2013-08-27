@@ -10,6 +10,13 @@
 #import "TorrentDelegate.h"
 #import "TorrentClient.h"
 
+static const CGFloat kNavBarHeight = 52.0f;
+static const CGFloat kLabelHeight = 14.0f;
+static const CGFloat kMargin = 10.0f;
+static const CGFloat kSpacer = 2.0f;
+static const CGFloat kLabelFontSize = 12.0f;
+static const CGFloat kAddressHeight = 26.0f;
+
 @interface SVWebViewController () <UIWebViewDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate>
 
 @property (nonatomic, strong, readonly) NSArray *adKeys;
@@ -20,6 +27,9 @@
 @property (nonatomic, strong, readonly) UIBarButtonItem *stopBarButtonItem;
 @property (nonatomic, strong, readonly) UIBarButtonItem *actionBarButtonItem;
 @property (nonatomic, strong, readonly) UIActionSheet *pageActionSheet;
+@property (nonatomic, strong) IBOutlet UIBarButtonItem* stop;
+@property (nonatomic, strong) UILabel* pageTitle;
+@property (nonatomic, strong) UITextField* addressField;
 
 @property (nonatomic, strong) UIWebView *mainWebView;
 @property (nonatomic, strong) NSURL *URL;
@@ -168,9 +178,25 @@
     self.view = mainWebView;
 }
 
+- (void)loadAddress:(id)sender event:(UIEvent *)event
+{
+	if ([self.addressField.text length])
+	{
+		if ([self.addressField.text rangeOfString:@"https://"].location != NSNotFound)
+		{
+			[self.mainWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.addressField.text]]];
+		}
+		else
+		{
+			[self.mainWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[@"http://" stringByAppendingString:self.addressField.text]]]];
+		}
+	}
+}
+
 - (void)viewDidLoad {
 	[super viewDidLoad];
-	adKeys = @[@"s.ytimg.com", @"pstatic.org", @"privitize.com", @"lp.torchbrowser.com", @"adexprt"];
+
+	adKeys = @[@"s.ytimg.com", @"pstatic.org", @"privitize.com", @"lp.torchbrowser.com", @"adexprt", @"about:blank"];
 	adsArray = @[@"document.getElementById('sky-banner').firstElementChild.src", @"document.getElementById('sky-right').firstElementChild.src", @"document.getElementById('main-content').firstElementChild.src", @"document.getElementById('header').firstElementChild.firstElementChild.src"];
 	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:[self navigationController] action:@selector(dismissViewControllerAnimated)];
     [self updateToolbarItems];
@@ -188,6 +214,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+
     NSAssert(self.navigationController, @"SVWebViewController needs to be contained in a UINavigationController. If you are presenting SVWebViewController modally, use SVModalWebViewController instead.");
     
 	[super viewWillAppear:animated];
@@ -338,8 +365,9 @@
 
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
+	NSLog(@"%@", [[webView request] URL]);
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    [self updateToolbarItems];
+	[self updateToolbarItems];
 }
 
 
@@ -351,6 +379,15 @@
 
 	[webView stringByEvaluatingJavaScriptFromString:strJSFunction];
 	[webView stringByEvaluatingJavaScriptFromString:@"increaseMaxZoomFactor()"];
+	if ([[[[webView request] URL] absoluteString] isEqual:@"about:blank"])
+	{
+		[webView goBack];
+	}
+	else
+	{
+		self.navigationItem.title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+		[self updateToolbarItems];
+	}
 	/*for (NSString * ad in adsArray)
 	{
 		if (![[webView stringByEvaluatingJavaScriptFromString:ad] isEqual:@"http://qata.cc/rgb.gif"])
@@ -358,8 +395,6 @@
 			[webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@ = 'http://qata.cc/rgb.gif'", ad]];
 		}
 	}*/
-    self.navigationItem.title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
-    [self updateToolbarItems];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {

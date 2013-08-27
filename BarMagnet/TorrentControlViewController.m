@@ -67,9 +67,13 @@
 			{
 				case 0:
 					if ([[hashDict objectForKey:@"status"] isEqual:@"Paused"])
+					{
 						cell.textLabel.text = @"Resume";
+					}
 					else
+					{
 						cell.textLabel.text = @"Pause";
+					}
 					break;
 				case 1:
 					cell.textLabel.text = @"Remove Torrent";
