@@ -17,7 +17,6 @@
 		2331414F177FE9390062B0FE /* magnet@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2331414D177FE9390062B0FE /* magnet@2x.png */; };
 		23314152177FE95E0062B0FE /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 23314150177FE95E0062B0FE /* gear.png */; };
 		23314153177FE95E0062B0FE /* gear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23314151177FE95E0062B0FE /* gear@2x.png */; };
-		233C9F0317B934B200405CA7 /* libfunctionalkit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 23AC2B74175D86D800FCFA71 /* libfunctionalkit.a */; };
 		233C9F0617B9354300405CA7 /* FileHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 233C9F0517B9354300405CA7 /* FileHandler.m */; };
 		233C9F1317B93A3100405CA7 /* TorrentFileHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 233C9F1217B93A3100405CA7 /* TorrentFileHandler.m */; };
 		233C9F9617B9E2E500405CA7 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 233C9F9517B9E2E500405CA7 /* libz.dylib */; };
@@ -93,30 +92,6 @@
 		23F668401792752700BA456C /* TorrentControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F6683F1792752700BA456C /* TorrentControlViewController.m */; };
 		23FC25D81788F1D500CCE434 /* TorrentJobCheckerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FC25D71788F1D500CCE434 /* TorrentJobCheckerCell.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		23AC2B73175D86D800FCFA71 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 23AC2B6E175D86D800FCFA71 /* functionalkit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D2AAC07E0554694100DB518D;
-			remoteInfo = functionalkit;
-		};
-		23AC2B75175D86D800FCFA71 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 23AC2B6E175D86D800FCFA71 /* functionalkit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4720885B11D951C400045928;
-			remoteInfo = Test;
-		};
-		23AC2B77175D871E00FCFA71 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 23AC2B6E175D86D800FCFA71 /* functionalkit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = D2AAC07D0554694100DB518D;
-			remoteInfo = functionalkit;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		23AC2BBB175D905600FCFA71 /* CopyFiles */ = {
@@ -243,7 +218,6 @@
 		23AC2B5D175D835600FCFA71 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		23AC2B5F175D835600FCFA71 /* BarMagnetTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BarMagnetTests.h; sourceTree = "<group>"; };
 		23AC2B60175D835600FCFA71 /* BarMagnetTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BarMagnetTests.m; sourceTree = "<group>"; };
-		23AC2B6E175D86D800FCFA71 /* functionalkit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = functionalkit.xcodeproj; path = Source/External/functionalkit/functionalkit.xcodeproj; sourceTree = "<group>"; };
 		23AC2BC0175D921B00FCFA71 /* ProfilePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfilePickerViewController.h; sourceTree = "<group>"; };
 		23AC2BC1175D921B00FCFA71 /* ProfilePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfilePickerViewController.m; sourceTree = "<group>"; };
 		23AC45F2179BED2E00AD5F22 /* Synology.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Synology.h; path = "../../../Bar Magnet Shared Sources/Synology.h"; sourceTree = "<group>"; };
@@ -298,7 +272,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				233C9F9617B9E2E500405CA7 /* libz.dylib in Frameworks */,
-				233C9F0317B934B200405CA7 /* libfunctionalkit.a in Frameworks */,
 				238A94D717A123700081EF6D /* CoreGraphics.framework in Frameworks */,
 				23AC2B22175D835600FCFA71 /* UIKit.framework in Frameworks */,
 				23AC2B24175D835600FCFA71 /* Foundation.framework in Frameworks */,
@@ -450,7 +423,6 @@
 		23AC2B15175D835600FCFA71 = {
 			isa = PBXGroup;
 			children = (
-				23AC2B6E175D86D800FCFA71 /* functionalkit.xcodeproj */,
 				239144FE1795604100543347 /* TestFlightSDK1.2.6 */,
 				238A949417A121630081EF6D /* TSMessages */,
 				2374DDA11796F2C700F613EB /* SVWebViewController */,
@@ -557,15 +529,6 @@
 				23AC2B5C175D835600FCFA71 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		23AC2B6F175D86D800FCFA71 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				23AC2B74175D86D800FCFA71 /* libfunctionalkit.a */,
-				23AC2B76175D86D800FCFA71 /* Test.octest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		23AC2B82175D8A2700FCFA71 /* Torrent Interface Super */ = {
@@ -687,7 +650,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				23AC2B78175D871E00FCFA71 /* PBXTargetDependency */,
 			);
 			name = BarMagnet;
 			productName = BarMagnet;
@@ -702,6 +664,11 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Carlo Tortorella";
+				TargetAttributes = {
+					23AC2B1D175D835600FCFA71 = {
+						DevelopmentTeam = P7852E8EWD;
+					};
+				};
 			};
 			buildConfigurationList = 23AC2B19175D835600FCFA71 /* Build configuration list for PBXProject "BarMagnet" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -719,35 +686,12 @@
 			mainGroup = 23AC2B15175D835600FCFA71;
 			productRefGroup = 23AC2B1F175D835600FCFA71 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 23AC2B6F175D86D800FCFA71 /* Products */;
-					ProjectRef = 23AC2B6E175D86D800FCFA71 /* functionalkit.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				23AC2B1D175D835600FCFA71 /* BarMagnet */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		23AC2B74175D86D800FCFA71 /* libfunctionalkit.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libfunctionalkit.a;
-			remoteRef = 23AC2B73175D86D800FCFA71 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		23AC2B76175D86D800FCFA71 /* Test.octest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = Test.octest;
-			remoteRef = 23AC2B75175D86D800FCFA71 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		23AC2B1C175D835600FCFA71 /* Resources */ = {
@@ -861,14 +805,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		23AC2B78175D871E00FCFA71 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = functionalkit;
-			targetProxy = 23AC2B77175D871E00FCFA71 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		235120071769C49000A3DE2C /* MainStoryboard_iPhone.storyboard */ = {
@@ -986,7 +922,8 @@
 		23AC2B65175D835600FCFA71 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Carlo Tortorella (27LEU46442)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BarMagnet/BarMagnet-Prefix.pch";
 				INFOPLIST_FILE = "BarMagnet/BarMagnet-Info.plist";
@@ -997,6 +934,7 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "94B0ABE1-CD5F-453B-B286-22E6F5D336A6";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -1006,7 +944,8 @@
 		23AC2B66175D835600FCFA71 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Carlo Tortorella (27LEU46442)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BarMagnet/BarMagnet-Prefix.pch";
 				INFOPLIST_FILE = "BarMagnet/BarMagnet-Info.plist";
@@ -1016,6 +955,7 @@
 					"$(SRCROOT)/TestFlightSDK1.2.6",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "19BE06CB-771F-4B13-B470-1E5B97ED3909";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
