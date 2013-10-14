@@ -116,8 +116,8 @@
 			[headerView addSubview:label];
 			label.backgroundColor = [UIColor clearColor];
 			label.textColor = [UIColor whiteColor];
-			label.text = @"Host Offline";
-			label.font = [UIFont fontWithName:@"Arial" size:[self sizeForDevice] - 4];
+			label.text = @"Host Unreachable";
+			label.font = [UIFont fontWithName:@"Arial" size:[self sizeForDevice] - 6];
 			label.textAlignment = NSTextAlignmentCenter;
 			label.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
 			label.tag = 1;

@@ -245,6 +245,11 @@ static const CGFloat kAddressHeight = 26.0f;
     return toInterfaceOrientation != UIInterfaceOrientationPortraitUpsideDown;
 }
 
+- (BOOL)shouldAutorotate
+{
+	return YES;
+}
+
 - (void)dealloc
 {
     [mainWebView stopLoading];

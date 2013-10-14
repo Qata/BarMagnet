@@ -12,7 +12,6 @@
 		2318A1F5178AA97B00B96E5F /* header.png in Resources */ = {isa = PBXBuildFile; fileRef = 2318A1F4178AA97B00B96E5F /* header.png */; };
 		2324910E178E4FA200D5454E /* TorrentDictFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2324910D178E4FA200D5454E /* TorrentDictFunctions.m */; };
 		232B0FA5178C356700A7B3DC /* TorrentDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 232B0FA4178C356700A7B3DC /* TorrentDetailViewController.m */; };
-		23314141177FA6300062B0FE /* download@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2331413D177FA6300062B0FE /* download@2x.png */; };
 		2331414E177FE9390062B0FE /* magnet.png in Resources */ = {isa = PBXBuildFile; fileRef = 2331414C177FE9390062B0FE /* magnet.png */; };
 		2331414F177FE9390062B0FE /* magnet@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2331414D177FE9390062B0FE /* magnet@2x.png */; };
 		23314152177FE95E0062B0FE /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 23314150177FE95E0062B0FE /* gear.png */; };
@@ -88,6 +87,7 @@
 		23B1C01F177C4B88000A0B07 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B1C01E177C4B88000A0B07 /* NSData+Base64.m */; };
 		23B286BC17C0401700BB2DA6 /* NSOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B286BB17C0401700BB2DA6 /* NSOption.m */; };
 		23B84F0F17B60F4F008C9D17 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23B84F0D17B60F4F008C9D17 /* MainStoryboard_iPad.storyboard */; };
+		23DC75B417F94DA70011258F /* WebViewNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23DC75B317F94DA70011258F /* WebViewNavigationController.m */; };
 		23EBE2D917941EBC00723ADD /* AddTorrentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EBE2D817941EBC00723ADD /* AddTorrentViewController.m */; };
 		23F668401792752700BA456C /* TorrentControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F6683F1792752700BA456C /* TorrentControlViewController.m */; };
 		23FC25D81788F1D500CCE434 /* TorrentJobCheckerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FC25D71788F1D500CCE434 /* TorrentJobCheckerCell.m */; };
@@ -116,10 +116,6 @@
 		2324910D178E4FA200D5454E /* TorrentDictFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TorrentDictFunctions.m; sourceTree = "<group>"; };
 		232B0FA3178C356700A7B3DC /* TorrentDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TorrentDetailViewController.h; sourceTree = "<group>"; };
 		232B0FA4178C356700A7B3DC /* TorrentDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TorrentDetailViewController.m; sourceTree = "<group>"; };
-		2331413C177FA6300062B0FE /* download.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = download.png; sourceTree = "<group>"; };
-		2331413D177FA6300062B0FE /* download@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "download@2x.png"; sourceTree = "<group>"; };
-		2331413E177FA6300062B0FE /* upload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = upload.png; sourceTree = "<group>"; };
-		2331413F177FA6300062B0FE /* upload@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "upload@2x.png"; sourceTree = "<group>"; };
 		2331414C177FE9390062B0FE /* magnet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = magnet.png; sourceTree = "<group>"; };
 		2331414D177FE9390062B0FE /* magnet@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "magnet@2x.png"; sourceTree = "<group>"; };
 		23314150177FE95E0062B0FE /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
@@ -258,6 +254,8 @@
 		23B286BB17C0401700BB2DA6 /* NSOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSOption.m; path = "../../../Bar Magnet Shared Sources/NSOption.m"; sourceTree = "<group>"; };
 		23B6E23117A337C9003D3B7C /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		23B84F0E17B60F4F008C9D17 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		23DC75B217F94DA70011258F /* WebViewNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewNavigationController.h; sourceTree = "<group>"; };
+		23DC75B317F94DA70011258F /* WebViewNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewNavigationController.m; sourceTree = "<group>"; };
 		23EBE2D717941EBC00723ADD /* AddTorrentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTorrentViewController.h; sourceTree = "<group>"; };
 		23EBE2D817941EBC00723ADD /* AddTorrentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTorrentViewController.m; sourceTree = "<group>"; };
 		23F6683E1792752700BA456C /* TorrentControlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TorrentControlViewController.h; sourceTree = "<group>"; };
@@ -304,6 +302,8 @@
 				23AF74DB1796A16200AC4ED5 /* HelpViewController.m */,
 				23AF74DE1796D5F700AC4ED5 /* StaticDataTableViewController.h */,
 				23AF74DF1796D5F700AC4ED5 /* StaticDataTableViewController.m */,
+				23DC75B217F94DA70011258F /* WebViewNavigationController.h */,
+				23DC75B317F94DA70011258F /* WebViewNavigationController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -494,10 +494,6 @@
 				2360A52A175E04750090F647 /* magnet retina iPhone.png */,
 				2360A528175E04720090F647 /* magnet iPhone.png */,
 				2318A1F4178AA97B00B96E5F /* header.png */,
-				2331413C177FA6300062B0FE /* download.png */,
-				2331413D177FA6300062B0FE /* download@2x.png */,
-				2331413E177FA6300062B0FE /* upload.png */,
-				2331413F177FA6300062B0FE /* upload@2x.png */,
 				2331414C177FE9390062B0FE /* magnet.png */,
 				2331414D177FE9390062B0FE /* magnet@2x.png */,
 				23314150177FE95E0062B0FE /* gear.png */,
@@ -723,7 +719,6 @@
 				238A94CD17A121630081EF6D /* NotificationBackgroundWarningIcon.png in Resources */,
 				238A94CE17A121630081EF6D /* NotificationBackgroundWarningIcon@2x.png in Resources */,
 				23B84F0F17B60F4F008C9D17 /* MainStoryboard_iPad.storyboard in Resources */,
-				23314141177FA6300062B0FE /* download@2x.png in Resources */,
 				2360A529175E04720090F647 /* magnet iPhone.png in Resources */,
 				238A94C417A121630081EF6D /* NotificationBackgroundErrorIcon@2x.png in Resources */,
 				2360A52B175E04750090F647 /* magnet retina iPhone.png in Resources */,
@@ -761,6 +756,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				23AC2B2E175D835600FCFA71 /* main.m in Sources */,
+				23DC75B417F94DA70011258F /* WebViewNavigationController.m in Sources */,
 				23AF74DC1796A16200AC4ED5 /* HelpViewController.m in Sources */,
 				239162941795794400213C67 /* ConnectionHandler.m in Sources */,
 				23AC2B32175D835600FCFA71 /* AppDelegate.m in Sources */,
@@ -861,6 +857,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -869,8 +866,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Carlo Tortorella (F688N26J6J)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Carlo Tortorella (F688N26J6J)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -886,8 +883,10 @@
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/Source/External/functionalkit/src";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "49C28A82-6D17-44E2-8405-1455C02C1E80";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 armv7 armv7s armv6";
 			};
 			name = Debug;
 		};
@@ -895,6 +894,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -903,8 +903,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Carlo Tortorella (P7852E8EWD)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Carlo Tortorella (P7852E8EWD)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -913,9 +913,11 @@
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/Source/External/functionalkit/src";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "49C28A82-6D17-44E2-8405-1455C02C1E80";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s armv6";
 			};
 			name = Release;
 		};
@@ -934,7 +936,6 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "94B0ABE1-CD5F-453B-B286-22E6F5D336A6";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -955,7 +956,6 @@
 					"$(SRCROOT)/TestFlightSDK1.2.6",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "19BE06CB-771F-4B13-B470-1E5B97ED3909";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;

@@ -91,12 +91,11 @@
 	{
 		case 0:
 			return 1;
-			break;
 		case 1:
 			return 2;
-			break;
+		default:
+			return 0;
 	}
-	return 0;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -156,19 +155,13 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-	switch (buttonIndex)
+	if (buttonIndex == 0 || ![[[TorrentDelegate sharedInstance] currentlySelectedClient] supportsEraseChoice])
 	{
-		 case 0:
-			[[[TorrentDelegate sharedInstance] currentlySelectedClient] removeTorrent:hashString removeData:YES];
-			[[self navigationController] popToRootViewControllerAnimated:YES];
-			break;
-		 case 1:
-			if (![[[TorrentDelegate sharedInstance] currentlySelectedClient] supportsEraseChoice])
-			{
-				[[[TorrentDelegate sharedInstance] currentlySelectedClient] removeTorrent:hashString removeData:NO];
-				[[self navigationController] popToRootViewControllerAnimated:YES];
-			}
-			break;
+		[[NSNotificationCenter defaultCenter] postNotificationName:@"uncancel_refresh" object:nil];
+		[[[TorrentDelegate sharedInstance] currentlySelectedClient] addTemporaryDeletedJobsObject:@10 forKey:hashString];
+		[[[TorrentDelegate sharedInstance] currentlySelectedClient] removeTorrent:hashString removeData:YES];
+		[[NSNotificationCenter defaultCenter] postNotificationName:@"update_torrent_jobs_table" object:nil];
+		[[self navigationController] popToRootViewControllerAnimated:YES];
 	}
 }
 

@@ -86,13 +86,37 @@
 		if ([[text substringWithRange:NSMakeRange(0, 7)] isEqual:@"magnet:"])
 		{
 			[[TorrentDelegate sharedInstance] handleMagnet:text];
+			[self dismissViewControllerAnimated:YES completion:nil];
+		}
+		else if ([text rangeOfString:@".torrent"].location != NSNotFound)
+		{
+			[[TorrentDelegate sharedInstance] handleTorrentFile:text];
+			[self dismissViewControllerAnimated:YES completion:nil];
 		}
 		else
 		{
-			[[TorrentDelegate sharedInstance] handleTorrentFile:text];
+			if ([text rangeOfString:@"https://"].location != NSNotFound || [text rangeOfString:@"http://"].location != NSNotFound)
+			{
+				SVWebViewController *webViewController = [[SVWebViewController alloc] initWithAddress:text];
+				[[self navigationController] pushViewController:webViewController animated:YES];
+			}
+			else
+			{
+				SVWebViewController *webViewController = [[SVWebViewController alloc] initWithAddress:[@"http://" stringByAppendingString:[text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
+				[[self navigationController] pushViewController:webViewController animated:YES];
+			}
 		}
-		[self dismissViewControllerAnimated:YES completion:nil];
 	}
+}
+
+- (BOOL)shouldAutorotate
+{
+	return NO;
+}
+
+- (NSUInteger)supportedInterfaceOrientations
+{
+	return UIInterfaceOrientationMaskPortrait;
 }
 
 @end
