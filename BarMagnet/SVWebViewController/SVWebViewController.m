@@ -247,7 +247,7 @@ static const CGFloat kAddressHeight = 26.0f;
 
 - (BOOL)shouldAutorotate
 {
-	return YES;
+	return NO;
 }
 
 - (void)dealloc

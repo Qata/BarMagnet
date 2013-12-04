@@ -45,7 +45,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1.01</string>
+	<string>2</string>
 	<key>Email Address</key>
 	<string>mailto:carlo.tortorella@me.com?subject=BarMagnet%20</string>
 	<key>LSRequiresIPhoneOS</key>
@@ -77,6 +77,8 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>

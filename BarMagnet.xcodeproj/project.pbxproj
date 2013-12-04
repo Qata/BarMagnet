@@ -57,6 +57,7 @@
 		23A0E5C817894C0A00898812 /* NSArray+Functions.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A0E5C717894C0A00898812 /* NSArray+Functions.m */; };
 		23A48234177DE1BA000873CF /* TorrentJobChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A48233177DE1BA000873CF /* TorrentJobChecker.m */; };
 		23A48238177EA050000873CF /* TorrentJobsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A48237177EA050000873CF /* TorrentJobsViewController.m */; };
+		23A94F22183CD6B7004A3924 /* UITabBarControllerNoAutoRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A94F21183CD6B7004A3924 /* UITabBarControllerNoAutoRotation.m */; };
 		23AC2B22175D835600FCFA71 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23AC2B21175D835600FCFA71 /* UIKit.framework */; };
 		23AC2B24175D835600FCFA71 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23AC2B23175D835600FCFA71 /* Foundation.framework */; };
 		23AC2B2C175D835600FCFA71 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 23AC2B2A175D835600FCFA71 /* InfoPlist.strings */; };
@@ -188,6 +189,8 @@
 		23A48233177DE1BA000873CF /* TorrentJobChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TorrentJobChecker.m; path = "../../../Bar Magnet Shared Sources/TorrentJobChecker.m"; sourceTree = "<group>"; };
 		23A48236177EA050000873CF /* TorrentJobsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TorrentJobsViewController.h; sourceTree = "<group>"; };
 		23A48237177EA050000873CF /* TorrentJobsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TorrentJobsViewController.m; sourceTree = "<group>"; };
+		23A94F20183CD6B7004A3924 /* UITabBarControllerNoAutoRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITabBarControllerNoAutoRotation.h; sourceTree = "<group>"; };
+		23A94F21183CD6B7004A3924 /* UITabBarControllerNoAutoRotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITabBarControllerNoAutoRotation.m; sourceTree = "<group>"; };
 		23AC2B1E175D835600FCFA71 /* BarMagnet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BarMagnet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23AC2B21175D835600FCFA71 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		23AC2B23175D835600FCFA71 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -304,6 +307,8 @@
 				23AF74DF1796D5F700AC4ED5 /* StaticDataTableViewController.m */,
 				23DC75B217F94DA70011258F /* WebViewNavigationController.h */,
 				23DC75B317F94DA70011258F /* WebViewNavigationController.m */,
+				23A94F20183CD6B7004A3924 /* UITabBarControllerNoAutoRotation.h */,
+				23A94F21183CD6B7004A3924 /* UITabBarControllerNoAutoRotation.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -777,6 +782,7 @@
 				230F9EFF1781AA0E00705546 /* NSNumber+TransferRateFormatting.m in Sources */,
 				23B1BFEA177C3817000A0B07 /* uTorrent.m in Sources */,
 				23B1BFEB177C3817000A0B07 /* VuzeHTMLUI.m in Sources */,
+				23A94F22183CD6B7004A3924 /* UITabBarControllerNoAutoRotation.m in Sources */,
 				23AF74E01796D5F700AC4ED5 /* StaticDataTableViewController.m in Sources */,
 				233C9F0617B9354300405CA7 /* FileHandler.m in Sources */,
 				230E746D17940D270090BECF /* PingHandler.m in Sources */,
@@ -936,6 +942,7 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "A77DCA04-F46D-4F0A-8591-D2EB71F3E815";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -945,8 +952,8 @@
 		23AC2B66175D835600FCFA71 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Carlo Tortorella (P7852E8EWD)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Carlo Tortorella (P7852E8EWD)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BarMagnet/BarMagnet-Prefix.pch";
 				INFOPLIST_FILE = "BarMagnet/BarMagnet-Info.plist";
@@ -956,6 +963,7 @@
 					"$(SRCROOT)/TestFlightSDK1.2.6",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "A77DCA04-F46D-4F0A-8591-D2EB71F3E815";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;

@@ -27,13 +27,13 @@
 		{
 			if ([query rangeOfString:@"https://"].location != NSNotFound)
 			{
-				SVWebViewController *webViewController = [[SVWebViewController alloc] initWithAddress:[query stringByReplacingOccurrencesOfString:@"%query%" withString:[[textField text] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
-				[[self navigationController] pushViewController:webViewController animated:YES];
+				SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithAddress:[query stringByReplacingOccurrencesOfString:@"%query%" withString:[[textField text] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
+				[[self navigationController] presentViewController:webViewController animated:YES completion:nil];
 			}
 			else
 			{
-				SVWebViewController *webViewController = [[SVWebViewController alloc] initWithAddress:[@"http://" stringByAppendingString:[query stringByReplacingOccurrencesOfString:@"%query%" withString:[[textField text] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]]];
-				[[self navigationController] pushViewController:webViewController animated:YES];
+				SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithAddress:[@"http://" stringByAppendingString:[query stringByReplacingOccurrencesOfString:@"%query%" withString:[[textField text] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]]];
+				[[self navigationController] presentViewController:webViewController animated:YES completion:nil];
 			}
 		}
 	}
@@ -67,13 +67,13 @@
 	{
 		if ([site rangeOfString:@"https://"].location != NSNotFound)
 		{
-			SVWebViewController *webViewController = [[SVWebViewController alloc] initWithAddress:site];
-			[[self navigationController] pushViewController:webViewController animated:YES];
+			SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithAddress:site];
+			[[self navigationController] presentViewController:webViewController animated:YES completion:nil];
 		}
 		else
 		{
-			SVWebViewController *webViewController = [[SVWebViewController alloc] initWithAddress:[@"http://" stringByAppendingString:site]];
-			[[self navigationController] pushViewController:webViewController animated:YES];
+			SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithAddress:[@"http://" stringByAppendingString:site]];
+			[[self navigationController] presentViewController:webViewController animated:YES completion:nil];
 		}
 	}
 }

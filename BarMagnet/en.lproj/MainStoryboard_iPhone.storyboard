@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
         <!--First View Controller - First-->
@@ -82,7 +82,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Auw-SA-CUb">
                             <connections>
-                                <segue destination="cr3-XD-k7D" kind="modal" id="puL-yZ-GGS"/>
+                                <segue destination="bg4-Bg-Go9" kind="push" id="9r1-Ge-1Wf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -478,10 +478,10 @@
             </objects>
             <point key="canvasLocation" x="1179" y="505"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar Controller No Auto Rotation-->
         <scene sceneID="15">
             <objects>
-                <tabBarController id="4" sceneMemberID="viewController">
+                <tabBarController id="4" customClass="UITabBarControllerNoAutoRotation" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="5">
@@ -565,7 +565,7 @@
                         <viewControllerLayoutGuide type="bottom" id="0Te-hQ-A5x"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="OWl-YR-v2R">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="nNu-NV-f2L">
@@ -613,13 +613,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" title="Add Torrents" id="d29-zn-cWy">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="fgi-nR-ZvV">
-                            <connections>
-                                <action selector="doneButton:" destination="bg4-Bg-Go9" id="zU4-6L-u8y"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Add Torrents" id="d29-zn-cWy"/>
                     <connections>
                         <outlet property="searchBox" destination="aiy-o3-aqf" id="ogg-9h-w4a"/>
                         <outlet property="textBox" destination="nNu-NV-f2L" id="7eo-yW-SgV"/>
@@ -627,26 +621,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7cH-XW-YR0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1590" y="-796"/>
-        </scene>
-        <!--Web View Navigation Controller-->
-        <scene sceneID="fKR-Kj-ZD7">
-            <objects>
-                <navigationController storyboardIdentifier="addTorrent" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cr3-XD-k7D" customClass="WebViewNavigationController" sceneMemberID="viewController">
-                    <extendedEdge key="edgesForExtendedLayout"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BG4-b1-crp">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="bg4-Bg-Go9" kind="relationship" relationship="rootViewController" id="VR3-mS-Sq6"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Na4-Bx-8y4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1179" y="-796"/>
+            <point key="canvasLocation" x="1739" y="-796"/>
         </scene>
         <!--View Controller - Help-->
         <scene sceneID="vF5-9L-Txs">
