@@ -16,6 +16,10 @@
 #define IPHONE_HEIGHT 22
 #define IPAD_HEIGHT 28
 
+@interface TorrentJobsViewController ()
+@property (nonatomic, weak) UITableView * tableView;
+@end
+
 @implementation TorrentJobsViewController
 
 - (id)init
@@ -27,20 +31,9 @@
 	return self;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    static NSString *CellIdentifier = @"Prototype";
-	
-    TorrentJobCheckerCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-	
-    if (cell == nil)
-	{
-        cell = [[TorrentJobCheckerCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-    }
-    
     jobsDict = [[[TorrentDelegate sharedInstance] currentlySelectedClient] getJobsDict];
-
-	//Convert the contents of the outer dictionary to a mutable array
 	NSMutableArray *dictValues = [[jobsDict allValues] mutableCopy];
 	[dictValues sortUsingComparator: (NSComparator)^(NSDictionary *a, NSDictionary *b){
 		NSNumber *key1 = a[@"progress"];
@@ -49,10 +42,19 @@
 		{
 			return [key1 compare:key2];
 		}
-		
+
 		return [a[@"name"] compare:b[@"name"]];
 	}];
 	sortedKeys = dictValues;
+	return 1;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Prototype";
+	
+    TorrentJobCheckerCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+
 	NSDictionary * currentJob;
 	if ([[jobsDict allKeys] count])
 	{
@@ -86,6 +88,48 @@
 	}
 
     return cell;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	return YES;
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	return UITableViewCellEditingStyleDelete;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	self.tableView = tableView;
+	UIActionSheet *popupQuery;
+	if (TorrentDelegate.sharedInstance.currentlySelectedClient.supportsEraseChoice)
+	{
+		popupQuery = [[UIActionSheet alloc] initWithTitle:@"Also delete data?" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Delete Data" otherButtonTitles:@"Delete Torrent", nil];
+	}
+	else
+	{
+		popupQuery = [[UIActionSheet alloc] initWithTitle:@"Are you sure?" delegate:self cancelButtonTitle:@"Whoa, cancel!" destructiveButtonTitle:@"Yes!" otherButtonTitles:nil];
+	}
+	popupQuery.tag = indexPath.row;
+	[popupQuery showFromTabBar:self.viewController.tabBarController.tabBar];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+	if (buttonIndex != [actionSheet cancelButtonIndex])
+	{
+		NSString * hashString = [[jobsDict allKeys] objectAtIndex:[[jobsDict allValues] indexOfObject:[sortedKeys objectAtIndex:actionSheet.tag]]];
+		[[NSNotificationCenter defaultCenter] postNotificationName:@"cancel_refresh" object:nil];
+		[[[TorrentDelegate sharedInstance] currentlySelectedClient] addTemporaryDeletedJobsObject:@10 forKey:hashString];
+		[[[TorrentDelegate sharedInstance] currentlySelectedClient] removeTorrent:hashString removeData:buttonIndex == 0];
+		[self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForItem:actionSheet.tag inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+	}
+	else
+	{
+		[self.tableView setEditing:NO animated:YES];
+	}
 }
 
 - (CGFloat)sizeForDevice

@@ -23,7 +23,6 @@
     [super viewDidLoad];
 	[self setTitle:@"Torrents"];
 	[[[TorrentDelegate sharedInstance] currentlySelectedClient] setDefaultViewController:[self navigationController]];
-	cancelNextRefresh = NO;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveUpdateTableNotification) name:@"update_torrent_jobs_table" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pushDetailView:) name:@"push_detail_view" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pushControlView:) name:@"push_control_view" object:nil];
@@ -50,7 +49,7 @@
 
 - (void)receiveUpdateTableNotification
 {
-	if (!cancelNextRefresh)
+	if (!cancelNextRefresh && ![self torrentJobsTableView].isEditing)
 	{
 		[[self torrentJobsTableView] performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
 

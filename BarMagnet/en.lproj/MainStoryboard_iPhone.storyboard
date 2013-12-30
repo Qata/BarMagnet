@@ -93,7 +93,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
-                <customObject id="Xwm-37-tfp" customClass="TorrentJobsViewController"/>
+                <customObject id="Xwm-37-tfp" customClass="TorrentJobsViewController">
+                    <connections>
+                        <outlet property="viewController" destination="2" id="Zuu-Ra-iyk"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="1179" y="-138"/>
         </scene>
@@ -617,11 +621,24 @@
                     <connections>
                         <outlet property="searchBox" destination="aiy-o3-aqf" id="ogg-9h-w4a"/>
                         <outlet property="textBox" destination="nNu-NV-f2L" id="7eo-yW-SgV"/>
+                        <segue destination="4Uy-NX-JD7" kind="custom" identifier="open" customClass="AddTorrentSegue" id="4W2-QU-2OG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7cH-XW-YR0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1739" y="-796"/>
+        </scene>
+        <!--Modal Web View Controller-->
+        <scene sceneID="sUK-DM-IQW">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="4Uy-NX-JD7" customClass="SVModalWebViewController" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hLd-jj-RLQ">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PRd-EO-hv8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2150" y="-796"/>
         </scene>
         <!--View Controller - Help-->
         <scene sceneID="vF5-9L-Txs">

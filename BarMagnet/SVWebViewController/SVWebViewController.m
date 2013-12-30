@@ -75,7 +75,7 @@ static const CGFloat kAddressHeight = 26.0f;
 - (UIBarButtonItem *)backBarButtonItem {
     
     if (!backBarButtonItem) {
-        backBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"SVWebViewController.bundle/iPhone/back"] style:UIBarButtonItemStylePlain target:self action:@selector(goBackClicked:)];
+        backBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"SVWebViewController.bundle/SVWebViewControllerBack"] style:UIBarButtonItemStylePlain target:self action:@selector(goBackClicked:)];
         backBarButtonItem.imageInsets = UIEdgeInsetsMake(2.0f, 0.0f, -2.0f, 0.0f);
 		backBarButtonItem.width = 18.0f;
     }
@@ -85,7 +85,7 @@ static const CGFloat kAddressHeight = 26.0f;
 - (UIBarButtonItem *)forwardBarButtonItem {
     
     if (!forwardBarButtonItem) {
-        forwardBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"SVWebViewController.bundle/iPhone/forward"] style:UIBarButtonItemStylePlain target:self action:@selector(goForwardClicked:)];
+        forwardBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"SVWebViewController.bundle/SVWebViewControllerNext"] style:UIBarButtonItemStylePlain target:self action:@selector(goForwardClicked:)];
         forwardBarButtonItem.imageInsets = UIEdgeInsetsMake(2.0f, 0.0f, -2.0f, 0.0f);
 		forwardBarButtonItem.width = 18.0f;
     }
@@ -260,81 +260,52 @@ static const CGFloat kAddressHeight = 26.0f;
 #pragma mark - Toolbar
 
 - (void)updateToolbarItems {
-    self.backBarButtonItem.enabled = self.mainWebView.canGoBack;
-    self.forwardBarButtonItem.enabled = self.mainWebView.canGoForward;
-    self.actionBarButtonItem.enabled = !self.mainWebView.isLoading;
-    
-    UIBarButtonItem *refreshStopBarButtonItem = self.mainWebView.isLoading ? self.stopBarButtonItem : self.refreshBarButtonItem;
-    
+    self.backBarButtonItem.enabled = self.self.mainWebView.canGoBack;
+    self.forwardBarButtonItem.enabled = self.self.mainWebView.canGoForward;
+    self.actionBarButtonItem.enabled = !self.self.mainWebView.isLoading;
+
+    UIBarButtonItem *refreshStopBarButtonItem = self.self.mainWebView.isLoading ? self.stopBarButtonItem : self.refreshBarButtonItem;
+
     UIBarButtonItem *fixedSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-    fixedSpace.width = 5.0f;
     UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    
+
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        NSArray *items;
         CGFloat toolbarWidth = 250.0f;
-        
-        if(self.availableActions == 0) {
-            toolbarWidth = 200.0f;
-            items = [NSArray arrayWithObjects:
-                     fixedSpace,
-                     refreshStopBarButtonItem,
-                     flexibleSpace,
-                     self.backBarButtonItem,
-                     flexibleSpace,
-                     self.forwardBarButtonItem,
-                     fixedSpace,
-                     nil];
-        } else {
-            items = [NSArray arrayWithObjects:
-                     fixedSpace,
-                     refreshStopBarButtonItem,
-                     flexibleSpace,
-                     self.backBarButtonItem,
-                     flexibleSpace,
-                     self.forwardBarButtonItem,
-                     flexibleSpace,
-                     self.actionBarButtonItem,
-                     fixedSpace,
-                     nil];
-        }
-        
+        fixedSpace.width = 35.0f;
+
+        NSArray *items = [NSArray arrayWithObjects:
+                          fixedSpace,
+                          refreshStopBarButtonItem,
+                          fixedSpace,
+                          self.backBarButtonItem,
+                          fixedSpace,
+                          self.forwardBarButtonItem,
+                          fixedSpace,
+                          self.actionBarButtonItem,
+                          nil];
+
         UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0.0f, 0.0f, toolbarWidth, 44.0f)];
         toolbar.items = items;
-				toolbar.barStyle = self.navigationController.navigationBar.barStyle;
+        toolbar.barStyle = self.navigationController.navigationBar.barStyle;
         toolbar.tintColor = self.navigationController.navigationBar.tintColor;
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:toolbar];
-    } 
-    
+        self.navigationItem.rightBarButtonItems = items.reverseObjectEnumerator.allObjects;
+    }
+
     else {
-        NSArray *items;
-        
-        if(self.availableActions == 0) {
-            items = [NSArray arrayWithObjects:
-                     flexibleSpace,
-                     self.backBarButtonItem, 
-                     flexibleSpace,
-                     self.forwardBarButtonItem,
-                     flexibleSpace,
-                     refreshStopBarButtonItem,
-                     flexibleSpace,
-                     nil];
-        } else {
-            items = [NSArray arrayWithObjects:
-                     fixedSpace,
-                     self.backBarButtonItem, 
-                     flexibleSpace,
-                     self.forwardBarButtonItem,
-                     flexibleSpace,
-                     refreshStopBarButtonItem,
-                     flexibleSpace,
-                     self.actionBarButtonItem,
-                     fixedSpace,
-                     nil];
-        }
-        
-				self.navigationController.toolbar.barStyle = self.navigationController.navigationBar.barStyle;
-				self.navigationController.toolbar.tintColor = self.navigationController.navigationBar.tintColor;
+        NSArray *items = [NSArray arrayWithObjects:
+                          fixedSpace,
+                          self.backBarButtonItem,
+                          flexibleSpace,
+                          self.forwardBarButtonItem,
+                          flexibleSpace,
+                          refreshStopBarButtonItem,
+                          flexibleSpace,
+                          self.actionBarButtonItem,
+                          fixedSpace,
+                          nil];
+
+        self.navigationController.toolbar.barStyle = self.navigationController.navigationBar.barStyle;
+        self.navigationController.toolbar.tintColor = self.navigationController.navigationBar.tintColor;
         self.toolbarItems = items;
     }
 }

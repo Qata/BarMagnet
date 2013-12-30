@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FirstViewController.h"
 
-@interface TorrentJobsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface TorrentJobsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate>
 {
 	UIView * headerView;
 	NSArray * sortedKeys;
 	NSDictionary * jobsDict;
 }
+@property (weak, nonatomic) IBOutlet FirstViewController *viewController;
 @end

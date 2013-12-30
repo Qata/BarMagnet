@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12E55" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="3Jx-Sq-tB7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="3Jx-Sq-tB7">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
         <!--First View Controller - First-->
@@ -21,77 +21,42 @@
                                     <rect key="frame" x="0.0" y="0.0" width="768" height="79"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <progressView opaque="NO" tag="218493483" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rab-zP-Crw">
+                                        <progressView opaque="NO" tag="218493483" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rab-zP-Crw">
                                             <rect key="frame" x="20" y="28" width="728" height="2"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </progressView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="846264338" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Up: 888.8 KB/s" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k48-AR-6rn">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="846264338" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Up: 888.8 KB/s" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k48-AR-6rn">
                                             <rect key="frame" x="20" y="38" width="167" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="167" id="dVn-Pe-hIu"/>
-                                            </constraints>
                                             <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="358979323" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Down: 888.8 KB/s" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dJj-nc-PUQ">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="358979323" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Down: 888.8 KB/s" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dJj-nc-PUQ">
                                             <rect key="frame" x="20" y="58" width="167" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="167" id="92i-Pm-i7x"/>
-                                            </constraints>
                                             <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="15"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="128462083" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Downloading" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BfF-6G-3f0">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="128462083" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Downloading" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BfF-6G-3f0">
                                             <rect key="frame" x="611" y="38" width="137" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="137" id="bxz-Ps-6rj"/>
-                                            </constraints>
                                             <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="283476564" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QEK-SI-yeD">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="283476564" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QEK-SI-yeD">
                                             <rect key="frame" x="20" y="2" width="728" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="19"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="128462083" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ETA: -" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rgy-KH-7yp">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="128462083" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ETA: -" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rgy-KH-7yp">
                                             <rect key="frame" x="611" y="58" width="137" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="137" id="vAd-od-RZz"/>
-                                            </constraints>
                                             <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="BfF-6G-3f0" secondAttribute="trailing" constant="20" id="3Jg-ut-XsU"/>
-                                    <constraint firstItem="dJj-nc-PUQ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="FM8-7x-C2r" secondAttribute="leading" constant="20" id="3SB-Kh-cxV"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="rgy-KH-7yp" secondAttribute="trailing" constant="20" id="5Si-Ai-5Fr"/>
-                                    <constraint firstItem="rab-zP-Crw" firstAttribute="top" secondItem="QEK-SI-yeD" secondAttribute="bottom" constant="4" id="B4y-Al-oOB"/>
-                                    <constraint firstItem="QEK-SI-yeD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="FM8-7x-C2r" secondAttribute="leading" constant="20" id="CZr-LQ-vzr"/>
-                                    <constraint firstItem="rab-zP-Crw" firstAttribute="leading" secondItem="FM8-7x-C2r" secondAttribute="leading" constant="20" id="DFq-Ia-RtC"/>
-                                    <constraint firstItem="QEK-SI-yeD" firstAttribute="top" secondItem="FM8-7x-C2r" secondAttribute="top" constant="2" id="JBd-bh-PHn"/>
-                                    <constraint firstAttribute="trailing" secondItem="QEK-SI-yeD" secondAttribute="trailing" constant="20" id="MFH-rk-3ue"/>
-                                    <constraint firstAttribute="trailing" secondItem="rab-zP-Crw" secondAttribute="trailing" constant="20" id="PcU-nA-7wG"/>
-                                    <constraint firstItem="BfF-6G-3f0" firstAttribute="top" secondItem="rab-zP-Crw" secondAttribute="bottom" constant="8" id="Upk-A3-Jce"/>
-                                    <constraint firstItem="k48-AR-6rn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="FM8-7x-C2r" secondAttribute="leading" constant="20" id="Vh3-HS-d1C"/>
-                                    <constraint firstItem="k48-AR-6rn" firstAttribute="top" secondItem="QEK-SI-yeD" secondAttribute="bottom" constant="14" id="Vk0-DU-Ame"/>
-                                    <constraint firstItem="dJj-nc-PUQ" firstAttribute="top" secondItem="rab-zP-Crw" secondAttribute="bottom" constant="28" id="WJ4-am-5al"/>
-                                    <constraint firstItem="k48-AR-6rn" firstAttribute="leading" secondItem="FM8-7x-C2r" secondAttribute="leading" constant="20" id="XNl-IY-bq3"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="QEK-SI-yeD" secondAttribute="trailing" constant="20" id="XiE-NV-kfs"/>
-                                    <constraint firstItem="rgy-KH-7yp" firstAttribute="top" secondItem="BfF-6G-3f0" secondAttribute="bottom" constant="3" id="bOX-aj-fwD"/>
-                                    <constraint firstAttribute="trailing" secondItem="BfF-6G-3f0" secondAttribute="trailing" constant="20" id="cZF-U9-aX9"/>
-                                    <constraint firstItem="QEK-SI-yeD" firstAttribute="top" relation="greaterThanOrEqual" secondItem="FM8-7x-C2r" secondAttribute="top" constant="2" id="fKv-er-iRY"/>
-                                    <constraint firstItem="QEK-SI-yeD" firstAttribute="leading" secondItem="FM8-7x-C2r" secondAttribute="leading" constant="20" id="jcD-1H-d8Z"/>
-                                    <constraint firstAttribute="trailing" secondItem="rgy-KH-7yp" secondAttribute="trailing" constant="20" id="nrh-er-yPY"/>
-                                    <constraint firstItem="dJj-nc-PUQ" firstAttribute="leading" secondItem="FM8-7x-C2r" secondAttribute="leading" constant="20" id="o4g-e0-7o5"/>
-                                </constraints>
                                 <connections>
                                     <outlet property="ETA" destination="rgy-KH-7yp" id="2np-7V-DEl"/>
                                     <outlet property="currentStatus" destination="BfF-6G-3f0" id="7Fy-kQ-XkD"/>
@@ -117,7 +82,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="LWH-0w-Bnt">
                             <connections>
-                                <segue destination="bK4-1Z-FXA" kind="modal" id="gXv-07-kVe"/>
+                                <segue destination="dB8-fs-PBX" kind="push" id="e4W-zs-uGm"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -128,7 +93,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ak7-ZM-4Xo" sceneMemberID="firstResponder"/>
-                <customObject id="svj-2q-CYq" customClass="TorrentJobsViewController"/>
+                <customObject id="svj-2q-CYq" customClass="TorrentJobsViewController">
+                    <connections>
+                        <outlet property="viewController" destination="dyb-7Q-Jtk" id="MK3-0Y-Ocu"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="1167" y="-621"/>
         </scene>
@@ -704,7 +673,7 @@
                         <viewControllerLayoutGuide type="bottom" id="4Ch-Hu-vje"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="L4m-ZL-it6">
-                        <rect key="frame" x="0.0" y="64" width="768" height="960"/>
+                        <rect key="frame" x="0.0" y="64" width="768" height="916"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="BMX-S6-KaH">
@@ -772,13 +741,7 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" title="Add Torrents" id="eRh-dc-G4O">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="3Q7-cR-NhA">
-                            <connections>
-                                <action selector="doneButton:" destination="dB8-fs-PBX" id="qUa-wb-zwp"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Add Torrents" id="eRh-dc-G4O"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="searchBox" destination="Fi7-6S-Bm2" id="h6l-Ir-JW8"/>
@@ -787,27 +750,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wgt-Hj-mId" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3014" y="-621"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="AXA-b2-1WI">
-            <objects>
-                <navigationController storyboardIdentifier="addTorrent" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bK4-1Z-FXA" sceneMemberID="viewController">
-                    <extendedEdge key="edgesForExtendedLayout"/>
-                    <toolbarItems/>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dcI-34-oGk">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="dB8-fs-PBX" kind="relationship" relationship="rootViewController" id="fjK-R8-SRd"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6cX-c8-PyW" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2039" y="-621"/>
+            <point key="canvasLocation" x="2039" y="-616"/>
         </scene>
         <!--View Controller - Help-->
         <scene sceneID="nMf-zI-7dn">

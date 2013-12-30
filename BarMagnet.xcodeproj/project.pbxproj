@@ -26,7 +26,6 @@
 		2374DD9E1796F23100F613EB /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2374DD9D1796F23100F613EB /* MessageUI.framework */; };
 		2374DDAF1796F2C700F613EB /* SVWebViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2374DDA21796F2C700F613EB /* SVWebViewController.strings */; };
 		2374DDB01796F2C700F613EB /* SVModalWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2374DDA91796F2C700F613EB /* SVModalWebViewController.m */; };
-		2374DDB11796F2C700F613EB /* SVWebViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2374DDAA1796F2C700F613EB /* SVWebViewController.bundle */; };
 		2374DDB21796F2C700F613EB /* SVWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2374DDAC1796F2C700F613EB /* SVWebViewController.m */; };
 		238A94B917A121630081EF6D /* .gitmodules in Resources */ = {isa = PBXBuildFile; fileRef = 238A949617A121630081EF6D /* .gitmodules */; };
 		238A94BA17A121630081EF6D /* TSMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 238A949917A121630081EF6D /* TSMessage.m */; };
@@ -52,12 +51,14 @@
 		238A94D117A121630081EF6D /* TSMessages.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 238A94B417A121630081EF6D /* TSMessages.podspec */; };
 		238A94D217A121630081EF6D /* TSMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 238A94B717A121630081EF6D /* TSMessageView.m */; };
 		238A94D717A123700081EF6D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23AC2B25175D835600FCFA71 /* CoreGraphics.framework */; };
+		238FBE321856A27F00A02418 /* SVWebViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 238FBE311856A27F00A02418 /* SVWebViewController.bundle */; };
 		239145031795604100543347 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 239144FF1795604100543347 /* libTestFlight.a */; };
 		239162941795794400213C67 /* ConnectionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 239162931795794400213C67 /* ConnectionHandler.m */; };
 		23A0E5C817894C0A00898812 /* NSArray+Functions.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A0E5C717894C0A00898812 /* NSArray+Functions.m */; };
 		23A48234177DE1BA000873CF /* TorrentJobChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A48233177DE1BA000873CF /* TorrentJobChecker.m */; };
 		23A48238177EA050000873CF /* TorrentJobsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A48237177EA050000873CF /* TorrentJobsViewController.m */; };
 		23A94F22183CD6B7004A3924 /* UITabBarControllerNoAutoRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A94F21183CD6B7004A3924 /* UITabBarControllerNoAutoRotation.m */; };
+		23ABF5C6184EFDB40012D537 /* AddTorrentSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 23ABF5C5184EFDB30012D537 /* AddTorrentSegue.m */; };
 		23AC2B22175D835600FCFA71 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23AC2B21175D835600FCFA71 /* UIKit.framework */; };
 		23AC2B24175D835600FCFA71 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23AC2B23175D835600FCFA71 /* Foundation.framework */; };
 		23AC2B2C175D835600FCFA71 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 23AC2B2A175D835600FCFA71 /* InfoPlist.strings */; };
@@ -140,7 +141,6 @@
 		2374DDA71796F2C700F613EB /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/SVWebViewController.strings; sourceTree = "<group>"; };
 		2374DDA81796F2C700F613EB /* SVModalWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVModalWebViewController.h; sourceTree = "<group>"; };
 		2374DDA91796F2C700F613EB /* SVModalWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVModalWebViewController.m; sourceTree = "<group>"; };
-		2374DDAA1796F2C700F613EB /* SVWebViewController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVWebViewController.bundle; sourceTree = "<group>"; };
 		2374DDAB1796F2C700F613EB /* SVWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVWebViewController.h; sourceTree = "<group>"; };
 		2374DDAC1796F2C700F613EB /* SVWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVWebViewController.m; sourceTree = "<group>"; };
 		2374DDAD1796F2C700F613EB /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SVWebViewController.strings"; sourceTree = "<group>"; };
@@ -177,6 +177,7 @@
 		238A94B717A121630081EF6D /* TSMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSMessageView.m; sourceTree = "<group>"; };
 		238A94D317A121B70081EF6D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		238A94D517A121C30081EF6D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		238FBE311856A27F00A02418 /* SVWebViewController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVWebViewController.bundle; sourceTree = "<group>"; };
 		239144FF1795604100543347 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		239145001795604100543347 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		239145011795604100543347 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
@@ -191,6 +192,8 @@
 		23A48237177EA050000873CF /* TorrentJobsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TorrentJobsViewController.m; sourceTree = "<group>"; };
 		23A94F20183CD6B7004A3924 /* UITabBarControllerNoAutoRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITabBarControllerNoAutoRotation.h; sourceTree = "<group>"; };
 		23A94F21183CD6B7004A3924 /* UITabBarControllerNoAutoRotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITabBarControllerNoAutoRotation.m; sourceTree = "<group>"; };
+		23ABF5C4184EFDB30012D537 /* AddTorrentSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTorrentSegue.h; sourceTree = "<group>"; };
+		23ABF5C5184EFDB30012D537 /* AddTorrentSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTorrentSegue.m; sourceTree = "<group>"; };
 		23AC2B1E175D835600FCFA71 /* BarMagnet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BarMagnet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23AC2B21175D835600FCFA71 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		23AC2B23175D835600FCFA71 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -301,6 +304,8 @@
 				23F6683F1792752700BA456C /* TorrentControlViewController.m */,
 				23EBE2D717941EBC00723ADD /* AddTorrentViewController.h */,
 				23EBE2D817941EBC00723ADD /* AddTorrentViewController.m */,
+				23ABF5C4184EFDB30012D537 /* AddTorrentSegue.h */,
+				23ABF5C5184EFDB30012D537 /* AddTorrentSegue.m */,
 				23AF74DA1796A16200AC4ED5 /* HelpViewController.h */,
 				23AF74DB1796A16200AC4ED5 /* HelpViewController.m */,
 				23AF74DE1796D5F700AC4ED5 /* StaticDataTableViewController.h */,
@@ -328,7 +333,7 @@
 				2374DDA21796F2C700F613EB /* SVWebViewController.strings */,
 				2374DDA81796F2C700F613EB /* SVModalWebViewController.h */,
 				2374DDA91796F2C700F613EB /* SVModalWebViewController.m */,
-				2374DDAA1796F2C700F613EB /* SVWebViewController.bundle */,
+				238FBE311856A27F00A02418 /* SVWebViewController.bundle */,
 				2374DDAB1796F2C700F613EB /* SVWebViewController.h */,
 				2374DDAC1796F2C700F613EB /* SVWebViewController.m */,
 			);
@@ -704,7 +709,6 @@
 				23314153177FE95E0062B0FE /* gear@2x.png in Resources */,
 				238A94B917A121630081EF6D /* .gitmodules in Resources */,
 				238A94D017A121630081EF6D /* NotificationButtonBackground@2x.png in Resources */,
-				2374DDB11796F2C700F613EB /* SVWebViewController.bundle in Resources */,
 				23AC2B34175D835600FCFA71 /* Default.png in Resources */,
 				23AC2B36175D835600FCFA71 /* Default@2x.png in Resources */,
 				238A94BF17A121630081EF6D /* README.md in Resources */,
@@ -723,6 +727,7 @@
 				2331414E177FE9390062B0FE /* magnet.png in Resources */,
 				238A94CD17A121630081EF6D /* NotificationBackgroundWarningIcon.png in Resources */,
 				238A94CE17A121630081EF6D /* NotificationBackgroundWarningIcon@2x.png in Resources */,
+				238FBE321856A27F00A02418 /* SVWebViewController.bundle in Resources */,
 				23B84F0F17B60F4F008C9D17 /* MainStoryboard_iPad.storyboard in Resources */,
 				2360A529175E04720090F647 /* magnet iPhone.png in Resources */,
 				238A94C417A121630081EF6D /* NotificationBackgroundErrorIcon@2x.png in Resources */,
@@ -768,6 +773,7 @@
 				23A0E5C817894C0A00898812 /* NSArray+Functions.m in Sources */,
 				23EBE2D917941EBC00723ADD /* AddTorrentViewController.m in Sources */,
 				23AC2B41175D835600FCFA71 /* FirstViewController.m in Sources */,
+				23ABF5C6184EFDB40012D537 /* AddTorrentSegue.m in Sources */,
 				232B0FA5178C356700A7B3DC /* TorrentDetailViewController.m in Sources */,
 				23AC2B48175D835600FCFA71 /* SecondViewController.m in Sources */,
 				238A94BA17A121630081EF6D /* TSMessage.m in Sources */,
@@ -942,7 +948,7 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "A77DCA04-F46D-4F0A-8591-D2EB71F3E815";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -952,8 +958,8 @@
 		23AC2B66175D835600FCFA71 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Carlo Tortorella (P7852E8EWD)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Carlo Tortorella (P7852E8EWD)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BarMagnet/BarMagnet-Prefix.pch";
 				INFOPLIST_FILE = "BarMagnet/BarMagnet-Info.plist";
@@ -963,7 +969,7 @@
 					"$(SRCROOT)/TestFlightSDK1.2.6",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "A77DCA04-F46D-4F0A-8591-D2EB71F3E815";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;

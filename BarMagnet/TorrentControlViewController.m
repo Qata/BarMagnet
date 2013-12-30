@@ -141,7 +141,7 @@
 - (void)showActionSheet
 {
     UIActionSheet *popupQuery;
-	if ([[[TorrentDelegate sharedInstance] currentlySelectedClient] supportsEraseChoice])
+	if (TorrentDelegate.sharedInstance.currentlySelectedClient.supportsEraseChoice)
 	{
 		popupQuery = [[UIActionSheet alloc] initWithTitle:@"Also delete data?" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Delete Data" otherButtonTitles:@"Delete Torrent", nil];
 	}
@@ -155,11 +155,11 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-	if (buttonIndex == 0 || ![[[TorrentDelegate sharedInstance] currentlySelectedClient] supportsEraseChoice])
+	if (buttonIndex != [actionSheet cancelButtonIndex])
 	{
 		[[NSNotificationCenter defaultCenter] postNotificationName:@"uncancel_refresh" object:nil];
 		[[[TorrentDelegate sharedInstance] currentlySelectedClient] addTemporaryDeletedJobsObject:@10 forKey:hashString];
-		[[[TorrentDelegate sharedInstance] currentlySelectedClient] removeTorrent:hashString removeData:YES];
+		[[[TorrentDelegate sharedInstance] currentlySelectedClient] removeTorrent:hashString removeData:buttonIndex == 0];
 		[[NSNotificationCenter defaultCenter] postNotificationName:@"update_torrent_jobs_table" object:nil];
 		[[self navigationController] popToRootViewControllerAnimated:YES];
 	}

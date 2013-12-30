@@ -12,6 +12,10 @@
 #import "TorrentClient.h"
 #import "SVWebViewController.h"
 
+@interface AddTorrentViewController ()
+
+@end
+
 @implementation AddTorrentViewController
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -28,12 +32,14 @@
 			if ([query rangeOfString:@"https://"].location != NSNotFound)
 			{
 				SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithAddress:[query stringByReplacingOccurrencesOfString:@"%query%" withString:[[textField text] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
-				[[self navigationController] presentViewController:webViewController animated:YES completion:nil];
+				webViewController.reference = self;
+				[self.navigationController presentViewController:webViewController animated:YES completion:nil];
 			}
 			else
 			{
 				SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithAddress:[@"http://" stringByAppendingString:[query stringByReplacingOccurrencesOfString:@"%query%" withString:[[textField text] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]]];
-				[[self navigationController] presentViewController:webViewController animated:YES completion:nil];
+				webViewController.reference = self;
+				[self.navigationController presentViewController:webViewController animated:YES completion:nil];
 			}
 		}
 	}
@@ -50,14 +56,9 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-	[super viewWillDisappear:animated];
-	self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
-}
-
-- (IBAction)doneButton:(id)sender
-{
-	[self dismissViewControllerAnimated:YES completion:nil];
 	[[[TorrentDelegate sharedInstance] currentlySelectedClient] showNotification:nil];
+	self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
+	[super viewWillDisappear:animated];
 }
 
 - (IBAction)openSiteButton:(id)sender
@@ -68,12 +69,12 @@
 		if ([site rangeOfString:@"https://"].location != NSNotFound)
 		{
 			SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithAddress:site];
-			[[self navigationController] presentViewController:webViewController animated:YES completion:nil];
+			[self.navigationController presentViewController:webViewController animated:YES completion:nil];
 		}
 		else
 		{
 			SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithAddress:[@"http://" stringByAppendingString:site]];
-			[[self navigationController] presentViewController:webViewController animated:YES completion:nil];
+			[self.navigationController presentViewController:webViewController animated:YES completion:nil];
 		}
 	}
 }
@@ -83,30 +84,36 @@
 	NSString * text = [[self textBox] text];
 	if ([text length])
 	{
-		if ([[text substringWithRange:NSMakeRange(0, 7)] isEqual:@"magnet:"])
+		NSString * magnet = @"magnet:";
+		if (text.length > magnet.length && [[text substringWithRange:NSMakeRange(0, magnet.length)] isEqual:magnet])
 		{
 			[[TorrentDelegate sharedInstance] handleMagnet:text];
-			[self dismissViewControllerAnimated:YES completion:nil];
+			[self.navigationController popViewControllerAnimated:YES];
 		}
 		else if ([text rangeOfString:@".torrent"].location != NSNotFound)
 		{
 			[[TorrentDelegate sharedInstance] handleTorrentFile:text];
-			[self dismissViewControllerAnimated:YES completion:nil];
+			[self.navigationController popViewControllerAnimated:YES];
 		}
 		else
 		{
 			if ([text rangeOfString:@"https://"].location != NSNotFound || [text rangeOfString:@"http://"].location != NSNotFound)
 			{
-				SVWebViewController *webViewController = [[SVWebViewController alloc] initWithAddress:text];
-				[[self navigationController] pushViewController:webViewController animated:YES];
+				SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithAddress:text];
+				[self.navigationController presentViewController:webViewController animated:YES completion:nil];
 			}
 			else
 			{
-				SVWebViewController *webViewController = [[SVWebViewController alloc] initWithAddress:[@"http://" stringByAppendingString:[text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
-				[[self navigationController] pushViewController:webViewController animated:YES];
+				SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithAddress:[@"http://" stringByAppendingString:[text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
+				[self.navigationController presentViewController:webViewController animated:YES completion:nil];
 			}
 		}
 	}
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+
 }
 
 - (BOOL)shouldAutorotate
