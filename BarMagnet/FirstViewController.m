@@ -12,8 +12,8 @@
 #import "SVWebViewController.h"
 #import "TSMessages/Classes/TSMessage.h"
 
-@interface FirstViewController ()
-
+@interface FirstViewController () <UIActionSheetDelegate>
+@property (nonatomic, weak) UIActionSheet * mainSheet;
 @end
 
 @implementation FirstViewController
@@ -70,6 +70,27 @@
 - (void)unCancelNextRefresh
 {
 	cancelNextRefresh = NO;
+}
+
+- (IBAction)showListOfOptions:(id)sender
+{
+	[[self.mainSheet = UIActionSheet.alloc initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Resume All", @"Pause All", nil] showFromToolbar:self.navigationController.toolbar];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+	if (buttonIndex != actionSheet.cancelButtonIndex)
+	{
+		switch (buttonIndex)
+		{
+			case 0:
+				[TorrentDelegate.sharedInstance.currentlySelectedClient resumeAllTorrents];
+				break;
+			case 1:
+				[TorrentDelegate.sharedInstance.currentlySelectedClient pauseAllTorrents];
+				break;
+		}
+	}
 }
 
 - (void)pushDetailView:(NSNotification *)notification

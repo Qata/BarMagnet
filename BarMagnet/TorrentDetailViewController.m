@@ -11,6 +11,10 @@
 #import "TorrentDelegate.h"
 #import "TorrentClient.h"
 
+@interface TorrentDetailViewController () <UIActionSheetDelegate>
+
+@end
+
 @implementation TorrentDetailViewController
 
 - (void)viewDidLoad
@@ -76,7 +80,6 @@
 			{
 				case 0:
 					cell.textLabel.text = [TorrentDictFunctions jobStatusFromCurrentJob:hashDict];
-					cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 					break;
 				case 1:
 					cell.detailTextLabel.text = [hashDict[@"size"] sizeString];
@@ -125,6 +128,15 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+	if ([hashDict[@"status"] isEqualToString:@"Paused"])
+	{
+		self.playPauseButton.image = [UIImage imageNamed:@"UIButtonBarPlay"];
+	}
+	else
+	{
+		self.playPauseButton.image = [UIImage imageNamed:@"UIButtonBarPause"];
+	}
+
 	switch (section)
 	{
 		case 0:
@@ -136,6 +148,42 @@
 		default:
 			return 0;
 			break;
+	}
+}
+
+- (IBAction)playPause:(id)sender
+{
+	if ([[hashDict objectForKey:@"status"] isEqual:@"Paused"])
+		[[[TorrentDelegate sharedInstance] currentlySelectedClient] resumeTorrent:hashString];
+	else
+		[[[TorrentDelegate sharedInstance] currentlySelectedClient] pauseTorrent:hashString];
+	[self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+- (IBAction)delete:(id)sender
+{
+	UIActionSheet *popupQuery;
+	if (TorrentDelegate.sharedInstance.currentlySelectedClient.supportsEraseChoice)
+	{
+		popupQuery = [[UIActionSheet alloc] initWithTitle:@"Also delete data?" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Delete Data" otherButtonTitles:@"Delete Torrent", nil];
+	}
+	else
+	{
+		popupQuery = [[UIActionSheet alloc] initWithTitle:@"Are you sure?" delegate:self cancelButtonTitle:@"Whoa, cancel!" destructiveButtonTitle:@"Yes!" otherButtonTitles:nil];
+	}
+    [popupQuery showFromToolbar:self.navigationController.toolbar];
+	[selfView deselectRowAtIndexPath:[selfView indexPathForSelectedRow] animated:NO];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+	if (buttonIndex != [actionSheet cancelButtonIndex])
+	{
+		[[NSNotificationCenter defaultCenter] postNotificationName:@"uncancel_refresh" object:nil];
+		[[[TorrentDelegate sharedInstance] currentlySelectedClient] addTemporaryDeletedJobsObject:@2 forKey:hashString];
+		[[[TorrentDelegate sharedInstance] currentlySelectedClient] removeTorrent:hashString removeData:buttonIndex == 0];
+		[[NSNotificationCenter defaultCenter] postNotificationName:@"update_torrent_jobs_table" object:nil];
+		[[self navigationController] popToRootViewControllerAnimated:YES];
 	}
 }
 
@@ -155,14 +203,6 @@
 	if (section == 0)
 		return hashDict[@"name"];
 	return @"";
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-	if (!indexPath.section && !indexPath.row)
-	{
-		[[NSNotificationCenter defaultCenter] postNotificationName:@"push_control_view" object:nil userInfo:@{@"indexPath":indexPath, @"hash":hashString, @"storyboardID":@"controlView", @"tableView":tableView}];
-	}
 }
 
 - (void)setHash:(NSString *)hash

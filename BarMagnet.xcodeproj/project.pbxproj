@@ -12,8 +12,6 @@
 		2318A1F5178AA97B00B96E5F /* header.png in Resources */ = {isa = PBXBuildFile; fileRef = 2318A1F4178AA97B00B96E5F /* header.png */; };
 		2324910E178E4FA200D5454E /* TorrentDictFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2324910D178E4FA200D5454E /* TorrentDictFunctions.m */; };
 		232B0FA5178C356700A7B3DC /* TorrentDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 232B0FA4178C356700A7B3DC /* TorrentDetailViewController.m */; };
-		2331414E177FE9390062B0FE /* magnet.png in Resources */ = {isa = PBXBuildFile; fileRef = 2331414C177FE9390062B0FE /* magnet.png */; };
-		2331414F177FE9390062B0FE /* magnet@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2331414D177FE9390062B0FE /* magnet@2x.png */; };
 		23314152177FE95E0062B0FE /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 23314150177FE95E0062B0FE /* gear.png */; };
 		23314153177FE95E0062B0FE /* gear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23314151177FE95E0062B0FE /* gear@2x.png */; };
 		233C9F0617B9354300405CA7 /* FileHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 233C9F0517B9354300405CA7 /* FileHandler.m */; };
@@ -21,6 +19,12 @@
 		233C9F9617B9E2E500405CA7 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 233C9F9517B9E2E500405CA7 /* libz.dylib */; };
 		233C9F9717B9E31100405CA7 /* libz.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 233C9F9517B9E2E500405CA7 /* libz.dylib */; };
 		2351200A1769C49000A3DE2C /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 235120071769C49000A3DE2C /* MainStoryboard_iPhone.storyboard */; };
+		235527571871718300A9E6BC /* UIButtonBarPause.png in Resources */ = {isa = PBXBuildFile; fileRef = 235527531871718300A9E6BC /* UIButtonBarPause.png */; };
+		235527581871718300A9E6BC /* UIButtonBarPause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 235527541871718300A9E6BC /* UIButtonBarPause@2x.png */; };
+		235527591871718300A9E6BC /* UIButtonBarPlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 235527551871718300A9E6BC /* UIButtonBarPlay.png */; };
+		2355275A1871718300A9E6BC /* UIButtonBarPlay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 235527561871718300A9E6BC /* UIButtonBarPlay@2x.png */; };
+		2355275D18722A8600A9E6BC /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = 2355275B18722A8600A9E6BC /* info.png */; };
+		2355275E18722A8600A9E6BC /* info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2355275C18722A8600A9E6BC /* info@2x.png */; };
 		2360A529175E04720090F647 /* magnet iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 2360A528175E04720090F647 /* magnet iPhone.png */; };
 		2360A52B175E04750090F647 /* magnet retina iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 2360A52A175E04750090F647 /* magnet retina iPhone.png */; };
 		2374DD9E1796F23100F613EB /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2374DD9D1796F23100F613EB /* MessageUI.framework */; };
@@ -57,7 +61,7 @@
 		23A0E5C817894C0A00898812 /* NSArray+Functions.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A0E5C717894C0A00898812 /* NSArray+Functions.m */; };
 		23A48234177DE1BA000873CF /* TorrentJobChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A48233177DE1BA000873CF /* TorrentJobChecker.m */; };
 		23A48238177EA050000873CF /* TorrentJobsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A48237177EA050000873CF /* TorrentJobsViewController.m */; };
-		23A94F22183CD6B7004A3924 /* UITabBarControllerNoAutoRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A94F21183CD6B7004A3924 /* UITabBarControllerNoAutoRotation.m */; };
+		23A94F22183CD6B7004A3924 /* UINavigationControllerNoAutoRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A94F21183CD6B7004A3924 /* UINavigationControllerNoAutoRotation.m */; };
 		23ABF5C6184EFDB40012D537 /* AddTorrentSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 23ABF5C5184EFDB30012D537 /* AddTorrentSegue.m */; };
 		23AC2B22175D835600FCFA71 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23AC2B21175D835600FCFA71 /* UIKit.framework */; };
 		23AC2B24175D835600FCFA71 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23AC2B23175D835600FCFA71 /* Foundation.framework */; };
@@ -118,8 +122,6 @@
 		2324910D178E4FA200D5454E /* TorrentDictFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TorrentDictFunctions.m; sourceTree = "<group>"; };
 		232B0FA3178C356700A7B3DC /* TorrentDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TorrentDetailViewController.h; sourceTree = "<group>"; };
 		232B0FA4178C356700A7B3DC /* TorrentDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TorrentDetailViewController.m; sourceTree = "<group>"; };
-		2331414C177FE9390062B0FE /* magnet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = magnet.png; sourceTree = "<group>"; };
-		2331414D177FE9390062B0FE /* magnet@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "magnet@2x.png"; sourceTree = "<group>"; };
 		23314150177FE95E0062B0FE /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
 		23314151177FE95E0062B0FE /* gear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gear@2x.png"; sourceTree = "<group>"; };
 		233C9F0117B934AD00405CA7 /* libfunctionalkit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libfunctionalkit.a; path = "../../Bar Magnet Shared Sources/Sources/External/functionalkit/build/Debug-iphoneos/libfunctionalkit.a"; sourceTree = "<group>"; };
@@ -131,6 +133,12 @@
 		234B23FC17852E54003583A0 /* paused.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paused.png; sourceTree = "<group>"; };
 		234B23FD17852E54003583A0 /* paused@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "paused@2x.png"; sourceTree = "<group>"; };
 		235120081769C49000A3DE2C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = BarMagnet/en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		235527531871718300A9E6BC /* UIButtonBarPause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIButtonBarPause.png; sourceTree = "<group>"; };
+		235527541871718300A9E6BC /* UIButtonBarPause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIButtonBarPause@2x.png"; sourceTree = "<group>"; };
+		235527551871718300A9E6BC /* UIButtonBarPlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIButtonBarPlay.png; sourceTree = "<group>"; };
+		235527561871718300A9E6BC /* UIButtonBarPlay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIButtonBarPlay@2x.png"; sourceTree = "<group>"; };
+		2355275B18722A8600A9E6BC /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
+		2355275C18722A8600A9E6BC /* info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info@2x.png"; sourceTree = "<group>"; };
 		2360A528175E04720090F647 /* magnet iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "magnet iPhone.png"; path = "../magnet iPhone.png"; sourceTree = "<group>"; };
 		2360A52A175E04750090F647 /* magnet retina iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "magnet retina iPhone.png"; path = "../magnet retina iPhone.png"; sourceTree = "<group>"; };
 		2374DD9D1796F23100F613EB /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -190,8 +198,8 @@
 		23A48233177DE1BA000873CF /* TorrentJobChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TorrentJobChecker.m; path = "../../../Bar Magnet Shared Sources/TorrentJobChecker.m"; sourceTree = "<group>"; };
 		23A48236177EA050000873CF /* TorrentJobsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TorrentJobsViewController.h; sourceTree = "<group>"; };
 		23A48237177EA050000873CF /* TorrentJobsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TorrentJobsViewController.m; sourceTree = "<group>"; };
-		23A94F20183CD6B7004A3924 /* UITabBarControllerNoAutoRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITabBarControllerNoAutoRotation.h; sourceTree = "<group>"; };
-		23A94F21183CD6B7004A3924 /* UITabBarControllerNoAutoRotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITabBarControllerNoAutoRotation.m; sourceTree = "<group>"; };
+		23A94F20183CD6B7004A3924 /* UINavigationControllerNoAutoRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UINavigationControllerNoAutoRotation.h; sourceTree = "<group>"; };
+		23A94F21183CD6B7004A3924 /* UINavigationControllerNoAutoRotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UINavigationControllerNoAutoRotation.m; sourceTree = "<group>"; };
 		23ABF5C4184EFDB30012D537 /* AddTorrentSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTorrentSegue.h; sourceTree = "<group>"; };
 		23ABF5C5184EFDB30012D537 /* AddTorrentSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTorrentSegue.m; sourceTree = "<group>"; };
 		23AC2B1E175D835600FCFA71 /* BarMagnet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BarMagnet.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -312,8 +320,8 @@
 				23AF74DF1796D5F700AC4ED5 /* StaticDataTableViewController.m */,
 				23DC75B217F94DA70011258F /* WebViewNavigationController.h */,
 				23DC75B317F94DA70011258F /* WebViewNavigationController.m */,
-				23A94F20183CD6B7004A3924 /* UITabBarControllerNoAutoRotation.h */,
-				23A94F21183CD6B7004A3924 /* UITabBarControllerNoAutoRotation.m */,
+				23A94F20183CD6B7004A3924 /* UINavigationControllerNoAutoRotation.h */,
+				23A94F21183CD6B7004A3924 /* UINavigationControllerNoAutoRotation.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -504,16 +512,20 @@
 				2360A52A175E04750090F647 /* magnet retina iPhone.png */,
 				2360A528175E04720090F647 /* magnet iPhone.png */,
 				2318A1F4178AA97B00B96E5F /* header.png */,
-				2331414C177FE9390062B0FE /* magnet.png */,
-				2331414D177FE9390062B0FE /* magnet@2x.png */,
 				23314150177FE95E0062B0FE /* gear.png */,
 				23314151177FE95E0062B0FE /* gear@2x.png */,
+				2355275B18722A8600A9E6BC /* info.png */,
+				2355275C18722A8600A9E6BC /* info@2x.png */,
 				234B23FC17852E54003583A0 /* paused.png */,
 				234B23FD17852E54003583A0 /* paused@2x.png */,
 				23AC2B42175D835600FCFA71 /* first.png */,
 				23AC2B44175D835600FCFA71 /* first@2x.png */,
 				23AC2B49175D835600FCFA71 /* second.png */,
 				23AC2B4B175D835600FCFA71 /* second@2x.png */,
+				235527531871718300A9E6BC /* UIButtonBarPause.png */,
+				235527541871718300A9E6BC /* UIButtonBarPause@2x.png */,
+				235527551871718300A9E6BC /* UIButtonBarPlay.png */,
+				235527561871718300A9E6BC /* UIButtonBarPlay@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -704,6 +716,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				235527581871718300A9E6BC /* UIButtonBarPause@2x.png in Resources */,
 				238A94CC17A121630081EF6D /* NotificationBackgroundWarning@2x.png in Resources */,
 				23AC2B2C175D835600FCFA71 /* InfoPlist.strings in Resources */,
 				23314153177FE95E0062B0FE /* gear@2x.png in Resources */,
@@ -720,22 +733,25 @@
 				238A94CF17A121630081EF6D /* NotificationButtonBackground.png in Resources */,
 				238A94CB17A121630081EF6D /* NotificationBackgroundWarning.png in Resources */,
 				23AC2B38175D835600FCFA71 /* Default-568h@2x.png in Resources */,
+				2355275A1871718300A9E6BC /* UIButtonBarPlay@2x.png in Resources */,
 				2318A1F5178AA97B00B96E5F /* header.png in Resources */,
 				23314152177FE95E0062B0FE /* gear.png in Resources */,
 				2374DDAF1796F2C700F613EB /* SVWebViewController.strings in Resources */,
 				238A94C317A121630081EF6D /* NotificationBackgroundErrorIcon.png in Resources */,
-				2331414E177FE9390062B0FE /* magnet.png in Resources */,
 				238A94CD17A121630081EF6D /* NotificationBackgroundWarningIcon.png in Resources */,
 				238A94CE17A121630081EF6D /* NotificationBackgroundWarningIcon@2x.png in Resources */,
 				238FBE321856A27F00A02418 /* SVWebViewController.bundle in Resources */,
+				235527591871718300A9E6BC /* UIButtonBarPlay.png in Resources */,
 				23B84F0F17B60F4F008C9D17 /* MainStoryboard_iPad.storyboard in Resources */,
 				2360A529175E04720090F647 /* magnet iPhone.png in Resources */,
 				238A94C417A121630081EF6D /* NotificationBackgroundErrorIcon@2x.png in Resources */,
 				2360A52B175E04750090F647 /* magnet retina iPhone.png in Resources */,
+				2355275D18722A8600A9E6BC /* info.png in Resources */,
+				2355275E18722A8600A9E6BC /* info@2x.png in Resources */,
 				238A94C817A121630081EF6D /* NotificationBackgroundSuccess@2x.png in Resources */,
-				2331414F177FE9390062B0FE /* magnet@2x.png in Resources */,
 				238A94C217A121630081EF6D /* NotificationBackgroundError@2x.png in Resources */,
 				238A94C717A121630081EF6D /* NotificationBackgroundSuccess.png in Resources */,
+				235527571871718300A9E6BC /* UIButtonBarPause.png in Resources */,
 				2351200A1769C49000A3DE2C /* MainStoryboard_iPhone.storyboard in Resources */,
 				238A94C017A121630081EF6D /* design.json in Resources */,
 				238A94C917A121630081EF6D /* NotificationBackgroundSuccessIcon.png in Resources */,
@@ -788,7 +804,7 @@
 				230F9EFF1781AA0E00705546 /* NSNumber+TransferRateFormatting.m in Sources */,
 				23B1BFEA177C3817000A0B07 /* uTorrent.m in Sources */,
 				23B1BFEB177C3817000A0B07 /* VuzeHTMLUI.m in Sources */,
-				23A94F22183CD6B7004A3924 /* UITabBarControllerNoAutoRotation.m in Sources */,
+				23A94F22183CD6B7004A3924 /* UINavigationControllerNoAutoRotation.m in Sources */,
 				23AF74E01796D5F700AC4ED5 /* StaticDataTableViewController.m in Sources */,
 				233C9F0617B9354300405CA7 /* FileHandler.m in Sources */,
 				230E746D17940D270090BECF /* PingHandler.m in Sources */,
@@ -936,8 +952,8 @@
 		23AC2B65175D835600FCFA71 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BarMagnet/BarMagnet-Prefix.pch";
 				INFOPLIST_FILE = "BarMagnet/BarMagnet-Info.plist";
@@ -948,7 +964,7 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "8CCC9707-2670-49F7-9322-447D2E31C1F9";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -969,7 +985,7 @@
 					"$(SRCROOT)/TestFlightSDK1.2.6",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "8CCC9707-2670-49F7-9322-447D2E31C1F9";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;

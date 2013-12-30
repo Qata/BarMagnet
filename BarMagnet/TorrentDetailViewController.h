@@ -19,5 +19,6 @@
 
 - (void)setHash:(NSString *)hash;
 - (void)setJobsView:(UITableView *)jobsView;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *playPauseButton;
 
 @end

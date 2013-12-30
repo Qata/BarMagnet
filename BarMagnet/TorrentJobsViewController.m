@@ -113,7 +113,7 @@
 		popupQuery = [[UIActionSheet alloc] initWithTitle:@"Are you sure?" delegate:self cancelButtonTitle:@"Whoa, cancel!" destructiveButtonTitle:@"Yes!" otherButtonTitles:nil];
 	}
 	popupQuery.tag = indexPath.row;
-	[popupQuery showFromTabBar:self.viewController.tabBarController.tabBar];
+	[popupQuery showFromToolbar:self.viewController.navigationController.toolbar];
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -122,7 +122,7 @@
 	{
 		NSString * hashString = [[jobsDict allKeys] objectAtIndex:[[jobsDict allValues] indexOfObject:[sortedKeys objectAtIndex:actionSheet.tag]]];
 		[[NSNotificationCenter defaultCenter] postNotificationName:@"cancel_refresh" object:nil];
-		[[[TorrentDelegate sharedInstance] currentlySelectedClient] addTemporaryDeletedJobsObject:@10 forKey:hashString];
+		[[[TorrentDelegate sharedInstance] currentlySelectedClient] addTemporaryDeletedJobsObject:@2 forKey:hashString];
 		[[[TorrentDelegate sharedInstance] currentlySelectedClient] removeTorrent:hashString removeData:buttonIndex == 0];
 		[self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForItem:actionSheet.tag inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
 	}

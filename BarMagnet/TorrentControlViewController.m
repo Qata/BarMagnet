@@ -149,7 +149,7 @@
 	{
 		popupQuery = [[UIActionSheet alloc] initWithTitle:@"Are you sure?" delegate:self cancelButtonTitle:@"Whoa, cancel!" destructiveButtonTitle:@"Yes!" otherButtonTitles:nil];
 	}
-    [popupQuery showFromTabBar:[[self tabBarController] tabBar]];
+    [popupQuery showFromToolbar:self.navigationController.toolbar];
 	[selfView deselectRowAtIndexPath:[selfView indexPathForSelectedRow] animated:NO];
 }
 
@@ -158,7 +158,7 @@
 	if (buttonIndex != [actionSheet cancelButtonIndex])
 	{
 		[[NSNotificationCenter defaultCenter] postNotificationName:@"uncancel_refresh" object:nil];
-		[[[TorrentDelegate sharedInstance] currentlySelectedClient] addTemporaryDeletedJobsObject:@10 forKey:hashString];
+		[[[TorrentDelegate sharedInstance] currentlySelectedClient] addTemporaryDeletedJobsObject:@2 forKey:hashString];
 		[[[TorrentDelegate sharedInstance] currentlySelectedClient] removeTorrent:hashString removeData:buttonIndex == 0];
 		[[NSNotificationCenter defaultCenter] postNotificationName:@"update_torrent_jobs_table" object:nil];
 		[[self navigationController] popToRootViewControllerAnimated:YES];

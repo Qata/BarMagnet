@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UITabBarControllerNoAutoRotation : UITabBarController
+@interface UINavigationControllerNoAutoRotation : UINavigationController
 
 @end

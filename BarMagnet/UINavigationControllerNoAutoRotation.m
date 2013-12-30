@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Carlo Tortorella. All rights reserved.
 //
 
-#import "UITabBarControllerNoAutoRotation.h"
+#import "UINavigationControllerNoAutoRotation.h"
 
-@implementation UITabBarControllerNoAutoRotation
+@implementation UINavigationControllerNoAutoRotation
 
 - (BOOL)shouldAutorotate
 {
