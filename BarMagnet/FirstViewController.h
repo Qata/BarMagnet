@@ -15,7 +15,6 @@
 {
 	BOOL cancelNextRefresh;
 	TorrentDetailViewController * tdv;
-	TorrentControlViewController * tcv;
 }
 
 - (IBAction)openUI:(id)sender;

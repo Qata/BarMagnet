@@ -25,7 +25,6 @@
 	[[[TorrentDelegate sharedInstance] currentlySelectedClient] setDefaultViewController:[self navigationController]];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveUpdateTableNotification) name:@"update_torrent_jobs_table" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pushDetailView:) name:@"push_detail_view" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pushControlView:) name:@"push_control_view" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cancelNextRefresh) name:@"cancel_refresh" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(unCancelNextRefresh) name:@"uncancel_refresh" object:nil];
 	
@@ -54,7 +53,6 @@
 		[[self torrentJobsTableView] performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
 
 		[(UITableView *)[[tdv view] viewWithTag:1] performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
-		[(UITableView *)[[tcv view] viewWithTag:1] performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
 	}
 	else
 	{
@@ -100,15 +98,6 @@
 	[tdv setHash:[notification userInfo][@"hash"]];
 	[tdv setJobsView:[notification userInfo][@"tableView"]];
 	[[self navigationController] pushViewController:tdv animated:YES];
-}
-
-- (void)pushControlView:(NSNotification *)notification
-{
-	[self cancelNextRefresh];
-	tcv = [self.storyboard instantiateViewControllerWithIdentifier:[notification userInfo][@"storyboardID"]];
-	[tcv setHash:[notification userInfo][@"hash"]];
-	[tcv setJobsView:[notification userInfo][@"tableView"]];
-	[[self navigationController] pushViewController:tcv animated:YES];
 }
 
 - (IBAction)openUI:(id)sender

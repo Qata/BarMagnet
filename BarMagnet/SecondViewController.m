@@ -68,6 +68,9 @@
 	[[self queryFormatField] setText:[[FileHandler sharedInstance] settingsValueForKey:@"query_format"]];
 	[[self torrentSiteField] setText:[[FileHandler sharedInstance] settingsValueForKey:@"preferred_torrent_site"]];
 	[[self useSSLSegmentedControl] setSelectedSegmentIndex:[[[[FileHandler sharedInstance] webDataValueForKey:@"use_ssl" andDict:nil] orSome:@NO] intValue]];
+    NSString * serverType = [[FileHandler sharedInstance] settingsValueForKey:@"server_type"];
+    NSArray * delegateArray = [[[[TorrentDelegateConfig sharedInstance] torrentDelegates] allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+    [[self pickerView] selectRow:[delegateArray indexOfObject:serverType] inComponent:0 animated:NO];
 }
 
 - (void)viewDidUnload
@@ -79,9 +82,6 @@
 - (void)viewDidAppear:(BOOL)animated
 {
 	[super viewDidAppear:animated];
-    NSString * serverType = [[FileHandler sharedInstance] settingsValueForKey:@"server_type"];
-    NSArray * delegateArray = [[[[TorrentDelegateConfig sharedInstance] torrentDelegates] allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
-    [[self pickerView] selectRow:[delegateArray indexOfObject:serverType] inComponent:0 animated:YES];
 	[self hideCells:[NSNotification notificationWithName:@"hideCells" object:nil userInfo:@{@"torrentDelegate":[[TorrentDelegate sharedInstance] currentlySelectedClient]}]];
 }
 

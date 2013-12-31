@@ -25,6 +25,7 @@
 		2355275A1871718300A9E6BC /* UIButtonBarPlay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 235527561871718300A9E6BC /* UIButtonBarPlay@2x.png */; };
 		2355275D18722A8600A9E6BC /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = 2355275B18722A8600A9E6BC /* info.png */; };
 		2355275E18722A8600A9E6BC /* info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2355275C18722A8600A9E6BC /* info@2x.png */; };
+		235527641872568D00A9E6BC /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 235527631872568D00A9E6BC /* AboutViewController.m */; };
 		2360A529175E04720090F647 /* magnet iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 2360A528175E04720090F647 /* magnet iPhone.png */; };
 		2360A52B175E04750090F647 /* magnet retina iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 2360A52A175E04750090F647 /* magnet retina iPhone.png */; };
 		2374DD9E1796F23100F613EB /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2374DD9D1796F23100F613EB /* MessageUI.framework */; };
@@ -139,6 +140,8 @@
 		235527561871718300A9E6BC /* UIButtonBarPlay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIButtonBarPlay@2x.png"; sourceTree = "<group>"; };
 		2355275B18722A8600A9E6BC /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
 		2355275C18722A8600A9E6BC /* info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info@2x.png"; sourceTree = "<group>"; };
+		235527621872568D00A9E6BC /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		235527631872568D00A9E6BC /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		2360A528175E04720090F647 /* magnet iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "magnet iPhone.png"; path = "../magnet iPhone.png"; sourceTree = "<group>"; };
 		2360A52A175E04750090F647 /* magnet retina iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "magnet retina iPhone.png"; path = "../magnet retina iPhone.png"; sourceTree = "<group>"; };
 		2374DD9D1796F23100F613EB /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -322,6 +325,8 @@
 				23DC75B317F94DA70011258F /* WebViewNavigationController.m */,
 				23A94F20183CD6B7004A3924 /* UINavigationControllerNoAutoRotation.h */,
 				23A94F21183CD6B7004A3924 /* UINavigationControllerNoAutoRotation.m */,
+				235527621872568D00A9E6BC /* AboutViewController.h */,
+				235527631872568D00A9E6BC /* AboutViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -817,6 +822,7 @@
 				2374DDB21796F2C700F613EB /* SVWebViewController.m in Sources */,
 				23FC25D81788F1D500CCE434 /* TorrentJobCheckerCell.m in Sources */,
 				2374DDB01796F2C700F613EB /* SVModalWebViewController.m in Sources */,
+				235527641872568D00A9E6BC /* AboutViewController.m in Sources */,
 				23F668401792752700BA456C /* TorrentControlViewController.m in Sources */,
 				23B1C007177C494B000A0B07 /* NSData+BEncode.m in Sources */,
 				233C9F1317B93A3100405CA7 /* TorrentFileHandler.m in Sources */,
