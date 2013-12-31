@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "TorrentClient.h"
 #import "TorrentDetailViewController.h"
-#import "TorrentControlViewController.h"
 
 @interface FirstViewController : UIViewController
 {

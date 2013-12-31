@@ -10,6 +10,12 @@
 
 @implementation AboutViewController
 
+- (void)viewWillAppear:(BOOL)animated
+{
+	[super viewWillAppear:animated];
+	self.title = [NSBundle.mainBundle.infoDictionary objectForKey:@"CFBundleName"];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	UITableViewCell * cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];

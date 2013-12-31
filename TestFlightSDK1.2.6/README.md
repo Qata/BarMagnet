@@ -92,7 +92,9 @@ After you have integrated the SDK into your application you need to upload your 
 
 View anonymous information about how often users use your app, how long they use it for, and when they use it. You can see what type of device the user is using, which OS, which language, etc.
 
-Sessions automatically start at app launch, app did become active, and app will enter foreground and end at app will resign active, app did enter background, or app will terminate. Sessions that start shortly after an end continue the session instead of starting a new one.
+Sessions automatically start at when the app becomes active and end when the app resigns active. Sessions that start shortly after an end continue the session instead of starting a new one.
+
+NB: Sessions do not start when `takeOff:` is called, `takeOff:` registers callbacks to start sessions when the app is active.
 
 For **beta** users, you can see who the users are if you are **setting the UDID**, they have a TestFlight account, and their device is registered to TestFlight. (See Setting the UDID for more information).
 
@@ -124,6 +126,8 @@ When a tester does something you care about in your app, you can pass a checkpoi
 Use `passCheckpoint:` to track when a user performs certain tasks in your application. This can be useful for making sure testers are hitting all parts of your application, as well as tracking which testers are being thorough.
 
 Checkpoints are meant to tell you if a user visited a place in your app or completed a task. They should not be used for debugging purposes. Instead, use Remote Logging for debugging information (more information below).
+
+NB: Checkpoints are only recorded during sessions.
 
 
 ### Custom Environment Information
@@ -162,6 +166,8 @@ For even better information in your remote logs, such as file name and line numb
 Which will produce output that looks like
 
     -[MyAppDelegate application:didFinishLaunchingWithOptions:] [Line 45] Launched!
+    
+NB: Logs are only recorded during sessions.
 
 **Custom Logging**
 

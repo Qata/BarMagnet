@@ -1,9 +1,9 @@
 //
 //  TSMessageView.h
-//  Toursprung
+//  Felix Krause
 //
 //  Created by Felix Krause on 24.08.12.
-//  Copyright (c) 2012 Toursprung. All rights reserved.
+//  Copyright (c) 2012 Felix Krause. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -11,24 +11,24 @@
 
 #define TSMessageViewAlpha 0.95
 
+
+
 @protocol TSMessageViewProtocol<NSObject>
 @optional
-/** Can be implemented differently. Is used to define the top position from which the notification flies in from */
+/** Implement this method to pass a custom value for positioning the message view */
 - (CGFloat)navigationbarBottomOfViewController:(UIViewController *)viewController;
 @end
 
+
+
+
 @interface TSMessageView : UIView
-
-+ (NSMutableDictionary *)notificationDesign;
-
-/** Use this method to load a custom design file */
-+ (void)addNotificationDesignFromFile:(NSString *)file;
 
 /** The displayed title of this message */
 @property (nonatomic, readonly) NSString *title;
 
-/** The displayed content of this message (optional) */
-@property (nonatomic, readonly) NSString *content;
+/** The displayed subtitle of this message */
+@property (nonatomic, readonly) NSString *subtitle;
 
 /** The view controller this message is displayed in */
 @property (nonatomic, readonly) UIViewController *viewController;
@@ -42,11 +42,13 @@
 /** Is the message currenlty fully displayed? Is set as soon as the message is really fully visible */
 @property (nonatomic, assign) BOOL messageIsFullyDisplayed;
 
-@property(nonatomic, assign) id <TSMessageViewProtocol> delegate;
+/** By setting this delegate it's possible to set a custom offset for the notification view */
+@property(nonatomic, assign) id <TSMessageViewProtocol>delegate;
 
 /** Inits the notification view. Do not call this from outside this library.
  @param title The title of the notification view
- @param content The subtitle/content of the notification view (optional)
+ @param subtitle The subtitle of the notification view (optional)
+ @param image A custom icon image (optional)
  @param notificationType The type (color) of the notification view
  @param duration The duration this notification should be displayed (optional)
  @param viewController The view controller this message should be displayed in
@@ -57,17 +59,22 @@
  @param dismissAble Should this message be dismissed when the user taps/swipes it?
  */
 - (id)initWithTitle:(NSString *)title
-        withContent:(NSString *)content
-           withType:(TSMessageNotificationType)notificationType
-       withDuration:(CGFloat)duration
+           subtitle:(NSString *)subtitle
+              image:(UIImage *)image
+               type:(TSMessageNotificationType)notificationType
+           duration:(CGFloat)duration
    inViewController:(UIViewController *)viewController
-       withCallback:(void (^)())callback
-    withButtonTitle:(NSString *)buttonTitle
- withButtonCallback:(void (^)())buttonCallback
+           callback:(void (^)())callback
+        buttonTitle:(NSString *)buttonTitle
+     buttonCallback:(void (^)())buttonCallback
          atPosition:(TSMessageNotificationPosition)position
   shouldBeDismissed:(BOOL)dismissAble;
 
 /** Fades out this notification view */
 - (void)fadeMeOut;
+
+/** Use this method to load a custom design file */
++ (void)addNotificationDesignFromFile:(NSString *)file;
+
 
 @end
