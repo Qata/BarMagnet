@@ -21,6 +21,12 @@
 #ifndef ANDROID
 	[TestFlight takeOff:@"1d15ef35-8692-4cc4-9d94-96f36bb449b6"];
 #endif
+
+	if (![FileHandler.sharedInstance settingsValueForKey:@"sort_by"])
+	{
+		[FileHandler.sharedInstance setSettingsValue:@"incomplete" forKey:@"sort_by"];
+	}
+
 	[[[TorrentDelegate sharedInstance] currentlySelectedClient] becameActive];
 	pingHandler = [PingHandler new];
     __block NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[self methodSignatureForSelector:@selector(updateConnectionStatus)]];
@@ -32,7 +38,7 @@
 	[invocation setTarget:self];
 	[invocation setSelector:@selector(updateTorrentJobs)];
 
-	dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+	dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC), dispatch_get_main_queue(), ^{
 		[[NSRunLoop mainRunLoop] addTimer:[NSTimer timerWithTimeInterval:[[[FileHandler sharedInstance] settingsValueForKey:@"refresh_connection_seconds"] doubleValue] invocation:invocation repeats:YES] forMode:NSRunLoopCommonModes];
 	});
 

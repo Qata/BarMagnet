@@ -70,23 +70,57 @@
 	cancelNextRefresh = NO;
 }
 
-- (IBAction)showListOfOptions:(id)sender
+- (IBAction)showListOfControlOptions:(id)sender
 {
 	[[self.mainSheet = UIActionSheet.alloc initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Resume All", @"Pause All", nil] showFromToolbar:self.navigationController.toolbar];
+	self.mainSheet.tag = 1;
+}
+
+- (IBAction)sortBy:(id)sender
+{
+	[[self.mainSheet = UIActionSheet.alloc initWithTitle:@"Sort By" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Completed", @"Incomplete", @"Downloading", @"Seeding", @"Paused", nil] showFromToolbar:self.navigationController.toolbar];
+	self.mainSheet.tag = 0;
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
 	if (buttonIndex != actionSheet.cancelButtonIndex)
 	{
-		switch (buttonIndex)
+		if (self.mainSheet.tag == 0)
 		{
-			case 0:
-				[TorrentDelegate.sharedInstance.currentlySelectedClient resumeAllTorrents];
-				break;
-			case 1:
-				[TorrentDelegate.sharedInstance.currentlySelectedClient pauseAllTorrents];
-				break;
+			NSString * sortBy = @"incomplete";
+			switch (buttonIndex)
+			{
+				case 0:
+					sortBy = @"completed";
+					break;
+				case 1:
+					sortBy = @"incomplete";
+					break;
+				case 2:
+					sortBy = @"Downloading";
+					break;
+				case 3:
+					sortBy = @"Seeding";
+					break;
+				case 4:
+					sortBy = @"Paused";
+					break;
+			}
+			[FileHandler.sharedInstance setSettingsValue:sortBy forKey:@"sort_by"];
+			[self.torrentJobsTableView reloadData];
+		}
+		else
+		{
+			switch (buttonIndex)
+			{
+				case 0:
+					[TorrentDelegate.sharedInstance.currentlySelectedClient resumeAllTorrents];
+					break;
+				case 1:
+					[TorrentDelegate.sharedInstance.currentlySelectedClient pauseAllTorrents];
+					break;
+			}
 		}
 	}
 }

@@ -12,6 +12,7 @@
 #import "TorrentDelegate.h"
 #import "TorrentClient.h"
 #import "TorrentDictFunctions.h"
+#import "FileHandler.h"
 
 #define IPHONE_HEIGHT 22
 #define IPAD_HEIGHT 28
@@ -35,16 +36,79 @@
 {
     jobsDict = [[[TorrentDelegate sharedInstance] currentlySelectedClient] getJobsDict];
 	NSMutableArray *dictValues = [[jobsDict allValues] mutableCopy];
-	[dictValues sortUsingComparator: (NSComparator)^(NSDictionary *a, NSDictionary *b){
-		NSNumber *key1 = a[@"progress"];
-		NSNumber *key2 = b[@"progress"];
-		if ([key1 compare:key2] != NSOrderedSame)
-		{
-			return [key1 compare:key2];
-		}
 
-		return [a[@"name"] compare:b[@"name"]];
-	}];
+	NSString * sortBy = [[FileHandler sharedInstance] settingsValueForKey:@"sort_by"];
+
+	if ([sortBy isEqualToString:@"completed"])
+	{
+		[dictValues sortUsingComparator: (NSComparator)^(NSDictionary *a, NSDictionary *b){
+			double completeValue = [[[[[TorrentDelegate sharedInstance] currentlySelectedClient] class] completeNumber] doubleValue];
+			if ([a[@"progress"] doubleValue] == completeValue)
+			{
+				if (!([b[@"progress"] doubleValue] == completeValue))
+				{
+					return [@0 compare:@1];
+				}
+			}
+			else if ([b[@"progress"] doubleValue] == completeValue)
+			{
+				return [@1 compare:@0];
+			}
+
+			NSNumber *key1 = a[@"progress"];
+			NSNumber *key2 = b[@"progress"];
+			if ([key2 compare:key1] != NSOrderedSame)
+			{
+				return [key2 compare:key1];
+			}
+
+			return [a[@"name"] compare:b[@"name"]];
+		}];
+	}
+	else if ([sortBy isEqualToString:@"incomplete"])
+	{
+		[dictValues sortUsingComparator: (NSComparator)^(NSDictionary *a, NSDictionary *b){
+			double completeValue = [[[[[TorrentDelegate sharedInstance] currentlySelectedClient] class] completeNumber] doubleValue];
+			if ([a[@"progress"] doubleValue] == completeValue)
+			{
+				if (!([b[@"progress"] doubleValue] == completeValue))
+				{
+					return [@1 compare:@0];
+				}
+			}
+			else if ([b[@"progress"] doubleValue] == completeValue)
+			{
+				return [@0 compare:@1];
+			}
+
+			NSNumber *key1 = a[@"progress"];
+			NSNumber *key2 = b[@"progress"];
+			if ([key1 compare:key2] != NSOrderedSame)
+			{
+				return [key1 compare:key2];
+			}
+
+			return [a[@"name"] compare:b[@"name"]];
+		}];
+	}
+	else if ([sortBy isEqualToString:@"Downloading"] || [sortBy isEqualToString:@"Seeding"] || [sortBy isEqualToString:@"Paused"])
+	{
+		[dictValues sortUsingComparator: (NSComparator)^(NSDictionary *a, NSDictionary *b){
+			if ([a[@"status"] isEqualToString:sortBy])
+			{
+				if (![b[@"status"] isEqualToString:sortBy])
+				{
+					return [@0 compare:@1];
+				}
+			}
+			else if ([b[@"status"] isEqualToString:sortBy])
+			{
+				return [@1 compare:@0];
+			}
+
+			return [a[@"name"] compare:b[@"name"]];
+		}];
+	}
 	sortedKeys = dictValues;
 	return 1;
 }
@@ -70,7 +134,7 @@
 	cell.downloadSpeed.text = [NSString stringWithFormat:@"Down: %@", currentJob[@"downloadSpeed"]];
 	cell.uploadSpeed.text = [NSString stringWithFormat:@"Up: %@", currentJob[@"uploadSpeed"]];
 	cell.ETA.text = [currentJob[@"ETA"] length] ? [NSString stringWithFormat:@"ETA: %@", currentJob[@"ETA"]] : @"";
-	double completeValue = [[[[[TorrentDelegate sharedInstance] currentlySelectedClient] class] completeNumber] floatValue];
+	double completeValue = [[[[[TorrentDelegate sharedInstance] currentlySelectedClient] class] completeNumber] doubleValue];
 	completeValue ? [cell.percentBar setProgress:([currentJob[@"progress"] floatValue] / completeValue)] : nil;
 	[[cell percentBar] setHidden:!completeValue];
 

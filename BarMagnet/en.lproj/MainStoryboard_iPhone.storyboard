@@ -80,9 +80,15 @@
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="OXy-6r-OgR"/>
+                        <barButtonItem systemItem="organize" id="GwZ-Se-8Px">
+                            <connections>
+                                <action selector="sortBy:" destination="2" id="lDR-Tn-Xeh"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="E5e-Kl-nOc"/>
                         <barButtonItem systemItem="action" id="i7x-FE-Nd6">
                             <connections>
-                                <action selector="showListOfOptions:" destination="2" id="ueZ-ib-R2N"/>
+                                <action selector="showListOfControlOptions:" destination="2" id="WeA-zq-xgM"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="U5E-xQ-dnj"/>
@@ -662,12 +668,11 @@
             </objects>
             <point key="canvasLocation" x="1739" y="518"/>
         </scene>
-        <!--Navigation Controller No Auto Rotation - Main-->
+        <!--Navigation Controller No Auto Rotation-->
         <scene sceneID="dlb-5y-Htq">
             <objects>
                 <navigationController storyboardIdentifier="navigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" toolbarHidden="NO" id="Zb0-tx-VhR" customClass="UINavigationControllerNoAutoRotation" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <tabBarItem key="tabBarItem" title="Main" image="magnet.png" id="7"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Y0l-bC-yom">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -855,7 +860,6 @@
         <image name="UIButtonBarPlay.png" width="16" height="19"/>
         <image name="gear.png" width="30" height="30"/>
         <image name="info.png" width="30" height="30"/>
-        <image name="magnet.png" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
