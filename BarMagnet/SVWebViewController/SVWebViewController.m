@@ -326,13 +326,13 @@ static const CGFloat kAddressHeight = 26.0f;
 	if ([[[[request URL] absoluteString] substringToIndex:7] isEqual:@"magnet:"])
 	{
 		[[[TorrentDelegate sharedInstance] currentlySelectedClient] handleMagnetLink:[[request URL] absoluteString]];
-		[[[TorrentDelegate sharedInstance] currentlySelectedClient] showNotification:[self navigationController]];
+		[[[TorrentDelegate sharedInstance] currentlySelectedClient] showNotification:self.navigationController];
 		return NO;
 	}
 	else if ([[[[request URL] absoluteString] substringFromIndex:[[[request URL] absoluteString] length] - 8] isEqual:@".torrent"])
 	{
-		[[[TorrentDelegate sharedInstance] currentlySelectedClient] handleTorrentURL:[request URL]];
-		[[[TorrentDelegate sharedInstance] currentlySelectedClient] showNotification:[self navigationController]];
+		[[[TorrentDelegate sharedInstance] currentlySelectedClient] handleTorrentURL:request.URL];
+		[[[TorrentDelegate sharedInstance] currentlySelectedClient] showNotification:self.navigationController];
 		return NO;
 	}
 	NSLog(@"%@", [request URL]);

@@ -178,7 +178,7 @@ static NSMutableDictionary *_notificationDesign;
         _titleLabel = [[UILabel alloc] init];
         [self.titleLabel setText:title];
         [self.titleLabel setTextColor:fontColor];
-        [self.titleLabel setBackgroundColor:[UIColor clearColor]];
+        [self.titleLabel setBackgroundColor:UIColor.clearColor];
         CGFloat fontSize = [[current valueForKey:@"titleFontSize"] floatValue];
         NSString *fontName = [current valueForKey:@"titleFontName"];
         if (fontName != nil) {
@@ -205,7 +205,7 @@ static NSMutableDictionary *_notificationDesign;
                 contentTextColor = fontColor;
             }
             [self.contentLabel setTextColor:contentTextColor];
-            [self.contentLabel setBackgroundColor:[UIColor clearColor]];
+            [self.contentLabel setBackgroundColor:UIColor.clearColor];
             CGFloat fontSize = [[current valueForKey:@"contentFontSize"] floatValue];
             NSString *fontName = [current valueForKey:@"contentFontName"];
             if (fontName != nil) {
@@ -419,7 +419,7 @@ static NSMutableDictionary *_notificationDesign;
             float topOffset = 0.f;
 
             UINavigationController *navigationController = self.viewController.navigationController;
-            if (!navigationController && [self.viewController isKindOfClass:[UINavigationController class]]) {
+            if (!navigationController && [self.viewController isKindOfClass:UINavigationController.class]) {
                 navigationController = (UINavigationController *)self.viewController;
             }
             BOOL isNavBarIsHidden = !navigationController || self.viewController.navigationController.navigationBarHidden;
@@ -487,7 +487,7 @@ static NSMutableDictionary *_notificationDesign;
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
 {
-    return ! ([touch.view isKindOfClass:[UIControl class]]);
+    return ! ([touch.view isKindOfClass:UIControl.class]);
 }
 
 @end

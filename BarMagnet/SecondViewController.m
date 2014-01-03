@@ -73,9 +73,8 @@
     [[self pickerView] selectRow:[delegateArray indexOfObject:serverType] inComponent:0 animated:NO];
 }
 
-- (void)viewDidUnload
+- (void)dealloc
 {
-	[super viewDidUnload];
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
@@ -89,16 +88,16 @@
 {
 	NSArray * delegateArray = [[[[TorrentDelegateConfig sharedInstance] torrentDelegates] allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
     [[FileHandler sharedInstance] setSettingsValue:[delegateArray objectAtIndex:[[self pickerView] selectedRowInComponent:0]] forKey:@"server_type"];
-    [[FileHandler sharedInstance] setWebDataValue:[self cleanURL:[[self hostnameField] text]] forKey:@"url" andDict:nil];
-    [[FileHandler sharedInstance] setWebDataValue:[[self usernameField] text] forKey:@"username" andDict:nil];
-    [[FileHandler sharedInstance] setWebDataValue:[[self passwordField] text] forKey:@"password" andDict:nil];
-    [[FileHandler sharedInstance] setWebDataValue:[[self portField] text] forKey:@"port" andDict:nil];
-    [[FileHandler sharedInstance] setWebDataValue:[[self directoryField] text] forKey:@"directory" andDict:nil];
-    [[FileHandler sharedInstance] setWebDataValue:[[self labelField] text] forKey:@"label" andDict:nil];
-    [[FileHandler sharedInstance] setWebDataValue:[[self relativePathField] text] forKey:@"relative_path" andDict:nil];
+    [[FileHandler sharedInstance] setWebDataValue:[self cleanURL:self.hostnameField.text] forKey:@"url" andDict:nil];
+    [[FileHandler sharedInstance] setWebDataValue:self.usernameField.text forKey:@"username" andDict:nil];
+    [[FileHandler sharedInstance] setWebDataValue:self.passwordField.text forKey:@"password" andDict:nil];
+    [[FileHandler sharedInstance] setWebDataValue:self.portField.text forKey:@"port" andDict:nil];
+    [[FileHandler sharedInstance] setWebDataValue:self.directoryField.text forKey:@"directory" andDict:nil];
+    [[FileHandler sharedInstance] setWebDataValue:self.labelField.text forKey:@"label" andDict:nil];
+    [[FileHandler sharedInstance] setWebDataValue:self.relativePathField.text forKey:@"relative_path" andDict:nil];
 	[[FileHandler sharedInstance] setWebDataValue:@([[self useSSLSegmentedControl] selectedSegmentIndex]) forKey:@"use_ssl" andDict:nil];
-	[[FileHandler sharedInstance] setSettingsValue:[[[self queryFormatField] text] stringByReplacingOccurrencesOfString:@"http://" withString:@""] forKey:@"query_format"];
-	[[FileHandler sharedInstance] setSettingsValue:[[[self torrentSiteField] text] stringByReplacingOccurrencesOfString:@"http://" withString:@""] forKey:@"preferred_torrent_site"];
+	[[FileHandler sharedInstance] setSettingsValue:[self.queryFormatField.text stringByReplacingOccurrencesOfString:@"http://" withString:@""] forKey:@"query_format"];
+	[[FileHandler sharedInstance] setSettingsValue:[self.torrentSiteField.text stringByReplacingOccurrencesOfString:@"http://" withString:@""] forKey:@"preferred_torrent_site"];
 	
 }
 
@@ -106,12 +105,10 @@
 {
 	TorrentClient * torrentDelegate = [notification userInfo][@"torrentDelegate"];
 
-	for (id object in @[[self labelCell], [self directoryCell]])
-	{
-		[self cell:object setHidden:![[[torrentDelegate class] name] isEqual:@"ruTorrent"]];
-	}
+	[self cell:self.labelCell setHidden:![[[torrentDelegate class] name] isEqual:@"ruTorrent"]];
+	[self cell:self.directoryCell setHidden:!torrentDelegate.supportsDirectoryChoice];
 
-	[self cell:[self relativePathCell] setHidden:![torrentDelegate shouldShowSpecificsButton]];
+	[self cell:[self relativePathCell] setHidden:!torrentDelegate.shouldShowSpecificsButton];
 	[self reloadDataAnimated:YES];
 }
 

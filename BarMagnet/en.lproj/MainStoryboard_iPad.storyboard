@@ -1033,8 +1033,8 @@ e.g. "www.google.com"</string>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The directory field only applies to ruTorrent at this time, it specifies which directory to save the files in." lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="676" translatesAutoresizingMaskIntoConstraints="NO" id="2ee-Qf-P2Y">
-                                                    <rect key="frame" x="20" y="36" width="676" height="17"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The directory field specifies which directory to save the files in. If not set, it uses the application's default." lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="728" translatesAutoresizingMaskIntoConstraints="NO" id="2ee-Qf-P2Y">
+                                                    <rect key="frame" x="20" y="36" width="728" height="17"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="highlightedColor"/>
@@ -1042,7 +1042,7 @@ e.g. "www.google.com"</string>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="2ee-Qf-P2Y" firstAttribute="top" secondItem="P2v-9D-f7g" secondAttribute="top" constant="36" id="Aej-u3-1YJ"/>
-                                                <constraint firstAttribute="trailing" secondItem="2ee-Qf-P2Y" secondAttribute="trailing" constant="72" id="XaE-8F-rJ2"/>
+                                                <constraint firstAttribute="trailing" secondItem="2ee-Qf-P2Y" secondAttribute="trailing" constant="20" id="Tbl-rz-oPm"/>
                                                 <constraint firstItem="2ee-Qf-P2Y" firstAttribute="leading" secondItem="P2v-9D-f7g" secondAttribute="leading" constant="20" id="YWv-zP-tdk"/>
                                             </constraints>
                                         </tableViewCellContentView>

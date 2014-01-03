@@ -20,11 +20,11 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-	if ([textField isEqual:[self textBox]])
+	if ([textField isEqual:self.textBox])
 	{
 		[self addTorrent];
 	}
-	else if ([textField isEqual:[self searchBox]])
+	else if ([textField isEqual:self.searchBox])
 	{
 		NSString * query = [[FileHandler sharedInstance] settingsValueForKey:@"query_format"];
 		if ([[textField text] length] && [query length])

@@ -162,11 +162,11 @@ __weak static UIViewController *_defaultViewController;
         verticalOffset += offset;
     };
     
-    if ([currentView.viewController isKindOfClass:[UINavigationController class]] || [currentView.viewController.parentViewController isKindOfClass:[UINavigationController class]])
+    if ([currentView.viewController isKindOfClass:UINavigationController.class] || [currentView.viewController.parentViewController isKindOfClass:UINavigationController.class])
     {
         UINavigationController *currentNavigationController;
         
-        if([currentView.viewController isKindOfClass:[UINavigationController class]])
+        if([currentView.viewController isKindOfClass:UINavigationController.class])
             currentNavigationController = (UINavigationController *)currentView.viewController;
         else
             currentNavigationController = (UINavigationController *)currentView.viewController.parentViewController;
@@ -178,7 +178,7 @@ __weak static UIViewController *_defaultViewController;
         if (![currentNavigationController isNavigationBarHidden])
         {
             [currentNavigationController.view insertSubview:currentView
-                                               belowSubview:[currentNavigationController navigationBar]];
+                                               belowSubview:currentNavigationController.navigationBar];
             verticalOffset = [currentNavigationController navigationBar].bounds.size.height;
             if ([TSMessage iOS7StyleEnabled] || isViewIsUnderStatusBar) {
                 addStatusBarHeightToVerticalOffset();

@@ -69,7 +69,7 @@
 		cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
 
-	cell.textLabel.text = [[identifierArray objectAtIndex:[indexPath section]] objectAtIndex:[indexPath row]];
+	cell.textLabel.text = [[identifierArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
 	cell.accessoryType = UITableViewCellAccessoryNone;
 
 	double completeValue;

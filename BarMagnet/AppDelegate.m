@@ -48,7 +48,7 @@
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"clear_field_notification" object:nil];
-    [[TorrentDelegate sharedInstance] handleMagnet:[url absoluteString]];
+    [[TorrentDelegate sharedInstance] handleMagnet:url.absoluteString];
     return YES;
 }
 

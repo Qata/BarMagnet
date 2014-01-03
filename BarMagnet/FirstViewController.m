@@ -24,7 +24,7 @@
     [super viewDidLoad];
 	[self setTitle:@"Torrents"];
 	self.sortByStrings = @[@"Completed", @"Incomplete", @"Downloading", @"Seeding", @"Paused", @"Name"];
-	[[[TorrentDelegate sharedInstance] currentlySelectedClient] setDefaultViewController:[self navigationController]];
+	[[[TorrentDelegate sharedInstance] currentlySelectedClient] setDefaultViewController:self.navigationController];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveUpdateTableNotification) name:@"update_torrent_jobs_table" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pushDetailView:) name:@"push_detail_view" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cancelNextRefresh) name:@"cancel_refresh" object:nil];
