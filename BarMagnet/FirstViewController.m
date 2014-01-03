@@ -14,6 +14,7 @@
 
 @interface FirstViewController () <UIActionSheetDelegate>
 @property (nonatomic, weak) UIActionSheet * mainSheet;
+@property (nonatomic, strong) NSArray * sortByStrings;
 @end
 
 @implementation FirstViewController
@@ -22,12 +23,17 @@
 {
     [super viewDidLoad];
 	[self setTitle:@"Torrents"];
+	self.sortByStrings = @[@"Completed", @"Incomplete", @"Downloading", @"Seeding", @"Paused", @"Name"];
 	[[[TorrentDelegate sharedInstance] currentlySelectedClient] setDefaultViewController:[self navigationController]];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveUpdateTableNotification) name:@"update_torrent_jobs_table" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pushDetailView:) name:@"push_detail_view" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cancelNextRefresh) name:@"cancel_refresh" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(unCancelNextRefresh) name:@"uncancel_refresh" object:nil];
-	
+
+	if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1)
+	{
+		
+	}
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -72,42 +78,29 @@
 
 - (IBAction)showListOfControlOptions:(id)sender
 {
-	[[self.mainSheet = UIActionSheet.alloc initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Resume All", @"Pause All", nil] showFromToolbar:self.navigationController.toolbar];
-	self.mainSheet.tag = 1;
+	if ([self.torrentJobsTableView numberOfRowsInSection:0])
+	{
+		[[self.mainSheet = UIActionSheet.alloc initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Resume All", @"Pause All", nil] showFromToolbar:self.navigationController.toolbar];
+		self.mainSheet.tag = 1;
+	}
 }
 
 - (IBAction)sortBy:(id)sender
 {
-	[[self.mainSheet = UIActionSheet.alloc initWithTitle:@"Sort By" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Completed", @"Incomplete", @"Downloading", @"Seeding", @"Paused", nil] showFromToolbar:self.navigationController.toolbar];
-	self.mainSheet.tag = 0;
+	if ([self.torrentJobsTableView numberOfRowsInSection:0])
+	{
+		[[self.mainSheet = UIActionSheet.alloc initWithTitle:@"Sort By" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Completed", @"Incomplete", @"Downloading", @"Seeding", @"Paused", @"Name", @"Size", nil] showFromToolbar:self.navigationController.toolbar];
+		self.mainSheet.tag = 0;
+	}
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
 	if (buttonIndex != actionSheet.cancelButtonIndex)
 	{
-		if (self.mainSheet.tag == 0)
+		if (actionSheet.tag == 0)
 		{
-			NSString * sortBy = @"incomplete";
-			switch (buttonIndex)
-			{
-				case 0:
-					sortBy = @"completed";
-					break;
-				case 1:
-					sortBy = @"incomplete";
-					break;
-				case 2:
-					sortBy = @"Downloading";
-					break;
-				case 3:
-					sortBy = @"Seeding";
-					break;
-				case 4:
-					sortBy = @"Paused";
-					break;
-			}
-			[FileHandler.sharedInstance setSettingsValue:sortBy forKey:@"sort_by"];
+			[FileHandler.sharedInstance setSettingsValue:[actionSheet buttonTitleAtIndex:buttonIndex] forKey:@"sort_by"];
 			[self.torrentJobsTableView reloadData];
 		}
 		else

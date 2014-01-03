@@ -39,7 +39,9 @@
 
 	NSString * sortBy = [[FileHandler sharedInstance] settingsValueForKey:@"sort_by"];
 
-	if ([sortBy isEqualToString:@"completed"])
+	NSLog(@"%@", sortBy);
+
+	if ([sortBy isEqualToString:@"Completed"])
 	{
 		[dictValues sortUsingComparator: (NSComparator)^(NSDictionary *a, NSDictionary *b){
 			double completeValue = [[[[[TorrentDelegate sharedInstance] currentlySelectedClient] class] completeNumber] doubleValue];
@@ -65,7 +67,7 @@
 			return [a[@"name"] compare:b[@"name"]];
 		}];
 	}
-	else if ([sortBy isEqualToString:@"incomplete"])
+	else if ([sortBy isEqualToString:@"Incomplete"])
 	{
 		[dictValues sortUsingComparator: (NSComparator)^(NSDictionary *a, NSDictionary *b){
 			double completeValue = [[[[[TorrentDelegate sharedInstance] currentlySelectedClient] class] completeNumber] doubleValue];
@@ -109,6 +111,18 @@
 			return [a[@"name"] compare:b[@"name"]];
 		}];
 	}
+	else if ([sortBy isEqualToString:@"Name"])
+	{
+		[dictValues sortUsingComparator: (NSComparator)^(NSDictionary *a, NSDictionary *b){
+			return [a[@"name"] compare:b[@"name"]];
+		}];
+	}
+	else if ([sortBy isEqualToString:@"Size"])
+	{
+		[dictValues sortUsingComparator: (NSComparator)^(NSDictionary *a, NSDictionary *b){
+			return [a[@"size"] compare:b[@"size"]];
+		}];
+	}
 	sortedKeys = dictValues;
 	return 1;
 }
@@ -131,8 +145,8 @@
 
 	cell.name.text = currentJob[@"name"];
 
-	cell.downloadSpeed.text = [NSString stringWithFormat:@"Down: %@", currentJob[@"downloadSpeed"]];
-	cell.uploadSpeed.text = [NSString stringWithFormat:@"Up: %@", currentJob[@"uploadSpeed"]];
+	cell.downloadSpeed.text = [NSString stringWithFormat:@"Up: %@", currentJob[@"downloadSpeed"]];
+	cell.uploadSpeed.text = [NSString stringWithFormat:@"Down: %@", currentJob[@"uploadSpeed"]];
 	cell.ETA.text = [currentJob[@"ETA"] length] ? [NSString stringWithFormat:@"ETA: %@", currentJob[@"ETA"]] : @"";
 	double completeValue = [[[[[TorrentDelegate sharedInstance] currentlySelectedClient] class] completeNumber] doubleValue];
 	completeValue ? [cell.percentBar setProgress:([currentJob[@"progress"] floatValue] / completeValue)] : nil;

@@ -74,25 +74,25 @@
                     </tableView>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems>
-                        <barButtonItem image="info.png" id="Ssa-lt-PH1">
+                        <barButtonItem image="info.png" style="plain" id="Ssa-lt-PH1">
                             <connections>
                                 <segue destination="JB5-h0-cqy" kind="push" id="bmG-N5-5cR"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="OXy-6r-OgR"/>
-                        <barButtonItem systemItem="organize" id="GwZ-Se-8Px">
+                        <barButtonItem style="plain" systemItem="organize" id="GwZ-Se-8Px">
                             <connections>
                                 <action selector="sortBy:" destination="2" id="lDR-Tn-Xeh"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="E5e-Kl-nOc"/>
-                        <barButtonItem systemItem="action" id="i7x-FE-Nd6">
+                        <barButtonItem style="plain" systemItem="action" id="i7x-FE-Nd6">
                             <connections>
                                 <action selector="showListOfControlOptions:" destination="2" id="WeA-zq-xgM"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="U5E-xQ-dnj"/>
-                        <barButtonItem image="gear.png" id="SkZ-nT-Ifk">
+                        <barButtonItem image="gear.png" style="plain" id="SkZ-nT-Ifk">
                             <connections>
                                 <segue destination="f4c-4x-WSp" kind="push" id="OUK-do-WM3"/>
                             </connections>
@@ -150,13 +150,13 @@
                     </tableView>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems>
-                        <barButtonItem image="UIButtonBarPlay.png" id="CPX-yq-5zR">
+                        <barButtonItem image="UIButtonBarPlay.png" style="plain" id="CPX-yq-5zR">
                             <connections>
                                 <action selector="playPause:" destination="bH1-jx-YkX" id="5hY-VH-29u"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="ohd-WO-nQd"/>
-                        <barButtonItem systemItem="stop" id="Ecx-lu-pGc">
+                        <barButtonItem style="plain" systemItem="stop" id="Ecx-lu-pGc">
                             <connections>
                                 <action selector="delete:" destination="bH1-jx-YkX" id="08r-A1-lyz"/>
                             </connections>
