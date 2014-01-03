@@ -160,7 +160,7 @@
 	[self.navigationController popToRootViewControllerAnimated:YES];
 }
 
-- (IBAction)delete:(id)sender
+- (IBAction)deleteTorrent:(id)sender
 {
 	UIActionSheet *popupQuery;
 	if (TorrentDelegate.sharedInstance.currentlySelectedClient.supportsEraseChoice)

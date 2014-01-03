@@ -187,7 +187,7 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="m2P-w1-n4h"/>
                         <barButtonItem style="plain" systemItem="stop" id="nRO-0R-sSh">
                             <connections>
-                                <action selector="delete:" destination="Ug0-6O-Dh7" id="OIZ-Bw-ox7"/>
+                                <action selector="deleteTorrent:" destination="Ug0-6O-Dh7" id="fA2-na-Hcd"/>
                             </connections>
                         </barButtonItem>
                     </toolbarItems>

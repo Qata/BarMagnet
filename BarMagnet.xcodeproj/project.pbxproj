@@ -937,8 +937,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Carlo Tortorella (F688N26J6J)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Carlo Tortorella (F688N26J6J)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Carlo Tortorella (27LEU46442)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Carlo Tortorella (27LEU46442)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BarMagnet/BarMagnet-Prefix.pch";
@@ -976,7 +976,7 @@
 					"$(SRCROOT)/TestFlightSDK1.2.6",
 				);
 				PRODUCT_NAME = BarMagnet;
-				PROVISIONING_PROFILE = "8DA2BD00-1553-44EA-93EB-A4CF1A38C97F";
+				PROVISIONING_PROFILE = "D6768E0E-CA8A-4F1D-9AAD-3B9CBD56DC1F";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;

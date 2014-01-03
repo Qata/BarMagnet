@@ -29,11 +29,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pushDetailView:) name:@"push_detail_view" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cancelNextRefresh) name:@"cancel_refresh" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(unCancelNextRefresh) name:@"uncancel_refresh" object:nil];
-
-	if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1)
-	{
-		
-	}
 }
 
 - (void)viewDidAppear:(BOOL)animated
