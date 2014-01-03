@@ -39,8 +39,6 @@
 
 	NSString * sortBy = [[FileHandler sharedInstance] settingsValueForKey:@"sort_by"];
 
-	NSLog(@"%@", sortBy);
-
 	if ([sortBy isEqualToString:@"Completed"])
 	{
 		[dictValues sortUsingComparator: (NSComparator)^(NSDictionary *a, NSDictionary *b){
@@ -134,19 +132,11 @@
     TorrentJobCheckerCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 
 	NSDictionary * currentJob;
-	if ([[jobsDict allKeys] count])
-	{
-		currentJob = [jobsDict objectForKey:[[jobsDict allKeys] objectAtIndex:[[jobsDict allValues] indexOfObject:[sortedKeys objectAtIndex:indexPath.row]]]];
-	}
-	else
-	{
-		return nil;
-	}
+	currentJob = [jobsDict objectForKey:[[jobsDict allKeys] objectAtIndex:[[jobsDict allValues] indexOfObject:[sortedKeys objectAtIndex:indexPath.row]]]];
 
 	cell.name.text = currentJob[@"name"];
-
-	cell.downloadSpeed.text = [NSString stringWithFormat:@"Up: %@", currentJob[@"downloadSpeed"]];
-	cell.uploadSpeed.text = [NSString stringWithFormat:@"Down: %@", currentJob[@"uploadSpeed"]];
+	cell.uploadSpeed.text = [NSString stringWithFormat:@"↑ %@", currentJob[@"uploadSpeed"]];
+	cell.downloadSpeed.text = [NSString stringWithFormat:@"↓ %@", currentJob[@"downloadSpeed"]];
 	cell.ETA.text = [currentJob[@"ETA"] length] ? [NSString stringWithFormat:@"ETA: %@", currentJob[@"ETA"]] : @"";
 	double completeValue = [[[[[TorrentDelegate sharedInstance] currentlySelectedClient] class] completeNumber] doubleValue];
 	completeValue ? [cell.percentBar setProgress:([currentJob[@"progress"] floatValue] / completeValue)] : nil;

@@ -102,19 +102,25 @@
                     </tableView>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems>
-                        <barButtonItem image="info.png" id="NJ2-2J-JoQ">
+                        <barButtonItem image="info.png" style="plain" id="NJ2-2J-JoQ">
                             <connections>
                                 <segue destination="wVf-zs-IsE" kind="push" id="2OT-8i-mrQ"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="h1C-aj-MaL"/>
-                        <barButtonItem systemItem="action" id="q1y-DQ-FXV">
+                        <barButtonItem style="plain" systemItem="organize" id="MNP-Ee-Mb2">
                             <connections>
-                                <action selector="showListOfOptions:" destination="dyb-7Q-Jtk" id="3l1-Nw-33z"/>
+                                <action selector="sortBy:" destination="dyb-7Q-Jtk" id="7cI-Xq-Jgp"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="vep-Rz-ANG"/>
+                        <barButtonItem style="plain" systemItem="action" id="q1y-DQ-FXV">
+                            <connections>
+                                <action selector="showListOfControlOptions:" destination="dyb-7Q-Jtk" id="DjZ-HW-Ocx"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="PHT-xO-sYS"/>
-                        <barButtonItem image="gear.png" id="06k-M6-gjs">
+                        <barButtonItem image="gear.png" style="plain" id="06k-M6-gjs">
                             <connections>
                                 <segue destination="Wpy-UK-JBA" kind="push" id="O6Z-Q3-yEo"/>
                             </connections>
@@ -173,13 +179,13 @@
                     </tableView>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems>
-                        <barButtonItem image="UIButtonBarPlay.png" id="G7J-GO-fx8">
+                        <barButtonItem image="UIButtonBarPlay.png" style="plain" id="G7J-GO-fx8">
                             <connections>
                                 <action selector="playPause:" destination="Ug0-6O-Dh7" id="fEI-hP-POu"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="m2P-w1-n4h"/>
-                        <barButtonItem systemItem="stop" id="nRO-0R-sSh">
+                        <barButtonItem style="plain" systemItem="stop" id="nRO-0R-sSh">
                             <connections>
                                 <action selector="delete:" destination="Ug0-6O-Dh7" id="OIZ-Bw-ox7"/>
                             </connections>
@@ -603,7 +609,7 @@
                     <navigationItem key="navigationItem" title="Settings" id="S2f-bj-wwp">
                         <barButtonItem key="rightBarButtonItem" title="Help" id="TMp-9z-Ya2">
                             <connections>
-                                <segue destination="zui-1v-kee" kind="push" id="Mcs-nP-TyT"/>
+                                <segue destination="ehe-7C-BX2" kind="push" id="3GG-Zo-7mM"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -760,91 +766,6 @@
             </objects>
             <point key="canvasLocation" x="2053" y="-1805"/>
         </scene>
-        <!--View Controller - Help-->
-        <scene sceneID="nMf-zI-7dn">
-            <objects>
-                <viewController title="Second" id="zui-1v-kee" userLabel="View Controller - Help" customClass="HelpViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="PPj-oF-SLR"/>
-                        <viewControllerLayoutGuide type="bottom" id="XQg-qf-7kN"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="vg8-Xm-iZ1">
-                        <rect key="frame" x="0.0" y="64" width="768" height="916"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Directory" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0UD-kp-gc3">
-                                <rect key="frame" x="20" y="179" width="134" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Label" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hvV-yd-wTv">
-                                <rect key="frame" x="166" y="179" width="134" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Relative Path" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QhR-gL-CXs">
-                                <rect key="frame" x="20" y="251" width="280" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="myurl.com" borderStyle="roundedRect" placeholder="Hostname" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MD5-g9-xah">
-                                <rect key="frame" x="20" y="37" width="134" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="done"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="john" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LMr-6F-ENp">
-                                <rect key="frame" x="20" y="108" width="134" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="smith" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VgP-gg-9MN">
-                                <rect key="frame" x="166" y="108" width="134" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="8080" borderStyle="roundedRect" placeholder="Port" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wgf-O0-8jP">
-                                <rect key="frame" x="166" y="37" width="134" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="http://www.google.com/q=%query%" borderStyle="roundedRect" placeholder="Query Format" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y9c-3R-3dW">
-                                <rect key="frame" x="20" y="321" width="280" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                            </textField>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="286" translatesAutoresizingMaskIntoConstraints="NO" id="HkK-tz-b40">
-                                <rect key="frame" x="20" y="375" width="286" height="82"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <string key="text">The relative path field does not need to be set unless you have ruTorrent or you have configured your torrent client to not use the default path.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Only use HTTPS if you have enabled it on your server and have opened port 443." lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="271" translatesAutoresizingMaskIntoConstraints="NO" id="z6s-mg-ihj">
-                                <rect key="frame" x="20" y="465" width="271" height="62"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <extendedEdge key="edgesForExtendedLayout"/>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="pav-FS-u0b">
-                        <barButtonItem key="rightBarButtonItem" title="Email Developer" id="IA6-3E-8d7">
-                            <connections>
-                                <action selector="emailDeveloper:" destination="zui-1v-kee" id="IOf-fk-PXF"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="n6A-U5-6eL" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2039" y="490"/>
-        </scene>
         <!--About View Controller-->
         <scene sceneID="lpT-pO-Z8k">
             <objects>
@@ -969,6 +890,205 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IWJ-Qn-fwc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="300" y="490"/>
+        </scene>
+        <!--Table View Controller - Help-->
+        <scene sceneID="1ON-JY-g4C">
+            <objects>
+                <tableViewController id="ehe-7C-BX2" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="hVM-XL-pIo">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="Onb-Cl-rH7">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="57" id="11h-EJ-6hW">
+                                        <rect key="frame" x="0.0" y="99" width="768" height="57"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="11h-EJ-6hW" id="CJj-Qj-zKP">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="56"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HTTPS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E4R-TQ-KBa">
+                                                    <rect key="frame" x="20" y="7" width="55" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Only use HTTPS if you have enabled it on your server and you are using port 443." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="528" translatesAutoresizingMaskIntoConstraints="NO" id="4bh-EZ-ffx">
+                                                    <rect key="frame" x="20" y="36" width="528" height="17"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="4bh-EZ-ffx" firstAttribute="leading" secondItem="CJj-Qj-zKP" secondAttribute="leading" constant="20" id="4qt-25-7l1"/>
+                                                <constraint firstItem="4bh-EZ-ffx" firstAttribute="top" secondItem="CJj-Qj-zKP" secondAttribute="top" constant="36" id="hQj-cn-gVt"/>
+                                                <constraint firstAttribute="trailing" secondItem="4bh-EZ-ffx" secondAttribute="trailing" constant="220" id="ige-pN-Xms"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="93" id="6aS-gc-mNU">
+                                        <rect key="frame" x="0.0" y="156" width="768" height="93"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6aS-gc-mNU" id="xxv-YU-BjC">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="92"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Query" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fy5-Pq-8uy">
+                                                    <rect key="frame" x="20" y="7" width="48" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="728" translatesAutoresizingMaskIntoConstraints="NO" id="o8W-by-us4">
+                                                    <rect key="frame" x="20" y="36" width="728" height="51"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <string key="text">The query format is used to search a torrent site, to use it, you just replace the part of the URL where your query would normally be, with "%query%", 
+e.g. "http://www.google.com/q=%query%"</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="o8W-by-us4" firstAttribute="top" secondItem="xxv-YU-BjC" secondAttribute="top" constant="36" id="BD7-KK-zqo"/>
+                                                <constraint firstItem="o8W-by-us4" firstAttribute="leading" secondItem="xxv-YU-BjC" secondAttribute="leading" constant="20" id="KoH-jx-5Qh"/>
+                                                <constraint firstAttribute="trailing" secondItem="o8W-by-us4" secondAttribute="trailing" constant="20" id="OdM-Qv-6DJ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="76" id="FTG-JD-P1S">
+                                        <rect key="frame" x="0.0" y="249" width="768" height="76"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FTG-JD-P1S" id="2tp-w3-aE7">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="75"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Relative Path" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Lb-Fd-fWp">
+                                                    <rect key="frame" x="20" y="7" width="105" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="728" translatesAutoresizingMaskIntoConstraints="NO" id="nyH-sH-kE8">
+                                                    <rect key="frame" x="20" y="36" width="728" height="34"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <string key="text">The relative path field does not need to use set unless you have ruTorrent or you have configured your torrent client to not use the default path.</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="nyH-sH-kE8" secondAttribute="trailing" constant="20" id="17O-8z-2fT"/>
+                                                <constraint firstItem="nyH-sH-kE8" firstAttribute="top" secondItem="2tp-w3-aE7" secondAttribute="top" constant="36" id="Cg5-sj-ZW0"/>
+                                                <constraint firstItem="nyH-sH-kE8" firstAttribute="leading" secondItem="2tp-w3-aE7" secondAttribute="leading" constant="20" id="wEy-gO-2LD"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="79" id="Z5H-pa-CuP">
+                                        <rect key="frame" x="0.0" y="325" width="768" height="79"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Z5H-pa-CuP" id="b9T-av-ZRD">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="78"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Torrent Site" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Dv-ja-fwy">
+                                                    <rect key="frame" x="20" y="7" width="90" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="728" translatesAutoresizingMaskIntoConstraints="NO" id="oGL-Yh-ukM">
+                                                    <rect key="frame" x="20" y="36" width="728" height="34"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <string key="text">The torrent site is a static website that you can use when you just want to browse instead of searching,  
+e.g. "www.google.com"</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="oGL-Yh-ukM" firstAttribute="leading" secondItem="b9T-av-ZRD" secondAttribute="leading" constant="20" id="Ivo-gL-S9L"/>
+                                                <constraint firstItem="oGL-Yh-ukM" firstAttribute="top" secondItem="b9T-av-ZRD" secondAttribute="top" constant="36" id="L9a-JQ-26x"/>
+                                                <constraint firstAttribute="trailing" secondItem="oGL-Yh-ukM" secondAttribute="trailing" constant="20" id="bOF-2G-1Jg"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="59" id="b2u-P4-te4">
+                                        <rect key="frame" x="0.0" y="404" width="768" height="59"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="b2u-P4-te4" id="P2v-9D-f7g">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="58"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Directory" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qbf-uO-VV9">
+                                                    <rect key="frame" x="20" y="7" width="72" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The directory field only applies to ruTorrent at this time, it specifies which directory to save the files in." lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="676" translatesAutoresizingMaskIntoConstraints="NO" id="2ee-Qf-P2Y">
+                                                    <rect key="frame" x="20" y="36" width="676" height="17"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="2ee-Qf-P2Y" firstAttribute="top" secondItem="P2v-9D-f7g" secondAttribute="top" constant="36" id="Aej-u3-1YJ"/>
+                                                <constraint firstAttribute="trailing" secondItem="2ee-Qf-P2Y" secondAttribute="trailing" constant="72" id="XaE-8F-rJ2"/>
+                                                <constraint firstItem="2ee-Qf-P2Y" firstAttribute="leading" secondItem="P2v-9D-f7g" secondAttribute="leading" constant="20" id="YWv-zP-tdk"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="77" id="dPg-XE-Qd3">
+                                        <rect key="frame" x="0.0" y="463" width="768" height="77"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dPg-XE-Qd3" id="9qV-u6-tMm">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="76"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="728" translatesAutoresizingMaskIntoConstraints="NO" id="VWf-x0-DOi">
+                                                    <rect key="frame" x="20" y="36" width="728" height="34"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <string key="text">The label field is purely for ruTorrent. It seems to be entirely aesthetic but can help keep track of multiple users downloading to the same client.</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tTe-oc-lBG">
+                                                    <rect key="frame" x="20" y="7" width="44" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="VWf-x0-DOi" firstAttribute="leading" secondItem="9qV-u6-tMm" secondAttribute="leading" constant="20" id="Zob-Md-AL3"/>
+                                                <constraint firstAttribute="trailing" secondItem="VWf-x0-DOi" secondAttribute="trailing" constant="20" id="cp2-wv-ecl"/>
+                                                <constraint firstItem="VWf-x0-DOi" firstAttribute="top" secondItem="9qV-u6-tMm" secondAttribute="top" constant="36" id="nRW-zz-Wsa"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="ehe-7C-BX2" id="rYT-NO-EK1"/>
+                            <outlet property="delegate" destination="ehe-7C-BX2" id="c54-lO-91v"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Help" id="Mx0-lo-n3u"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0vM-Aj-wso" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2053" y="490"/>
         </scene>
     </scenes>
     <resources>

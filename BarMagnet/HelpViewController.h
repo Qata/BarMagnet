@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface HelpViewController : UIViewController
-
+@property (strong, nonatomic) IBOutlet UITextView *textView;
+@property (strong, nonatomic) NSString * key;
 @end
