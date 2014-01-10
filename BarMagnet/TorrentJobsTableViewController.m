@@ -17,12 +17,14 @@
 #define IPHONE_HEIGHT 22
 #define IPAD_HEIGHT 28
 
-@interface TorrentJobsTableViewController () <UIActionSheetDelegate, UIAlertViewDelegate, UISearchBarDelegate>
+@interface TorrentJobsTableViewController () <UIActionSheetDelegate, UIAlertViewDelegate, UISearchBarDelegate, UISearchDisplayDelegate>
 @property (nonatomic, weak) UIActionSheet * controlSheet;
 @property (nonatomic, weak) UIActionSheet * sortBySheet;
 @property (nonatomic, weak) UIActionSheet * deleteTorrentSheet;
 @property (nonatomic, strong) NSArray * sortByStrings;
 @property (nonatomic, assign) BOOL shouldRefresh;
+@property (nonatomic, strong) NSMutableArray * filteredArray;
+@property (nonatomic, strong) UIView * headerView;
 @end
 
 @implementation TorrentJobsTableViewController
@@ -50,9 +52,12 @@
 
 - (void)receiveUpdateTableNotification
 {
-	if (!cancelNextRefresh && !self.tableView.isEditing && self.shouldRefresh)
+	if (!cancelNextRefresh && !self.tableView.isEditing)
 	{
-		[self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
+		if (self.shouldRefresh)
+		{
+			[self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
+		}
 		[tdv.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
 	}
 	else
@@ -61,19 +66,16 @@
 	}
 }
 
-- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
+- (void)searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller
 {
 	self.shouldRefresh = NO;
-	return YES;
 }
 
-- (BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar
+- (void)searchDisplayControllerWillEndSearch:(UISearchDisplayController *)controller
 {
 	self.shouldRefresh = YES;
-	return YES;
+	[self receiveUpdateTableNotification];
 }
-
-
 
 - (IBAction)addTorrentPopup:(id)sender
 {
@@ -315,14 +317,16 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Prototype";
-
-    TorrentJobCheckerCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-
-	if (!cell)
+	if (tableView == self.searchDisplayController.searchResultsTableView)
 	{
-		cell = TorrentJobCheckerCell.new;
-	}
+		UITableViewCell * cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+		cell.textLabel.text = self.filteredArray[indexPath.row][@"name"];
+		return cell;
+    }
+
+	static NSString *CellIdentifier = @"Prototype";
+
+	TorrentJobCheckerCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 
 	NSDictionary * currentJob = [jobsDict objectForKey:[[jobsDict allKeys] objectAtIndex:[[jobsDict allValues] indexOfObject:[sortedKeys objectAtIndex:indexPath.row]]]];
 
@@ -331,7 +335,7 @@
 	cell.downloadSpeed.text = [NSString stringWithFormat:@"↓ %@", currentJob[@"downloadSpeed"]];
 	cell.ETA.text = [currentJob[@"ETA"] length] ? [NSString stringWithFormat:@"ETA: %@", currentJob[@"ETA"]] : @"";
 	double completeValue = [[[[[TorrentDelegate sharedInstance] currentlySelectedClient] class] completeNumber] doubleValue];
-	completeValue ? [cell.percentBar setProgress:([currentJob[@"progress"] floatValue] / completeValue)] : nil;
+	completeValue ? [cell.percentBar setProgress:[currentJob[@"progress"] floatValue] / completeValue] : nil;
 	[[cell percentBar] setHidden:!completeValue];
 
 	cell.currentStatus.text = [TorrentDictFunctions jobStatusFromCurrentJob:currentJob];
@@ -347,7 +351,7 @@
 		cell.currentStatus.font = font;
 		cell.ETA.font = font;
 	}
-    return cell;
+	return cell;
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -389,26 +393,28 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-	if (headerView)
+	if (!self.shouldRefresh)
+		return nil;
+	if (self.headerView)
 	{
-		UILabel * label = (UILabel *)headerView.subviews.lastObject;
+		UILabel * label = (UILabel *)self.headerView.subviews.lastObject;
 		if ([[[TorrentDelegate sharedInstance] currentlySelectedClient] isHostOnline])
 		{
-			headerView.backgroundColor = [UIColor colorWithRed:77/255. green:149/255. blue:197/255. alpha:0.85];
+			self.headerView.backgroundColor = [UIColor colorWithRed:77/255. green:149/255. blue:197/255. alpha:0.85];
 			label.text = @"Host Online";
 		}
 		else
 		{
-			headerView.backgroundColor = [UIColor colorWithRed:250/255. green:50/255. blue:50/255. alpha:0.85];
+			self.headerView.backgroundColor = [UIColor colorWithRed:250/255. green:50/255. blue:50/255. alpha:0.85];
 			label.text = @"Host Offline";
 		}
 	}
 	else
 	{
-		headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [tableView frame].size.width, 0)];
-		headerView.backgroundColor = [UIColor colorWithRed:250/255. green:50/255. blue:50/255. alpha:0.85];
+		self.headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [tableView frame].size.width, 0)];
+		self.headerView.backgroundColor = [UIColor colorWithRed:250/255. green:50/255. blue:50/255. alpha:0.85];
 		UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, [tableView frame].size.width, [self sizeForDevice])];
-		[headerView addSubview:label];
+		[self.headerView addSubview:label];
 		label.backgroundColor = [UIColor clearColor];
 		label.textColor = [UIColor whiteColor];
 		label.text = @"Host Offline";
@@ -416,24 +422,69 @@
 		label.textAlignment = NSTextAlignmentCenter;
 		label.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
 	}
-	return headerView;
+	return self.headerView;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	if (![[[TorrentDelegate sharedInstance] currentlySelectedClient] isHostOnline])
+	if (tableView == self.searchDisplayController.searchResultsTableView)
 	{
-		return 0;
+		return self.filteredArray.count;
 	}
     return [[[[[TorrentDelegate sharedInstance] currentlySelectedClient] getJobsDict] allKeys] count];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-	if ([sender isKindOfClass:TorrentJobCheckerCell.class] && [segue.destinationViewController isKindOfClass:TorrentDetailViewController.class])
+	if ([segue.destinationViewController isKindOfClass:TorrentDetailViewController.class])
 	{
 		tdv = segue.destinationViewController;
-		[segue.destinationViewController setHashString:[sender hashString]];
+		if ([sender isKindOfClass:TorrentJobCheckerCell.class])
+		{
+			[segue.destinationViewController setHashString:[sender hashString]];
+		}
+		else if ([sender isKindOfClass:NSString.class])
+		{
+			[segue.destinationViewController setHashString:sender];
+		}
+	}
+}
+
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [self filterContentForSearchText:searchString scope:
+     [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
+    return YES;
+}
+
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption
+{
+    [self filterContentForSearchText:self.searchDisplayController.searchBar.text scope:
+     [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:searchOption]];
+    return YES;
+}
+
+- (void)filterContentForSearchText:(NSString *)searchText scope:(NSString *)scope
+{
+	self.filteredArray = NSMutableArray.new;
+	NSDictionary * jobs = [[[TorrentDelegate sharedInstance] currentlySelectedClient] getJobsDict];
+	for (NSDictionary * job in jobs.allValues)
+	{
+		if ([[job[@"name"] lowercaseString] rangeOfString:[searchText lowercaseString]].location != NSNotFound)
+		{
+			[self.filteredArray addObject:job];
+		}
+	}
+	[self.filteredArray sortUsingComparator: (NSComparator)^(NSDictionary *a, NSDictionary *b){
+		return [a[@"name"] compare:b[@"name"]];
+	}];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	if (tableView == self.searchDisplayController.searchResultsTableView)
+	{
+		[self performSegueWithIdentifier:@"detail" sender:self.filteredArray[indexPath.row][@"hash"]];
 	}
 }
 

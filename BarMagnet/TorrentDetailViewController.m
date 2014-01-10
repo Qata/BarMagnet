@@ -114,7 +114,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	self.playPauseButton.image = [UIImage imageNamed:[NSString stringWithFormat:@"UIButtonBar%@", [hashDict[@"status"] isEqualToString:@"Paused"] ? @"Pause" : @"Play"]];
+	self.playPauseButton.image = [UIImage imageNamed:[NSString stringWithFormat:@"UIButtonBar%@", [hashDict[@"status"] isEqualToString:@"Paused"] ? @"Play" : @"Pause"]];
 
 	switch (section)
 	{

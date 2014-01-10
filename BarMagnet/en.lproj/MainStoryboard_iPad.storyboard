@@ -13,9 +13,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="cQb-Zg-Wpn">
+                            <rect key="frame" x="0.0" y="64" width="768" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="EgX-EY-3Mi" id="urJ-xP-bZj"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Prototype" rowHeight="80" id="a7w-MV-isB" customClass="TorrentJobCheckerCell">
-                                <rect key="frame" x="0.0" y="86" width="768" height="80"/>
+                                <rect key="frame" x="0.0" y="130" width="768" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="a7w-MV-isB" id="YJP-b6-HwV">
                                     <rect key="frame" x="0.0" y="0.0" width="768" height="79"/>
@@ -64,7 +72,7 @@
                                     <outlet property="name" destination="f0B-QB-tCx" id="a7a-r8-UqC"/>
                                     <outlet property="percentBar" destination="yU6-79-aBR" id="k9t-oI-lv3"/>
                                     <outlet property="uploadSpeed" destination="YBt-Pz-POo" id="r3Z-ag-Xmw"/>
-                                    <segue destination="mOR-Qr-S9h" kind="push" id="cwR-Xb-Qnm"/>
+                                    <segue destination="mOR-Qr-S9h" kind="push" identifier="detail" id="cwR-Xb-Qnm"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -111,8 +119,20 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="iRO-ar-XWC" id="4i8-9r-kCT"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pw6-AV-yps" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="iRO-ar-XWC">
+                    <connections>
+                        <outlet property="delegate" destination="EgX-EY-3Mi" id="DbO-6a-FGT"/>
+                        <outlet property="searchBar" destination="cQb-Zg-Wpn" id="ZnE-Ip-l5P"/>
+                        <outlet property="searchContentsController" destination="EgX-EY-3Mi" id="8J2-Vc-i3i"/>
+                        <outlet property="searchResultsDataSource" destination="EgX-EY-3Mi" id="Lno-Cb-HOE"/>
+                        <outlet property="searchResultsDelegate" destination="EgX-EY-3Mi" id="bqc-UJ-emR"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1162" y="-621"/>
         </scene>

@@ -14,7 +14,6 @@
 {
 	BOOL cancelNextRefresh;
 	TorrentDetailViewController * tdv;
-	UIView * headerView;
 	NSArray * sortedKeys;
 	NSDictionary * jobsDict;
 }
