@@ -19,7 +19,5 @@
 - (IBAction)openUI:(id)sender;
 
 @property (strong, nonatomic) IBOutlet UITableView *torrentJobsTableView;
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *infoButton;
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *settingsButton;
 
 @end

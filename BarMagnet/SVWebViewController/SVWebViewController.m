@@ -196,7 +196,7 @@ static const CGFloat kAddressHeight = 26.0f;
 - (void)viewDidLoad {
 	[super viewDidLoad];
 
-	adKeys = @[@"s.ytimg.com", @"pstatic.org", @"privitize.com", @"lp.torchbrowser.com", @"adexprt", @"about:blank"];
+	adKeys = @[@"ytimg.com", @"pstatic.org", @"privitize.com", @"lp.torchbrowser.com", @"adexprt.com", @"trafficposse.com", @"mobicow.com", @"amgct.com", @"cpactions.com", @"adsmarket.com", @"propellerads.com", @"sexad.net", @"rtbpop.com", @"about:blank"];
 	adsArray = @[@"document.getElementById('sky-banner').firstElementChild.src", @"document.getElementById('sky-right').firstElementChild.src", @"document.getElementById('main-content').firstElementChild.src", @"document.getElementById('header').firstElementChild.firstElementChild.src"];
 	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:[self navigationController] action:@selector(dismissViewControllerAnimated)];
     [self updateToolbarItems];
@@ -315,33 +315,33 @@ static const CGFloat kAddressHeight = 26.0f;
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
+	NSLog(@"%d", navigationType);
+	NSLog(@"%@", request.URL.absoluteString);
 	for (NSString * key in adKeys)
 	{
-		if ([[[[request URL] absoluteString] getStringBetween:@"http://" andString:@"/"] rangeOfString:key].location != NSNotFound)
+		if ([request.URL.absoluteString rangeOfString:key].location != NSNotFound)
 		{
 			return NO;
 		}
 	}
 
-	if ([[[[request URL] absoluteString] substringToIndex:7] isEqual:@"magnet:"])
+	if ([[request URL] absoluteString].length > 7 && [[[[request URL] absoluteString] substringToIndex:7] isEqual:@"magnet:"])
 	{
 		[[[TorrentDelegate sharedInstance] currentlySelectedClient] handleMagnetLink:[[request URL] absoluteString]];
 		[[[TorrentDelegate sharedInstance] currentlySelectedClient] showNotification:self.navigationController];
 		return NO;
 	}
-	else if ([[[[request URL] absoluteString] substringFromIndex:[[[request URL] absoluteString] length] - 8] isEqual:@".torrent"])
+	else if ([[request URL] absoluteString].length > 8 && [[[[request URL] absoluteString] substringFromIndex:[[[request URL] absoluteString] length] - 8] isEqual:@".torrent"])
 	{
 		[[[TorrentDelegate sharedInstance] currentlySelectedClient] handleTorrentURL:request.URL];
 		[[[TorrentDelegate sharedInstance] currentlySelectedClient] showNotification:self.navigationController];
 		return NO;
 	}
-	NSLog(@"%@", [request URL]);
 	return YES;
 }
 
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
-	NSLog(@"%@", [[webView request] URL]);
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 	[self updateToolbarItems];
 }
@@ -351,7 +351,7 @@ static const CGFloat kAddressHeight = 26.0f;
 {
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 
-	NSString *strJSFunction = [NSString stringWithFormat:@"function increaseMaxZoomFactor(){ var element = document.createElement('meta'); element.name = \"viewport\"; element.content = \"maximum-scale=15.0\"; var head = document.getElementsByTagName('head')[0]; head.appendChild(element); }"];
+	NSString *strJSFunction = [NSString stringWithFormat:@"function increaseMaxZoomFactor(){var element = document.createElement('meta'); element.name = \"viewport\"; element.content = \"maximum-scale=15.0\"; var head = document.getElementsByTagName('head')[0]; head.appendChild(element);}"];
 
 	[webView stringByEvaluatingJavaScriptFromString:strJSFunction];
 	[webView stringByEvaluatingJavaScriptFromString:@"increaseMaxZoomFactor()"];

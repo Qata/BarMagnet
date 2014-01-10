@@ -23,15 +23,6 @@
 
 @implementation TorrentJobsViewController
 
-- (id)init
-{
-	if (self = [super init])
-	{
-		headerView = nil;
-	}
-	return self;
-}
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     jobsDict = [[[TorrentDelegate sharedInstance] currentlySelectedClient] getJobsDict];
@@ -177,7 +168,7 @@
 	}
 	else
 	{
-		popupQuery = [[UIActionSheet alloc] initWithTitle:@"Are you sure?" delegate:self cancelButtonTitle:@"Whoa, cancel!" destructiveButtonTitle:@"Yes!" otherButtonTitles:nil];
+		popupQuery = [[UIActionSheet alloc] initWithTitle:@"Are you sure?" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Yes" otherButtonTitles:nil];
 	}
 	popupQuery.tag = indexPath.row;
 	[popupQuery showFromToolbar:self.viewController.navigationController.toolbar];
@@ -211,35 +202,43 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-	if (!section)
+	if (headerView)
 	{
-		if (headerView)
+		UILabel * label = (UILabel *)[headerView viewWithTag:1];
+		if ([[[TorrentDelegate sharedInstance] currentlySelectedClient] isHostOnline])
 		{
-			UILabel * label = ((UILabel *)[headerView viewWithTag:1]);
-			[label setText:[[[TorrentDelegate sharedInstance] currentlySelectedClient] isHostOnline] ? @"Host Online" : @"Host Offline"];
-			return headerView;
+			headerView.backgroundColor = [UIColor colorWithRed:77/255. green:149/255. blue:197/255. alpha:0.85];
+			label.text = @"Host Online";
 		}
 		else
 		{
-			headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [tableView frame].size.width, 0)];
-			headerView.backgroundColor = [UIColor colorWithRed:77/255. green:149/255. blue:197/255. alpha:0.85];
-			UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, [tableView frame].size.width, [self sizeForDevice])];
-			[headerView addSubview:label];
-			label.backgroundColor = [UIColor clearColor];
-			label.textColor = [UIColor whiteColor];
-			label.text = @"Host Unreachable";
-			label.font = [UIFont fontWithName:@"Arial" size:[self sizeForDevice] - 6];
-			label.textAlignment = NSTextAlignmentCenter;
-			label.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-			label.tag = 1;
-			return headerView;
+			headerView.backgroundColor = [UIColor colorWithRed:250/255. green:50/255. blue:50/255. alpha:0.85];
+			label.text = @"Host Offline";
 		}
 	}
-	return nil;
+	else
+	{
+		headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [tableView frame].size.width, 0)];
+		headerView.backgroundColor = [UIColor colorWithRed:250/255. green:50/255. blue:50/255. alpha:0.85];
+		UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, [tableView frame].size.width, [self sizeForDevice])];
+		[headerView addSubview:label];
+		label.backgroundColor = [UIColor clearColor];
+		label.textColor = [UIColor whiteColor];
+		label.text = @"Host Offline";
+		label.font = [UIFont fontWithName:@"Arial" size:[self sizeForDevice] - 6];
+		label.textAlignment = NSTextAlignmentCenter;
+		label.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+		label.tag = 1;
+	}
+	return headerView;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+	if (![[[TorrentDelegate sharedInstance] currentlySelectedClient] isHostOnline])
+	{
+		return 0;
+	}
     return [[[[[TorrentDelegate sharedInstance] currentlySelectedClient] getJobsDict] allKeys] count];
 }
 

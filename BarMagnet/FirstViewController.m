@@ -13,7 +13,9 @@
 #import "TSMessages/Classes/TSMessage.h"
 
 @interface FirstViewController () <UIActionSheetDelegate>
-@property (nonatomic, weak) UIActionSheet * mainSheet;
+@property (nonatomic, weak) UIActionSheet * controlSheet;
+@property (nonatomic, weak) UIActionSheet * sortBySheet;
+@property (nonatomic, weak) UIActionSheet * deleteTorrentSheet;
 @property (nonatomic, strong) NSArray * sortByStrings;
 @end
 
@@ -34,7 +36,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
 	[super viewDidAppear:animated];
-	[[self torrentJobsTableView] reloadData];
+	[self.torrentJobsTableView reloadData];
 }
 
 - (void)dealloc
@@ -42,16 +44,11 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-}
-
 - (void)receiveUpdateTableNotification
 {
 	if (!cancelNextRefresh && ![self torrentJobsTableView].isEditing)
 	{
-		[[self torrentJobsTableView] performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
+		[self.torrentJobsTableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
 
 		[(UITableView *)[[tdv view] viewWithTag:1] performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
 	}
@@ -75,8 +72,7 @@
 {
 	if ([self.torrentJobsTableView numberOfRowsInSection:0])
 	{
-		[[self.mainSheet = UIActionSheet.alloc initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Resume All", @"Pause All", nil] showFromToolbar:self.navigationController.toolbar];
-		self.mainSheet.tag = 1;
+		[[self.controlSheet = UIActionSheet.alloc initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Resume All", @"Pause All", nil] showFromToolbar:self.navigationController.toolbar];
 	}
 }
 
@@ -84,8 +80,7 @@
 {
 	if ([self.torrentJobsTableView numberOfRowsInSection:0])
 	{
-		[[self.mainSheet = UIActionSheet.alloc initWithTitle:@"Sort By" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Completed", @"Incomplete", @"Downloading", @"Seeding", @"Paused", @"Name", @"Size", nil] showFromToolbar:self.navigationController.toolbar];
-		self.mainSheet.tag = 0;
+		[[self.sortBySheet = UIActionSheet.alloc initWithTitle:@"Sort By" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Completed", @"Incomplete", @"Downloading", @"Seeding", @"Paused", @"Name", @"Size", nil] showFromToolbar:self.navigationController.toolbar];
 	}
 }
 
@@ -93,12 +88,12 @@
 {
 	if (buttonIndex != actionSheet.cancelButtonIndex)
 	{
-		if (actionSheet.tag == 0)
+		if (actionSheet == self.sortBySheet)
 		{
 			[FileHandler.sharedInstance setSettingsValue:[actionSheet buttonTitleAtIndex:buttonIndex] forKey:@"sort_by"];
 			[self.torrentJobsTableView reloadData];
 		}
-		else
+		else if (actionSheet == self.controlSheet)
 		{
 			switch (buttonIndex)
 			{
@@ -109,6 +104,10 @@
 					[TorrentDelegate.sharedInstance.currentlySelectedClient pauseAllTorrents];
 					break;
 			}
+		}
+		else if (actionSheet == self.deleteTorrentSheet)
+		{
+
 		}
 	}
 }

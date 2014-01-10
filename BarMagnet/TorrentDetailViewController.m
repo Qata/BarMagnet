@@ -169,7 +169,7 @@
 	}
 	else
 	{
-		popupQuery = [[UIActionSheet alloc] initWithTitle:@"Are you sure?" delegate:self cancelButtonTitle:@"Whoa, cancel!" destructiveButtonTitle:@"Yes!" otherButtonTitles:nil];
+		popupQuery = [[UIActionSheet alloc] initWithTitle:@"Are you sure?" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Yes" otherButtonTitles:nil];
 	}
     [popupQuery showFromToolbar:self.navigationController.toolbar];
 	[selfView deselectRowAtIndexPath:[selfView indexPathForSelectedRow] animated:NO];

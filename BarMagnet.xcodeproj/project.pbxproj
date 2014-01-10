@@ -37,6 +37,10 @@
 		2374DDAF1796F2C700F613EB /* SVWebViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2374DDA21796F2C700F613EB /* SVWebViewController.strings */; };
 		2374DDB01796F2C700F613EB /* SVModalWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2374DDA91796F2C700F613EB /* SVModalWebViewController.m */; };
 		2374DDB21796F2C700F613EB /* SVWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2374DDAC1796F2C700F613EB /* SVWebViewController.m */; };
+		237570B11877B742008217BF /* UIButtonBarStop.png in Resources */ = {isa = PBXBuildFile; fileRef = 237570AF1877B742008217BF /* UIButtonBarStop.png */; };
+		237570B21877B742008217BF /* UIButtonBarStop@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 237570B01877B742008217BF /* UIButtonBarStop@2x.png */; };
+		237570B51877B874008217BF /* Gripper.png in Resources */ = {isa = PBXBuildFile; fileRef = 237570B31877B874008217BF /* Gripper.png */; };
+		237570B61877B874008217BF /* Gripper@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 237570B41877B874008217BF /* Gripper@2x.png */; };
 		238A94C117A121630081EF6D /* NotificationBackgroundError.png in Resources */ = {isa = PBXBuildFile; fileRef = 238A94A417A121630081EF6D /* NotificationBackgroundError.png */; };
 		238A94C217A121630081EF6D /* NotificationBackgroundError@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 238A94A517A121630081EF6D /* NotificationBackgroundError@2x.png */; };
 		238A94C317A121630081EF6D /* NotificationBackgroundErrorIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 238A94A617A121630081EF6D /* NotificationBackgroundErrorIcon.png */; };
@@ -94,6 +98,8 @@
 		23B286BC17C0401700BB2DA6 /* NSOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B286BB17C0401700BB2DA6 /* NSOption.m */; };
 		23B84F0F17B60F4F008C9D17 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23B84F0D17B60F4F008C9D17 /* MainStoryboard_iPad.storyboard */; };
 		23DC75B417F94DA70011258F /* WebViewNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23DC75B317F94DA70011258F /* WebViewNavigationController.m */; };
+		23E60FB71876D20400D2068B /* PlayPause.png in Resources */ = {isa = PBXBuildFile; fileRef = 23E60FB51876D20400D2068B /* PlayPause.png */; };
+		23E60FB81876D20400D2068B /* PlayPause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23E60FB61876D20400D2068B /* PlayPause@2x.png */; };
 		23EBE2D917941EBC00723ADD /* AddTorrentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EBE2D817941EBC00723ADD /* AddTorrentViewController.m */; };
 		23FC25D81788F1D500CCE434 /* TorrentJobCheckerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FC25D71788F1D500CCE434 /* TorrentJobCheckerCell.m */; };
 /* End PBXBuildFile section */
@@ -123,7 +129,6 @@
 		232B0FA4178C356700A7B3DC /* TorrentDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TorrentDetailViewController.m; sourceTree = "<group>"; };
 		23314150177FE95E0062B0FE /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
 		23314151177FE95E0062B0FE /* gear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gear@2x.png"; sourceTree = "<group>"; };
-		233C9F0117B934AD00405CA7 /* libfunctionalkit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libfunctionalkit.a; path = "../../Bar Magnet Shared Sources/Sources/External/functionalkit/build/Debug-iphoneos/libfunctionalkit.a"; sourceTree = "<group>"; };
 		233C9F0417B9354300405CA7 /* FileHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileHandler.h; path = "../../../Bar Magnet Shared Sources/FileHandler.h"; sourceTree = "<group>"; };
 		233C9F0517B9354300405CA7 /* FileHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FileHandler.m; path = "../../../Bar Magnet Shared Sources/FileHandler.m"; sourceTree = "<group>"; };
 		233C9F1117B93A3100405CA7 /* TorrentFileHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TorrentFileHandler.h; path = "../../../Bar Magnet Shared Sources/TorrentFileHandler.h"; sourceTree = "<group>"; };
@@ -161,6 +166,10 @@
 		2374DDAC1796F2C700F613EB /* SVWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVWebViewController.m; sourceTree = "<group>"; };
 		2374DDAD1796F2C700F613EB /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SVWebViewController.strings"; sourceTree = "<group>"; };
 		2374DDAE1796F2C700F613EB /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/SVWebViewController.strings"; sourceTree = "<group>"; };
+		237570AF1877B742008217BF /* UIButtonBarStop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIButtonBarStop.png; sourceTree = "<group>"; };
+		237570B01877B742008217BF /* UIButtonBarStop@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIButtonBarStop@2x.png"; sourceTree = "<group>"; };
+		237570B31877B874008217BF /* Gripper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gripper.png; sourceTree = "<group>"; };
+		237570B41877B874008217BF /* Gripper@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Gripper@2x.png"; sourceTree = "<group>"; };
 		238A949817A121630081EF6D /* TSMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSMessage.h; sourceTree = "<group>"; };
 		238A94A417A121630081EF6D /* NotificationBackgroundError.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundError.png; sourceTree = "<group>"; };
 		238A94A517A121630081EF6D /* NotificationBackgroundError@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundError@2x.png"; sourceTree = "<group>"; };
@@ -267,6 +276,8 @@
 		23B84F0E17B60F4F008C9D17 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		23DC75B217F94DA70011258F /* WebViewNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewNavigationController.h; sourceTree = "<group>"; };
 		23DC75B317F94DA70011258F /* WebViewNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewNavigationController.m; sourceTree = "<group>"; };
+		23E60FB51876D20400D2068B /* PlayPause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayPause.png; sourceTree = "<group>"; };
+		23E60FB61876D20400D2068B /* PlayPause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PlayPause@2x.png"; sourceTree = "<group>"; };
 		23EBE2D717941EBC00723ADD /* AddTorrentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTorrentViewController.h; sourceTree = "<group>"; };
 		23EBE2D817941EBC00723ADD /* AddTorrentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTorrentViewController.m; sourceTree = "<group>"; };
 		23FC25D61788F1D500CCE434 /* TorrentJobCheckerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TorrentJobCheckerCell.h; sourceTree = "<group>"; };
@@ -445,7 +456,6 @@
 			isa = PBXGroup;
 			children = (
 				233C9F9517B9E2E500405CA7 /* libz.dylib */,
-				233C9F0117B934AD00405CA7 /* libfunctionalkit.a */,
 				23B6E23117A337C9003D3B7C /* Accelerate.framework */,
 				238A94D517A121C30081EF6D /* OpenGLES.framework */,
 				238A94D317A121B70081EF6D /* QuartzCore.framework */,
@@ -509,6 +519,12 @@
 				235527541871718300A9E6BC /* UIButtonBarPause@2x.png */,
 				235527551871718300A9E6BC /* UIButtonBarPlay.png */,
 				235527561871718300A9E6BC /* UIButtonBarPlay@2x.png */,
+				237570AF1877B742008217BF /* UIButtonBarStop.png */,
+				237570B01877B742008217BF /* UIButtonBarStop@2x.png */,
+				23E60FB51876D20400D2068B /* PlayPause.png */,
+				23E60FB61876D20400D2068B /* PlayPause@2x.png */,
+				237570B31877B874008217BF /* Gripper.png */,
+				237570B41877B874008217BF /* Gripper@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -701,6 +717,7 @@
 			files = (
 				235527581871718300A9E6BC /* UIButtonBarPause@2x.png in Resources */,
 				235527661872723700A9E6BC /* Images.xcassets in Resources */,
+				23E60FB81876D20400D2068B /* PlayPause@2x.png in Resources */,
 				238A94CC17A121630081EF6D /* NotificationBackgroundWarning@2x.png in Resources */,
 				23AC2B2C175D835600FCFA71 /* InfoPlist.strings in Resources */,
 				23314153177FE95E0062B0FE /* gear@2x.png in Resources */,
@@ -708,7 +725,9 @@
 				23AC2B34175D835600FCFA71 /* Default.png in Resources */,
 				23AC2B36175D835600FCFA71 /* Default@2x.png in Resources */,
 				238A94C617A121630081EF6D /* NotificationBackgroundMessage@2x.png in Resources */,
+				237570B61877B874008217BF /* Gripper@2x.png in Resources */,
 				238A94C117A121630081EF6D /* NotificationBackgroundError.png in Resources */,
+				237570B11877B742008217BF /* UIButtonBarStop.png in Resources */,
 				238A94CA17A121630081EF6D /* NotificationBackgroundSuccessIcon@2x.png in Resources */,
 				238A94C517A121630081EF6D /* NotificationBackgroundMessage.png in Resources */,
 				238A94CF17A121630081EF6D /* NotificationButtonBackground.png in Resources */,
@@ -726,15 +745,18 @@
 				23B84F0F17B60F4F008C9D17 /* MainStoryboard_iPad.storyboard in Resources */,
 				2360A529175E04720090F647 /* magnet iPhone.png in Resources */,
 				23552768187285B200A9E6BC /* TSMessagesDefaultDesign.json in Resources */,
+				237570B51877B874008217BF /* Gripper.png in Resources */,
 				238A94C417A121630081EF6D /* NotificationBackgroundErrorIcon@2x.png in Resources */,
 				2360A52B175E04750090F647 /* magnet retina iPhone.png in Resources */,
 				2355275D18722A8600A9E6BC /* info.png in Resources */,
 				2355275E18722A8600A9E6BC /* info@2x.png in Resources */,
 				238A94C817A121630081EF6D /* NotificationBackgroundSuccess@2x.png in Resources */,
+				237570B21877B742008217BF /* UIButtonBarStop@2x.png in Resources */,
 				238A94C217A121630081EF6D /* NotificationBackgroundError@2x.png in Resources */,
 				238A94C717A121630081EF6D /* NotificationBackgroundSuccess.png in Resources */,
 				235527571871718300A9E6BC /* UIButtonBarPause.png in Resources */,
 				2351200A1769C49000A3DE2C /* MainStoryboard_iPhone.storyboard in Resources */,
+				23E60FB71876D20400D2068B /* PlayPause.png in Resources */,
 				238A94C917A121630081EF6D /* NotificationBackgroundSuccessIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -753,7 +775,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "#z=${FULL_PRODUCT_NAME}; ssh iphone killall ${z%????}; scp -r \"${BUILD_ROOT}/Debug-iphoneos/${FULL_PRODUCT_NAME}\" iphone:/Applications;";
+			shellScript = "#z=${FULL_PRODUCT_NAME}; ssh iphone killall ${z%????}; scp -r \"${BUILD_ROOT}/Debug-iphoneos/${FULL_PRODUCT_NAME}\" iphone:/Applications;\n#cp -r \"${BUILD_ROOT}/Release-iphoneos/${FULL_PRODUCT_NAME}\" ~/Cydia/BarMagnet/Applications";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -938,12 +960,11 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Carlo Tortorella (27LEU46442)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Carlo Tortorella (27LEU46442)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BarMagnet/BarMagnet-Prefix.pch";
 				INFOPLIST_FILE = "BarMagnet/BarMagnet-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/TestFlightSDK1.2.6",
@@ -964,19 +985,19 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Carlo Tortorella (P7852E8EWD)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Carlo Tortorella (P7852E8EWD)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BarMagnet/BarMagnet-Prefix.pch";
 				INFOPLIST_FILE = "BarMagnet/BarMagnet-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/TestFlightSDK1.2.6",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = BarMagnet;
-				PROVISIONING_PROFILE = "D6768E0E-CA8A-4F1D-9AAD-3B9CBD56DC1F";
+				PROVISIONING_PROFILE = "D5CD5BD4-AE34-45B2-8B6E-E9C7E94D636F";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
