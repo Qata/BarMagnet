@@ -20,14 +20,7 @@
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
-	hashDict = [[[TorrentDelegate sharedInstance] currentlySelectedClient] getJobsDict][hashString];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-	[super viewDidAppear:animated];
-	[[NSNotificationCenter defaultCenter] postNotificationName:@"uncancel_refresh" object:nil];
-	[torrentJobsView deselectRowAtIndexPath:[torrentJobsView indexPathForSelectedRow] animated:NO];
+	hashDict = [[[TorrentDelegate sharedInstance] currentlySelectedClient] getJobsDict][self.hashString];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -39,14 +32,14 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-	[super viewWillDisappear:animated];
 	self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
+	[super viewWillDisappear:animated];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
-	[super viewDidDisappear:animated];
 	identifierArray = nil;
+	[super viewDidDisappear:animated];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -63,14 +56,7 @@
 
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 
-    if (cell == nil)
-	{
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
-		cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    }
-
 	cell.textLabel.text = [[identifierArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-	cell.accessoryType = UITableViewCellAccessoryNone;
 
 	double completeValue;
 	switch (indexPath.section)
@@ -128,14 +114,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	if ([hashDict[@"status"] isEqualToString:@"Paused"])
-	{
-		self.playPauseButton.image = [UIImage imageNamed:@"UIButtonBarPlay"];
-	}
-	else
-	{
-		self.playPauseButton.image = [UIImage imageNamed:@"UIButtonBarPause"];
-	}
+	self.playPauseButton.image = [UIImage imageNamed:[NSString stringWithFormat:@"UIButtonBar%@", [hashDict[@"status"] isEqualToString:@"Paused"] ? @"Pause" : @"Play"]];
 
 	switch (section)
 	{
@@ -154,9 +133,9 @@
 - (IBAction)playPause:(id)sender
 {
 	if ([[hashDict objectForKey:@"status"] isEqual:@"Paused"])
-		[[[TorrentDelegate sharedInstance] currentlySelectedClient] resumeTorrent:hashString];
+		[[[TorrentDelegate sharedInstance] currentlySelectedClient] resumeTorrent:self.hashString];
 	else
-		[[[TorrentDelegate sharedInstance] currentlySelectedClient] pauseTorrent:hashString];
+		[[[TorrentDelegate sharedInstance] currentlySelectedClient] pauseTorrent:self.hashString];
 	[self.navigationController popToRootViewControllerAnimated:YES];
 }
 
@@ -179,9 +158,8 @@
 {
 	if (buttonIndex != [actionSheet cancelButtonIndex])
 	{
-		[[NSNotificationCenter defaultCenter] postNotificationName:@"uncancel_refresh" object:nil];
-		[[[TorrentDelegate sharedInstance] currentlySelectedClient] addTemporaryDeletedJobsObject:@2 forKey:hashString];
-		[[[TorrentDelegate sharedInstance] currentlySelectedClient] removeTorrent:hashString removeData:buttonIndex == 0];
+		[[[TorrentDelegate sharedInstance] currentlySelectedClient] addTemporaryDeletedJobsObject:@2 forKey:self.hashString];
+		[[[TorrentDelegate sharedInstance] currentlySelectedClient] removeTorrent:self.hashString removeData:buttonIndex == 0];
 		[[NSNotificationCenter defaultCenter] postNotificationName:@"update_torrent_jobs_table" object:nil];
 		[[self navigationController] popToRootViewControllerAnimated:YES];
 	}
@@ -189,9 +167,9 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-	if (!(hashDict = [[[TorrentDelegate sharedInstance] currentlySelectedClient] getJobsDict][hashString]))
+	if (!(hashDict = [[[TorrentDelegate sharedInstance] currentlySelectedClient] getJobsDict][self.hashString]))
 	{
-		[[self navigationController] popToRootViewControllerAnimated:YES];
+		[[self navigationController] popToRootViewControllerAnimated:NO];
 		return 0;
 	}
 	[self setTitle:hashDict[@"name"]];
@@ -203,16 +181,6 @@
 	if (section == 0)
 		return hashDict[@"name"];
 	return @"";
-}
-
-- (void)setHash:(NSString *)hash
-{
-	hashString = hash;
-}
-
-- (void)setJobsView:(UITableView *)jobsView
-{
-	torrentJobsView = jobsView;
 }
 
 @end

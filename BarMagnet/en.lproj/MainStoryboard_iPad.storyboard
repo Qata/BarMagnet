@@ -1,55 +1,55 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="K3W-hW-l8C">
     <dependencies>
-        <deployment defaultVersion="1280" identifier="iOS"/>
+        <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--First View Controller - First-->
-        <scene sceneID="pFa-fj-zIO">
+        <!--Torrent Jobs Table View Controller-->
+        <scene sceneID="vCd-LJ-EFW">
             <objects>
-                <viewController title="First" id="dyb-7Q-Jtk" customClass="FirstViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" id="uLQ-WH-m8z">
-                        <rect key="frame" x="0.0" y="64" width="768" height="916"/>
+                <tableViewController id="EgX-EY-3Mi" customClass="TorrentJobsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="79" sectionHeaderHeight="22" sectionFooterHeight="22" id="elh-wm-8x8">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Prototype" rowHeight="80" id="FM8-7x-C2r" customClass="TorrentJobCheckerCell">
-                                <rect key="frame" x="0.0" y="22" width="768" height="80"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Prototype" rowHeight="80" id="a7w-MV-isB" customClass="TorrentJobCheckerCell">
+                                <rect key="frame" x="0.0" y="86" width="768" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FM8-7x-C2r" id="lEh-KX-6cx">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="a7w-MV-isB" id="YJP-b6-HwV">
                                     <rect key="frame" x="0.0" y="0.0" width="768" height="79"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <progressView opaque="NO" tag="218493483" contentMode="scaleToFill" verticalHuggingPriority="750" id="rab-zP-Crw">
+                                        <progressView opaque="NO" tag="218493483" contentMode="scaleToFill" verticalHuggingPriority="750" id="yU6-79-aBR">
                                             <rect key="frame" x="20" y="28" width="728" height="2"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         </progressView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="846264338" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Up: 888.8 KB/s" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="k48-AR-6rn">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="846264338" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Up: 888.8 KB/s" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YBt-Pz-POo">
                                             <rect key="frame" x="20" y="38" width="167" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="358979323" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Down: 888.8 KB/s" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dJj-nc-PUQ">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="358979323" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Down: 888.8 KB/s" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0D6-PE-xYN">
                                             <rect key="frame" x="20" y="58" width="167" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="15"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="128462083" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Downloading" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BfF-6G-3f0">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="128462083" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Downloading" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DRJ-9w-yip">
                                             <rect key="frame" x="611" y="38" width="137" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="283476564" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QEK-SI-yeD">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="283476564" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="f0B-QB-tCx">
                                             <rect key="frame" x="20" y="2" width="728" height="22"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="19"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="128462083" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ETA: -" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rgy-KH-7yp">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="128462083" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ETA: -" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fxX-7T-QCq">
                                             <rect key="frame" x="611" y="58" width="137" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
@@ -58,125 +58,68 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="ETA" destination="rgy-KH-7yp" id="2np-7V-DEl"/>
-                                    <outlet property="currentStatus" destination="BfF-6G-3f0" id="7Fy-kQ-XkD"/>
-                                    <outlet property="downloadSpeed" destination="dJj-nc-PUQ" id="Egk-XB-T2z"/>
-                                    <outlet property="name" destination="QEK-SI-yeD" id="PZP-Id-6TL"/>
-                                    <outlet property="percentBar" destination="rab-zP-Crw" id="mcX-5v-R76"/>
-                                    <outlet property="uploadSpeed" destination="k48-AR-6rn" id="4X1-vc-xm7"/>
+                                    <outlet property="ETA" destination="fxX-7T-QCq" id="RYE-PY-7fK"/>
+                                    <outlet property="currentStatus" destination="DRJ-9w-yip" id="wjd-lA-Cgh"/>
+                                    <outlet property="downloadSpeed" destination="0D6-PE-xYN" id="UFa-8j-OGu"/>
+                                    <outlet property="name" destination="f0B-QB-tCx" id="a7a-r8-UqC"/>
+                                    <outlet property="percentBar" destination="yU6-79-aBR" id="k9t-oI-lv3"/>
+                                    <outlet property="uploadSpeed" destination="YBt-Pz-POo" id="r3Z-ag-Xmw"/>
+                                    <segue destination="mOR-Qr-S9h" kind="push" id="cwR-Xb-Qnm"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="svj-2q-CYq" id="PdG-wP-iRz"/>
-                            <outlet property="delegate" destination="svj-2q-CYq" id="eg2-Gi-VtO"/>
+                            <outlet property="dataSource" destination="EgX-EY-3Mi" id="IG5-v0-Ddw"/>
+                            <outlet property="delegate" destination="EgX-EY-3Mi" id="f75-o1-GBr"/>
                         </connections>
                     </tableView>
-                    <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems>
-                        <barButtonItem image="info.png" style="plain" id="NJ2-2J-JoQ">
+                        <barButtonItem image="info.png" style="plain" id="Twn-iL-aeI">
                             <connections>
-                                <segue destination="wVf-zs-IsE" kind="push" id="2OT-8i-mrQ"/>
+                                <segue destination="wVf-zs-IsE" kind="push" id="MZ5-NP-vCp"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="h1C-aj-MaL"/>
-                        <barButtonItem image="Gripper.png" style="plain" id="MNP-Ee-Mb2">
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="Sy4-hT-fsN"/>
+                        <barButtonItem image="Gripper.png" style="plain" id="2Ut-1d-wAR">
                             <connections>
-                                <action selector="sortBy:" destination="dyb-7Q-Jtk" id="7cI-Xq-Jgp"/>
+                                <action selector="sortBy:" destination="EgX-EY-3Mi" id="fcl-8b-jjW"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="vep-Rz-ANG"/>
-                        <barButtonItem image="PlayPause.png" style="plain" id="q1y-DQ-FXV">
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="y1D-Uw-dch"/>
+                        <barButtonItem image="PlayPause.png" style="plain" id="ERb-Ps-5nC">
                             <connections>
-                                <action selector="showListOfControlOptions:" destination="dyb-7Q-Jtk" id="DjZ-HW-Ocx"/>
+                                <action selector="showListOfControlOptions:" destination="EgX-EY-3Mi" id="I4u-LP-kCL"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="PHT-xO-sYS"/>
-                        <barButtonItem image="gear.png" style="plain" id="06k-M6-gjs">
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="jI7-E3-Z48"/>
+                        <barButtonItem image="gear.png" style="plain" id="Qlz-sE-mbV">
                             <connections>
-                                <segue destination="Wpy-UK-JBA" kind="push" id="O6Z-Q3-yEo"/>
+                                <segue destination="Wpy-UK-JBA" kind="push" id="oEU-6u-Wtp"/>
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" id="pZO-xY-XtE">
+                    <navigationItem key="navigationItem" id="lhI-nY-5Yz">
                         <barButtonItem key="leftBarButtonItem" title="Open UI" id="srC-JT-von">
                             <connections>
-                                <action selector="openUI:" destination="dyb-7Q-Jtk" id="3UJ-Ab-AJ0"/>
+                                <action selector="openUI:" destination="EgX-EY-3Mi" id="FfF-wB-QG5"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="LWH-0w-Bnt">
                             <connections>
-                                <segue destination="dB8-fs-PBX" kind="push" id="e4W-zs-uGm"/>
+                                <action selector="addTorrentPopup:" destination="EgX-EY-3Mi" id="tp3-gN-doG"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="torrentJobsTableView" destination="uLQ-WH-m8z" id="KNS-1d-NjP"/>
-                        <segue destination="Ug0-6O-Dh7" kind="push" identifier="details" id="chw-v7-aDc"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ak7-ZM-4Xo" sceneMemberID="firstResponder"/>
-                <customObject id="svj-2q-CYq" customClass="TorrentJobsViewController">
-                    <connections>
-                        <outlet property="viewController" destination="dyb-7Q-Jtk" id="MK3-0Y-Ocu"/>
-                    </connections>
-                </customObject>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pw6-AV-yps" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1167" y="-621"/>
+            <point key="canvasLocation" x="1162" y="-621"/>
         </scene>
-        <!--Torrent Detail View Controller-->
-        <scene sceneID="XmT-0G-1IJ">
-            <objects>
-                <viewController storyboardIdentifier="detailView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ug0-6O-Dh7" customClass="TorrentDetailViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" tag="1" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="vwQ-cj-QRr">
-                        <rect key="frame" x="0.0" y="64" width="768" height="916"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="RegularCell" id="Bn3-rv-GJQ">
-                                <rect key="frame" x="0.0" y="55" width="768" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bn3-rv-GJQ" id="fnO-u6-5LC">
-                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="Ug0-6O-Dh7" id="m8y-mv-Emk"/>
-                            <outlet property="delegate" destination="Ug0-6O-Dh7" id="8RE-gF-MqM"/>
-                        </connections>
-                    </tableView>
-                    <extendedEdge key="edgesForExtendedLayout"/>
-                    <toolbarItems>
-                        <barButtonItem image="UIButtonBarPlay.png" style="plain" id="G7J-GO-fx8">
-                            <connections>
-                                <action selector="playPause:" destination="Ug0-6O-Dh7" id="fEI-hP-POu"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="m2P-w1-n4h"/>
-                        <barButtonItem image="UIButtonBarStop.png" style="plain" id="nRO-0R-sSh">
-                            <connections>
-                                <action selector="deleteTorrent:" destination="Ug0-6O-Dh7" id="fA2-na-Hcd"/>
-                            </connections>
-                        </barButtonItem>
-                    </toolbarItems>
-                    <navigationItem key="navigationItem" id="hUQ-zd-hsh"/>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <connections>
-                        <outlet property="playPauseButton" destination="G7J-GO-fx8" id="ePj-Mb-eIF"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ulN-cd-6ff" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2053" y="-621"/>
-        </scene>
-        <!--Second View Controller - Settings-->
+        <!--Settings Table View Controller - Settings-->
         <scene sceneID="fKw-q8-Y6a">
             <objects>
-                <tableViewController id="Wpy-UK-JBA" customClass="SecondViewController" sceneMemberID="viewController">
+                <tableViewController id="Wpy-UK-JBA" customClass="SettingsTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Gxe-3G-72N">
                         <rect key="frame" x="0.0" y="64" width="768" height="916"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -533,76 +476,90 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
-                        <segue destination="dyb-7Q-Jtk" kind="relationship" relationship="rootViewController" id="AcF-2B-sZ0"/>
+                        <segue destination="EgX-EY-3Mi" kind="relationship" relationship="rootViewController" id="YKn-E7-mrn"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="plN-S9-XcA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="300" y="-621"/>
         </scene>
-        <!--Add Torrent View Controller - Add Torrents-->
-        <scene sceneID="GWz-tP-wFb">
+        <!--Torrent Detail View Controller-->
+        <scene sceneID="cbV-Pe-3eV">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="dB8-fs-PBX" customClass="AddTorrentViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="L4m-ZL-it6">
-                        <rect key="frame" x="0.0" y="64" width="768" height="916"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" id="BMX-S6-KaH">
-                                <rect key="frame" x="166" y="49" width="437" height="30"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="URL" returnKeyType="send"/>
-                                <connections>
-                                    <outlet property="delegate" destination="dB8-fs-PBX" id="42k-5w-Bjc"/>
-                                </connections>
-                            </textField>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open URL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wnO-rB-jxJ">
-                                <rect key="frame" x="244" y="20" width="280" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" id="Fi7-6S-Bm2">
-                                <rect key="frame" x="166" y="116" width="437" height="30"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
-                                <connections>
-                                    <outlet property="delegate" destination="dB8-fs-PBX" id="n6L-B2-WsW"/>
-                                </connections>
-                            </textField>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search via supplied query format" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="41H-56-4Oy">
-                                <rect key="frame" x="244" y="87" width="280" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="iuw-9d-13t">
-                                <rect key="frame" x="323" y="154" width="123" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Open Torrent Site">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="openSiteButton:" destination="dB8-fs-PBX" eventType="touchUpInside" id="M4A-8M-ShV"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" title="Add Torrents" id="eRh-dc-G4O"/>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                <tableViewController id="mOR-Qr-S9h" customClass="TorrentDetailViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="yOb-8f-5fY">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RegularCell" textLabel="1Lg-eM-dK6" style="IBUITableViewCellStyleDefault" id="yUS-oc-PeK">
+                                <rect key="frame" x="0.0" y="119" width="768" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yUS-oc-PeK" id="nkR-tD-fL5">
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1Lg-eM-dK6">
+                                            <rect key="frame" x="15" y="0.0" width="738" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TorrentDetailCell" textLabel="TWd-KX-ndU" detailTextLabel="QuQ-aV-C9u" style="IBUITableViewCellStyleValue1" id="KqT-Ty-Ook">
+                                <rect key="frame" x="0.0" y="163" width="768" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KqT-Ty-Ook" id="OIs-zY-4yl">
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TWd-KX-ndU">
+                                            <rect key="frame" x="15" y="11" width="33" height="21"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QuQ-aV-C9u">
+                                            <rect key="frame" x="709" y="11" width="44" height="21"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="mOR-Qr-S9h" id="phy-xC-lih"/>
+                            <outlet property="delegate" destination="mOR-Qr-S9h" id="Suw-6S-sbD"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems>
+                        <barButtonItem image="UIButtonBarPlay.png" style="plain" id="cAT-Q9-2Ic">
+                            <connections>
+                                <action selector="playPause:" destination="mOR-Qr-S9h" id="1rk-nn-QMG"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="TKp-6B-8iT"/>
+                        <barButtonItem image="UIButtonBarStop.png" style="plain" id="sM6-RY-PtX">
+                            <connections>
+                                <action selector="deleteTorrent:" destination="mOR-Qr-S9h" id="BUI-1F-NRg"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="69F-an-fvQ"/>
                     <connections>
-                        <outlet property="searchBox" destination="Fi7-6S-Bm2" id="h6l-Ir-JW8"/>
-                        <outlet property="textBox" destination="BMX-S6-KaH" id="tSS-Yc-2Gr"/>
+                        <outlet property="playPauseButton" destination="cAT-Q9-2Ic" id="P9t-a0-UTc"/>
                     </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Wgt-Hj-mId" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="awX-fq-pDa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2053" y="-1805"/>
+            <point key="canvasLocation" x="2053" y="-621"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="lpT-pO-Z8k">

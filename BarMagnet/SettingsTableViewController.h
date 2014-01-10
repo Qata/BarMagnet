@@ -1,5 +1,5 @@
 //
-//  SecondViewController.h
+//  SettingsTableViewController.h
 //  BarMagnet
 //
 //  Created by Carlo Tortorella on 4/06/13.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "StaticDataTableViewController.h"
 
-@interface SecondViewController : StaticDataTableViewController  <UITextFieldDelegate, UITableViewDelegate>
+@interface SettingsTableViewController : StaticDataTableViewController  <UITextFieldDelegate, UITableViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *hostnameField;
 @property (strong, nonatomic) IBOutlet UITextField *portField;

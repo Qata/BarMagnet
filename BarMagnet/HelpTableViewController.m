@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 Carlo Tortorella. All rights reserved.
 //
 
-#import "HelpViewController.h"
 #import "HelpTableViewController.h"
 
 @implementation HelpTableViewController

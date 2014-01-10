@@ -18,6 +18,13 @@
 
 @implementation AddTorrentViewController
 
+- (void)viewDidLoad
+{
+	[super viewDidLoad];
+	[self setTitle:@"Add Torrent"];
+	[[self searchBox] becomeFirstResponder];
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
 	if ([textField isEqual:self.textBox])
@@ -45,13 +52,6 @@
 	}
     [textField resignFirstResponder];
     return YES;
-}
-
-- (void)viewDidLoad
-{
-	[super viewDidLoad];
-	[self setTitle:@"Add Torrent"];
-	[[self searchBox] becomeFirstResponder];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -109,21 +109,6 @@
 			}
 		}
 	}
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-
-}
-
-- (BOOL)shouldAutorotate
-{
-	return NO;
-}
-
-- (NSUInteger)supportedInterfaceOrientations
-{
-	return UIInterfaceOrientationMaskPortrait;
 }
 
 @end
