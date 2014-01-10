@@ -8,17 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TorrentDetailViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface TorrentDetailViewController : UITableViewController
 {
 	NSArray * identifierArray;
-	NSString * hashString;
 	NSDictionary * hashDict;
 	UITableView * torrentJobsView;
 	UITableView * selfView;
 }
 
-- (void)setHash:(NSString *)hash;
-- (void)setJobsView:(UITableView *)jobsView;
+@property (strong, nonatomic) NSString * hashString;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *playPauseButton;
 
 @end

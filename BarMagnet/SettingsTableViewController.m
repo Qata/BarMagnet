@@ -1,22 +1,18 @@
 //
-//  SecondViewController.m
+//  SettingsTableViewController.m
 //  BarMagnet
 //
 //  Created by Carlo Tortorella on 4/06/13.
 //  Copyright (c) 2013 Carlo Tortorella. All rights reserved.
 //
 
-#import "SecondViewController.h"
+#import "SettingsTableViewController.h"
 #import "FileHandler.h"
 #import "TorrentDelegateConfig.h"
 #import "TorrentDelegate.h"
 #import "TorrentClient.h"
 
-@interface SecondViewController ()
-
-@end
-
-@implementation SecondViewController
+@implementation SettingsTableViewController
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
@@ -70,7 +66,7 @@
 	[[self useSSLSegmentedControl] setSelectedSegmentIndex:[[[[FileHandler sharedInstance] webDataValueForKey:@"use_ssl" andDict:nil] orSome:@NO] intValue]];
     NSString * serverType = [[FileHandler sharedInstance] settingsValueForKey:@"server_type"];
     NSArray * delegateArray = [[[[TorrentDelegateConfig sharedInstance] torrentDelegates] allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
-    [[self pickerView] selectRow:[delegateArray indexOfObject:serverType] inComponent:0 animated:NO];
+    [self.pickerView selectRow:[delegateArray indexOfObject:serverType] inComponent:0 animated:NO];
 }
 
 - (void)dealloc
@@ -110,11 +106,6 @@
 
 	[self cell:[self relativePathCell] setHidden:!torrentDelegate.shouldShowSpecificsButton];
 	[self reloadDataAnimated:YES];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
 }
 
 @end

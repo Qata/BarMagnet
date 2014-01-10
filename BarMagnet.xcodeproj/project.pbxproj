@@ -65,7 +65,6 @@
 		239162941795794400213C67 /* ConnectionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 239162931795794400213C67 /* ConnectionHandler.m */; };
 		23A0E5C817894C0A00898812 /* NSArray+Functions.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A0E5C717894C0A00898812 /* NSArray+Functions.m */; };
 		23A48234177DE1BA000873CF /* TorrentJobChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A48233177DE1BA000873CF /* TorrentJobChecker.m */; };
-		23A48238177EA050000873CF /* TorrentJobsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A48237177EA050000873CF /* TorrentJobsViewController.m */; };
 		23A94F22183CD6B7004A3924 /* UINavigationControllerNoAutoRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A94F21183CD6B7004A3924 /* UINavigationControllerNoAutoRotation.m */; };
 		23AC2B22175D835600FCFA71 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23AC2B21175D835600FCFA71 /* UIKit.framework */; };
 		23AC2B24175D835600FCFA71 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23AC2B23175D835600FCFA71 /* Foundation.framework */; };
@@ -75,11 +74,10 @@
 		23AC2B34175D835600FCFA71 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 23AC2B33175D835600FCFA71 /* Default.png */; };
 		23AC2B36175D835600FCFA71 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23AC2B35175D835600FCFA71 /* Default@2x.png */; };
 		23AC2B38175D835600FCFA71 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23AC2B37175D835600FCFA71 /* Default-568h@2x.png */; };
-		23AC2B41175D835600FCFA71 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AC2B40175D835600FCFA71 /* FirstViewController.m */; };
-		23AC2B48175D835600FCFA71 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AC2B47175D835600FCFA71 /* SecondViewController.m */; };
+		23AC2B41175D835600FCFA71 /* TorrentJobsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AC2B40175D835600FCFA71 /* TorrentJobsTableViewController.m */; };
+		23AC2B48175D835600FCFA71 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AC2B47175D835600FCFA71 /* SettingsTableViewController.m */; };
 		23AC2BC2175D921C00FCFA71 /* ProfilePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AC2BC1175D921B00FCFA71 /* ProfilePickerViewController.m */; };
 		23AC45F4179BED2E00AD5F22 /* Synology.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AC45F3179BED2E00AD5F22 /* Synology.m */; };
-		23AF74DC1796A16200AC4ED5 /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AF74DB1796A16200AC4ED5 /* HelpViewController.m */; };
 		23AF74E01796D5F700AC4ED5 /* StaticDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AF74DF1796D5F700AC4ED5 /* StaticDataTableViewController.m */; };
 		23B1BFE6177C3817000A0B07 /* Deluge.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B1BFD9177C3817000A0B07 /* Deluge.m */; };
 		23B1BFE7177C3817000A0B07 /* qBittorrent.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B1BFDB177C3817000A0B07 /* qBittorrent.m */; };
@@ -97,7 +95,6 @@
 		23B1C01F177C4B88000A0B07 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B1C01E177C4B88000A0B07 /* NSData+Base64.m */; };
 		23B286BC17C0401700BB2DA6 /* NSOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B286BB17C0401700BB2DA6 /* NSOption.m */; };
 		23B84F0F17B60F4F008C9D17 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23B84F0D17B60F4F008C9D17 /* MainStoryboard_iPad.storyboard */; };
-		23DC75B417F94DA70011258F /* WebViewNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23DC75B317F94DA70011258F /* WebViewNavigationController.m */; };
 		23E60FB71876D20400D2068B /* PlayPause.png in Resources */ = {isa = PBXBuildFile; fileRef = 23E60FB51876D20400D2068B /* PlayPause.png */; };
 		23E60FB81876D20400D2068B /* PlayPause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23E60FB61876D20400D2068B /* PlayPause@2x.png */; };
 		23EBE2D917941EBC00723ADD /* AddTorrentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EBE2D817941EBC00723ADD /* AddTorrentViewController.m */; };
@@ -204,8 +201,6 @@
 		23A0E5C717894C0A00898812 /* NSArray+Functions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+Functions.m"; path = "../../../Bar Magnet Shared Sources/NSArray+Functions.m"; sourceTree = "<group>"; };
 		23A48232177DE1BA000873CF /* TorrentJobChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TorrentJobChecker.h; path = "../../../Bar Magnet Shared Sources/TorrentJobChecker.h"; sourceTree = "<group>"; };
 		23A48233177DE1BA000873CF /* TorrentJobChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TorrentJobChecker.m; path = "../../../Bar Magnet Shared Sources/TorrentJobChecker.m"; sourceTree = "<group>"; };
-		23A48236177EA050000873CF /* TorrentJobsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TorrentJobsViewController.h; sourceTree = "<group>"; };
-		23A48237177EA050000873CF /* TorrentJobsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TorrentJobsViewController.m; sourceTree = "<group>"; };
 		23A94F20183CD6B7004A3924 /* UINavigationControllerNoAutoRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UINavigationControllerNoAutoRotation.h; sourceTree = "<group>"; };
 		23A94F21183CD6B7004A3924 /* UINavigationControllerNoAutoRotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UINavigationControllerNoAutoRotation.m; sourceTree = "<group>"; };
 		23AC2B1E175D835600FCFA71 /* BarMagnet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BarMagnet.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -221,12 +216,12 @@
 		23AC2B33175D835600FCFA71 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		23AC2B35175D835600FCFA71 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		23AC2B37175D835600FCFA71 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		23AC2B3F175D835600FCFA71 /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		23AC2B40175D835600FCFA71 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		23AC2B3F175D835600FCFA71 /* TorrentJobsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TorrentJobsTableViewController.h; sourceTree = "<group>"; };
+		23AC2B40175D835600FCFA71 /* TorrentJobsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TorrentJobsTableViewController.m; sourceTree = "<group>"; };
 		23AC2B42175D835600FCFA71 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
 		23AC2B44175D835600FCFA71 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
-		23AC2B46175D835600FCFA71 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		23AC2B47175D835600FCFA71 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		23AC2B46175D835600FCFA71 /* SettingsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
+		23AC2B47175D835600FCFA71 /* SettingsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
 		23AC2B49175D835600FCFA71 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		23AC2B4B175D835600FCFA71 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		23AC2B53175D835600FCFA71 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -238,8 +233,6 @@
 		23AC2BC1175D921B00FCFA71 /* ProfilePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfilePickerViewController.m; sourceTree = "<group>"; };
 		23AC45F2179BED2E00AD5F22 /* Synology.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Synology.h; path = "../../../Bar Magnet Shared Sources/Synology.h"; sourceTree = "<group>"; };
 		23AC45F3179BED2E00AD5F22 /* Synology.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Synology.m; path = "../../../Bar Magnet Shared Sources/Synology.m"; sourceTree = "<group>"; };
-		23AF74DA1796A16200AC4ED5 /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
-		23AF74DB1796A16200AC4ED5 /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
 		23AF74DE1796D5F700AC4ED5 /* StaticDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaticDataTableViewController.h; sourceTree = "<group>"; };
 		23AF74DF1796D5F700AC4ED5 /* StaticDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaticDataTableViewController.m; sourceTree = "<group>"; };
 		23B1BFD8177C3817000A0B07 /* Deluge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Deluge.h; path = "../../../Bar Magnet Shared Sources/Deluge.h"; sourceTree = "<group>"; };
@@ -274,8 +267,6 @@
 		23B286BB17C0401700BB2DA6 /* NSOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSOption.m; path = "../../../Bar Magnet Shared Sources/NSOption.m"; sourceTree = "<group>"; };
 		23B6E23117A337C9003D3B7C /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		23B84F0E17B60F4F008C9D17 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		23DC75B217F94DA70011258F /* WebViewNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewNavigationController.h; sourceTree = "<group>"; };
-		23DC75B317F94DA70011258F /* WebViewNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewNavigationController.m; sourceTree = "<group>"; };
 		23E60FB51876D20400D2068B /* PlayPause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayPause.png; sourceTree = "<group>"; };
 		23E60FB61876D20400D2068B /* PlayPause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PlayPause@2x.png"; sourceTree = "<group>"; };
 		23EBE2D717941EBC00723ADD /* AddTorrentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTorrentViewController.h; sourceTree = "<group>"; };
@@ -304,26 +295,20 @@
 		2324910A178E491500D5454E /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				23AC2B3F175D835600FCFA71 /* FirstViewController.h */,
-				23AC2B40175D835600FCFA71 /* FirstViewController.m */,
-				23AC2B46175D835600FCFA71 /* SecondViewController.h */,
-				23AC2B47175D835600FCFA71 /* SecondViewController.m */,
+				23AC2B3F175D835600FCFA71 /* TorrentJobsTableViewController.h */,
+				23AC2B40175D835600FCFA71 /* TorrentJobsTableViewController.m */,
+				23AC2B46175D835600FCFA71 /* SettingsTableViewController.h */,
+				23AC2B47175D835600FCFA71 /* SettingsTableViewController.m */,
 				23AC2BC0175D921B00FCFA71 /* ProfilePickerViewController.h */,
 				23AC2BC1175D921B00FCFA71 /* ProfilePickerViewController.m */,
-				23A48236177EA050000873CF /* TorrentJobsViewController.h */,
-				23A48237177EA050000873CF /* TorrentJobsViewController.m */,
 				232B0FA3178C356700A7B3DC /* TorrentDetailViewController.h */,
 				232B0FA4178C356700A7B3DC /* TorrentDetailViewController.m */,
 				23EBE2D717941EBC00723ADD /* AddTorrentViewController.h */,
 				23EBE2D817941EBC00723ADD /* AddTorrentViewController.m */,
 				238F4C61187653C800C6A36C /* HelpTableViewController.h */,
 				238F4C62187653C800C6A36C /* HelpTableViewController.m */,
-				23AF74DA1796A16200AC4ED5 /* HelpViewController.h */,
-				23AF74DB1796A16200AC4ED5 /* HelpViewController.m */,
 				23AF74DE1796D5F700AC4ED5 /* StaticDataTableViewController.h */,
 				23AF74DF1796D5F700AC4ED5 /* StaticDataTableViewController.m */,
-				23DC75B217F94DA70011258F /* WebViewNavigationController.h */,
-				23DC75B317F94DA70011258F /* WebViewNavigationController.m */,
 				23A94F20183CD6B7004A3924 /* UINavigationControllerNoAutoRotation.h */,
 				23A94F21183CD6B7004A3924 /* UINavigationControllerNoAutoRotation.m */,
 				235527621872568D00A9E6BC /* AboutViewController.h */,
@@ -785,16 +770,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				23AC2B2E175D835600FCFA71 /* main.m in Sources */,
-				23DC75B417F94DA70011258F /* WebViewNavigationController.m in Sources */,
 				235527701872901700A9E6BC /* TSMessage.m in Sources */,
-				23AF74DC1796A16200AC4ED5 /* HelpViewController.m in Sources */,
 				239162941795794400213C67 /* ConnectionHandler.m in Sources */,
 				23AC2B32175D835600FCFA71 /* AppDelegate.m in Sources */,
 				23A0E5C817894C0A00898812 /* NSArray+Functions.m in Sources */,
 				23EBE2D917941EBC00723ADD /* AddTorrentViewController.m in Sources */,
-				23AC2B41175D835600FCFA71 /* FirstViewController.m in Sources */,
+				23AC2B41175D835600FCFA71 /* TorrentJobsTableViewController.m in Sources */,
 				232B0FA5178C356700A7B3DC /* TorrentDetailViewController.m in Sources */,
-				23AC2B48175D835600FCFA71 /* SecondViewController.m in Sources */,
+				23AC2B48175D835600FCFA71 /* SettingsTableViewController.m in Sources */,
 				23AC2BC2175D921C00FCFA71 /* ProfilePickerViewController.m in Sources */,
 				23B1BFE6177C3817000A0B07 /* Deluge.m in Sources */,
 				23A48234177DE1BA000873CF /* TorrentJobChecker.m in Sources */,
@@ -802,7 +785,6 @@
 				2324910E178E4FA200D5454E /* TorrentDictFunctions.m in Sources */,
 				23B1BFE8177C3817000A0B07 /* ruTorrent.m in Sources */,
 				23B1BFE9177C3817000A0B07 /* Transmission.m in Sources */,
-				23A48238177EA050000873CF /* TorrentJobsViewController.m in Sources */,
 				230F9EFF1781AA0E00705546 /* NSNumber+TransferRateFormatting.m in Sources */,
 				23B1BFEA177C3817000A0B07 /* uTorrent.m in Sources */,
 				2355276B187285BE00A9E6BC /* TSBlurView.m in Sources */,
@@ -964,7 +946,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BarMagnet/BarMagnet-Prefix.pch";
 				INFOPLIST_FILE = "BarMagnet/BarMagnet-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/TestFlightSDK1.2.6",
@@ -990,7 +972,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BarMagnet/BarMagnet-Prefix.pch";
 				INFOPLIST_FILE = "BarMagnet/BarMagnet-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/TestFlightSDK1.2.6",

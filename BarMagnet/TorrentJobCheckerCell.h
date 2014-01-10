@@ -16,5 +16,6 @@
 @property (nonatomic, strong) IBOutlet UILabel* uploadSpeed;
 @property (nonatomic, strong) IBOutlet UILabel* currentStatus;
 @property (nonatomic, strong) IBOutlet UILabel* ETA;
+@property (nonatomic, strong) NSString * hashString;
 
 @end

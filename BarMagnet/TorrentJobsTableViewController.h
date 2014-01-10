@@ -10,14 +10,14 @@
 #import "TorrentClient.h"
 #import "TorrentDetailViewController.h"
 
-@interface FirstViewController : UIViewController
+@interface TorrentJobsTableViewController : UITableViewController
 {
 	BOOL cancelNextRefresh;
 	TorrentDetailViewController * tdv;
+	UIView * headerView;
+	NSArray * sortedKeys;
+	NSDictionary * jobsDict;
 }
 
 - (IBAction)openUI:(id)sender;
-
-@property (strong, nonatomic) IBOutlet UITableView *torrentJobsTableView;
-
 @end
