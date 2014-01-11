@@ -25,6 +25,7 @@
 @property (nonatomic, assign) BOOL shouldRefresh;
 @property (nonatomic, strong) NSMutableArray * filteredArray;
 @property (nonatomic, strong) UIView * headerView;
+@property (nonatomic, strong) NSArray * sortedKeys;
 @end
 
 @implementation TorrentJobsTableViewController
@@ -75,6 +76,11 @@
 {
 	self.shouldRefresh = YES;
 	[self receiveUpdateTableNotification];
+}
+
+- (void)searchDisplayController:(UISearchDisplayController *)controller didLoadSearchResultsTableView:(UITableView *)tableView
+{
+	tableView.rowHeight = [[self.tableView dequeueReusableCellWithIdentifier:@"Prototype"] frame].size.height;
 }
 
 - (IBAction)addTorrentPopup:(id)sender
@@ -199,7 +205,7 @@
 		{
 			if (buttonIndex != [actionSheet cancelButtonIndex])
 			{
-				NSString * hashString = [[jobsDict allKeys] objectAtIndex:[[jobsDict allValues] indexOfObject:[sortedKeys objectAtIndex:actionSheet.tag]]];
+				NSString * hashString = [[jobsDict allKeys] objectAtIndex:[[jobsDict allValues] indexOfObject:[self.sortedKeys objectAtIndex:actionSheet.tag]]];
 				[[NSNotificationCenter defaultCenter] postNotificationName:@"cancel_refresh" object:nil];
 				[[[TorrentDelegate sharedInstance] currentlySelectedClient] addTemporaryDeletedJobsObject:@2 forKey:hashString];
 				[[[TorrentDelegate sharedInstance] currentlySelectedClient] removeTorrent:hashString removeData:buttonIndex == 0];
@@ -222,16 +228,13 @@
 	}
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+- (void)sortArray:(NSMutableArray *)array
 {
-    jobsDict = [[[TorrentDelegate sharedInstance] currentlySelectedClient] getJobsDict];
-	NSMutableArray *dictValues = [[jobsDict allValues] mutableCopy];
-
 	NSString * sortBy = [[FileHandler sharedInstance] settingsValueForKey:@"sort_by"];
 
 	if ([sortBy isEqualToString:@"Completed"])
 	{
-		[dictValues sortUsingComparator: (NSComparator)^(NSDictionary *a, NSDictionary *b){
+		[array sortUsingComparator: (NSComparator)^(NSDictionary *a, NSDictionary *b){
 			double completeValue = [[[[[TorrentDelegate sharedInstance] currentlySelectedClient] class] completeNumber] doubleValue];
 			if ([a[@"progress"] doubleValue] == completeValue)
 			{
@@ -257,7 +260,7 @@
 	}
 	else if ([sortBy isEqualToString:@"Incomplete"])
 	{
-		[dictValues sortUsingComparator: (NSComparator)^(NSDictionary *a, NSDictionary *b){
+		[array sortUsingComparator: (NSComparator)^(NSDictionary *a, NSDictionary *b){
 			double completeValue = [[[[[TorrentDelegate sharedInstance] currentlySelectedClient] class] completeNumber] doubleValue];
 			if ([a[@"progress"] doubleValue] == completeValue)
 			{
@@ -283,7 +286,7 @@
 	}
 	else if ([sortBy isEqualToString:@"Downloading"] || [sortBy isEqualToString:@"Seeding"] || [sortBy isEqualToString:@"Paused"])
 	{
-		[dictValues sortUsingComparator: (NSComparator)^(NSDictionary *a, NSDictionary *b){
+		[array sortUsingComparator: (NSComparator)^(NSDictionary *a, NSDictionary *b){
 			if ([a[@"status"] isEqualToString:sortBy])
 			{
 				if (![b[@"status"] isEqualToString:sortBy])
@@ -301,34 +304,41 @@
 	}
 	else if ([sortBy isEqualToString:@"Name"])
 	{
-		[dictValues sortUsingComparator: (NSComparator)^(NSDictionary *a, NSDictionary *b){
+		[array sortUsingComparator: (NSComparator)^(NSDictionary *a, NSDictionary *b){
 			return [a[@"name"] compare:b[@"name"]];
 		}];
 	}
 	else if ([sortBy isEqualToString:@"Size"])
 	{
-		[dictValues sortUsingComparator: (NSComparator)^(NSDictionary *a, NSDictionary *b){
+		[array sortUsingComparator: (NSComparator)^(NSDictionary *a, NSDictionary *b){
 			return [a[@"size"] compare:b[@"size"]];
 		}];
 	}
-	sortedKeys = dictValues;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    jobsDict = [[[TorrentDelegate sharedInstance] currentlySelectedClient] getJobsDict];
+	NSMutableArray *dictValues = [[jobsDict allValues] mutableCopy];
+	[self sortArray:dictValues];
+	self.sortedKeys = dictValues;
 	return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	if (tableView == self.searchDisplayController.searchResultsTableView)
-	{
-		UITableViewCell * cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-		cell.textLabel.text = self.filteredArray[indexPath.row][@"name"];
-		return cell;
-    }
 
 	static NSString *CellIdentifier = @"Prototype";
-
-	TorrentJobCheckerCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-
-	NSDictionary * currentJob = [jobsDict objectForKey:[[jobsDict allKeys] objectAtIndex:[[jobsDict allValues] indexOfObject:[sortedKeys objectAtIndex:indexPath.row]]]];
+	TorrentJobCheckerCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+	NSDictionary * currentJob = nil;
+	if (tableView == self.searchDisplayController.searchResultsTableView)
+	{
+		currentJob = self.filteredArray[indexPath.row];
+    }
+	else
+	{
+		currentJob = self.sortedKeys[indexPath.row];
+	}
 
 	cell.name.text = currentJob[@"name"];
 	cell.uploadSpeed.text = [NSString stringWithFormat:@"↑ %@", currentJob[@"uploadSpeed"]];
@@ -345,8 +355,8 @@
 	cell.hashString = currentJob[@"hash"];
 	if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
 	{
-		cell.downloadSpeed.font = [UIFont fontWithName:@"Arial-BoldMT" size:10];
 		UIFont * font = [UIFont fontWithName:@"Arial" size:10];
+		cell.downloadSpeed.font = font;
 		cell.uploadSpeed.font = font;
 		cell.currentStatus.font = font;
 		cell.ETA.font = font;
@@ -450,6 +460,11 @@
 	}
 }
 
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
+{
+	return [[[[[TorrentDelegate sharedInstance] currentlySelectedClient] getJobsDict] allKeys] count] ? YES : NO;
+}
+
 -(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
 {
     [self filterContentForSearchText:searchString scope:
@@ -475,17 +490,7 @@
 			[self.filteredArray addObject:job];
 		}
 	}
-	[self.filteredArray sortUsingComparator: (NSComparator)^(NSDictionary *a, NSDictionary *b){
-		return [a[@"name"] compare:b[@"name"]];
-	}];
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-	if (tableView == self.searchDisplayController.searchResultsTableView)
-	{
-		[self performSegueWithIdentifier:@"detail" sender:self.filteredArray[indexPath.row][@"hash"]];
-	}
+	[self sortArray:self.filteredArray];
 }
 
 @end

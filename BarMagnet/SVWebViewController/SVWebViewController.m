@@ -196,7 +196,7 @@ static const CGFloat kAddressHeight = 26.0f;
 - (void)viewDidLoad {
 	[super viewDidLoad];
 
-	adKeys = @[@"ytimg.com", @"pstatic.org", @"privitize.com", @"lp.torchbrowser.com", @"adexprt.com", @"trafficposse.com", @"mobicow.com", @"amgct.com", @"cpactions.com", @"adsmarket.com", @"propellerads.com", @"sexad.net", @"rtbpop.com", @"about:blank"];
+	adKeys = @[@"ytimg.com", @"pstatic.org", @"privitize.com", @"lp.torchbrowser.com", @"adexprt.com", @"trafficposse.com", @"mobicow.com", @"amgct.com", @"cpactions.com", @"adsmarket.com", @"propellerads.com", @"sexad.net", @"adrotator.se", @"rtbpop.com", @"about:blank"];
 	adsArray = @[@"document.getElementById('sky-banner').firstElementChild.src", @"document.getElementById('sky-right').firstElementChild.src", @"document.getElementById('main-content').firstElementChild.src", @"document.getElementById('header').firstElementChild.firstElementChild.src"];
 	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:[self navigationController] action:@selector(dismissViewControllerAnimated)];
     [self updateToolbarItems];
@@ -315,8 +315,7 @@ static const CGFloat kAddressHeight = 26.0f;
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-	NSLog(@"%d", navigationType);
-	NSLog(@"%@", request.URL.absoluteString);
+	NSLog(@"%d, %@", navigationType, request.URL.absoluteString);
 	for (NSString * key in adKeys)
 	{
 		if ([request.URL.absoluteString rangeOfString:key].location != NSNotFound)
