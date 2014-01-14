@@ -33,7 +33,7 @@
 	}
 	else if ([textField isEqual:self.searchBox])
 	{
-		NSString * query = [[FileHandler sharedInstance] settingsValueForKey:@"query_format"];
+		NSString * query = [FileHandler.sharedInstance settingsValueForKey:@"query_format"];
 		if ([[textField text] length] && [query length])
 		{
 			if ([query rangeOfString:@"https://"].location != NSNotFound)
@@ -63,7 +63,7 @@
 
 - (IBAction)openSiteButton:(id)sender
 {
-	NSString * site = [[FileHandler sharedInstance] settingsValueForKey:@"preferred_torrent_site"];
+	NSString * site = [FileHandler.sharedInstance settingsValueForKey:@"preferred_torrent_site"];
 	if ([site length])
 	{
 		if ([site rangeOfString:@"https://"].location != NSNotFound)

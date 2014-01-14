@@ -33,7 +33,6 @@
 		235527701872901700A9E6BC /* TSMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2355276F1872901700A9E6BC /* TSMessage.m */; };
 		2360A529175E04720090F647 /* magnet iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 2360A528175E04720090F647 /* magnet iPhone.png */; };
 		2360A52B175E04750090F647 /* magnet retina iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 2360A52A175E04750090F647 /* magnet retina iPhone.png */; };
-		23704DE71880C6230029AB17 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 23704DE91880C6230029AB17 /* Localizable.strings */; };
 		2374DD9E1796F23100F613EB /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2374DD9D1796F23100F613EB /* MessageUI.framework */; };
 		2374DDAF1796F2C700F613EB /* SVWebViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2374DDA21796F2C700F613EB /* SVWebViewController.strings */; };
 		2374DDB01796F2C700F613EB /* SVModalWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2374DDA91796F2C700F613EB /* SVModalWebViewController.m */; };
@@ -77,7 +76,6 @@
 		23AC2B38175D835600FCFA71 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23AC2B37175D835600FCFA71 /* Default-568h@2x.png */; };
 		23AC2B41175D835600FCFA71 /* TorrentJobsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AC2B40175D835600FCFA71 /* TorrentJobsTableViewController.m */; };
 		23AC2B48175D835600FCFA71 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AC2B47175D835600FCFA71 /* SettingsTableViewController.m */; };
-		23AC2BC2175D921C00FCFA71 /* ProfilePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AC2BC1175D921B00FCFA71 /* ProfilePickerViewController.m */; };
 		23AC45F4179BED2E00AD5F22 /* Synology.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AC45F3179BED2E00AD5F22 /* Synology.m */; };
 		23AF74E01796D5F700AC4ED5 /* StaticDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AF74DF1796D5F700AC4ED5 /* StaticDataTableViewController.m */; };
 		23B1BFE6177C3817000A0B07 /* Deluge.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B1BFD9177C3817000A0B07 /* Deluge.m */; };
@@ -98,6 +96,7 @@
 		23B84F0F17B60F4F008C9D17 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23B84F0D17B60F4F008C9D17 /* MainStoryboard_iPad.storyboard */; };
 		23E60FB71876D20400D2068B /* PlayPause.png in Resources */ = {isa = PBXBuildFile; fileRef = 23E60FB51876D20400D2068B /* PlayPause.png */; };
 		23E60FB81876D20400D2068B /* PlayPause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23E60FB61876D20400D2068B /* PlayPause@2x.png */; };
+		23EBC8F518851BE800B0A281 /* donate.png in Resources */ = {isa = PBXBuildFile; fileRef = 23EBC8F418851BE800B0A281 /* donate.png */; };
 		23EBE2D917941EBC00723ADD /* AddTorrentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EBE2D817941EBC00723ADD /* AddTorrentViewController.m */; };
 		23FC25D81788F1D500CCE434 /* TorrentJobCheckerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FC25D71788F1D500CCE434 /* TorrentJobCheckerCell.m */; };
 /* End PBXBuildFile section */
@@ -152,17 +151,7 @@
 		2355276F1872901700A9E6BC /* TSMessage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSMessage.m; sourceTree = "<group>"; };
 		2360A528175E04720090F647 /* magnet iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "magnet iPhone.png"; path = "../magnet iPhone.png"; sourceTree = "<group>"; };
 		2360A52A175E04750090F647 /* magnet retina iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "magnet retina iPhone.png"; path = "../magnet retina iPhone.png"; sourceTree = "<group>"; };
-		23704DE11880C5910029AB17 /* es */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = es; path = es.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		23704DE21880C5940029AB17 /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = fr; path = fr.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		23704DE31880C59C0029AB17 /* es */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = es; path = es.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		23704DE41880C59D0029AB17 /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = fr; path = fr.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		23704DE81880C6230029AB17 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		23704DEA1880C6270029AB17 /* es */ = {isa = PBXFileReference; lastKnownFileType = file; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
-		23704DEB1880C6280029AB17 /* fr */ = {isa = PBXFileReference; lastKnownFileType = file; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		23704DEC1880C6380029AB17 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/SVWebViewController.strings; sourceTree = "<group>"; };
-		23704DED1880C6380029AB17 /* it */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = it; path = it.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		23704DEE1880C6380029AB17 /* it */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = it; path = it.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		23704DEF1880C6380029AB17 /* it */ = {isa = PBXFileReference; lastKnownFileType = file; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		23704DF01880C6380029AB17 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		23704DF11880C6380029AB17 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2374DD9D1796F23100F613EB /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -243,8 +232,6 @@
 		23AC2B5D175D835600FCFA71 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		23AC2B5F175D835600FCFA71 /* BarMagnetTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BarMagnetTests.h; sourceTree = "<group>"; };
 		23AC2B60175D835600FCFA71 /* BarMagnetTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BarMagnetTests.m; sourceTree = "<group>"; };
-		23AC2BC0175D921B00FCFA71 /* ProfilePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfilePickerViewController.h; sourceTree = "<group>"; };
-		23AC2BC1175D921B00FCFA71 /* ProfilePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfilePickerViewController.m; sourceTree = "<group>"; };
 		23AC45F2179BED2E00AD5F22 /* Synology.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Synology.h; path = "../../../Bar Magnet Shared Sources/Synology.h"; sourceTree = "<group>"; };
 		23AC45F3179BED2E00AD5F22 /* Synology.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Synology.m; path = "../../../Bar Magnet Shared Sources/Synology.m"; sourceTree = "<group>"; };
 		23AF74DE1796D5F700AC4ED5 /* StaticDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaticDataTableViewController.h; sourceTree = "<group>"; };
@@ -283,6 +270,7 @@
 		23B84F0E17B60F4F008C9D17 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		23E60FB51876D20400D2068B /* PlayPause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayPause.png; sourceTree = "<group>"; };
 		23E60FB61876D20400D2068B /* PlayPause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PlayPause@2x.png"; sourceTree = "<group>"; };
+		23EBC8F418851BE800B0A281 /* donate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = donate.png; sourceTree = "<group>"; };
 		23EBE2D717941EBC00723ADD /* AddTorrentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTorrentViewController.h; sourceTree = "<group>"; };
 		23EBE2D817941EBC00723ADD /* AddTorrentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTorrentViewController.m; sourceTree = "<group>"; };
 		23FC25D61788F1D500CCE434 /* TorrentJobCheckerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TorrentJobCheckerCell.h; sourceTree = "<group>"; };
@@ -313,8 +301,6 @@
 				23AC2B40175D835600FCFA71 /* TorrentJobsTableViewController.m */,
 				23AC2B46175D835600FCFA71 /* SettingsTableViewController.h */,
 				23AC2B47175D835600FCFA71 /* SettingsTableViewController.m */,
-				23AC2BC0175D921B00FCFA71 /* ProfilePickerViewController.h */,
-				23AC2BC1175D921B00FCFA71 /* ProfilePickerViewController.m */,
 				232B0FA3178C356700A7B3DC /* TorrentDetailViewController.h */,
 				232B0FA4178C356700A7B3DC /* TorrentDetailViewController.m */,
 				23EBE2D717941EBC00723ADD /* AddTorrentViewController.h */,
@@ -485,7 +471,6 @@
 				2324910B178E492400D5454E /* TableView Cells */,
 				235120071769C49000A3DE2C /* MainStoryboard_iPhone.storyboard */,
 				23B84F0D17B60F4F008C9D17 /* MainStoryboard_iPad.storyboard */,
-				23704DE91880C6230029AB17 /* Localizable.strings */,
 				235527651872723700A9E6BC /* Images.xcassets */,
 				23AC2B28175D835600FCFA71 /* Supporting Files */,
 			);
@@ -502,6 +487,7 @@
 				23AC2B33175D835600FCFA71 /* Default.png */,
 				23AC2B35175D835600FCFA71 /* Default@2x.png */,
 				23AC2B37175D835600FCFA71 /* Default-568h@2x.png */,
+				23EBC8F418851BE800B0A281 /* donate.png */,
 				2360A52A175E04750090F647 /* magnet retina iPhone.png */,
 				2360A528175E04720090F647 /* magnet iPhone.png */,
 				2318A1F4178AA97B00B96E5F /* header.png */,
@@ -729,7 +715,6 @@
 				237570B61877B874008217BF /* Gripper@2x.png in Resources */,
 				238A94C117A121630081EF6D /* NotificationBackgroundError.png in Resources */,
 				237570B11877B742008217BF /* UIButtonBarStop.png in Resources */,
-				23704DE71880C6230029AB17 /* Localizable.strings in Resources */,
 				238A94CA17A121630081EF6D /* NotificationBackgroundSuccessIcon@2x.png in Resources */,
 				238A94C517A121630081EF6D /* NotificationBackgroundMessage.png in Resources */,
 				238A94CF17A121630081EF6D /* NotificationButtonBackground.png in Resources */,
@@ -737,6 +722,7 @@
 				23AC2B38175D835600FCFA71 /* Default-568h@2x.png in Resources */,
 				2355275A1871718300A9E6BC /* UIButtonBarPlay@2x.png in Resources */,
 				2318A1F5178AA97B00B96E5F /* header.png in Resources */,
+				23EBC8F518851BE800B0A281 /* donate.png in Resources */,
 				23314152177FE95E0062B0FE /* gear.png in Resources */,
 				2374DDAF1796F2C700F613EB /* SVWebViewController.strings in Resources */,
 				238A94C317A121630081EF6D /* NotificationBackgroundErrorIcon.png in Resources */,
@@ -795,7 +781,6 @@
 				23AC2B41175D835600FCFA71 /* TorrentJobsTableViewController.m in Sources */,
 				232B0FA5178C356700A7B3DC /* TorrentDetailViewController.m in Sources */,
 				23AC2B48175D835600FCFA71 /* SettingsTableViewController.m in Sources */,
-				23AC2BC2175D921C00FCFA71 /* ProfilePickerViewController.m in Sources */,
 				23B1BFE6177C3817000A0B07 /* Deluge.m in Sources */,
 				23A48234177DE1BA000873CF /* TorrentJobChecker.m in Sources */,
 				23B1BFE7177C3817000A0B07 /* qBittorrent.m in Sources */,
@@ -838,23 +823,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				235120081769C49000A3DE2C /* en */,
-				23704DE11880C5910029AB17 /* es */,
-				23704DE21880C5940029AB17 /* fr */,
-				23704DED1880C6380029AB17 /* it */,
 			);
 			name = MainStoryboard_iPhone.storyboard;
 			path = ..;
-			sourceTree = "<group>";
-		};
-		23704DE91880C6230029AB17 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				23704DE81880C6230029AB17 /* en */,
-				23704DEA1880C6270029AB17 /* es */,
-				23704DEB1880C6280029AB17 /* fr */,
-				23704DEF1880C6380029AB17 /* it */,
-			);
-			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 		2374DDA21796F2C700F613EB /* SVWebViewController.strings */ = {
@@ -894,9 +865,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				23B84F0E17B60F4F008C9D17 /* en */,
-				23704DE31880C59C0029AB17 /* es */,
-				23704DE41880C59D0029AB17 /* fr */,
-				23704DEE1880C6380029AB17 /* it */,
 			);
 			name = MainStoryboard_iPad.storyboard;
 			sourceTree = "<group>";
@@ -978,19 +946,20 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Carlo Tortorella (27LEU46442)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BarMagnet/BarMagnet-Prefix.pch";
 				INFOPLIST_FILE = "BarMagnet/BarMagnet-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/TestFlightSDK1.2.6",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = BarMagnet;
-				PROVISIONING_PROFILE = "49C28A82-6D17-44E2-8405-1455C02C1E80";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -1003,20 +972,21 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Carlo Tortorella (P7852E8EWD)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BarMagnet/BarMagnet-Prefix.pch";
 				INFOPLIST_FILE = "BarMagnet/BarMagnet-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/TestFlightSDK1.2.6",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = BarMagnet;
-				PROVISIONING_PROFILE = "D5CD5BD4-AE34-45B2-8B6E-E9C7E94D636F";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;

@@ -32,14 +32,14 @@
     __block NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[self methodSignatureForSelector:@selector(updateConnectionStatus)]];
 	[invocation setTarget:self];
 	[invocation setSelector:@selector(updateConnectionStatus)];
-	[[NSRunLoop mainRunLoop] addTimer:[NSTimer timerWithTimeInterval:[[[FileHandler sharedInstance] settingsValueForKey:@"refresh_connection_seconds"] doubleValue] invocation:invocation repeats:YES] forMode:NSRunLoopCommonModes];
+	[[NSRunLoop mainRunLoop] addTimer:[NSTimer timerWithTimeInterval:[[FileHandler.sharedInstance settingsValueForKey:@"refresh_connection_seconds"] doubleValue] invocation:invocation repeats:YES] forMode:NSRunLoopCommonModes];
 
 	invocation = [NSInvocation invocationWithMethodSignature:[self methodSignatureForSelector:@selector(updateTorrentJobs)]];
 	[invocation setTarget:self];
 	[invocation setSelector:@selector(updateTorrentJobs)];
 
 	dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-		[[NSRunLoop mainRunLoop] addTimer:[NSTimer timerWithTimeInterval:[[[FileHandler sharedInstance] settingsValueForKey:@"refresh_connection_seconds"] doubleValue] invocation:invocation repeats:YES] forMode:NSRunLoopCommonModes];
+		[[NSRunLoop mainRunLoop] addTimer:[NSTimer timerWithTimeInterval:[[FileHandler.sharedInstance settingsValueForKey:@"refresh_connection_seconds"] doubleValue] invocation:invocation repeats:YES] forMode:NSRunLoopCommonModes];
 	});
 
     return YES;
@@ -63,7 +63,7 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    [[FileHandler sharedInstance] saveAllPlists];
+    [FileHandler.sharedInstance saveAllPlists];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 

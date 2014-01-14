@@ -130,7 +130,7 @@
 			}
 			case 2:
 			{
-				NSString * query = [[FileHandler sharedInstance] settingsValueForKey:@"query_format"];
+				NSString * query = [FileHandler.sharedInstance settingsValueForKey:@"query_format"];
 				if ([text length] && [query length])
 				{
 					if ([query rangeOfString:@"https://"].location != NSNotFound)
@@ -150,7 +150,7 @@
 			}
 			case 3:
 			{
-				NSString * site = [[FileHandler sharedInstance] settingsValueForKey:@"preferred_torrent_site"];
+				NSString * site = [FileHandler.sharedInstance settingsValueForKey:@"preferred_torrent_site"];
 				if ([site length])
 				{
 					if ([site rangeOfString:@"https://"].location != NSNotFound)
@@ -209,7 +209,7 @@
 				[[NSNotificationCenter defaultCenter] postNotificationName:@"cancel_refresh" object:nil];
 				[[[TorrentDelegate sharedInstance] currentlySelectedClient] addTemporaryDeletedJobsObject:@2 forKey:hashString];
 				[[[TorrentDelegate sharedInstance] currentlySelectedClient] removeTorrent:hashString removeData:buttonIndex == 0];
-				[self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForItem:actionSheet.tag inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+				[self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:actionSheet.tag inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
 			}
 			else
 			{
@@ -230,7 +230,7 @@
 
 - (void)sortArray:(NSMutableArray *)array
 {
-	NSString * sortBy = [[FileHandler sharedInstance] settingsValueForKey:@"sort_by"];
+	NSString * sortBy = [FileHandler.sharedInstance settingsValueForKey:@"sort_by"];
 
 	if ([sortBy isEqualToString:@"Completed"])
 	{
@@ -316,12 +316,52 @@
 	}
 }
 
+- (void)createDownloadUploadTotals
+{
+	NSUInteger uploadSpeed = 0, downloadSpeed = 0;
+	if (!self.sortedKeys.count)
+	{
+		self.navigationItem.rightBarButtonItem = nil;
+		return;
+	}
+	for (NSDictionary * dict in self.sortedKeys)
+	{
+		if (dict[@"rawUploadSpeed"] && dict[@"rawDownloadSpeed"])
+		{
+			uploadSpeed += [dict[@"rawUploadSpeed"] unsignedIntegerValue];
+			downloadSpeed += [dict[@"rawDownloadSpeed"] unsignedIntegerValue];
+		}
+		else
+		{
+			self.navigationItem.rightBarButtonItem = nil;
+			return;
+		}
+	}
+
+	UIView * newView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 60, 20)];
+	newView.backgroundColor = [UIColor clearColor];
+
+	UIFont * font = [UIFont fontWithName:@"Arial" size:10];
+
+	UILabel * upload = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 60, 10)];
+	upload.font = font;
+	upload.text = [NSString stringWithFormat:@"↑ %@", @(uploadSpeed).transferRateString];
+	[newView addSubview:upload];
+	UILabel * download = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, 60, 10)];
+	download.font = font;
+	download.text = [NSString stringWithFormat:@"↓ %@", @(downloadSpeed).transferRateString];
+	[newView addSubview:download];
+	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:newView];
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     jobsDict = [[[TorrentDelegate sharedInstance] currentlySelectedClient] getJobsDict];
 	NSMutableArray *dictValues = [[jobsDict allValues] mutableCopy];
 	[self sortArray:dictValues];
 	self.sortedKeys = dictValues;
+	[self createDownloadUploadTotals];
+	
 	return 1;
 }
 
@@ -343,7 +383,16 @@
 	cell.name.text = currentJob[@"name"];
 	cell.uploadSpeed.text = [NSString stringWithFormat:@"↑ %@", currentJob[@"uploadSpeed"]];
 	cell.downloadSpeed.text = [NSString stringWithFormat:@"↓ %@", currentJob[@"downloadSpeed"]];
-	cell.ETA.text = [currentJob[@"ETA"] length] ? [NSString stringWithFormat:@"ETA: %@", currentJob[@"ETA"]] : @"";
+
+	cell.ETA.text = @"";
+	if ([currentJob[@"ETA"] length])
+	{
+		cell.ETA.text = [NSString stringWithFormat:@"ETA: %@", currentJob[@"ETA"]];
+	}
+	else if (currentJob[@"ratio"])
+	{
+		cell.ETA.text = [NSString stringWithFormat:@"Ratio: %@", currentJob[@"ratio"]];
+	}
 	double completeValue = [[[[[TorrentDelegate sharedInstance] currentlySelectedClient] class] completeNumber] doubleValue];
 	completeValue ? [cell.percentBar setProgress:[currentJob[@"progress"] floatValue] / completeValue] : nil;
 	[[cell percentBar] setHidden:!completeValue];
