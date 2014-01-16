@@ -410,7 +410,19 @@
 
 	double completeValue = [[[TorrentDelegate.sharedInstance.currentlySelectedClient class] completeNumber] doubleValue];
 	completeValue ? [cell.percentBar setProgress:[currentJob[@"progress"] floatValue] / completeValue] : nil;
-	[[cell percentBar] setHidden:!completeValue];
+
+	if ([currentJob[@"status"] isEqualToString:@"Seeding"])
+	{
+		cell.percentBar.progressTintColor = [UIColor colorWithRed:0 green:1 blue:.4 alpha:1];
+	}
+	else if ([currentJob[@"status"] isEqualToString:@"Paused"] || [currentJob[@"status"] isEqualToString:@"Stalled"])
+	{
+		cell.percentBar.progressTintColor = [UIColor darkGrayColor];
+	}
+	else
+	{
+		cell.percentBar.progressTintColor = [UIColor colorWithRed:0 green:.478 blue:1 alpha:1];
+	}
 
 	cell.currentStatus.text = currentJob[@"status"];
 	cell.hashString = currentJob[@"hash"];
