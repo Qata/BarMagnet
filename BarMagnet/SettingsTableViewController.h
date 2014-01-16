@@ -17,6 +17,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *usernameField;
 @property (strong, nonatomic) IBOutlet UITextField *passwordField;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *useSSLSegmentedControl;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *torrentCellTypeSegmentedControl;
 @property (strong, nonatomic) IBOutlet UITextField *queryFormatField;
 @property (strong, nonatomic) IBOutlet UITextField *torrentSiteField;
 

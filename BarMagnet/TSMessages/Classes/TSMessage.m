@@ -80,7 +80,7 @@ __weak static UIViewController *_defaultViewController;
                                buttonTitle:nil
                             buttonCallback:nil
                                 atPosition:TSMessageNotificationPositionTop
-                       canBeDismisedByUser:YES];
+                       canBeDismissedByUser:YES];
 }
 
 
@@ -94,7 +94,7 @@ __weak static UIViewController *_defaultViewController;
                              buttonTitle:(NSString *)buttonTitle
                           buttonCallback:(void (^)())buttonCallback
                               atPosition:(TSMessageNotificationPosition)messagePosition
-                     canBeDismisedByUser:(BOOL)dismissingEnabled
+                     canBeDismissedByUser:(BOOL)dismissingEnabled
 {
     // Create the TSMessageView
     TSMessageView *v = [[TSMessageView alloc] initWithTitle:title

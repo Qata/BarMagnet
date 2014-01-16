@@ -14,7 +14,6 @@
 {
 	BOOL cancelNextRefresh;
 	TorrentDetailViewController * tdv;
-	NSDictionary * jobsDict;
 }
 
 - (IBAction)openUI:(id)sender;

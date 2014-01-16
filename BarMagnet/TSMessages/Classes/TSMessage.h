@@ -106,7 +106,7 @@ typedef NS_ENUM(NSInteger,TSMessageNotificationDuration) {
                              buttonTitle:(NSString *)buttonTitle
                           buttonCallback:(void (^)())buttonCallback
                               atPosition:(TSMessageNotificationPosition)messagePosition
-                     canBeDismisedByUser:(BOOL)dismissingEnabled;
+                     canBeDismissedByUser:(BOOL)dismissingEnabled;
 
 
 /** Fades out the currently displayed notification. If another notification is in the queue,

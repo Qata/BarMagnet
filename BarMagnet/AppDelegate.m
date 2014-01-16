@@ -11,7 +11,6 @@
 #import "FileHandler.h"
 #import "ConnectionHandler.h"
 #import "TorrentDelegate.h"
-#import "TorrentDelegateConfig.h"
 #import "TorrentJobChecker.h"
 
 @implementation AppDelegate
@@ -26,17 +25,21 @@
 	{
 		[FileHandler.sharedInstance setSettingsValue:@"Incomplete" forKey:@"sort_by"];
 	}
+	if (![FileHandler.sharedInstance settingsValueForKey:@"cell"])
+	{
+		[FileHandler.sharedInstance setSettingsValue:@"Pretty" forKey:@"cell"];
+	}
 
-	[[[TorrentDelegate sharedInstance] currentlySelectedClient] becameActive];
+	[TorrentDelegate.sharedInstance.currentlySelectedClient becameActive];
 	pingHandler = [PingHandler new];
     __block NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[self methodSignatureForSelector:@selector(updateConnectionStatus)]];
 	[invocation setTarget:self];
 	[invocation setSelector:@selector(updateConnectionStatus)];
 	[[NSRunLoop mainRunLoop] addTimer:[NSTimer timerWithTimeInterval:[[FileHandler.sharedInstance settingsValueForKey:@"refresh_connection_seconds"] doubleValue] invocation:invocation repeats:YES] forMode:NSRunLoopCommonModes];
 
-	invocation = [NSInvocation invocationWithMethodSignature:[self methodSignatureForSelector:@selector(updateTorrentJobs)]];
-	[invocation setTarget:self];
-	[invocation setSelector:@selector(updateTorrentJobs)];
+	invocation = [NSInvocation invocationWithMethodSignature:[[TorrentJobChecker sharedInstance] methodSignatureForSelector:@selector(updateTorrentClientWithJobsData)]];
+	[invocation setTarget:[TorrentJobChecker sharedInstance]];
+	[invocation setSelector:@selector(updateTorrentClientWithJobsData)];
 
 	dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC), dispatch_get_main_queue(), ^{
 		[[NSRunLoop mainRunLoop] addTimer:[NSTimer timerWithTimeInterval:[[FileHandler.sharedInstance settingsValueForKey:@"refresh_connection_seconds"] doubleValue] invocation:invocation repeats:YES] forMode:NSRunLoopCommonModes];
@@ -56,7 +59,7 @@
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-	[[[TorrentDelegate sharedInstance] currentlySelectedClient] becameIdle];
+	[TorrentDelegate.sharedInstance.currentlySelectedClient becameIdle];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
@@ -75,18 +78,13 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-	[[[TorrentDelegate sharedInstance] currentlySelectedClient] becameActive];
+	[TorrentDelegate.sharedInstance.currentlySelectedClient becameActive];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-	[[[TorrentDelegate sharedInstance] currentlySelectedClient] willExit];
-}
-
-- (void)updateTorrentJobs
-{
-	[[TorrentJobChecker sharedInstance] updateTorrentClientWithJobsData];
+	[TorrentDelegate.sharedInstance.currentlySelectedClient willExit];
 }
 
 - (void)updateConnectionStatus

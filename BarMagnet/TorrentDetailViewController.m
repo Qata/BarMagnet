@@ -20,7 +20,7 @@
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
-	hashDict = [[[TorrentDelegate sharedInstance] currentlySelectedClient] getJobsDict][self.hashString];
+	hashDict = [TorrentDelegate.sharedInstance.currentlySelectedClient getJobsDict][self.hashString];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -77,7 +77,7 @@
 					cell.detailTextLabel.text = hashDict[@"uploaded"];
 					break;
 				case 4:
-					completeValue = [[[[[TorrentDelegate sharedInstance] currentlySelectedClient] class] completeNumber] floatValue];
+					completeValue = [[[TorrentDelegate.sharedInstance.currentlySelectedClient class] completeNumber] floatValue];
 					cell.detailTextLabel.text = [NSString stringWithFormat:@"%.1f%%", completeValue ? [hashDict[@"progress"] floatValue] / completeValue * 100 : [hashDict[@"progress"] floatValue] / [hashDict[@"size"] floatValue]];
 				default:
 					break;
@@ -133,9 +133,9 @@
 - (IBAction)playPause:(id)sender
 {
 	if ([[hashDict objectForKey:@"status"] isEqual:@"Paused"])
-		[[[TorrentDelegate sharedInstance] currentlySelectedClient] resumeTorrent:self.hashString];
+		[TorrentDelegate.sharedInstance.currentlySelectedClient resumeTorrent:self.hashString];
 	else
-		[[[TorrentDelegate sharedInstance] currentlySelectedClient] pauseTorrent:self.hashString];
+		[TorrentDelegate.sharedInstance.currentlySelectedClient pauseTorrent:self.hashString];
 	[self.navigationController popToRootViewControllerAnimated:YES];
 }
 
@@ -158,8 +158,8 @@
 {
 	if (buttonIndex != [actionSheet cancelButtonIndex])
 	{
-		[[[TorrentDelegate sharedInstance] currentlySelectedClient] addTemporaryDeletedJobsObject:@2 forKey:self.hashString];
-		[[[TorrentDelegate sharedInstance] currentlySelectedClient] removeTorrent:self.hashString removeData:buttonIndex == 0];
+		[TorrentDelegate.sharedInstance.currentlySelectedClient addTemporaryDeletedJobsObject:@2 forKey:self.hashString];
+		[TorrentDelegate.sharedInstance.currentlySelectedClient removeTorrent:self.hashString removeData:buttonIndex == 0];
 		[[NSNotificationCenter defaultCenter] postNotificationName:@"update_torrent_jobs_table" object:nil];
 		[[self navigationController] popToRootViewControllerAnimated:YES];
 	}
@@ -167,7 +167,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-	if (!(hashDict = [[[TorrentDelegate sharedInstance] currentlySelectedClient] getJobsDict][self.hashString]))
+	if (!(hashDict = [TorrentDelegate.sharedInstance.currentlySelectedClient getJobsDict][self.hashString]))
 	{
 		[[self navigationController] popToRootViewControllerAnimated:NO];
 		return 0;

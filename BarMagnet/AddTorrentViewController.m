@@ -56,7 +56,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-	[[[TorrentDelegate sharedInstance] currentlySelectedClient] showNotification:nil];
+	[TorrentDelegate.sharedInstance.currentlySelectedClient showNotification:nil];
 	self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
 	[super viewWillDisappear:animated];
 }

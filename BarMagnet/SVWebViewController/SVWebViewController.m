@@ -196,7 +196,7 @@ static const CGFloat kAddressHeight = 26.0f;
 - (void)viewDidLoad {
 	[super viewDidLoad];
 
-	adKeys = @[@"ytimg.com", @"pstatic.org", @"privitize.com", @"lp.torchbrowser.com", @"adexprt.com", @"trafficposse.com", @"mobicow.com", @"amgct.com", @"cpactions.com", @"adsmarket.com", @"propellerads.com", @"sexad.net", @"adrotator.se", @"rtbpop.com", @"about:blank"];
+	adKeys = @[@"ytimg.com", @"pstatic.org", @"privitize.com", @"lp.torchbrowser.com", @"adexprt.com", @"trafficposse.com", @"mobicow.com", @"amgct.com", @"cpactions.com", @"adsmarket.com", @"propellerads.com", @"sexad.net", @"adrotator.se", @"rtbpop.com", @"exoclick.com", @"a.kickass.to", @"about:blank"];
 	adsArray = @[@"document.getElementById('sky-banner').firstElementChild.src", @"document.getElementById('sky-right').firstElementChild.src", @"document.getElementById('main-content').firstElementChild.src", @"document.getElementById('header').firstElementChild.firstElementChild.src"];
 	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:[self navigationController] action:@selector(dismissViewControllerAnimated)];
     [self updateToolbarItems];
@@ -326,14 +326,14 @@ static const CGFloat kAddressHeight = 26.0f;
 
 	if ([[request URL] absoluteString].length > 7 && [[[[request URL] absoluteString] substringToIndex:7] isEqual:@"magnet:"])
 	{
-		[[[TorrentDelegate sharedInstance] currentlySelectedClient] handleMagnetLink:[[request URL] absoluteString]];
-		[[[TorrentDelegate sharedInstance] currentlySelectedClient] showNotification:self.navigationController];
+		[TorrentDelegate.sharedInstance.currentlySelectedClient handleMagnetLink:[[request URL] absoluteString]];
+		[TorrentDelegate.sharedInstance.currentlySelectedClient showNotification:self.navigationController];
 		return NO;
 	}
 	else if ([[request URL] absoluteString].length > 8 && [[[[request URL] absoluteString] substringFromIndex:[[[request URL] absoluteString] length] - 8] isEqual:@".torrent"])
 	{
-		[[[TorrentDelegate sharedInstance] currentlySelectedClient] handleTorrentURL:request.URL];
-		[[[TorrentDelegate sharedInstance] currentlySelectedClient] showNotification:self.navigationController];
+		[TorrentDelegate.sharedInstance.currentlySelectedClient handleTorrentURL:request.URL];
+		[TorrentDelegate.sharedInstance.currentlySelectedClient showNotification:self.navigationController];
 		return NO;
 	}
 	return YES;
