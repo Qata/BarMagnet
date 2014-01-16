@@ -12,7 +12,6 @@
 #import "SVWebViewController.h"
 #import "TSMessages/Classes/TSMessage.h"
 #import "TorrentJobCheckerCell.h"
-#import "TorrentDictFunctions.h"
 
 #define IPHONE_HEIGHT 22
 #define IPAD_HEIGHT 28
@@ -413,7 +412,7 @@
 	completeValue ? [cell.percentBar setProgress:[currentJob[@"progress"] floatValue] / completeValue] : nil;
 	[[cell percentBar] setHidden:!completeValue];
 
-	cell.currentStatus.text = [TorrentDictFunctions jobStatusFromCurrentJob:currentJob];
+	cell.currentStatus.text = currentJob[@"status"];
 	cell.hashString = currentJob[@"hash"];
 	if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
 	{

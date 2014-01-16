@@ -7,7 +7,6 @@
 //
 
 #import "TorrentDetailViewController.h"
-#import "TorrentDictFunctions.h"
 #import "TorrentDelegate.h"
 #import "TorrentClient.h"
 
@@ -27,7 +26,7 @@
 {
 	[super viewWillAppear:animated];
 	[self setTitle:hashDict[@"name"]];
-	identifierArray = @[@[@"", @"Size", @"Downloaded", @"Uploaded", @"Completed"], @[@"Download", @"Upload", @"Seeds Connected", @"Peers Connected", @"ETA"]];
+	identifierArray = @[@[@"", @"Size", @"Downloaded", @"Uploaded", @"Completed"], @[@"Download", @"Upload", @"Seeds Connected", @"Peers Connected", @"Ratio", @"ETA"]];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -65,7 +64,7 @@
 			switch (indexPath.row)
 			{
 				case 0:
-					cell.textLabel.text = [TorrentDictFunctions jobStatusFromCurrentJob:hashDict];
+					cell.textLabel.text = hashDict[@"status"];
 					break;
 				case 1:
 					cell.detailTextLabel.text = [hashDict[@"size"] sizeString];
@@ -99,6 +98,9 @@
 					cell.detailTextLabel.text = hashDict[@"peersConnected"];
 					break;
 				case 4:
+					cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", hashDict[@"ratio"]];
+					break;
+				case 5:
 					cell.detailTextLabel.text = hashDict[@"ETA"];
 					break;
 				default:
@@ -122,12 +124,10 @@
 			return 5;
 			break;
 		case 1:
-			return 5;
-			break;
-		default:
-			return 0;
+			return 6;
 			break;
 	}
+	return 0;
 }
 
 - (IBAction)playPause:(id)sender
@@ -144,7 +144,7 @@
 	UIActionSheet *popupQuery;
 	if (TorrentDelegate.sharedInstance.currentlySelectedClient.supportsEraseChoice)
 	{
-		popupQuery = [[UIActionSheet alloc] initWithTitle:@"Also delete data?" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Delete Data" otherButtonTitles:@"Delete Torrent", nil];
+		popupQuery = [[UIActionSheet alloc] initWithTitle:@"Also delete data?" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Delete data" otherButtonTitles:@"Delete torrent", nil];
 	}
 	else
 	{

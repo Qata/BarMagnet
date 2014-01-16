@@ -15,6 +15,7 @@
 @interface SettingsTableViewController () <UIPickerViewDataSource, UIPickerViewDelegate>
 @property (nonatomic, strong) NSArray * cellNames;
 @property (nonatomic, strong) NSArray * sortedArray;
+@property (nonatomic, assign) BOOL shouldRefresh;
 @end
 
 @implementation SettingsTableViewController
@@ -61,12 +62,12 @@
 	self.cellNames = @[@"Pretty", @"Compact"];
     self.sortedArray = [[[[TorrentDelegate sharedInstance] torrentDelegates] allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
     [self.pickerView selectRow:[self.sortedArray indexOfObject:[FileHandler.sharedInstance settingsValueForKey:@"server_type"]] inComponent:0 animated:NO];
-	[self pickerView:self.pickerView didSelectRow:[self.sortedArray indexOfObject:[FileHandler.sharedInstance settingsValueForKey:@"server_type"]] inComponent:0];
 }
 
-- (void)dealloc
+- (void)viewWillAppear:(BOOL)animated
 {
-	[[NSNotificationCenter defaultCenter] removeObserver:self];
+	[super viewWillAppear:animated];
+	[self pickerView:self.pickerView didSelectRow:[self.sortedArray indexOfObject:[FileHandler.sharedInstance settingsValueForKey:@"server_type"]] inComponent:0];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -77,9 +78,6 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-	[TorrentDelegate.sharedInstance.currentlySelectedClient setJobsData:nil];
-	[TorrentDelegate.sharedInstance.currentlySelectedClient handleTorrentJobs];
-	[[NSNotificationCenter defaultCenter] postNotificationName:@"update_torrent_jobs_table" object:nil];
 	[TorrentJobChecker.sharedInstance credentialsCheckInvocation];
 	[super viewWillDisappear:animated];
 }
@@ -98,6 +96,11 @@
 	[FileHandler.sharedInstance setSettingsValue:self.cellNames[self.torrentCellTypeSegmentedControl.selectedSegmentIndex] forKey:@"cell"];
 	[FileHandler.sharedInstance setSettingsValue:[self.queryFormatField.text stringByReplacingOccurrencesOfString:@"http://" withString:@""] forKey:@"query_format"];
 	[FileHandler.sharedInstance setSettingsValue:[self.torrentSiteField.text stringByReplacingOccurrencesOfString:@"http://" withString:@""] forKey:@"preferred_torrent_site"];
+
+	if (self.useSSLSegmentedControl.selectedSegmentIndex)
+	{
+		[NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:[self cleanURL:self.hostnameField.text]];
+	}
 }
 
 - (void)hideCells
@@ -126,6 +129,13 @@
     return self.sortedArray[row];
 }
 
+- (BOOL)shouldRefresh
+{
+	BOOL retVal = _shouldRefresh;
+	_shouldRefresh = YES;
+	return retVal;
+}
+
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
 	[TorrentDelegate.sharedInstance.currentlySelectedClient becameIdle];
@@ -143,6 +153,13 @@
 	[self.torrentCellTypeSegmentedControl setSelectedSegmentIndex:[self.cellNames indexOfObject:[FileHandler.sharedInstance settingsValueForKey:@"cell"]]];
 	[TorrentDelegate.sharedInstance.currentlySelectedClient becameActive];
 	[self hideCells];
+
+	if (self.shouldRefresh)
+	{
+		[TorrentDelegate.sharedInstance.currentlySelectedClient setJobsData:nil];
+		[TorrentDelegate.sharedInstance.currentlySelectedClient handleTorrentJobs];
+		[[NSNotificationCenter defaultCenter] postNotificationName:@"update_torrent_jobs_table" object:nil];
+	}
 }
 
 @end

@@ -10,7 +10,6 @@
 		230E746D17940D270090BECF /* PingHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 230E746C17940D270090BECF /* PingHandler.m */; };
 		230F9EFF1781AA0E00705546 /* NSNumber+TransferRateFormatting.m in Sources */ = {isa = PBXBuildFile; fileRef = 230F9EFE1781AA0E00705546 /* NSNumber+TransferRateFormatting.m */; };
 		2318A1F5178AA97B00B96E5F /* header.png in Resources */ = {isa = PBXBuildFile; fileRef = 2318A1F4178AA97B00B96E5F /* header.png */; };
-		2324910E178E4FA200D5454E /* TorrentDictFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2324910D178E4FA200D5454E /* TorrentDictFunctions.m */; };
 		232B0FA5178C356700A7B3DC /* TorrentDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 232B0FA4178C356700A7B3DC /* TorrentDetailViewController.m */; };
 		23314152177FE95E0062B0FE /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 23314150177FE95E0062B0FE /* gear.png */; };
 		23314153177FE95E0062B0FE /* gear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23314151177FE95E0062B0FE /* gear@2x.png */; };
@@ -120,8 +119,6 @@
 		230F9EFD1781AA0E00705546 /* NSNumber+TransferRateFormatting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSNumber+TransferRateFormatting.h"; path = "../../../Bar Magnet Shared Sources/NSNumber+TransferRateFormatting.h"; sourceTree = "<group>"; };
 		230F9EFE1781AA0E00705546 /* NSNumber+TransferRateFormatting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSNumber+TransferRateFormatting.m"; path = "../../../Bar Magnet Shared Sources/NSNumber+TransferRateFormatting.m"; sourceTree = "<group>"; };
 		2318A1F4178AA97B00B96E5F /* header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = header.png; sourceTree = "<group>"; };
-		2324910C178E4FA200D5454E /* TorrentDictFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TorrentDictFunctions.h; sourceTree = "<group>"; };
-		2324910D178E4FA200D5454E /* TorrentDictFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TorrentDictFunctions.m; sourceTree = "<group>"; };
 		232B0FA3178C356700A7B3DC /* TorrentDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TorrentDetailViewController.h; sourceTree = "<group>"; };
 		232B0FA4178C356700A7B3DC /* TorrentDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TorrentDetailViewController.m; sourceTree = "<group>"; };
 		23314150177FE95E0062B0FE /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
@@ -458,8 +455,6 @@
 			children = (
 				23AC2B30175D835600FCFA71 /* AppDelegate.h */,
 				23AC2B31175D835600FCFA71 /* AppDelegate.m */,
-				2324910C178E4FA200D5454E /* TorrentDictFunctions.h */,
-				2324910D178E4FA200D5454E /* TorrentDictFunctions.m */,
 				23B1C026177C4ECE000A0B07 /* FileHandler */,
 				23B1C025177C4EC6000A0B07 /* ConnectionHandler */,
 				23B1C024177C4EA3000A0B07 /* TorrentDelegate */,
@@ -784,7 +779,6 @@
 				23B1BFE6177C3817000A0B07 /* Deluge.m in Sources */,
 				23A48234177DE1BA000873CF /* TorrentJobChecker.m in Sources */,
 				23B1BFE7177C3817000A0B07 /* qBittorrent.m in Sources */,
-				2324910E178E4FA200D5454E /* TorrentDictFunctions.m in Sources */,
 				23B1BFE8177C3817000A0B07 /* ruTorrent.m in Sources */,
 				23B1BFE9177C3817000A0B07 /* Transmission.m in Sources */,
 				230F9EFF1781AA0E00705546 /* NSNumber+TransferRateFormatting.m in Sources */,
