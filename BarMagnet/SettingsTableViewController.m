@@ -78,7 +78,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-	[TorrentJobChecker.sharedInstance credentialsCheckInvocation];
+	[TorrentJobChecker.sharedInstance performSelectorInBackground:@selector(credentialsCheckInvocation) withObject:nil];
 	[super viewWillDisappear:animated];
 }
 

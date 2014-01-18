@@ -42,6 +42,12 @@
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveUpdateTableNotification) name:@"update_torrent_jobs_table" object:nil];
 	self.shouldRefresh = YES;
+	self.tableView.contentOffset = CGPointMake(0.0, 44.0);
+
+	if (![[[FileHandler.sharedInstance webDataValueForKey:@"url" andDict:nil] orSome:nil] length])
+	{
+		[self performSegueWithIdentifier:@"Settings" sender:nil];
+	}
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -50,6 +56,7 @@
 	self.tableView.rowHeight = [[self.tableView dequeueReusableCellWithIdentifier:[FileHandler.sharedInstance settingsValueForKey:@"cell"]] frame].size.height;
 	self.searchDisplayController.searchResultsTableView.rowHeight = [[self.tableView dequeueReusableCellWithIdentifier:[FileHandler.sharedInstance settingsValueForKey:@"cell"]] frame].size.height;
 	[self receiveUpdateTableNotification];
+
 }
 
 - (void)dealloc
@@ -184,7 +191,7 @@
 
 - (IBAction)sortBy:(id)sender
 {
-	[[self.sortBySheet = UIActionSheet.alloc initWithTitle:@"Sort By" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Completed", @"Incomplete", @"Downloading", @"Seeding", @"Paused", @"Name", @"Size", nil] showFromToolbar:self.navigationController.toolbar];
+	[[self.sortBySheet = UIActionSheet.alloc initWithTitle:@"Sort By" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Completed", @"Incomplete", @"Download Speed", @"Upload Speed", @"Downloading", @"Seeding", @"Paused", @"Name", @"Size", nil] showFromToolbar:self.navigationController.toolbar];
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -243,58 +250,28 @@
 	if ([sortBy isEqualToString:@"Completed"])
 	{
 		[array sortUsingComparator: (NSComparator)^(NSDictionary *a, NSDictionary *b){
-			double completeValue = [[[TorrentDelegate.sharedInstance.currentlySelectedClient class] completeNumber] doubleValue];
-			if ([a[@"progress"] doubleValue] == completeValue)
+			NSComparisonResult res = [b[@"progress"] compare:a[@"progress"]];
+			if (res != NSOrderedSame)
 			{
-				if (!([b[@"progress"] doubleValue] == completeValue))
-				{
-					return [@0 compare:@1];
-				}
+				return res;
 			}
-			else if ([b[@"progress"] doubleValue] == completeValue)
-			{
-				return [@1 compare:@0];
-			}
-
-			NSNumber *key1 = a[@"progress"];
-			NSNumber *key2 = b[@"progress"];
-			if ([key2 compare:key1] != NSOrderedSame)
-			{
-				return [key2 compare:key1];
-			}
-
 			return [a[@"name"] compare:b[@"name"]];
 		}];
 	}
 	else if ([sortBy isEqualToString:@"Incomplete"])
 	{
 		[array sortUsingComparator: (NSComparator)^(NSDictionary *a, NSDictionary *b){
-			double completeValue = [[[TorrentDelegate.sharedInstance.currentlySelectedClient class] completeNumber] doubleValue];
-			if ([a[@"progress"] doubleValue] == completeValue)
+			NSComparisonResult res = [a[@"progress"] compare:b[@"progress"]];
+			if (res != NSOrderedSame)
 			{
-				if (!([b[@"progress"] doubleValue] == completeValue))
-				{
-					return [@1 compare:@0];
-				}
+				return res;
 			}
-			else if ([b[@"progress"] doubleValue] == completeValue)
-			{
-				return [@0 compare:@1];
-			}
-
-			NSNumber *key1 = a[@"progress"];
-			NSNumber *key2 = b[@"progress"];
-			if ([key1 compare:key2] != NSOrderedSame)
-			{
-				return [key1 compare:key2];
-			}
-
 			return [a[@"name"] compare:b[@"name"]];
 		}];
 	}
 	else if ([sortBy isEqualToString:@"Downloading"] || [sortBy isEqualToString:@"Seeding"] || [sortBy isEqualToString:@"Paused"])
 	{
-		[array sortUsingComparator: (NSComparator)^(NSDictionary *a, NSDictionary *b){
+		[array sortUsingComparator:(NSComparator)^(NSDictionary *a, NSDictionary *b){
 			if ([a[@"status"] isEqualToString:sortBy])
 			{
 				if (![b[@"status"] isEqualToString:sortBy])
@@ -305,8 +282,7 @@
 			else if ([b[@"status"] isEqualToString:sortBy])
 			{
 				return [@1 compare:@0];
-			}
-
+			}\
 			return [a[@"name"] compare:b[@"name"]];
 		}];
 	}
@@ -318,8 +294,35 @@
 	}
 	else if ([sortBy isEqualToString:@"Size"])
 	{
-		[array sortUsingComparator: (NSComparator)^(NSDictionary *a, NSDictionary *b){
-			return [a[@"size"] compare:b[@"size"]];
+		[array sortUsingComparator:(NSComparator)^(NSDictionary *a, NSDictionary *b){
+			NSComparisonResult res = [a[@"size"] compare:b[@"size"]];
+			if (res != NSOrderedSame)
+			{
+				return res;
+			}
+			return [a[@"name"] compare:b[@"name"]];
+		}];
+	}
+	else if ([sortBy isEqualToString:@"Download Speed"])
+	{
+		[array sortUsingComparator:(NSComparator)^(NSDictionary *a, NSDictionary *b){
+			NSComparisonResult res = [b[@"rawDownloadSpeed"] compare:a[@"rawDownloadSpeed"]];
+			if (res != NSOrderedSame)
+			{
+				return res;
+			}
+			return [a[@"name"] compare:b[@"name"]];
+		}];
+	}
+	else if ([sortBy isEqualToString:@"Upload Speed"])
+	{
+		[array sortUsingComparator:(NSComparator)^(NSDictionary *a, NSDictionary *b){
+			NSComparisonResult res = [b[@"rawUploadSpeed"] compare:a[@"rawUploadSpeed"]];
+			if (res != NSOrderedSame)
+			{
+				return res;
+			}
+			return [a[@"name"] compare:b[@"name"]];
 		}];
 	}
 }
@@ -336,8 +339,8 @@
 	{
 		if (dict[@"rawUploadSpeed"] && dict[@"rawDownloadSpeed"])
 		{
-			uploadSpeed += [dict[@"rawUploadSpeed"] unsignedIntegerValue];
-			downloadSpeed += [dict[@"rawDownloadSpeed"] unsignedIntegerValue];
+			uploadSpeed += [dict[@"rawUploadSpeed"] integerValue];
+			downloadSpeed += [dict[@"rawDownloadSpeed"] integerValue];
 		}
 		else
 		{
@@ -346,20 +349,28 @@
 		}
 	}
 
-	UIView * newView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 80, 20)];
+	unsigned height = 11;
+	UIView * newView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 80, height * 2)];
 	newView.backgroundColor = [UIColor clearColor];
 
-	UIFont * font = [UIFont fontWithName:@"Arial" size:10];
+	UIFont * font = [UIFont fontWithName:@"Arial" size:height];
 
-	UILabel * upload = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 80, 10)];
+	UILabel * upload = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 80, height)];
+	UILabel * download = [[UILabel alloc] initWithFrame:CGRectMake(0, height, 80, height)];
+
+	if ([[[[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."] firstObject] integerValue] < 7)
+	{
+		upload.textColor = [UIColor whiteColor];
+		download.textColor = [UIColor whiteColor];
+	}
+
 	upload.font = font;
 	upload.text = [NSString stringWithFormat:@"↑ %@", @(uploadSpeed).transferRateString];
 	upload.backgroundColor = UIColor.clearColor;
-	[newView addSubview:upload];
-	UILabel * download = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, 80, 10)];
 	download.font = font;
 	download.text = [NSString stringWithFormat:@"↓ %@", @(downloadSpeed).transferRateString];
 	download.backgroundColor = UIColor.clearColor;
+	[newView addSubview:upload];
 	[newView addSubview:download];
 	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:newView];
 }
@@ -453,11 +464,11 @@
 	UIActionSheet *popupQuery;
 	if (TorrentDelegate.sharedInstance.currentlySelectedClient.supportsEraseChoice)
 	{
-		popupQuery = [[UIActionSheet alloc] initWithTitle:@"Also delete data?" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Delete Data" otherButtonTitles:@"Delete Torrent", nil];
+		popupQuery = [[UIActionSheet alloc] initWithTitle:@"Also delete data?" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Delete data" otherButtonTitles:@"Delete torrent", nil];
 	}
 	else
 	{
-		popupQuery = [[UIActionSheet alloc] initWithTitle:@"Are you sure?" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Yes" otherButtonTitles:nil];
+		popupQuery = [[UIActionSheet alloc] initWithTitle:@"Are you sure?" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Delete Torrent" otherButtonTitles:nil];
 	}
 	self.deleteTorrentSheet = popupQuery;
 	popupQuery.tag = indexPath.row;
@@ -545,15 +556,13 @@
 
 -(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
 {
-    [self filterContentForSearchText:searchString scope:
-     [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
+    [self filterContentForSearchText:searchString scope:[[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
     return YES;
 }
 
 -(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption
 {
-    [self filterContentForSearchText:self.searchDisplayController.searchBar.text scope:
-     [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:searchOption]];
+    [self filterContentForSearchText:self.searchDisplayController.searchBar.text scope:[[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:searchOption]];
     return YES;
 }
 
