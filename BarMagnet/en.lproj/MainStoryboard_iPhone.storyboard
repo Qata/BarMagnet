@@ -130,6 +130,35 @@
                                     <segue destination="aQm-fc-cHO" kind="push" id="amo-Ds-Acd"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Fast" textLabel="0zI-DN-AFW" detailTextLabel="hHL-lr-YKH" rowHeight="44" style="IBUITableViewCellStyleSubtitle" id="NiH-h5-uM0" customClass="TorrentJobCheckerCell">
+                                <rect key="frame" x="0.0" y="239" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NiH-h5-uM0" id="05d-60-Ja4">
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0zI-DN-AFW">
+                                            <rect key="frame" x="15" y="3" width="48" height="22"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Downloading, 100.0%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hHL-lr-YKH">
+                                            <rect key="frame" x="15" y="25" width="124" height="15"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="currentStatus" destination="hHL-lr-YKH" id="wld-Th-IjX"/>
+                                    <outlet property="name" destination="0zI-DN-AFW" id="bh1-r8-fzo"/>
+                                    <segue destination="aQm-fc-cHO" kind="push" id="jWq-Gn-0mh"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="zWV-0Y-d6N" id="74U-gi-YKD"/>
@@ -656,7 +685,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" id="Y4V-JM-6W6">
-                                                    <rect key="frame" x="104" y="8" width="196" height="30"/>
+                                                    <rect key="frame" x="104" y="7" width="196" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" secureTextEntry="YES"/>
                                                     <connections>
@@ -696,11 +725,12 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="3Mw-Lk-Q25">
-                                                    <rect key="frame" x="20" y="17" width="280" height="29"/>
+                                                    <rect key="frame" x="54" y="17" width="212" height="29"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                     <segments>
-                                                        <segment title="Pretty Cells"/>
-                                                        <segment title="Compact Cells"/>
+                                                        <segment title="Pretty"/>
+                                                        <segment title="Compact"/>
+                                                        <segment title="Fast"/>
                                                     </segments>
                                                     <connections>
                                                         <action selector="synchronizeData:" destination="ghE-DB-Hgr" eventType="valueChanged" id="hoT-XD-Zqq"/>

@@ -16,6 +16,7 @@
 @property (nonatomic, strong) NSArray * cellNames;
 @property (nonatomic, strong) NSArray * sortedArray;
 @property (nonatomic, assign) BOOL shouldRefresh;
+@property (nonatomic, strong) NSArray * fields;
 @end
 
 @implementation SettingsTableViewController
@@ -59,7 +60,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	self.cellNames = @[@"Pretty", @"Compact"];
+	self.cellNames = @[@"Pretty", @"Compact", @"Fast"];
     self.sortedArray = [[[[TorrentDelegate sharedInstance] torrentDelegates] allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
     [self.pickerView selectRow:[self.sortedArray indexOfObject:[FileHandler.sharedInstance settingsValueForKey:@"server_type"]] inComponent:0 animated:NO];
 }
@@ -67,6 +68,14 @@
 - (void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
+	for (UITextField * field in self.fields = @[self.hostnameField, self.usernameField, self.passwordField, self.portField, self.directoryField, self.labelField, self.relativePathField, self.queryFormatField, self.torrentSiteField])
+	{
+		field.delegate = self;
+		[field addTarget:self action:@selector(synchronizeData:) forControlEvents:UIControlEventEditingDidEnd];
+	}
+	[self.torrentCellTypeSegmentedControl addTarget:self action:@selector(synchronizeData:) forControlEvents:UIControlEventValueChanged];
+	[self.useSSLSegmentedControl addTarget:self action:@selector(synchronizeData:) forControlEvents:UIControlEventValueChanged];
+
 	[self pickerView:self.pickerView didSelectRow:[self.sortedArray indexOfObject:[FileHandler.sharedInstance settingsValueForKey:@"server_type"]] inComponent:0];
 }
 
@@ -78,6 +87,10 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
+	for (UITextField * field in self.fields)
+	{
+		[field resignFirstResponder];
+	}
 	[TorrentJobChecker.sharedInstance performSelectorInBackground:@selector(credentialsCheckInvocation) withObject:nil];
 	[super viewWillDisappear:animated];
 }

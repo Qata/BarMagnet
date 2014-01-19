@@ -12,19 +12,34 @@
 #import "SVWebViewController.h"
 #import "TSMessages/Classes/TSMessage.h"
 #import "TorrentJobCheckerCell.h"
+#import "NSOrderedDictionary.h"
 
 #define IPHONE_HEIGHT 22
 #define IPAD_HEIGHT 28
 
+enum ORDER
+{
+	COMPLETED = 1,
+	INCOMPLETE,
+	DOWNLOAD_SPEED,
+	UPLOAD_SPEED,
+	ACTIVE,
+	DOWNLOADING,
+	SEEDING,
+	PAUSED,
+	NAME,
+	SIZE
+};
+
 @interface TorrentJobsTableViewController () <UIActionSheetDelegate, UIAlertViewDelegate, UISearchBarDelegate, UISearchDisplayDelegate>
 @property (nonatomic, weak) UIActionSheet * controlSheet;
-@property (nonatomic, weak) UIActionSheet * sortBySheet;
 @property (nonatomic, weak) UIActionSheet * deleteTorrentSheet;
-@property (nonatomic, strong) NSArray * sortByStrings;
+@property (nonatomic, strong) UIActionSheet * sortBySheet;
 @property (nonatomic, assign) BOOL shouldRefresh;
 @property (nonatomic, strong) NSMutableArray * filteredArray;
-@property (nonatomic, strong) UIView * headerView;
+@property (nonatomic, strong) UILabel * header;
 @property (nonatomic, strong) NSArray * sortedKeys;
+@property (nonatomic, strong) NSOrderedDictionary * sortByDictionary;
 @end
 
 @implementation TorrentJobsTableViewController
@@ -33,7 +48,8 @@
 {
     [super viewDidLoad];
 	[self setTitle:@"Torrents"];
-	self.sortByStrings = @[@"Completed", @"Incomplete", @"Downloading", @"Seeding", @"Paused", @"Name"];
+
+	self.sortByDictionary = [[NSOrderedDictionary alloc] initWithObjects:@[@(COMPLETED), @(INCOMPLETE), @(DOWNLOAD_SPEED), @(UPLOAD_SPEED), @(ACTIVE), @(DOWNLOADING), @(SEEDING), @(PAUSED), @(NAME), @(SIZE)] pairedWithKeys:@[@"Completed", @"Incomplete", @"Download Speed", @"Upload Speed", @"Active", @"Downloading", @"Seeding", @"Paused", @"Name", @"Size"]];
 
 	for (TorrentClient * client in TorrentDelegate.sharedInstance.torrentDelegates.allValues)
     {
@@ -106,9 +122,10 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-	NSString * text = [[alertView textFieldAtIndex:0] text];
 	if (alertView.alertViewStyle == UIAlertViewStylePlainTextInput)
 	{
+		[[alertView textFieldAtIndex:0] resignFirstResponder];
+		NSString * text = [[alertView textFieldAtIndex:0] text];
 		switch (buttonIndex)
 		{
 			case 1:
@@ -191,7 +208,14 @@
 
 - (IBAction)sortBy:(id)sender
 {
-	[[self.sortBySheet = UIActionSheet.alloc initWithTitle:@"Sort By" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Completed", @"Incomplete", @"Download Speed", @"Upload Speed", @"Downloading", @"Seeding", @"Paused", @"Name", @"Size", nil] showFromToolbar:self.navigationController.toolbar];
+	self.sortBySheet = [UIActionSheet.alloc initWithTitle:@"Sort By" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
+	for (NSString * string in self.sortByDictionary.allKeys)
+	{
+		[self.sortBySheet addButtonWithTitle:string];
+	}
+	[self.sortBySheet addButtonWithTitle:@"Cancel"];
+	self.sortBySheet.cancelButtonIndex = self.sortByDictionary.count;
+	[self.sortBySheet showFromToolbar:self.navigationController.toolbar];
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -223,8 +247,8 @@
 				[[NSNotificationCenter defaultCenter] postNotificationName:@"cancel_refresh" object:nil];
 				[TorrentDelegate.sharedInstance.currentlySelectedClient addTemporaryDeletedJobsObject:@2 forKey:hashString];
 				[TorrentDelegate.sharedInstance.currentlySelectedClient removeTorrent:hashString removeData:buttonIndex == 0];
-				[self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:actionSheet.tag inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
 				cancelNextRefresh = YES;
+				[self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:actionSheet.tag inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
 			}
 			else
 			{
@@ -245,85 +269,116 @@
 
 - (void)sortArray:(NSMutableArray *)array
 {
-	NSString * sortBy = [FileHandler.sharedInstance settingsValueForKey:@"sort_by"];
-
-	if ([sortBy isEqualToString:@"Completed"])
+	NSInteger sortBy = [self.sortByDictionary[[FileHandler.sharedInstance settingsValueForKey:@"sort_by"]] integerValue];
+	switch (sortBy)
 	{
-		[array sortUsingComparator: (NSComparator)^(NSDictionary *a, NSDictionary *b){
-			NSComparisonResult res = [b[@"progress"] compare:a[@"progress"]];
-			if (res != NSOrderedSame)
-			{
-				return res;
-			}
-			return [a[@"name"] compare:b[@"name"]];
-		}];
-	}
-	else if ([sortBy isEqualToString:@"Incomplete"])
-	{
-		[array sortUsingComparator: (NSComparator)^(NSDictionary *a, NSDictionary *b){
-			NSComparisonResult res = [a[@"progress"] compare:b[@"progress"]];
-			if (res != NSOrderedSame)
-			{
-				return res;
-			}
-			return [a[@"name"] compare:b[@"name"]];
-		}];
-	}
-	else if ([sortBy isEqualToString:@"Downloading"] || [sortBy isEqualToString:@"Seeding"] || [sortBy isEqualToString:@"Paused"])
-	{
-		[array sortUsingComparator:(NSComparator)^(NSDictionary *a, NSDictionary *b){
-			if ([a[@"status"] isEqualToString:sortBy])
-			{
-				if (![b[@"status"] isEqualToString:sortBy])
+		case COMPLETED:
+		{
+			[array sortUsingComparator: (NSComparator)^(NSDictionary *a, NSDictionary *b){
+				NSComparisonResult res = [b[@"progress"] compare:a[@"progress"]];
+				if (res != NSOrderedSame)
 				{
-					return [@0 compare:@1];
+					return res;
 				}
-			}
-			else if ([b[@"status"] isEqualToString:sortBy])
-			{
-				return [@1 compare:@0];
-			}\
-			return [a[@"name"] compare:b[@"name"]];
-		}];
-	}
-	else if ([sortBy isEqualToString:@"Name"])
-	{
-		[array sortUsingComparator: (NSComparator)^(NSDictionary *a, NSDictionary *b){
-			return [a[@"name"] compare:b[@"name"]];
-		}];
-	}
-	else if ([sortBy isEqualToString:@"Size"])
-	{
-		[array sortUsingComparator:(NSComparator)^(NSDictionary *a, NSDictionary *b){
-			NSComparisonResult res = [a[@"size"] compare:b[@"size"]];
-			if (res != NSOrderedSame)
-			{
-				return res;
-			}
-			return [a[@"name"] compare:b[@"name"]];
-		}];
-	}
-	else if ([sortBy isEqualToString:@"Download Speed"])
-	{
-		[array sortUsingComparator:(NSComparator)^(NSDictionary *a, NSDictionary *b){
-			NSComparisonResult res = [b[@"rawDownloadSpeed"] compare:a[@"rawDownloadSpeed"]];
-			if (res != NSOrderedSame)
-			{
-				return res;
-			}
-			return [a[@"name"] compare:b[@"name"]];
-		}];
-	}
-	else if ([sortBy isEqualToString:@"Upload Speed"])
-	{
-		[array sortUsingComparator:(NSComparator)^(NSDictionary *a, NSDictionary *b){
-			NSComparisonResult res = [b[@"rawUploadSpeed"] compare:a[@"rawUploadSpeed"]];
-			if (res != NSOrderedSame)
-			{
-				return res;
-			}
-			return [a[@"name"] compare:b[@"name"]];
-		}];
+				return [a[@"name"] compare:b[@"name"]];
+			}];
+			break;
+		}
+
+		case INCOMPLETE:
+		{
+			[array sortUsingComparator: (NSComparator)^(NSDictionary *a, NSDictionary *b){
+				NSComparisonResult res = [a[@"progress"] compare:b[@"progress"]];
+				if (res != NSOrderedSame)
+				{
+					return res;
+				}
+				return [a[@"name"] compare:b[@"name"]];
+			}];
+			break;
+		}
+		case DOWNLOAD_SPEED:
+		{
+			[array sortUsingComparator:(NSComparator)^(NSDictionary *a, NSDictionary *b){
+				NSComparisonResult res = [b[@"rawDownloadSpeed"] compare:a[@"rawDownloadSpeed"]];
+				if (res != NSOrderedSame)
+				{
+					return res;
+				}
+				return [a[@"name"] compare:b[@"name"]];
+			}];
+			break;
+		}
+		case UPLOAD_SPEED:
+		{
+			[array sortUsingComparator:(NSComparator)^(NSDictionary *a, NSDictionary *b){
+				NSComparisonResult res = [b[@"rawUploadSpeed"] compare:a[@"rawUploadSpeed"]];
+				if (res != NSOrderedSame)
+				{
+					return res;
+				}
+				return [a[@"name"] compare:b[@"name"]];
+			}];
+			break;
+		}
+		case ACTIVE:
+		{
+			[array sortUsingComparator:(NSComparator)^(NSDictionary *a, NSDictionary *b){
+				if ([a[@"rawUploadSpeed"] integerValue] || [a[@"rawDownloadSpeed"] integerValue])
+				{
+					if (!([b[@"rawUploadSpeed"] integerValue] || [b[@"rawDownloadSpeed"] integerValue]))
+					{
+						return [@0 compare:@1];
+					}
+				}
+				else if ([b[@"rawUploadSpeed"] integerValue] || [b[@"rawDownloadSpeed"] integerValue])
+				{
+					return [@1 compare:@0];
+				}
+				return [a[@"name"] compare:b[@"name"]];
+			}];
+			break;
+		}
+		case DOWNLOADING:
+		case SEEDING:
+		case PAUSED:
+		{
+			[array sortUsingComparator:(NSComparator)^(NSDictionary *a, NSDictionary *b){
+				if ([self.sortByDictionary[a[@"status"]] integerValue] == sortBy)
+				{
+					if (!([self.sortByDictionary[b[@"status"]] integerValue] == sortBy))
+					{
+						return [@0 compare:@1];
+					}
+				}
+				else if ([self.sortByDictionary[b[@"status"]] integerValue] == sortBy)
+				{
+					return [@1 compare:@0];
+				}
+				return [a[@"name"] compare:b[@"name"]];
+			}];
+			break;
+		}
+		default:
+		case NAME:
+		{
+			[array sortUsingComparator: (NSComparator)^(NSDictionary *a, NSDictionary *b){
+				return [a[@"name"] compare:b[@"name"]];
+			}];
+			break;
+		}
+		case SIZE:
+		{
+			[array sortUsingComparator:(NSComparator)^(NSDictionary *a, NSDictionary *b){
+				NSComparisonResult res = [a[@"size"] compare:b[@"size"]];
+				if (res != NSOrderedSame)
+				{
+					return res;
+				}
+				return [a[@"name"] compare:b[@"name"]];
+			}];
+			break;
+		}
 	}
 }
 
@@ -400,6 +455,16 @@
 	}
 
 	cell.name.text = currentJob[@"name"];
+	double completeValue = [[[TorrentDelegate.sharedInstance.currentlySelectedClient class] completeNumber] doubleValue];
+	if ([CellIdentifier isEqualToString:@"Fast"])
+	{
+		cell.currentStatus.text = [NSString stringWithFormat:@"%@, %.1f%%", currentJob[@"status"], completeValue ? [currentJob[@"progress"] doubleValue] / completeValue : 0];
+	}
+	if (completeValue)
+	{
+		cell.percentBar.progress = [currentJob[@"progress"] doubleValue] / completeValue;
+	}
+	cell.currentStatus.text = currentJob[@"status"];
 	cell.ETA.text = @"";
 	if ([currentJob[@"ETA"] length])
 	{
@@ -419,9 +484,6 @@
 	}
 	cell.downloadSpeed.text = [NSString stringWithFormat:@"↓ %@", currentJob[@"downloadSpeed"]];
 
-	double completeValue = [[[TorrentDelegate.sharedInstance.currentlySelectedClient class] completeNumber] doubleValue];
-	completeValue ? [cell.percentBar setProgress:[currentJob[@"progress"] floatValue] / completeValue] : nil;
-
 	if ([currentJob[@"status"] isEqualToString:@"Seeding"])
 	{
 		cell.percentBar.progressTintColor = [UIColor colorWithRed:0 green:1 blue:.4 alpha:1];
@@ -434,8 +496,6 @@
 	{
 		cell.percentBar.progressTintColor = [UIColor colorWithRed:0 green:.478 blue:1 alpha:1];
 	}
-
-	cell.currentStatus.text = currentJob[@"status"];
 	cell.hashString = currentJob[@"hash"];
 	if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
 	{
@@ -489,34 +549,30 @@
 {
 	if (!self.shouldRefresh)
 		return nil;
-	if (self.headerView)
+	if (self.header)
 	{
-		UILabel * label = (UILabel *)self.headerView.subviews.lastObject;
 		if ([TorrentDelegate.sharedInstance.currentlySelectedClient isHostOnline])
 		{
-			self.headerView.backgroundColor = [UIColor colorWithRed:77/255. green:149/255. blue:197/255. alpha:0.85];
-			label.text = @"Host Online";
+			self.header.backgroundColor = [UIColor colorWithRed:.3 green:.58 blue:.77 alpha:.85];
+			self.header.text = @"Host Online";
 		}
 		else
 		{
-			self.headerView.backgroundColor = [UIColor colorWithRed:250/255. green:50/255. blue:50/255. alpha:0.85];
-			label.text = @"Host Offline";
+			self.header.backgroundColor = [UIColor colorWithRed:.98 green:.2 blue:.2 alpha:0.85];
+			self.header.text = @"Host Offline";
 		}
 	}
 	else
 	{
-		self.headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [tableView frame].size.width, 0)];
-		self.headerView.backgroundColor = [UIColor colorWithRed:250/255. green:50/255. blue:50/255. alpha:0.85];
-		UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, [tableView frame].size.width, [self sizeForDevice])];
-		[self.headerView addSubview:label];
-		label.backgroundColor = [UIColor clearColor];
-		label.textColor = [UIColor whiteColor];
-		label.text = @"Host Offline";
-		label.font = [UIFont fontWithName:@"Arial" size:[self sizeForDevice] - 6];
-		label.textAlignment = NSTextAlignmentCenter;
-		label.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+		self.header = [UILabel.alloc initWithFrame:CGRectMake(0, 0, [tableView frame].size.width, [self sizeForDevice])];
+		self.header.backgroundColor = [UIColor colorWithRed:0 green:0.7 blue:.4 alpha:.85];
+		self.header.textColor = [UIColor whiteColor];
+		self.header.text = @"Trying to connect...";
+		self.header.font = [UIFont fontWithName:@"Arial" size:self.sizeForDevice - 6];
+		self.header.textAlignment = NSTextAlignmentCenter;
+		self.header.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
 	}
-	return self.headerView;
+	return self.header;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

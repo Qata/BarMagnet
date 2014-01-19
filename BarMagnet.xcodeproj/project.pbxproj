@@ -281,12 +281,12 @@
 				232B0FA4178C356700A7B3DC /* TorrentDetailViewController.m */,
 				23EBE2D717941EBC00723ADD /* AddTorrentViewController.h */,
 				23EBE2D817941EBC00723ADD /* AddTorrentViewController.m */,
-				23AF74DE1796D5F700AC4ED5 /* StaticDataTableViewController.h */,
-				23AF74DF1796D5F700AC4ED5 /* StaticDataTableViewController.m */,
 				23A94F20183CD6B7004A3924 /* UINavigationControllerNoAutoRotation.h */,
 				23A94F21183CD6B7004A3924 /* UINavigationControllerNoAutoRotation.m */,
 				235527621872568D00A9E6BC /* AboutViewController.h */,
 				235527631872568D00A9E6BC /* AboutViewController.m */,
+				23AF74DE1796D5F700AC4ED5 /* StaticDataTableViewController.h */,
+				23AF74DF1796D5F700AC4ED5 /* StaticDataTableViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -940,7 +940,7 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = BarMagnet;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "32C3E6D8-6F93-4D34-B73F-C36431D33F8A";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;

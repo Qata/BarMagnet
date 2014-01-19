@@ -109,7 +109,7 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="jI7-E3-Z48"/>
                         <barButtonItem image="gear.png" style="plain" id="Qlz-sE-mbV">
                             <connections>
-                                <segue destination="def-LL-0zG" kind="push" id="8Gw-ZX-Rvm"/>
+                                <segue destination="def-LL-0zG" kind="push" identifier="Settings" id="8Gw-ZX-Rvm"/>
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
