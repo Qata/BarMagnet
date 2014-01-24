@@ -13,7 +13,6 @@
 @interface TorrentJobsTableViewController : UITableViewController
 {
 	BOOL cancelNextRefresh;
-	TorrentDetailViewController * tdv;
 }
 
 - (IBAction)openUI:(id)sender;

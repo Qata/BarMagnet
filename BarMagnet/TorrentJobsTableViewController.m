@@ -48,8 +48,9 @@ enum ORDER
 {
     [super viewDidLoad];
 	[self setTitle:@"Torrents"];
+	self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
 
-	self.sortByDictionary = [[NSOrderedDictionary alloc] initWithObjects:@[@(COMPLETED), @(INCOMPLETE), @(DOWNLOAD_SPEED), @(UPLOAD_SPEED), @(ACTIVE), @(DOWNLOADING), @(SEEDING), @(PAUSED), @(NAME), @(SIZE)] pairedWithKeys:@[@"Completed", @"Incomplete", @"Download Speed", @"Upload Speed", @"Active", @"Downloading", @"Seeding", @"Paused", @"Name", @"Size"]];
+	self.sortByDictionary = [NSOrderedDictionary.alloc initWithObjects:@[@(COMPLETED), @(INCOMPLETE), @(DOWNLOAD_SPEED), @(UPLOAD_SPEED), @(ACTIVE), @(DOWNLOADING), @(SEEDING), @(PAUSED), @(NAME), @(SIZE)] pairedWithKeys:@[@"Completed", @"Incomplete", @"Download Speed", @"Upload Speed", @"Active", @"Downloading", @"Seeding", @"Paused", @"Name", @"Size"]];
 
 	for (TorrentClient * client in TorrentDelegate.sharedInstance.torrentDelegates.allValues)
     {
@@ -69,6 +70,7 @@ enum ORDER
 - (void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
+	self.title = [FileHandler.sharedInstance settingsValueForKey:@"server_type"];
 	self.tableView.rowHeight = [[self.tableView dequeueReusableCellWithIdentifier:[FileHandler.sharedInstance settingsValueForKey:@"cell"]] frame].size.height;
 	self.searchDisplayController.searchResultsTableView.rowHeight = [[self.tableView dequeueReusableCellWithIdentifier:[FileHandler.sharedInstance settingsValueForKey:@"cell"]] frame].size.height;
 	[self receiveUpdateTableNotification];
@@ -80,6 +82,12 @@ enum ORDER
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+{
+	[super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
+	[self.tableView reloadData];
+}
+
 - (void)receiveUpdateTableNotification
 {
 	if (!cancelNextRefresh)
@@ -88,7 +96,6 @@ enum ORDER
 		{
 			[self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
 		}
-		[tdv.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
 	}
 	else
 	{
@@ -245,7 +252,7 @@ enum ORDER
 			{
 				NSString * hashString = [self.sortedKeys objectAtIndex:actionSheet.tag][@"hash"];
 				[[NSNotificationCenter defaultCenter] postNotificationName:@"cancel_refresh" object:nil];
-				[TorrentDelegate.sharedInstance.currentlySelectedClient addTemporaryDeletedJobsObject:@2 forKey:hashString];
+				[TorrentDelegate.sharedInstance.currentlySelectedClient addTemporaryDeletedJobsObject:@4 forKey:hashString];
 				[TorrentDelegate.sharedInstance.currentlySelectedClient removeTorrent:hashString removeData:buttonIndex == 0];
 				cancelNextRefresh = YES;
 				[self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:actionSheet.tag inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
@@ -439,9 +446,40 @@ enum ORDER
 	return 1;
 }
 
+- (void)addProgressViewToCell:(TorrentJobCheckerCell *)cell withJob:(NSDictionary *)currentJob
+{
+	NSInteger tag = -(1 << 8);
+	if (![[cell viewWithTag:tag].class isEqual:UIView.class])
+	{
+		UIView * view = [UIView.alloc initWithFrame:cell.frame];
+		view.tag = tag;
+		[cell insertSubview:view atIndex:0];
+	}
+
+	UIView * progressView = [cell viewWithTag:tag];
+	CGRect frame = progressView.frame;
+	double completeValue = [[[TorrentDelegate.sharedInstance.currentlySelectedClient class] completeNumber] doubleValue];
+	frame.size.width = cell.frame.size.width * (completeValue ? [currentJob[@"progress"] doubleValue] / completeValue : 0);
+	progressView.frame = frame;
+
+	if ([currentJob[@"status"] isEqualToString:@"Seeding"])
+	{
+		progressView.backgroundColor = [UIColor colorWithRed:0 green:1 blue:.4 alpha:.3];
+	}
+	else if ([currentJob[@"status"] isEqualToString:@"Downloading"])
+	{
+		progressView.backgroundColor = [UIColor colorWithRed:0 green:.478 blue:1 alpha:.3];
+	}
+	else
+	{
+		progressView.backgroundColor = [UIColor colorWithRed:.85 green:.85 blue:.85 alpha:.5];
+	}
+
+	[progressView setNeedsDisplay];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
 	NSString *CellIdentifier = [FileHandler.sharedInstance settingsValueForKey:@"cell"];
 	TorrentJobCheckerCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 	NSDictionary * currentJob = nil;
@@ -455,18 +493,20 @@ enum ORDER
 	}
 
 	cell.name.text = currentJob[@"name"];
-	double completeValue = [[[TorrentDelegate.sharedInstance.currentlySelectedClient class] completeNumber] doubleValue];
-	if ([CellIdentifier isEqualToString:@"Fast"])
-	{
-		cell.currentStatus.text = [NSString stringWithFormat:@"%@, %.1f%%", currentJob[@"status"], completeValue ? [currentJob[@"progress"] doubleValue] / completeValue : 0];
-	}
-	if (completeValue)
-	{
-		cell.percentBar.progress = [currentJob[@"progress"] doubleValue] / completeValue;
-	}
+	cell.hashString = currentJob[@"hash"];
 	cell.currentStatus.text = currentJob[@"status"];
-	cell.ETA.text = @"";
-	if ([currentJob[@"ETA"] length])
+	
+	if ([CellIdentifier characterAtIndex:0] == 'F')
+	{
+		[self addProgressViewToCell:cell withJob:currentJob];
+	}
+	else
+	{
+		double completeValue = [[[TorrentDelegate.sharedInstance.currentlySelectedClient class] completeNumber] doubleValue];
+		cell.percentBar.progress = completeValue ? [currentJob[@"progress"] doubleValue] / completeValue : 0;
+	}
+
+	if ([currentJob[@"ETA"] length] && [currentJob[@"progress"] doubleValue] != [[TorrentDelegate.sharedInstance.currentlySelectedClient.class completeNumber] doubleValue])
 	{
 		cell.ETA.text = [NSString stringWithFormat:@"ETA: %@", currentJob[@"ETA"]];
 	}
@@ -474,7 +514,11 @@ enum ORDER
 	{
 		cell.ETA.text = [NSString stringWithFormat:@"Ratio: %.3f", [currentJob[@"ratio"] doubleValue]];
 	}
-	if (CellIdentifier.UTF8String[0] == 'P')
+	else
+	{
+		cell.ETA.text = @"";
+	}
+	if ([CellIdentifier characterAtIndex:0] == 'P')
 	{
 		cell.uploadSpeed.text = [NSString stringWithFormat:@"↑ %@", currentJob[@"uploadSpeed"]];
 	}
@@ -482,21 +526,21 @@ enum ORDER
 	{
 		cell.uploadSpeed.text = [NSString stringWithFormat:@"%@ ↑", currentJob[@"uploadSpeed"]];
 	}
-	cell.downloadSpeed.text = [NSString stringWithFormat:@"↓ %@", currentJob[@"downloadSpeed"]];
 
 	if ([currentJob[@"status"] isEqualToString:@"Seeding"])
 	{
 		cell.percentBar.progressTintColor = [UIColor colorWithRed:0 green:1 blue:.4 alpha:1];
 	}
-	else if ([currentJob[@"status"] isEqualToString:@"Paused"] || [currentJob[@"status"] isEqualToString:@"Stalled"])
-	{
-		cell.percentBar.progressTintColor = [UIColor darkGrayColor];
-	}
-	else
+	else if ([currentJob[@"status"] isEqualToString:@"Downloading"])
 	{
 		cell.percentBar.progressTintColor = [UIColor colorWithRed:0 green:.478 blue:1 alpha:1];
 	}
-	cell.hashString = currentJob[@"hash"];
+	else
+	{
+		cell.percentBar.progressTintColor = [UIColor darkGrayColor];
+	}
+
+	cell.downloadSpeed.text = [NSString stringWithFormat:@"↓ %@", currentJob[@"downloadSpeed"]];
 	if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
 	{
 		UIFont * font = [UIFont fontWithName:@"Arial" size:10];
@@ -528,7 +572,7 @@ enum ORDER
 	}
 	else
 	{
-		popupQuery = [[UIActionSheet alloc] initWithTitle:@"Are you sure?" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Delete Torrent" otherButtonTitles:nil];
+		popupQuery = [[UIActionSheet alloc] initWithTitle:@"Are you sure?" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Delete torrent" otherButtonTitles:nil];
 	}
 	self.deleteTorrentSheet = popupQuery;
 	popupQuery.tag = indexPath.row;
@@ -551,23 +595,24 @@ enum ORDER
 		return nil;
 	if (self.header)
 	{
+
 		if ([TorrentDelegate.sharedInstance.currentlySelectedClient isHostOnline])
 		{
-			self.header.backgroundColor = [UIColor colorWithRed:.3 green:.58 blue:.77 alpha:.85];
+			self.header.backgroundColor = [UIColor colorWithRed:77/255. green:149/255. blue:197/255. alpha:0.85];
 			self.header.text = @"Host Online";
 		}
 		else
 		{
-			self.header.backgroundColor = [UIColor colorWithRed:.98 green:.2 blue:.2 alpha:0.85];
+			self.header.backgroundColor = [UIColor colorWithRed:250/255. green:50/255. blue:50/255. alpha:0.85];
 			self.header.text = @"Host Offline";
 		}
 	}
 	else
 	{
 		self.header = [UILabel.alloc initWithFrame:CGRectMake(0, 0, [tableView frame].size.width, [self sizeForDevice])];
-		self.header.backgroundColor = [UIColor colorWithRed:0 green:0.7 blue:.4 alpha:.85];
+		self.header.backgroundColor = [UIColor colorWithRed:0 green:0.9 blue:.2 alpha:.85];
 		self.header.textColor = [UIColor whiteColor];
-		self.header.text = @"Trying to connect...";
+		self.header.text = @"Attempting Connection";
 		self.header.font = [UIFont fontWithName:@"Arial" size:self.sizeForDevice - 6];
 		self.header.textAlignment = NSTextAlignmentCenter;
 		self.header.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
@@ -588,7 +633,6 @@ enum ORDER
 {
 	if ([segue.destinationViewController isKindOfClass:TorrentDetailViewController.class])
 	{
-		tdv = segue.destinationViewController;
 		if ([sender isKindOfClass:TorrentJobCheckerCell.class])
 		{
 			[segue.destinationViewController setHashString:[sender hashString]];
@@ -634,6 +678,11 @@ enum ORDER
 		}
 	}
 	[self sortArray:self.filteredArray];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	cancelNextRefresh = YES;
 }
 
 @end

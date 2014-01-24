@@ -20,6 +20,7 @@
 {
 	[super viewDidLoad];
 	hashDict = [TorrentDelegate.sharedInstance.currentlySelectedClient getJobsDict][self.hashString];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveUpdateTableNotification) name:@"update_torrent_jobs_table" object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -39,6 +40,16 @@
 {
 	identifierArray = nil;
 	[super viewDidDisappear:animated];
+}
+
+- (void)dealloc
+{
+	[NSNotificationCenter.defaultCenter removeObserver:self];
+}
+
+- (void)receiveUpdateTableNotification
+{
+	[self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -158,7 +169,7 @@
 {
 	if (buttonIndex != [actionSheet cancelButtonIndex])
 	{
-		[TorrentDelegate.sharedInstance.currentlySelectedClient addTemporaryDeletedJobsObject:@2 forKey:self.hashString];
+		[TorrentDelegate.sharedInstance.currentlySelectedClient addTemporaryDeletedJobsObject:@4 forKey:self.hashString];
 		[TorrentDelegate.sharedInstance.currentlySelectedClient removeTorrent:self.hashString removeData:buttonIndex == 0];
 		[[NSNotificationCenter defaultCenter] postNotificationName:@"update_torrent_jobs_table" object:nil];
 		[[self navigationController] popToRootViewControllerAnimated:YES];
@@ -178,9 +189,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-	if (section == 0)
-		return hashDict[@"name"];
-	return @"";
+	return hashDict[@[@"name", @"hash"][section]];
 }
 
 @end

@@ -32,7 +32,13 @@
 	//A URL should look like this: "192.168.0.1"
 	//This function is to make sure it doesn't look like this: "192.160.0.1/transmission/"
 	url = [[url stringByReplacingOccurrencesOfString:@"http://" withString:@""] stringByReplacingOccurrencesOfString:@"https://" withString:@""];
-	NSString * subString = [url getStringBetween:@"/" andString:@"/"];
+
+	if ([url rangeOfString:@"/"].location != NSNotFound)
+	{
+		return [url substringToIndex:[url rangeOfString:@"/"].location];
+	}
+
+	/*NSString * subString = [url getStringBetween:@"/" andString:@"/"];
 	if ([subString length])
 	{
 		if ([url rangeOfString:[NSString stringWithFormat:@"/%@/", subString]].location != NSNotFound)
@@ -47,7 +53,7 @@
 	else
 	{
 		return [url stringByReplacingOccurrencesOfString:@"/" withString:@""];
-	}
+	}*/
 	return url;
 }
 

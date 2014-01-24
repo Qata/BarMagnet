@@ -57,7 +57,6 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
 	[TorrentDelegate.sharedInstance.currentlySelectedClient showNotification:nil];
-	self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
 	[self.searchBox resignFirstResponder];
 	[self.textBox resignFirstResponder];
 	[super viewWillDisappear:animated];

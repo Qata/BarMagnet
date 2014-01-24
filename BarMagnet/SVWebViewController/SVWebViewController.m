@@ -19,8 +19,9 @@ static const CGFloat kAddressHeight = 26.0f;
 
 @interface SVWebViewController () <UIWebViewDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate>
 
-@property (nonatomic, strong, readonly) NSArray *adKeys;
-@property (nonatomic, strong, readonly) NSArray *adsArray;
+@property (nonatomic, strong) NSArray *adKeys;
+@property (nonatomic, strong) NSArray *adsArray;
+@property (nonatomic, strong) NSArray *torrentDownloadLinks;
 @property (nonatomic, strong, readonly) UIBarButtonItem *backBarButtonItem;
 @property (nonatomic, strong, readonly) UIBarButtonItem *forwardBarButtonItem;
 @property (nonatomic, strong, readonly) UIBarButtonItem *refreshBarButtonItem;
@@ -68,7 +69,7 @@ static const CGFloat kAddressHeight = 26.0f;
 @synthesize availableActions;
 
 @synthesize URL, mainWebView;
-@synthesize adKeys, adsArray, backBarButtonItem, forwardBarButtonItem, refreshBarButtonItem, stopBarButtonItem, actionBarButtonItem, pageActionSheet;
+@synthesize backBarButtonItem, forwardBarButtonItem, refreshBarButtonItem, stopBarButtonItem, actionBarButtonItem, pageActionSheet;
 
 #pragma mark - setters and getters
 
@@ -196,8 +197,9 @@ static const CGFloat kAddressHeight = 26.0f;
 - (void)viewDidLoad {
 	[super viewDidLoad];
 
-	adKeys = @[@"ytimg.com", @"pstatic.org", @"privitize.com", @"lp.torchbrowser.com", @"adexprt.com", @"trafficposse.com", @"mobicow.com", @"amgct.com", @"cpactions.com", @"adsmarket.com", @"propellerads.com", @"sexad.net", @"adrotator.se", @"rtbpop.com", @"exoclick.com", @"a.kickass.to", @"about:blank"];
-	adsArray = @[@"document.getElementById('sky-banner').firstElementChild.src", @"document.getElementById('sky-right').firstElementChild.src", @"document.getElementById('main-content').firstElementChild.src", @"document.getElementById('header').firstElementChild.firstElementChild.src"];
+	self.adKeys = @[@"ytimg.com", @"pstatic.org", @"privitize.com", @"lp.torchbrowser.com", @"adexprt.com", @"trafficposse.com", @"mobicow.com", @"amgct.com", @"cpactions.com", @"adsmarket.com", @"propellerads.com", @"sexad.net", @"adrotator.se", @"rtbpop.com", @"exoclick.com", @"a.kickass.to", @"about:blank"];
+	self.adsArray = @[@"document.getElementById('sky-banner').firstElementChild.src", @"document.getElementById('sky-right').firstElementChild.src", @"document.getElementById('main-content').firstElementChild.src", @"document.getElementById('header').firstElementChild.firstElementChild.src"];
+	self.torrentDownloadLinks = @[@"nyaa.se/?page=download"];
 	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:[self navigationController] action:@selector(dismissViewControllerAnimated)];
     [self updateToolbarItems];
 }
@@ -316,7 +318,7 @@ static const CGFloat kAddressHeight = 26.0f;
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
 	NSLog(@"%d, %@", navigationType, request.URL.absoluteString);
-	for (NSString * key in adKeys)
+	for (NSString * key in self.adKeys)
 	{
 		if ([request.URL.absoluteString rangeOfString:key].location != NSNotFound)
 		{
@@ -324,13 +326,23 @@ static const CGFloat kAddressHeight = 26.0f;
 		}
 	}
 
+	for (NSString * key in self.torrentDownloadLinks)
+	{
+		if ([request.URL.absoluteString rangeOfString:key].location != NSNotFound)
+		{
+			[TorrentDelegate.sharedInstance.currentlySelectedClient handleTorrentURL:request.URL];
+			[TorrentDelegate.sharedInstance.currentlySelectedClient showNotification:self.navigationController];
+			return NO;
+		}
+	}
+
 	if ([[request URL] absoluteString].length > 7 && [[[[request URL] absoluteString] substringToIndex:7] isEqual:@"magnet:"])
 	{
-		[TorrentDelegate.sharedInstance.currentlySelectedClient handleMagnetLink:[[request URL] absoluteString]];
+		[TorrentDelegate.sharedInstance.currentlySelectedClient handleMagnetLink:request.URL.absoluteString];
 		[TorrentDelegate.sharedInstance.currentlySelectedClient showNotification:self.navigationController];
 		return NO;
 	}
-	else if ([[request URL] absoluteString].length > 8 && [[[[request URL] absoluteString] substringFromIndex:[[[request URL] absoluteString] length] - 8] isEqual:@".torrent"])
+	else if ([[request URL] absoluteString].length > 8 && [[[[request URL] absoluteString] substringFromIndex:request.URL.absoluteString.length - 8] isEqual:@".torrent"])
 	{
 		[TorrentDelegate.sharedInstance.currentlySelectedClient handleTorrentURL:request.URL];
 		[TorrentDelegate.sharedInstance.currentlySelectedClient showNotification:self.navigationController];

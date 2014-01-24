@@ -76,6 +76,113 @@
                                     <segue destination="mOR-Qr-S9h" kind="push" identifier="detail" id="cwR-Xb-Qnm"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Compact" rowHeight="66" id="Udp-Ka-QdN" customClass="TorrentJobCheckerCell">
+                                <rect key="frame" x="0.0" y="210" width="768" height="66"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Udp-Ka-QdN" id="2yK-wp-uhx">
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="65"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <progressView opaque="NO" tag="218493483" contentMode="scaleToFill" verticalHuggingPriority="750" id="YEq-ZQ-QXP">
+                                            <rect key="frame" x="20" y="28" width="728" height="2"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                            <color key="progressTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </progressView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="846264338" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Up: 888.8 KB/s" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QEK-e6-AHs">
+                                            <rect key="frame" x="213" y="38" width="167" height="17"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="358979323" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Down: 888.8 KB/s" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RKT-Ih-BBK">
+                                            <rect key="frame" x="388" y="38" width="167" height="17"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="283476564" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KFj-yx-FmU">
+                                            <rect key="frame" x="20" y="2" width="728" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="19"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="128462083" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ETA: -" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FCP-JD-fAH">
+                                            <rect key="frame" x="611" y="38" width="137" height="17"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="128462083" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Downloading" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bzS-iA-rhW">
+                                            <rect key="frame" x="20" y="38" width="137" height="17"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="ETA" destination="FCP-JD-fAH" id="qFw-PK-nes"/>
+                                    <outlet property="currentStatus" destination="bzS-iA-rhW" id="Tl3-k8-4U4"/>
+                                    <outlet property="downloadSpeed" destination="RKT-Ih-BBK" id="sZF-aj-DO1"/>
+                                    <outlet property="name" destination="KFj-yx-FmU" id="kyV-x4-FO9"/>
+                                    <outlet property="percentBar" destination="YEq-ZQ-QXP" id="TLb-kd-7gU"/>
+                                    <outlet property="uploadSpeed" destination="QEK-e6-AHs" id="ON7-bX-nay"/>
+                                    <segue destination="mOR-Qr-S9h" kind="push" id="MM8-kh-MIN"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Fast" rowHeight="48" id="rlr-zG-o3l" customClass="TorrentJobCheckerCell">
+                                <rect key="frame" x="0.0" y="276" width="768" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rlr-zG-o3l" id="py9-4l-htr">
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="47"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="846264338" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Up: 888.8 KB/s" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nXj-0a-Kwx">
+                                            <rect key="frame" x="213" y="25" width="167" height="17"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="358979323" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Down: 888.8 KB/s" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RCa-v9-Nne">
+                                            <rect key="frame" x="388" y="25" width="167" height="17"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="128462083" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Downloading" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PLF-0s-WGJ">
+                                            <rect key="frame" x="20" y="25" width="137" height="17"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="283476564" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Fd9-OK-hGE">
+                                            <rect key="frame" x="20" y="2" width="728" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="19"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="128462083" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ETA: -" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vkd-C0-m76">
+                                            <rect key="frame" x="611" y="25" width="137" height="17"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="ETA" destination="vkd-C0-m76" id="UgV-wM-8f4"/>
+                                    <outlet property="currentStatus" destination="PLF-0s-WGJ" id="shS-op-UlP"/>
+                                    <outlet property="downloadSpeed" destination="RCa-v9-Nne" id="d2b-Uk-zv5"/>
+                                    <outlet property="name" destination="Fd9-OK-hGE" id="Pgp-Ym-brF"/>
+                                    <outlet property="uploadSpeed" destination="nXj-0a-Kwx" id="Zb3-6p-gPQ"/>
+                                    <segue destination="mOR-Qr-S9h" kind="push" id="maJ-aJ-Lme"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="EgX-EY-3Mi" id="IG5-v0-Ddw"/>
@@ -293,8 +400,27 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="62" id="HTE-Jr-w8p">
+                                        <rect key="frame" x="0.0" y="540" width="768" height="62"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HTE-Jr-w8p" id="efZ-XQ-ECD">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="62"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="vwu-tH-FjB">
+                                                    <rect key="frame" x="244" y="17" width="280" height="29"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                    <segments>
+                                                        <segment title="Pretty"/>
+                                                        <segment title="Compact"/>
+                                                        <segment title="Fast"/>
+                                                    </segments>
+                                                </segmentedControl>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="A1s-sP-cE2">
-                                        <rect key="frame" x="0.0" y="540" width="768" height="44"/>
+                                        <rect key="frame" x="0.0" y="602" width="768" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="A1s-sP-cE2" id="HZU-dg-h87">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
@@ -320,7 +446,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="LQG-zV-MS6">
-                                        <rect key="frame" x="0.0" y="584" width="768" height="44"/>
+                                        <rect key="frame" x="0.0" y="646" width="768" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LQG-zV-MS6" id="461-oe-Icj">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
@@ -346,7 +472,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="relativePath" id="A0H-0Y-Cij">
-                                        <rect key="frame" x="0.0" y="628" width="768" height="44"/>
+                                        <rect key="frame" x="0.0" y="690" width="768" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="A0H-0Y-Cij" id="mfB-0T-Rag">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
@@ -372,7 +498,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="directory" id="8Yx-gA-xha">
-                                        <rect key="frame" x="0.0" y="672" width="768" height="44"/>
+                                        <rect key="frame" x="0.0" y="734" width="768" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8Yx-gA-xha" id="FpC-0N-KDv">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
@@ -398,7 +524,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="label" id="YCp-Ob-yl4">
-                                        <rect key="frame" x="0.0" y="716" width="768" height="44"/>
+                                        <rect key="frame" x="0.0" y="778" width="768" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YCp-Ob-yl4" id="HbM-Aa-BNP">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
@@ -450,6 +576,7 @@
                         <outlet property="queryFormatField" destination="F3A-X7-JTq" id="swp-gV-jqd"/>
                         <outlet property="relativePathCell" destination="A0H-0Y-Cij" id="Dx2-Qv-FBF"/>
                         <outlet property="relativePathField" destination="YFE-E0-R7D" id="UTo-7G-TX6"/>
+                        <outlet property="torrentCellTypeSegmentedControl" destination="vwu-tH-FjB" id="Mvm-3B-6an"/>
                         <outlet property="torrentSiteField" destination="Ro9-k7-fur" id="QMb-4h-iIW"/>
                         <outlet property="useSSLSegmentedControl" destination="Bjf-dU-K6T" id="mxD-uA-KOD"/>
                         <outlet property="usernameField" destination="eDb-j3-5bZ" id="z9c-Je-da6"/>
@@ -749,8 +876,32 @@
                         <sections>
                             <tableViewSection headerTitle="General" id="nXR-rH-ze7">
                                 <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" textLabel="tMP-Gd-DgI" detailTextLabel="RAa-E8-fjr" style="IBUITableViewCellStyleSubtitle" id="C68-CO-f2c">
+                                        <rect key="frame" x="0.0" y="86" width="768" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="C68-CO-f2c" id="tt5-ae-V94">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Need a setup guide?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tMP-Gd-DgI">
+                                                    <rect key="frame" x="15" y="3" width="173" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="www.brycecooley.com/how-to-setup-barmagnet/" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RAa-E8-fjr">
+                                                    <rect key="frame" x="15" y="25" width="274" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="55" id="W3k-Jy-cwR">
-                                        <rect key="frame" x="0.0" y="86" width="768" height="55"/>
+                                        <rect key="frame" x="0.0" y="130" width="768" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="W3k-Jy-cwR" id="F7Q-76-vqF">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="54"/>
@@ -773,7 +924,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="57" id="xd3-u3-RiN">
-                                        <rect key="frame" x="0.0" y="141" width="768" height="57"/>
+                                        <rect key="frame" x="0.0" y="185" width="768" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xd3-u3-RiN" id="oMV-IA-zMF">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="56"/>
@@ -796,7 +947,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="93" id="PFh-M7-dsq">
-                                        <rect key="frame" x="0.0" y="198" width="768" height="93"/>
+                                        <rect key="frame" x="0.0" y="242" width="768" height="93"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PFh-M7-dsq" id="OKc-wl-arQ">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="92"/>
@@ -821,7 +972,7 @@ e.g. "http://www.google.com/q=%query%"</string>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="76" id="5Wp-eU-q2J">
-                                        <rect key="frame" x="0.0" y="291" width="768" height="76"/>
+                                        <rect key="frame" x="0.0" y="335" width="768" height="76"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5Wp-eU-q2J" id="UQe-Km-WTa">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="75"/>
@@ -837,7 +988,7 @@ e.g. "http://www.google.com/q=%query%"</string>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CUD-4z-bCa">
                                                     <rect key="frame" x="20" y="36" width="728" height="34"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <string key="text">The relative path field does not need to use set unless you have ruTorrent or you have configured your torrent client to not use the default path.</string>
+                                                    <string key="text">The relative path field does not need to be set unless you have ruTorrent or you have configured your torrent client to not use the default path.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -845,7 +996,7 @@ e.g. "http://www.google.com/q=%query%"</string>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="79" id="haW-oo-0SY">
-                                        <rect key="frame" x="0.0" y="367" width="768" height="79"/>
+                                        <rect key="frame" x="0.0" y="411" width="768" height="79"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="haW-oo-0SY" id="TDt-J2-4IL">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="78"/>
@@ -870,7 +1021,7 @@ e.g. "www.google.com"</string>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="59" id="tgm-yY-xbS">
-                                        <rect key="frame" x="0.0" y="446" width="768" height="59"/>
+                                        <rect key="frame" x="0.0" y="490" width="768" height="59"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tgm-yY-xbS" id="pML-4l-aCK">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="58"/>
@@ -893,7 +1044,7 @@ e.g. "www.google.com"</string>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="77" id="HrW-8x-XGy">
-                                        <rect key="frame" x="0.0" y="505" width="768" height="77"/>
+                                        <rect key="frame" x="0.0" y="549" width="768" height="77"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HrW-8x-XGy" id="xxE-11-y7e">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="76"/>
@@ -921,7 +1072,7 @@ e.g. "www.google.com"</string>
                             <tableViewSection headerTitle="BitTorrent" id="zPv-ja-ZIK">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="6rZ-Sl-OXT" style="IBUITableViewCellStyleDefault" id="kyb-b3-2dV">
-                                        <rect key="frame" x="0.0" y="604" width="768" height="44"/>
+                                        <rect key="frame" x="0.0" y="648" width="768" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kyb-b3-2dV" id="mgG-C7-v9a">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
@@ -942,7 +1093,7 @@ e.g. "www.google.com"</string>
                             <tableViewSection headerTitle="ruTorrent" id="Hrd-7T-OQq">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="62" id="92p-Sw-US0">
-                                        <rect key="frame" x="0.0" y="670" width="768" height="62"/>
+                                        <rect key="frame" x="0.0" y="714" width="768" height="62"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="92p-Sw-US0" id="gEb-0D-OLO">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="61"/>
@@ -965,7 +1116,7 @@ e.g. "www.google.com"</string>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="77" id="tGE-2v-2ab">
-                                        <rect key="frame" x="0.0" y="732" width="768" height="77"/>
+                                        <rect key="frame" x="0.0" y="776" width="768" height="77"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tGE-2v-2ab" id="RZO-rX-xkb">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="76"/>
@@ -993,7 +1144,7 @@ e.g. "www.google.com"</string>
                             <tableViewSection headerTitle="µTorrent" id="0Jc-U4-1DO">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="44" id="YKK-uf-oTZ">
-                                        <rect key="frame" x="0.0" y="831" width="768" height="44"/>
+                                        <rect key="frame" x="0.0" y="875" width="768" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YKK-uf-oTZ" id="7FW-HL-90X">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
@@ -1044,4 +1195,7 @@ e.g. "www.google.com"</string>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="maJ-aJ-Lme"/>
+    </inferredMetricsTieBreakers>
 </document>
