@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UITextField+UniqueString.h"
 
 @interface QueryCell : UITableViewCell
 @property (nonatomic, strong) IBOutlet UILabel * name;
-@property (nonatomic, strong) IBOutlet UITextField * queryField;
+@property (nonatomic, strong) IBOutlet UITextField_UniqueString * queryField;
+@property (nonatomic, strong) NSDictionary * queryDictionary;
 @end

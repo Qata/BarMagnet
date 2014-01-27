@@ -9,34 +9,33 @@
 #import "QueryCell.h"
 #import "QueryTableViewController.h"
 #import "SVModalWebViewController.h"
+#import "AddQueryTableViewController.h"
 
 @interface QueryTableViewController () <UITextFieldDelegate>
-
 @end
 
 @implementation QueryTableViewController
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
+- (BOOL)textFieldShouldReturn:(UITextField_UniqueString *)textField
 {
-	NSString * query = [NSUserDefaults.standardUserDefaults objectForKey:@"queries"][textField.tag][@"query"];
-	if ([[textField text] length] && [query length])
+	if ([[textField text] length] && [textField.uniqueString length])
 	{
-		SVModalWebViewController *webViewController = [SVModalWebViewController.alloc initWithAddress:[NSString stringWithFormat:@"%@%@", [query rangeOfString:@"https://"].location != NSNotFound ? @"" : @"http://", [query stringByReplacingOccurrencesOfString:@"%query%" withString:[[textField text] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]]];
+		SVModalWebViewController *webViewController = [SVModalWebViewController.alloc initWithAddress:[NSString stringWithFormat:@"%@%@", [textField.uniqueString rangeOfString:@"https://"].location != NSNotFound ? @"" : @"http://", [textField.uniqueString stringByReplacingOccurrencesOfString:@"%query%" withString:[[textField text] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]]];
 		[self.navigationController presentViewController:webViewController animated:YES completion:nil];
 	}
 	return [textField resignFirstResponder];
-}
-
-- (void)viewDidLoad
-{
-	[super viewDidLoad];
-	self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
 	[self.tableView reloadData];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+	self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
+	[super viewWillDisappear:animated];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -52,11 +51,35 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	NSDictionary * query = [NSUserDefaults.standardUserDefaults objectForKey:@"queries"][indexPath.row];
-	QueryCell * cell = [tableView dequeueReusableCellWithIdentifier:@"Query"];
-	cell.name = query[@"name"];
+
+	NSString * cellIdentifier = @"Query";
+	if (![query[@"uses_query"] boolValue])
+	{
+		cellIdentifier = @"Static";
+	}
+	QueryCell * cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+	cell.name.text = query[@"name"];
+	cell.queryField.text = @"";
 	cell.queryField.delegate = self;
-	cell.queryField.tag = indexPath.row;
+	cell.queryField.uniqueString = query[@"query"];
+	cell.queryDictionary = query;
 	return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	[tableView deselectRowAtIndexPath:indexPath animated:YES];
+	if (![[NSUserDefaults.standardUserDefaults objectForKey:@"queries"][indexPath.row][@"uses_query"] boolValue])
+	{
+		NSString * query = [NSUserDefaults.standardUserDefaults objectForKey:@"queries"][indexPath.row][@"query"];
+		SVModalWebViewController *webViewController = [SVModalWebViewController.alloc initWithAddress:[NSString stringWithFormat:@"%@%@", [query rangeOfString:@"https://"].location != NSNotFound ? @"" : @"http://", query]];
+		[self.navigationController presentViewController:webViewController animated:YES completion:nil];
+	}
+}
+
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    [self performSegueWithIdentifier:@"editQuery" sender:[tableView cellForRowAtIndexPath:indexPath]];
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -72,6 +95,17 @@
 		[array removeObjectAtIndex:indexPath.row];
 		[NSUserDefaults.standardUserDefaults setObject:array forKey:@"queries"];
 		[self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+	}
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+	if ([segue.destinationViewController respondsToSelector:@selector(setQueryDictionary:)])
+	{
+		if ([sender respondsToSelector:@selector(queryDictionary)])
+		{
+			[segue.destinationViewController setQueryDictionary:[sender queryDictionary]];
+		}
 	}
 }
 

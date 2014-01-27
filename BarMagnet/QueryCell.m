@@ -7,8 +7,6 @@
 //
 
 #import "QueryCell.h"
-#import "SVModalWebViewController.h"
-#import "FileHandler.h"
 
 @implementation QueryCell
 

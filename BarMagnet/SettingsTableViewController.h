@@ -18,8 +18,8 @@
 @property (strong, nonatomic) IBOutlet UITextField *passwordField;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *useSSLSegmentedControl;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *torrentCellTypeSegmentedControl;
-@property (strong, nonatomic) IBOutlet UITextField *queryFormatField;
-@property (strong, nonatomic) IBOutlet UITextField *torrentSiteField;
+//@property (strong, nonatomic) IBOutlet UITextField *queryFormatField;
+//@property (strong, nonatomic) IBOutlet UITextField *torrentSiteField;
 
 @property (strong, nonatomic) IBOutlet UITextField *relativePathField;
 @property (strong, nonatomic) IBOutlet UITextField *directoryField;

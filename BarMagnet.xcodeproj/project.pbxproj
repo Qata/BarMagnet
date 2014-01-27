@@ -7,11 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		230C477D18948FA4007D56FC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 238A94D317A121B70081EF6D /* QuartzCore.framework */; };
+		230C477F18948FBD007D56FC /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 230C477E18948FBD007D56FC /* CoreVideo.framework */; };
+		230C478118948FC6007D56FC /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 230C478018948FC6007D56FC /* CoreMedia.framework */; };
+		230C478218948FCE007D56FC /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 238A94D517A121C30081EF6D /* OpenGLES.framework */; };
+		230C478418948FD7007D56FC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 230C478318948FD7007D56FC /* AVFoundation.framework */; };
 		230E746D17940D270090BECF /* PingHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 230E746C17940D270090BECF /* PingHandler.m */; };
 		230F9EFF1781AA0E00705546 /* NSNumber+TransferRateFormatting.m in Sources */ = {isa = PBXBuildFile; fileRef = 230F9EFE1781AA0E00705546 /* NSNumber+TransferRateFormatting.m */; };
 		232AE18B1891E28000D3F018 /* QueryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 232AE18A1891E28000D3F018 /* QueryCell.m */; };
 		232AE18E1891E40100D3F018 /* QueryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 232AE18D1891E40100D3F018 /* QueryTableViewController.m */; };
 		232AE1911891EE7400D3F018 /* AddQueryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 232AE1901891EE7400D3F018 /* AddQueryTableViewController.m */; };
+		232AE194189206C000D3F018 /* UITextField+UniqueString.m in Sources */ = {isa = PBXBuildFile; fileRef = 232AE193189206C000D3F018 /* UITextField+UniqueString.m */; };
 		232B0FA5178C356700A7B3DC /* TorrentDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 232B0FA4178C356700A7B3DC /* TorrentDetailViewController.m */; };
 		23314152177FE95E0062B0FE /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 23314150177FE95E0062B0FE /* gear.png */; };
 		23314153177FE95E0062B0FE /* gear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23314151177FE95E0062B0FE /* gear@2x.png */; };
@@ -57,12 +63,12 @@
 		238A94CF17A121630081EF6D /* NotificationButtonBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 238A94B217A121630081EF6D /* NotificationButtonBackground.png */; };
 		238A94D017A121630081EF6D /* NotificationButtonBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 238A94B317A121630081EF6D /* NotificationButtonBackground@2x.png */; };
 		238A94D217A121630081EF6D /* TSMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 238A94B717A121630081EF6D /* TSMessageView.m */; };
-		238A94D717A123700081EF6D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23AC2B25175D835600FCFA71 /* CoreGraphics.framework */; };
 		238FBE321856A27F00A02418 /* SVWebViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 238FBE311856A27F00A02418 /* SVWebViewController.bundle */; };
 		238FD0091887CBB90005BCE2 /* NSBencodeSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 238FD0061887CBB90005BCE2 /* NSBencodeSerialization.m */; };
 		238FD00A1887CBB90005BCE2 /* NSOrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 238FD0081887CBB90005BCE2 /* NSOrderedDictionary.m */; };
 		239145031795604100543347 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 239144FF1795604100543347 /* libTestFlight.a */; };
 		239162941795794400213C67 /* ConnectionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 239162931795794400213C67 /* ConnectionHandler.m */; };
+		2396C92B1895EA88009BC6D3 /* UIFastProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2396C92A1895EA88009BC6D3 /* UIFastProgressBar.m */; };
 		23A0E5C817894C0A00898812 /* NSArray+Functions.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A0E5C717894C0A00898812 /* NSArray+Functions.m */; };
 		23A48234177DE1BA000873CF /* TorrentJobChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A48233177DE1BA000873CF /* TorrentJobChecker.m */; };
 		23A94F22183CD6B7004A3924 /* UINavigationControllerNoAutoRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A94F21183CD6B7004A3924 /* UINavigationControllerNoAutoRotation.m */; };
@@ -88,6 +94,7 @@
 		23B1C019177C4B3C000A0B07 /* StringHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B1C018177C4B3C000A0B07 /* StringHandler.m */; };
 		23B1C01F177C4B88000A0B07 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B1C01E177C4B88000A0B07 /* NSData+Base64.m */; };
 		23B286BC17C0401700BB2DA6 /* NSOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B286BB17C0401700BB2DA6 /* NSOption.m */; };
+		23B35F861894A115002F6E37 /* ScanQRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B35F851894A115002F6E37 /* ScanQRCodeViewController.m */; };
 		23B84F0F17B60F4F008C9D17 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23B84F0D17B60F4F008C9D17 /* MainStoryboard_iPad.storyboard */; };
 		23E60FB71876D20400D2068B /* PlayPause.png in Resources */ = {isa = PBXBuildFile; fileRef = 23E60FB51876D20400D2068B /* PlayPause.png */; };
 		23E60FB81876D20400D2068B /* PlayPause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23E60FB61876D20400D2068B /* PlayPause@2x.png */; };
@@ -110,6 +117,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		230C477E18948FBD007D56FC /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		230C478018948FC6007D56FC /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		230C478318948FD7007D56FC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		230C482A18949214007D56FC /* libGPUImage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGPUImage.a; path = "../../Downloads/GPUImage-master/build/Release-iphoneos/libGPUImage.a"; sourceTree = "<group>"; };
+		230C482C1894921F007D56FC /* libGPUImage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGPUImage.a; path = "../../Downloads/GPUImage-master/build/libGPUImage.a"; sourceTree = "<group>"; };
+		230C482E18949244007D56FC /* libGPUImage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGPUImage.a; path = Smerk/GPUImage/libGPUImage.a; sourceTree = "<group>"; };
 		230E746B17940D270090BECF /* PingHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PingHandler.h; path = "../../../Bar Magnet Shared Sources/PingHandler.h"; sourceTree = "<group>"; };
 		230E746C17940D270090BECF /* PingHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PingHandler.m; path = "../../../Bar Magnet Shared Sources/PingHandler.m"; sourceTree = "<group>"; };
 		230F9EFD1781AA0E00705546 /* NSNumber+TransferRateFormatting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSNumber+TransferRateFormatting.h"; path = "../../../Bar Magnet Shared Sources/NSNumber+TransferRateFormatting.h"; sourceTree = "<group>"; };
@@ -120,6 +133,8 @@
 		232AE18D1891E40100D3F018 /* QueryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryTableViewController.m; sourceTree = "<group>"; };
 		232AE18F1891EE7400D3F018 /* AddQueryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddQueryTableViewController.h; sourceTree = "<group>"; };
 		232AE1901891EE7400D3F018 /* AddQueryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddQueryTableViewController.m; sourceTree = "<group>"; };
+		232AE192189206C000D3F018 /* UITextField+UniqueString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+UniqueString.h"; sourceTree = "<group>"; };
+		232AE193189206C000D3F018 /* UITextField+UniqueString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+UniqueString.m"; sourceTree = "<group>"; };
 		232B0FA3178C356700A7B3DC /* TorrentDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TorrentDetailViewController.h; sourceTree = "<group>"; };
 		232B0FA4178C356700A7B3DC /* TorrentDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TorrentDetailViewController.m; sourceTree = "<group>"; };
 		23314150177FE95E0062B0FE /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
@@ -196,6 +211,8 @@
 		239145021795604100543347 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		239162921795794400213C67 /* ConnectionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConnectionHandler.h; path = "../../../Bar Magnet Shared Sources/ConnectionHandler.h"; sourceTree = "<group>"; };
 		239162931795794400213C67 /* ConnectionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConnectionHandler.m; path = "../../../Bar Magnet Shared Sources/ConnectionHandler.m"; sourceTree = "<group>"; };
+		2396C9291895EA88009BC6D3 /* UIFastProgressBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFastProgressBar.h; sourceTree = "<group>"; };
+		2396C92A1895EA88009BC6D3 /* UIFastProgressBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFastProgressBar.m; sourceTree = "<group>"; };
 		23A0E5C617894C0A00898812 /* NSArray+Functions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSArray+Functions.h"; path = "../../../Bar Magnet Shared Sources/NSArray+Functions.h"; sourceTree = "<group>"; };
 		23A0E5C717894C0A00898812 /* NSArray+Functions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+Functions.m"; path = "../../../Bar Magnet Shared Sources/NSArray+Functions.m"; sourceTree = "<group>"; };
 		23A48232177DE1BA000873CF /* TorrentJobChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TorrentJobChecker.h; path = "../../../Bar Magnet Shared Sources/TorrentJobChecker.h"; sourceTree = "<group>"; };
@@ -251,6 +268,9 @@
 		23B1C01E177C4B88000A0B07 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+Base64.m"; path = "../../../Bar Magnet Shared Sources/NSData+Base64.m"; sourceTree = "<group>"; };
 		23B286BA17C0401700BB2DA6 /* NSOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSOption.h; path = "../../../Bar Magnet Shared Sources/NSOption.h"; sourceTree = "<group>"; };
 		23B286BB17C0401700BB2DA6 /* NSOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSOption.m; path = "../../../Bar Magnet Shared Sources/NSOption.m"; sourceTree = "<group>"; };
+		23B35F5F1894941A002F6E37 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
+		23B35F841894A115002F6E37 /* ScanQRCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanQRCodeViewController.h; sourceTree = "<group>"; };
+		23B35F851894A115002F6E37 /* ScanQRCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanQRCodeViewController.m; sourceTree = "<group>"; };
 		23B6E23117A337C9003D3B7C /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		23B84F0E17B60F4F008C9D17 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		23E60FB51876D20400D2068B /* PlayPause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayPause.png; sourceTree = "<group>"; };
@@ -267,8 +287,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				230C478418948FD7007D56FC /* AVFoundation.framework in Frameworks */,
+				230C478218948FCE007D56FC /* OpenGLES.framework in Frameworks */,
+				230C478118948FC6007D56FC /* CoreMedia.framework in Frameworks */,
+				230C477F18948FBD007D56FC /* CoreVideo.framework in Frameworks */,
+				230C477D18948FA4007D56FC /* QuartzCore.framework in Frameworks */,
 				233C9F9617B9E2E500405CA7 /* libz.dylib in Frameworks */,
-				238A94D717A123700081EF6D /* CoreGraphics.framework in Frameworks */,
 				23AC2B22175D835600FCFA71 /* UIKit.framework in Frameworks */,
 				23AC2B24175D835600FCFA71 /* Foundation.framework in Frameworks */,
 				2374DD9E1796F23100F613EB /* MessageUI.framework in Frameworks */,
@@ -290,6 +314,8 @@
 				232B0FA4178C356700A7B3DC /* TorrentDetailViewController.m */,
 				23EBE2D717941EBC00723ADD /* AddTorrentViewController.h */,
 				23EBE2D817941EBC00723ADD /* AddTorrentViewController.m */,
+				23B35F841894A115002F6E37 /* ScanQRCodeViewController.h */,
+				23B35F851894A115002F6E37 /* ScanQRCodeViewController.m */,
 				232AE18C1891E40100D3F018 /* QueryTableViewController.h */,
 				232AE18D1891E40100D3F018 /* QueryTableViewController.m */,
 				232AE18F1891EE7400D3F018 /* AddQueryTableViewController.h */,
@@ -304,15 +330,19 @@
 			name = "View Controllers";
 			sourceTree = "<group>";
 		};
-		2324910B178E492400D5454E /* TableView Cells */ = {
+		2324910B178E492400D5454E /* Custom UI */ = {
 			isa = PBXGroup;
 			children = (
 				23FC25D61788F1D500CCE434 /* TorrentJobCheckerCell.h */,
 				23FC25D71788F1D500CCE434 /* TorrentJobCheckerCell.m */,
 				232AE1891891E28000D3F018 /* QueryCell.h */,
 				232AE18A1891E28000D3F018 /* QueryCell.m */,
+				232AE192189206C000D3F018 /* UITextField+UniqueString.h */,
+				232AE193189206C000D3F018 /* UITextField+UniqueString.m */,
+				2396C9291895EA88009BC6D3 /* UIFastProgressBar.h */,
+				2396C92A1895EA88009BC6D3 /* UIFastProgressBar.m */,
 			);
-			name = "TableView Cells";
+			name = "Custom UI";
 			sourceTree = "<group>";
 		};
 		2374DDA11796F2C700F613EB /* SVWebViewController */ = {
@@ -429,6 +459,13 @@
 		23AC2B20175D835600FCFA71 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				23B35F5F1894941A002F6E37 /* libiconv.dylib */,
+				230C482E18949244007D56FC /* libGPUImage.a */,
+				230C482C1894921F007D56FC /* libGPUImage.a */,
+				230C482A18949214007D56FC /* libGPUImage.a */,
+				230C478318948FD7007D56FC /* AVFoundation.framework */,
+				230C478018948FC6007D56FC /* CoreMedia.framework */,
+				230C477E18948FBD007D56FC /* CoreVideo.framework */,
 				233C9F9517B9E2E500405CA7 /* libz.dylib */,
 				23B6E23117A337C9003D3B7C /* Accelerate.framework */,
 				238A94D517A121C30081EF6D /* OpenGLES.framework */,
@@ -455,7 +492,7 @@
 				23B1C021177C4E7C000A0B07 /* StringHandler */,
 				23AC2B82175D8A2700FCFA71 /* Torrent Interface Super */,
 				2324910A178E491500D5454E /* View Controllers */,
-				2324910B178E492400D5454E /* TableView Cells */,
+				2324910B178E492400D5454E /* Custom UI */,
 				235120071769C49000A3DE2C /* MainStoryboard_iPhone.storyboard */,
 				23B84F0D17B60F4F008C9D17 /* MainStoryboard_iPad.storyboard */,
 				235527651872723700A9E6BC /* Images.xcassets */,
@@ -752,6 +789,7 @@
 				23AC2B48175D835600FCFA71 /* SettingsTableViewController.m in Sources */,
 				23B1BFE6177C3817000A0B07 /* Deluge.m in Sources */,
 				23A48234177DE1BA000873CF /* TorrentJobChecker.m in Sources */,
+				2396C92B1895EA88009BC6D3 /* UIFastProgressBar.m in Sources */,
 				23B1BFE7177C3817000A0B07 /* qBittorrent.m in Sources */,
 				232AE18B1891E28000D3F018 /* QueryCell.m in Sources */,
 				23B1BFE8177C3817000A0B07 /* ruTorrent.m in Sources */,
@@ -763,10 +801,12 @@
 				23B1BFEB177C3817000A0B07 /* VuzeHTMLUI.m in Sources */,
 				23A94F22183CD6B7004A3924 /* UINavigationControllerNoAutoRotation.m in Sources */,
 				23AF74E01796D5F700AC4ED5 /* StaticDataTableViewController.m in Sources */,
+				232AE194189206C000D3F018 /* UITextField+UniqueString.m in Sources */,
 				233C9F0617B9354300405CA7 /* FileHandler.m in Sources */,
 				230E746D17940D270090BECF /* PingHandler.m in Sources */,
 				23AC45F4179BED2E00AD5F22 /* Synology.m in Sources */,
 				23B1BFEC177C3817000A0B07 /* VuzeRemoteUI.m in Sources */,
+				23B35F861894A115002F6E37 /* ScanQRCodeViewController.m in Sources */,
 				23B1BFFB177C4285000A0B07 /* TorrentClient.m in Sources */,
 				238A94D217A121630081EF6D /* TSMessageView.m in Sources */,
 				2374DDB21796F2C700F613EB /* SVWebViewController.m in Sources */,
@@ -927,6 +967,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/TestFlightSDK1.2.6",
+					"/Users/carlo/Obj-C_Apps/BarMagnet",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = BarMagnet;
@@ -955,10 +996,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/TestFlightSDK1.2.6",
+					"/Users/carlo/Obj-C_Apps/BarMagnet",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = BarMagnet;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "52F21893-97AE-438E-B7D5-BD9BB9DF32DE";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;

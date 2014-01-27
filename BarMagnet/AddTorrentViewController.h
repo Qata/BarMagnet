@@ -10,6 +10,6 @@
 
 @interface AddTorrentViewController : UIViewController <UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *textBox;
-@property (strong, nonatomic) IBOutlet UITextField *searchBox;
+@property (strong, nonatomic) IBOutlet UIButton *scanQRCodeButton;
 
 @end

@@ -28,7 +28,8 @@ enum ORDER
 	SEEDING,
 	PAUSED,
 	NAME,
-	SIZE
+	SIZE,
+	RATIO
 };
 
 @interface TorrentJobsTableViewController () <UIActionSheetDelegate, UIAlertViewDelegate, UISearchBarDelegate, UISearchDisplayDelegate>
@@ -50,7 +51,7 @@ enum ORDER
 	[self setTitle:@"Torrents"];
 	self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
 
-	self.sortByDictionary = [NSOrderedDictionary.alloc initWithObjects:@[@(COMPLETED), @(INCOMPLETE), @(DOWNLOAD_SPEED), @(UPLOAD_SPEED), @(ACTIVE), @(DOWNLOADING), @(SEEDING), @(PAUSED), @(NAME), @(SIZE)] pairedWithKeys:@[@"Completed", @"Incomplete", @"Download Speed", @"Upload Speed", @"Active", @"Downloading", @"Seeding", @"Paused", @"Name", @"Size"]];
+	self.sortByDictionary = [NSOrderedDictionary.alloc initWithObjects:@[@(COMPLETED), @(INCOMPLETE), @(DOWNLOAD_SPEED), @(UPLOAD_SPEED), @(ACTIVE), @(DOWNLOADING), @(SEEDING), @(PAUSED), @(NAME), @(SIZE), @(RATIO)] pairedWithKeys:@[@"Completed", @"Incomplete", @"Download Speed", @"Upload Speed", @"Active", @"Downloading", @"Seeding", @"Paused", @"Name", @"Size", @"Ratio"]];
 
 	for (TorrentClient * client in TorrentDelegate.sharedInstance.torrentDelegates.allValues)
     {
@@ -122,7 +123,7 @@ enum ORDER
 
 - (IBAction)addTorrentPopup:(id)sender
 {
-	UIAlertView * alert = [[UIAlertView alloc] initWithTitle:nil message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Open URL", @"Search Query", @"Open Torrent Site", nil];
+	UIAlertView * alert = [[UIAlertView alloc] initWithTitle:nil message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Open URL", @"Search via Queries", @"Scan QR Code", nil];
 	alert.alertViewStyle = UIAlertViewStylePlainTextInput;
 	[alert show];
 }
@@ -168,39 +169,18 @@ enum ORDER
 			}
 			case 2:
 			{
-				NSString * query = [FileHandler.sharedInstance settingsValueForKey:@"query_format"];
-				if ([text length] && [query length])
-				{
-					if ([query rangeOfString:@"https://"].location != NSNotFound)
-					{
-						SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithAddress:[query stringByReplacingOccurrencesOfString:@"%query%" withString:[text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
-						webViewController.reference = self;
-						[self.navigationController presentViewController:webViewController animated:YES completion:nil];
-					}
-					else
-					{
-						SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithAddress:[@"http://" stringByAppendingString:[query stringByReplacingOccurrencesOfString:@"%query%" withString:[text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]]];
-						webViewController.reference = self;
-						[self.navigationController presentViewController:webViewController animated:YES completion:nil];
-					}
-				}
+				[self performSegueWithIdentifier:@"query" sender:nil];
 				break;
 			}
 			case 3:
 			{
-				NSString * site = [FileHandler.sharedInstance settingsValueForKey:@"preferred_torrent_site"];
-				if ([site length])
+				if (([[UIDevice.currentDevice.systemVersion componentsSeparatedByString:@"."].firstObject integerValue] >= 7))
 				{
-					if ([site rangeOfString:@"https://"].location != NSNotFound)
-					{
-						SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithAddress:site];
-						[self presentViewController:webViewController animated:YES completion:nil];
-					}
-					else
-					{
-						SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithAddress:[@"http://" stringByAppendingString:site]];
-						[self presentViewController:webViewController animated:YES completion:nil];
-					}
+					[self performSegueWithIdentifier:@"scan" sender:nil];
+				}
+				else
+				{
+					[[UIAlertView.alloc initWithTitle:@"Unsupported Feature" message:@"QR code scanning is not supported on devices running a build earlier than 7.0" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil] show];
 				}
 				break;
 			}
@@ -386,6 +366,18 @@ enum ORDER
 			}];
 			break;
 		}
+		case RATIO:
+		{
+			[array sortUsingComparator:(NSComparator)^(NSDictionary *a, NSDictionary *b){
+				NSComparisonResult res = [b[@"ratio"] compare:a[@"ratio"]];
+				if (res != NSOrderedSame)
+				{
+					return res;
+				}
+				return [a[@"name"] compare:b[@"name"]];
+			}];
+			break;
+		}
 	}
 }
 
@@ -420,7 +412,7 @@ enum ORDER
 	UILabel * upload = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 80, height)];
 	UILabel * download = [[UILabel alloc] initWithFrame:CGRectMake(0, height, 80, height)];
 
-	if ([[[[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."] firstObject] integerValue] < 7)
+	if ([[UIDevice.currentDevice.systemVersion componentsSeparatedByString:@"."].firstObject integerValue] < 7)
 	{
 		upload.textColor = [UIColor whiteColor];
 		download.textColor = [UIColor whiteColor];

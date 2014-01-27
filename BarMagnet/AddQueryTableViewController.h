@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface AddQueryTableViewController : UITableViewController <UITextFieldDelegate>
+@property (strong, nonatomic) NSDictionary * queryDictionary;
 @property (strong, nonatomic) IBOutlet UITextField *name;
 @property (strong, nonatomic) IBOutlet UITextField *URL;
+@property (strong, nonatomic) IBOutlet UISwitch *usesQuery;
 @end
