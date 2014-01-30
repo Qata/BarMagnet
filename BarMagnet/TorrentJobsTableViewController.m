@@ -32,7 +32,7 @@ enum ORDER
 	RATIO
 };
 
-@interface TorrentJobsTableViewController () <UIActionSheetDelegate, UIAlertViewDelegate, UISearchBarDelegate, UISearchDisplayDelegate>
+@interface TorrentJobsTableViewController () <UIActionSheetDelegate, UIAlertViewDelegate, UISearchBarDelegate, UISearchDisplayDelegate, UIScrollViewDelegate>
 @property (nonatomic, weak) UIActionSheet * controlSheet;
 @property (nonatomic, weak) UIActionSheet * deleteTorrentSheet;
 @property (nonatomic, strong) UIActionSheet * sortBySheet;
@@ -234,7 +234,10 @@ enum ORDER
 				[[NSNotificationCenter defaultCenter] postNotificationName:@"cancel_refresh" object:nil];
 				[TorrentDelegate.sharedInstance.currentlySelectedClient addTemporaryDeletedJobsObject:@4 forKey:hashString];
 				[TorrentDelegate.sharedInstance.currentlySelectedClient removeTorrent:hashString removeData:buttonIndex == 0];
-				cancelNextRefresh = YES;
+				self.shouldRefresh = NO;
+				dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+					self.shouldRefresh = YES;
+				});
 				[self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:actionSheet.tag inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
 			}
 			else
@@ -474,6 +477,10 @@ enum ORDER
 {
 	NSString *CellIdentifier = [FileHandler.sharedInstance settingsValueForKey:@"cell"];
 	TorrentJobCheckerCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+	if ([cell.subviews.firstObject isKindOfClass:UIScrollView.class])
+	{
+		[cell.subviews.firstObject setDelegate:self];
+	}
 	NSDictionary * currentJob = nil;
 	if (tableView == self.searchDisplayController.searchResultsTableView)
 	{
@@ -673,6 +680,11 @@ enum ORDER
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	cancelNextRefresh = YES;
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
 	cancelNextRefresh = YES;
 }

@@ -22,32 +22,27 @@
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Pretty" rowHeight="65" id="Jip-Id-gdM" customClass="TorrentJobCheckerCell">
-                                <rect key="frame" x="0.0" y="130" width="320" height="65"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Pretty" rowHeight="58" id="Jip-Id-gdM" customClass="TorrentJobCheckerCell">
+                                <rect key="frame" x="0.0" y="130" width="320" height="58"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jip-Id-gdM" id="KUO-df-Agt">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="57"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <progressView opaque="NO" tag="218493483" contentMode="scaleToFill" verticalHuggingPriority="750" id="qQO-j5-XcT">
-                                            <rect key="frame" x="20" y="24" width="280" height="2"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="progressTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </progressView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="846264338" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="↑ 1024.9 KiB/s" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gvs-WD-TdV">
-                                            <rect key="frame" x="20" y="34" width="86" height="12"/>
+                                            <rect key="frame" x="20" y="31" width="86" height="12"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="10"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="358979323" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="↓ 1024.9 KiB/s" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wmO-Zy-4e0">
-                                            <rect key="frame" x="20" y="46" width="101" height="12"/>
+                                            <rect key="frame" x="20" y="43" width="101" height="12"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="10"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="128462083" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Downloading" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aJ5-WF-3ed">
-                                            <rect key="frame" x="201" y="34" width="99" height="12"/>
+                                            <rect key="frame" x="201" y="31" width="99" height="12"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="10"/>
                                             <nil key="highlightedColor"/>
@@ -59,11 +54,16 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="128462083" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ETA: -" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TE1-bO-TeI">
-                                            <rect key="frame" x="201" y="46" width="99" height="12"/>
+                                            <rect key="frame" x="201" y="43" width="99" height="12"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="10"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <view contentMode="scaleToFill" id="VRW-Zo-l5q" customClass="UIFastProgressBar">
+                                            <rect key="frame" x="20" y="24" width="280" height="2"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </view>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
@@ -71,37 +71,32 @@
                                     <outlet property="currentStatus" destination="aJ5-WF-3ed" id="jbb-6U-sOq"/>
                                     <outlet property="downloadSpeed" destination="wmO-Zy-4e0" id="NL0-9A-HrI"/>
                                     <outlet property="name" destination="hDK-GA-wE4" id="nxh-PK-Jfc"/>
-                                    <outlet property="percentBar" destination="qQO-j5-XcT" id="Il7-gT-9HZ"/>
+                                    <outlet property="percentBar" destination="VRW-Zo-l5q" id="wtZ-6M-n1a"/>
                                     <outlet property="uploadSpeed" destination="gvs-WD-TdV" id="gXB-y1-BjA"/>
                                     <segue destination="aQm-fc-cHO" kind="push" identifier="detail" id="0D0-mW-kOm"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Compact" rowHeight="44" id="1uE-69-I7a" customClass="TorrentJobCheckerCell">
-                                <rect key="frame" x="0.0" y="195" width="320" height="44"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Compact" rowHeight="40" id="1uE-69-I7a" customClass="TorrentJobCheckerCell">
+                                <rect key="frame" x="0.0" y="188" width="320" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1uE-69-I7a" id="ttq-yW-b1e">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="39"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <progressView opaque="NO" tag="218493483" contentMode="scaleToFill" verticalHuggingPriority="750" id="27q-nw-w5i">
-                                            <rect key="frame" x="20" y="18" width="280" height="2"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="progressTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </progressView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="846264338" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1024.9 KiB/s ↑" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BIE-cH-WTt">
-                                            <rect key="frame" x="88" y="28" width="65" height="12"/>
+                                            <rect key="frame" x="88" y="25" width="65" height="12"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="10"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="358979323" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="↓ 1024.9 KiB/s" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7Di-Pp-fcX">
-                                            <rect key="frame" x="155" y="28" width="70" height="12"/>
+                                            <rect key="frame" x="155" y="25" width="70" height="12"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="10"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="128462083" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Downloading" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HbO-La-vZr">
-                                            <rect key="frame" x="20" y="28" width="65" height="12"/>
+                                            <rect key="frame" x="20" y="25" width="65" height="12"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="10"/>
                                             <nil key="highlightedColor"/>
@@ -113,11 +108,16 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="128462083" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ETA: 52m53s" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wc1-Vq-gEd">
-                                            <rect key="frame" x="233" y="28" width="67" height="12"/>
+                                            <rect key="frame" x="233" y="25" width="67" height="12"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="10"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <view contentMode="scaleToFill" id="MCQ-z0-kar" customClass="UIFastProgressBar">
+                                            <rect key="frame" x="20" y="18" width="280" height="2"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </view>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
@@ -125,13 +125,13 @@
                                     <outlet property="currentStatus" destination="HbO-La-vZr" id="wMA-PC-M12"/>
                                     <outlet property="downloadSpeed" destination="7Di-Pp-fcX" id="Vil-7T-VXs"/>
                                     <outlet property="name" destination="gqI-gC-jvO" id="ylr-Bn-4rs"/>
-                                    <outlet property="percentBar" destination="27q-nw-w5i" id="b95-R3-ohl"/>
+                                    <outlet property="percentBar" destination="MCQ-z0-kar" id="b5l-yG-1vr"/>
                                     <outlet property="uploadSpeed" destination="BIE-cH-WTt" id="eab-qS-Nd0"/>
                                     <segue destination="aQm-fc-cHO" kind="push" id="amo-Ds-Acd"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Fast" rowHeight="36" id="ze6-QW-bYm" customClass="TorrentJobCheckerCell">
-                                <rect key="frame" x="0.0" y="239" width="320" height="36"/>
+                                <rect key="frame" x="0.0" y="228" width="320" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ze6-QW-bYm" id="CkN-VF-46s">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="35"/>

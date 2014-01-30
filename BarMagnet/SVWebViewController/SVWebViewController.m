@@ -17,11 +17,10 @@ static const CGFloat kSpacer = 2.0f;
 static const CGFloat kLabelFontSize = 12.0f;
 static const CGFloat kAddressHeight = 26.0f;
 
-@interface SVWebViewController () <UIWebViewDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate>
+@interface SVWebViewController () <UIWebViewDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate, NSURLConnectionDelegate>
 
 @property (nonatomic, strong) NSArray *adKeys;
 @property (nonatomic, strong) NSArray *adsArray;
-@property (nonatomic, strong) NSArray *torrentDownloadLinks;
 @property (nonatomic, strong, readonly) UIBarButtonItem *backBarButtonItem;
 @property (nonatomic, strong, readonly) UIBarButtonItem *forwardBarButtonItem;
 @property (nonatomic, strong, readonly) UIBarButtonItem *refreshBarButtonItem;
@@ -199,7 +198,6 @@ static const CGFloat kAddressHeight = 26.0f;
 
 	self.adKeys = @[@"ytimg.com", @"pstatic.org", @"privitize.com", @"lp.torchbrowser.com", @"adexprt.com", @"trafficposse.com", @"mobicow.com", @"amgct.com", @"cpactions.com", @"adsmarket.com", @"propellerads.com", @"sexad.net", @"adrotator.se", @"rtbpop.com", @"exoclick.com", @"a.kickass.to", @"about:blank"];
 	self.adsArray = @[@"document.getElementById('sky-banner').firstElementChild.src", @"document.getElementById('sky-right').firstElementChild.src", @"document.getElementById('main-content').firstElementChild.src", @"document.getElementById('header').firstElementChild.firstElementChild.src"];
-	self.torrentDownloadLinks = @[@"nyaa.se/?page=download"];
 	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:[self navigationController] action:@selector(dismissViewControllerAnimated)];
     [self updateToolbarItems];
 }
@@ -326,16 +324,6 @@ static const CGFloat kAddressHeight = 26.0f;
 		}
 	}
 
-	for (NSString * key in self.torrentDownloadLinks)
-	{
-		if ([request.URL.absoluteString rangeOfString:key].location != NSNotFound)
-		{
-			[TorrentDelegate.sharedInstance.currentlySelectedClient handleTorrentURL:request.URL];
-			[TorrentDelegate.sharedInstance.currentlySelectedClient showNotification:self.navigationController];
-			return NO;
-		}
-	}
-
 	if ([[request URL] absoluteString].length > 7 && [[[[request URL] absoluteString] substringToIndex:7] isEqual:@"magnet:"])
 	{
 		[TorrentDelegate.sharedInstance.currentlySelectedClient handleMagnetLink:request.URL.absoluteString];
@@ -348,7 +336,21 @@ static const CGFloat kAddressHeight = 26.0f;
 		[TorrentDelegate.sharedInstance.currentlySelectedClient showNotification:self.navigationController];
 		return NO;
 	}
+	else
+	{
+		[NSURLConnection connectionWithRequest:request delegate:self];
+	}
 	return YES;
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+	if ([response.MIMEType isEqualToString:@"application/x-bittorrent"])
+	{
+		[TorrentDelegate.sharedInstance.currentlySelectedClient handleTorrentURL:response.URL];
+		[TorrentDelegate.sharedInstance.currentlySelectedClient showNotification:self.navigationController];
+	}
+	[connection cancel];
 }
 
 - (void)webViewDidStartLoad:(UIWebView *)webView
@@ -356,7 +358,6 @@ static const CGFloat kAddressHeight = 26.0f;
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 	[self updateToolbarItems];
 }
-
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {

@@ -10,5 +10,5 @@
 
 @interface UIFastProgressBar : UIView
 @property (nonatomic, assign) double progress;
-@property (nonatomic, strong) UIColor * trackTintColor;
+@property (nonatomic, strong) UIColor * progressTintColor;
 @end

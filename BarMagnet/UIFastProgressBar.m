@@ -10,19 +10,45 @@
 
 @implementation UIFastProgressBar
 
+- (id)init
+{
+	if (self = [super init])
+	{
+		[self awakeFromNib];
+	}
+	return self;
+}
+
+- (void)dealloc
+{
+	[NSNotificationCenter.defaultCenter removeObserver:self];
+}
+
 - (void)awakeFromNib
 {
-	self.trackTintColor = [UIColor blueColor];
+	self.backgroundColor = UIColor.lightGrayColor;
+	self.progressTintColor = [UIColor blueColor];
+	[NSNotificationCenter.defaultCenter addObserver:self selector:@selector(setNeedsDisplay) name:@"UIDeviceOrientationDidChangeNotification" object:nil];
 }
 
 - (void)drawRect:(CGRect)rect
 {
-	[UIColor.lightGrayColor setFill];
-	[[UIBezierPath bezierPathWithRect:self.frame] fill];
 	CGRect progress = self.frame;
+	progress.origin.x = progress.origin.y = 0;
 	progress.size.width *= self.progress;
-	[self.trackTintColor setFill];
+	[self.progressTintColor setFill];
 	[[UIBezierPath bezierPathWithRect:progress] fill];
+}
+
+- (void)rotated
+{
+	[self setNeedsDisplay];
+}
+
+- (void)setProgress:(double)progress
+{
+	_progress = progress;
+	[self setNeedsDisplay];
 }
 
 @end
