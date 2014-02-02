@@ -17,7 +17,7 @@ static const CGFloat kSpacer = 2.0f;
 static const CGFloat kLabelFontSize = 12.0f;
 static const CGFloat kAddressHeight = 26.0f;
 
-@interface SVWebViewController () <UIWebViewDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate, NSURLConnectionDelegate>
+@interface SVWebViewController () <UIWebViewDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate, NSURLConnectionDataDelegate>
 
 @property (nonatomic, strong) NSArray *adKeys;
 @property (nonatomic, strong) NSArray *adsArray;
@@ -33,6 +33,9 @@ static const CGFloat kAddressHeight = 26.0f;
 
 @property (nonatomic, strong) UIWebView *mainWebView;
 @property (nonatomic, strong) NSURL *URL;
+
+@property (nonatomic, strong) NSMutableData * torrentData;
+@property (nonatomic, strong) NSURL * torrentURL;
 
 - (id)initWithAddress:(NSString*)urlString;
 - (id)initWithURL:(NSURL*)URL;
@@ -195,8 +198,8 @@ static const CGFloat kAddressHeight = 26.0f;
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-
-	self.adKeys = @[@"ytimg.com", @"pstatic.org", @"privitize.com", @"lp.torchbrowser.com", @"adexprt.com", @"trafficposse.com", @"mobicow.com", @"amgct.com", @"cpactions.com", @"adsmarket.com", @"propellerads.com", @"sexad.net", @"adrotator.se", @"rtbpop.com", @"exoclick.com", @"a.kickass.to", @"about:blank"];
+	self.torrentData = NSMutableData.new;
+	self.adKeys = @[@"ytimg.com", @"pstatic.org", @"privitize.com", @"lp.torchbrowser.com", @"adexprt.com", @"trafficposse.com", @"mobicow.com", @"amgct.com", @"cpactions.com", @"adsmarket.com", @"propellerads.com", @"doubleclick.net", @"sexad.net", @"adrotator.se", @"rtbpop.com", @"exoclick.com", @"a.kickass.to", @"about:blank"];
 	self.adsArray = @[@"document.getElementById('sky-banner').firstElementChild.src", @"document.getElementById('sky-right').firstElementChild.src", @"document.getElementById('main-content').firstElementChild.src", @"document.getElementById('header').firstElementChild.firstElementChild.src"];
 	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:[self navigationController] action:@selector(dismissViewControllerAnimated)];
     [self updateToolbarItems];
@@ -347,10 +350,24 @@ static const CGFloat kAddressHeight = 26.0f;
 {
 	if ([response.MIMEType isEqualToString:@"application/x-bittorrent"])
 	{
-		[TorrentDelegate.sharedInstance.currentlySelectedClient handleTorrentURL:response.URL];
-		[TorrentDelegate.sharedInstance.currentlySelectedClient showNotification:self.navigationController];
+		self.torrentURL = response.URL;
 	}
-	[connection cancel];
+	else
+	{
+		[connection cancel];
+	}
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+	[self.torrentData appendData:data];
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+	[TorrentDelegate.sharedInstance.currentlySelectedClient showNotification:self.navigationController];
+	[TorrentDelegate.sharedInstance.currentlySelectedClient handleTorrentData:self.torrentData withURL:self.torrentURL];
+	self.torrentData = NSMutableData.new;
 }
 
 - (void)webViewDidStartLoad:(UIWebView *)webView

@@ -99,7 +99,6 @@
 		23E60FB71876D20400D2068B /* PlayPause.png in Resources */ = {isa = PBXBuildFile; fileRef = 23E60FB51876D20400D2068B /* PlayPause.png */; };
 		23E60FB81876D20400D2068B /* PlayPause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23E60FB61876D20400D2068B /* PlayPause@2x.png */; };
 		23EBC8F518851BE800B0A281 /* donate.png in Resources */ = {isa = PBXBuildFile; fileRef = 23EBC8F418851BE800B0A281 /* donate.png */; };
-		23EBE2D917941EBC00723ADD /* AddTorrentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EBE2D817941EBC00723ADD /* AddTorrentViewController.m */; };
 		23FC25D81788F1D500CCE434 /* TorrentJobCheckerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FC25D71788F1D500CCE434 /* TorrentJobCheckerCell.m */; };
 /* End PBXBuildFile section */
 
@@ -276,8 +275,6 @@
 		23E60FB51876D20400D2068B /* PlayPause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayPause.png; sourceTree = "<group>"; };
 		23E60FB61876D20400D2068B /* PlayPause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PlayPause@2x.png"; sourceTree = "<group>"; };
 		23EBC8F418851BE800B0A281 /* donate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = donate.png; sourceTree = "<group>"; };
-		23EBE2D717941EBC00723ADD /* AddTorrentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTorrentViewController.h; sourceTree = "<group>"; };
-		23EBE2D817941EBC00723ADD /* AddTorrentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTorrentViewController.m; sourceTree = "<group>"; };
 		23FC25D61788F1D500CCE434 /* TorrentJobCheckerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TorrentJobCheckerCell.h; sourceTree = "<group>"; };
 		23FC25D71788F1D500CCE434 /* TorrentJobCheckerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TorrentJobCheckerCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -312,8 +309,6 @@
 				23AC2B47175D835600FCFA71 /* SettingsTableViewController.m */,
 				232B0FA3178C356700A7B3DC /* TorrentDetailViewController.h */,
 				232B0FA4178C356700A7B3DC /* TorrentDetailViewController.m */,
-				23EBE2D717941EBC00723ADD /* AddTorrentViewController.h */,
-				23EBE2D817941EBC00723ADD /* AddTorrentViewController.m */,
 				23B35F841894A115002F6E37 /* ScanQRCodeViewController.h */,
 				23B35F851894A115002F6E37 /* ScanQRCodeViewController.m */,
 				232AE18C1891E40100D3F018 /* QueryTableViewController.h */,
@@ -783,7 +778,6 @@
 				239162941795794400213C67 /* ConnectionHandler.m in Sources */,
 				23AC2B32175D835600FCFA71 /* AppDelegate.m in Sources */,
 				23A0E5C817894C0A00898812 /* NSArray+Functions.m in Sources */,
-				23EBE2D917941EBC00723ADD /* AddTorrentViewController.m in Sources */,
 				23AC2B41175D835600FCFA71 /* TorrentJobsTableViewController.m in Sources */,
 				232B0FA5178C356700A7B3DC /* TorrentDetailViewController.m in Sources */,
 				23AC2B48175D835600FCFA71 /* SettingsTableViewController.m in Sources */,

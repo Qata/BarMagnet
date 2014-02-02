@@ -58,7 +58,7 @@
 			}
 			else
 			{
-				[[UIAlertView.alloc initWithTitle:@"Error" message:@"The query URL needs to have \"%query%\" in it somewhere so I know where to put the text" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil] show];
+				[[UIAlertView.alloc initWithTitle:@"Error" message:@"The query URL needs to have \"%query%\" in it where the search parameters usually go" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil] show];
 			}
 		}
 	}

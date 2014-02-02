@@ -192,7 +192,7 @@
                     <toolbarItems>
                         <barButtonItem style="plain" systemItem="add" id="LWH-0w-Bnt">
                             <connections>
-                                <action selector="addTorrentPopup:" destination="EgX-EY-3Mi" id="tp3-gN-doG"/>
+                                <segue destination="K5Y-Qe-u4s" kind="push" id="QpI-9G-jnw"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="8H7-dm-3Ef"/>
@@ -230,8 +230,6 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="iRO-ar-XWC" id="4i8-9r-kCT"/>
-                        <segue destination="K5Y-Qe-u4s" kind="push" identifier="query" id="w0n-MG-mFz"/>
-                        <segue destination="o3M-WV-uUa" kind="push" identifier="scan" id="oqQ-oG-pya"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pw6-AV-yps" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1128,7 +1126,7 @@ e.g. "www.google.com"</string>
             </objects>
             <point key="canvasLocation" x="2053" y="490"/>
         </scene>
-        <!--Query Table View Controller - Custom Queries-->
+        <!--Query Table View Controller - Add Torrents-->
         <scene sceneID="JZC-jg-eHc">
             <objects>
                 <tableViewController id="K5Y-Qe-u4s" customClass="QueryTableViewController" sceneMemberID="viewController">
@@ -1137,52 +1135,40 @@ e.g. "www.google.com"</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="detailButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Query" id="ubu-4V-bfC" customClass="QueryCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="System" textLabel="sje-Wh-IAM" style="IBUITableViewCellStyleDefault" id="sGx-WJ-3Z7">
                                 <rect key="frame" x="0.0" y="86" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ubu-4V-bfC" id="oYg-Rq-CyM">
-                                    <rect key="frame" x="0.0" y="0.0" width="721" height="43"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sGx-WJ-3Z7" id="dxB-Ii-sr4">
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" id="z5K-wv-UgQ" customClass="UITextField_UniqueString">
-                                            <rect key="frame" x="384" y="6" width="337" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" returnKeyType="search"/>
-                                        </textField>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Query Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9gl-Vo-gyV">
-                                            <rect key="frame" x="21" y="13" width="337" height="17"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="name" destination="9gl-Vo-gyV" id="VkL-eA-dl2"/>
-                                    <outlet property="queryField" destination="z5K-wv-UgQ" id="Lmo-Y2-6TT"/>
-                                </connections>
-                            </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="detailButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Static" id="zkC-va-zxj" customClass="QueryCell">
-                                <rect key="frame" x="0.0" y="130" width="768" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zkC-va-zxj" id="cSQ-Zj-Dsu">
-                                    <rect key="frame" x="0.0" y="0.0" width="721" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Query Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vOa-Mm-Kky">
-                                            <rect key="frame" x="19" y="13" width="682" height="17"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sje-Wh-IAM">
+                                            <rect key="frame" x="15" y="0.0" width="738" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="name" destination="vOa-Mm-Kky" id="L8w-nc-idV"/>
-                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="detailDisclosureButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Static" textLabel="sEY-G4-adY" style="IBUITableViewCellStyleDefault" id="eT6-B4-uKu" customClass="QueryCell">
+                                <rect key="frame" x="0.0" y="130" width="768" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eT6-B4-uKu" id="8a5-Vj-cW7">
+                                    <rect key="frame" x="0.0" y="0.0" width="701" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Query name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sEY-G4-adY">
+                                            <rect key="frame" x="15" y="0.0" width="686" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -1190,16 +1176,17 @@ e.g. "www.google.com"</string>
                             <outlet property="delegate" destination="K5Y-Qe-u4s" id="hkL-li-7O3"/>
                         </connections>
                     </tableView>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Custom Queries" id="xd8-97-Atw">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ZIS-ET-PHL">
+                    <toolbarItems>
+                        <barButtonItem title="Add Query" id="ZIS-ET-PHL">
                             <connections>
                                 <segue destination="3gu-rU-KdV" kind="modal" identifier="addQuery" id="tPc-yn-nEj"/>
                             </connections>
                         </barButtonItem>
-                    </navigationItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Add Torrents" id="xd8-97-Atw"/>
                     <connections>
                         <segue destination="GCG-46-HYz" kind="push" identifier="editQuery" id="hdS-2a-XoL"/>
+                        <segue destination="o3M-WV-uUa" kind="push" identifier="scanQRCode" id="xme-RI-TXT"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PXY-cd-mZa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1232,7 +1219,7 @@ e.g. "www.google.com"</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="bg3-Ub-Tkb">
-                                                    <rect key="frame" x="125.00000041883534" y="7" width="623" height="30"/>
+                                                    <rect key="frame" x="125.00000086036773" y="7" width="623" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
@@ -1258,7 +1245,7 @@ e.g. "www.google.com"</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="YKc-7G-fW6">
-                                                    <rect key="frame" x="125.00000041883534" y="7" width="623" height="30"/>
+                                                    <rect key="frame" x="125.00000086036773" y="7" width="623" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="URL" returnKeyType="done"/>
@@ -1344,7 +1331,7 @@ e.g. "www.google.com"</string>
         <!--ScanQR Code View Controller - Scan QR Code-->
         <scene sceneID="fcS-lD-k4W">
             <objects>
-                <viewController id="o3M-WV-uUa" customClass="ScanQRCodeViewController" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="o3M-WV-uUa" customClass="ScanQRCodeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wtw-7O-LZK">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

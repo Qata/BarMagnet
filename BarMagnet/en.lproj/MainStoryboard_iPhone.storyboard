@@ -187,7 +187,7 @@
                     <toolbarItems>
                         <barButtonItem width="32" style="plain" systemItem="add" id="Auw-SA-CUb">
                             <connections>
-                                <segue destination="KHx-ZT-MxV" kind="push" id="b4R-IP-MxI"/>
+                                <segue destination="cRV-aG-tb4" kind="push" id="Xxe-l6-bPN"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="30U-AO-9BB"/>
@@ -518,69 +518,7 @@
             </objects>
             <point key="canvasLocation" x="653" y="-138"/>
         </scene>
-        <!--Add Torrent View Controller-->
-        <scene sceneID="Ore-Az-gEy">
-            <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="KHx-ZT-MxV" customClass="AddTorrentViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Nqs-nS-CKf">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" id="Ueb-Iy-s4h">
-                                <rect key="frame" x="20" y="104" width="280" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <inset key="insetFor6xAndEarlier" minX="0.0" minY="60" maxX="0.0" maxY="-60"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="URL" returnKeyType="send"/>
-                                <connections>
-                                    <outlet property="delegate" destination="KHx-ZT-MxV" id="dyy-Sr-A8Q"/>
-                                </connections>
-                            </textField>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open URL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3Bd-oM-HGk">
-                                <rect key="frame" x="20" y="75" width="280" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <inset key="insetFor6xAndEarlier" minX="0.0" minY="60" maxX="0.0" maxY="-60"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dw2-x1-6nP">
-                                <rect key="frame" x="83" y="152" width="155" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <inset key="insetFor6xAndEarlier" minX="0.0" minY="60" maxX="0.0" maxY="-60"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Search via Queries">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="cRV-aG-tb4" kind="push" id="vv7-dc-rE4"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="NaC-Rl-mfw">
-                                <rect key="frame" x="83" y="201" width="155" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <inset key="insetFor6xAndEarlier" minX="0.0" minY="60" maxX="0.0" maxY="-60"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Scan QR Code">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="UZh-vN-YWn" kind="push" id="CEV-68-vm3"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="snq-qd-JhR"/>
-                    <connections>
-                        <outlet property="scanQRCodeButton" destination="NaC-Rl-mfw" id="hIG-th-ETp"/>
-                        <outlet property="textBox" destination="Ueb-Iy-s4h" id="CWd-eD-Gra"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9Q5-ON-GT8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1739" y="-799"/>
-        </scene>
-        <!--Query Table View Controller - Custom Queries-->
+        <!--Query Table View Controller - Add Torrents-->
         <scene sceneID="di2-T2-cKm">
             <objects>
                 <tableViewController id="cRV-aG-tb4" customClass="QueryTableViewController" sceneMemberID="viewController">
@@ -589,52 +527,40 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="detailDisclosureButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Query" id="qvp-fA-6m9" customClass="QueryCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="System" textLabel="isE-fc-bSB" style="IBUITableViewCellStyleDefault" id="Cab-nf-NO5">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qvp-fA-6m9" id="wmx-Qb-ugB">
-                                    <rect key="frame" x="0.0" y="0.0" width="253" height="43"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Cab-nf-NO5" id="ZT2-tL-HhD">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" id="yHT-bp-4YW" customClass="UITextField_UniqueString">
-                                            <rect key="frame" x="115" y="7" width="138" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" returnKeyType="search"/>
-                                        </textField>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Query Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yOd-yt-982">
-                                            <rect key="frame" x="20" y="13" width="87" height="17"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="isE-fc-bSB">
+                                            <rect key="frame" x="15" y="0.0" width="290" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="name" destination="yOd-yt-982" id="1OL-zG-Gfl"/>
-                                    <outlet property="queryField" destination="yHT-bp-4YW" id="paf-xr-ofZ"/>
-                                </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="detailDisclosureButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Static" id="3G0-GG-CGX" customClass="QueryCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="detailDisclosureButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Static" textLabel="lYy-ZA-QeF" style="IBUITableViewCellStyleDefault" id="3G0-GG-CGX" customClass="QueryCell">
                                 <rect key="frame" x="0.0" y="130" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3G0-GG-CGX" id="Vky-52-p8f">
                                     <rect key="frame" x="0.0" y="0.0" width="253" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Query Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zDV-Lg-wPa">
-                                            <rect key="frame" x="20" y="13" width="233" height="17"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Query name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lYy-ZA-QeF">
+                                            <rect key="frame" x="15" y="0.0" width="238" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="name" destination="zDV-Lg-wPa" id="sod-Rc-efO"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -642,26 +568,27 @@
                             <outlet property="delegate" destination="cRV-aG-tb4" id="Sgc-3P-KAe"/>
                         </connections>
                     </tableView>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Custom Queries" id="HvQ-RE-hiv">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="gij-GD-q0x">
+                    <toolbarItems>
+                        <barButtonItem title="Add Query" id="gij-GD-q0x">
                             <connections>
                                 <segue destination="8cy-RG-qgm" kind="modal" identifier="addQuery" id="qbw-Xr-TJJ"/>
                             </connections>
                         </barButtonItem>
-                    </navigationItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Add Torrents" id="HvQ-RE-hiv"/>
                     <connections>
                         <segue destination="pcO-4V-FKq" kind="push" identifier="editQuery" id="WgM-5F-Elv"/>
+                        <segue destination="UZh-vN-YWn" kind="push" identifier="scanQRCode" id="uv1-ju-MEa"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KZb-pg-xei" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2202" y="-1128"/>
+            <point key="canvasLocation" x="1739" y="-813"/>
         </scene>
         <!--ScanQR Code View Controller - Scan QR Code-->
         <scene sceneID="KGQ-V5-G9R">
             <objects>
-                <viewController id="UZh-vN-YWn" customClass="ScanQRCodeViewController" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="UZh-vN-YWn" customClass="ScanQRCodeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="X6b-RM-2Lx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -791,7 +718,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9c5-xC-hgf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2663" y="-1787"/>
+            <point key="canvasLocation" x="2660" y="-1163"/>
         </scene>
         <!--Settings Table View Controller - Settings-->
         <scene sceneID="XLS-iy-StK">
@@ -1404,7 +1331,7 @@ e.g. "http://www.google.com/q=%query%"</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qdx-M2-TRj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2202" y="-1787"/>
+            <point key="canvasLocation" x="2202" y="-1163"/>
         </scene>
     </scenes>
     <resources>

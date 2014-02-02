@@ -169,7 +169,7 @@
 {
 	if (buttonIndex != [actionSheet cancelButtonIndex])
 	{
-		[TorrentDelegate.sharedInstance.currentlySelectedClient addTemporaryDeletedJobsObject:@4 forKey:self.hashString];
+		[TorrentDelegate.sharedInstance.currentlySelectedClient addTemporaryDeletedJob:8 forKey:self.hashString];
 		[TorrentDelegate.sharedInstance.currentlySelectedClient removeTorrent:self.hashString removeData:buttonIndex == 0];
 		[[NSNotificationCenter defaultCenter] postNotificationName:@"update_torrent_jobs_table" object:nil];
 		[[self navigationController] popToRootViewControllerAnimated:YES];

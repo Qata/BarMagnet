@@ -24,17 +24,21 @@
 	NSError *error = nil;
 
 	AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:device error:&error];
-	if (input) {
+	if (input)
+	{
 		[session addInput:input];
-	} else {
+	}
+	else
+	{
 		NSLog(@"Error: %@", error);
 	}
 
 	AVCaptureMetadataOutput *output = [[AVCaptureMetadataOutput alloc] init];
 	[output setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];
 	[session addOutput:output];
+#if !TARGET_IPHONE_SIMULATOR
 	[output setMetadataObjectTypes:@[AVMetadataObjectTypeQRCode]];
-
+#endif
 	AVCaptureVideoPreviewLayer *previewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:session];
     previewLayer.frame = self.view.frame;
     [self.view.layer addSublayer:previewLayer];

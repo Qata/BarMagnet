@@ -29,7 +29,8 @@ enum ORDER
 	PAUSED,
 	NAME,
 	SIZE,
-	RATIO
+	RATIO,
+	DATE
 };
 
 @interface TorrentJobsTableViewController () <UIActionSheetDelegate, UIAlertViewDelegate, UISearchBarDelegate, UISearchDisplayDelegate, UIScrollViewDelegate>
@@ -40,7 +41,7 @@ enum ORDER
 @property (nonatomic, strong) NSMutableArray * filteredArray;
 @property (nonatomic, strong) UILabel * header;
 @property (nonatomic, strong) NSArray * sortedKeys;
-@property (nonatomic, strong) NSOrderedDictionary * sortByDictionary;
+@property (nonatomic, strong) NSMutableOrderedDictionary * sortByDictionary;
 @end
 
 @implementation TorrentJobsTableViewController
@@ -50,8 +51,6 @@ enum ORDER
     [super viewDidLoad];
 	[self setTitle:@"Torrents"];
 	self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
-
-	self.sortByDictionary = [NSOrderedDictionary.alloc initWithObjects:@[@(COMPLETED), @(INCOMPLETE), @(DOWNLOAD_SPEED), @(UPLOAD_SPEED), @(ACTIVE), @(DOWNLOADING), @(SEEDING), @(PAUSED), @(NAME), @(SIZE), @(RATIO)] pairedWithKeys:@[@"Completed", @"Incomplete", @"Download Speed", @"Upload Speed", @"Active", @"Downloading", @"Seeding", @"Paused", @"Name", @"Size", @"Ratio"]];
 
 	for (TorrentClient * client in TorrentDelegate.sharedInstance.torrentDelegates.allValues)
     {
@@ -71,6 +70,11 @@ enum ORDER
 - (void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
+	self.sortByDictionary = [NSMutableOrderedDictionary.alloc initWithObjects:@[@(COMPLETED), @(INCOMPLETE), @(DOWNLOAD_SPEED), @(UPLOAD_SPEED), @(ACTIVE), @(DOWNLOADING), @(SEEDING), @(PAUSED), @(NAME), @(SIZE), @(RATIO)] pairedWithKeys:@[@"Completed", @"Incomplete", @"Download Speed", @"Upload Speed", @"Active", @"Downloading", @"Seeding", @"Paused", @"Name", @"Size", @"Ratio"]];
+	if ([TorrentDelegate.sharedInstance.currentlySelectedClient supportsAddedDate])
+	{
+		[self.sortByDictionary addObject:@(DATE) pairedWithKey:@"Date Added"];
+	}
 	self.title = [FileHandler.sharedInstance settingsValueForKey:@"server_type"];
 	self.tableView.rowHeight = [[self.tableView dequeueReusableCellWithIdentifier:[FileHandler.sharedInstance settingsValueForKey:@"cell"]] frame].size.height;
 	self.searchDisplayController.searchResultsTableView.rowHeight = [[self.tableView dequeueReusableCellWithIdentifier:[FileHandler.sharedInstance settingsValueForKey:@"cell"]] frame].size.height;
@@ -232,7 +236,7 @@ enum ORDER
 			{
 				NSString * hashString = [self.sortedKeys objectAtIndex:actionSheet.tag][@"hash"];
 				[[NSNotificationCenter defaultCenter] postNotificationName:@"cancel_refresh" object:nil];
-				[TorrentDelegate.sharedInstance.currentlySelectedClient addTemporaryDeletedJobsObject:@4 forKey:hashString];
+				[TorrentDelegate.sharedInstance.currentlySelectedClient addTemporaryDeletedJob:8 forKey:hashString];
 				[TorrentDelegate.sharedInstance.currentlySelectedClient removeTorrent:hashString removeData:buttonIndex == 0];
 				self.shouldRefresh = NO;
 				dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC), dispatch_get_main_queue(), ^{
@@ -373,6 +377,18 @@ enum ORDER
 		{
 			[array sortUsingComparator:(NSComparator)^(NSDictionary *a, NSDictionary *b){
 				NSComparisonResult res = [b[@"ratio"] compare:a[@"ratio"]];
+				if (res != NSOrderedSame)
+				{
+					return res;
+				}
+				return [a[@"name"] compare:b[@"name"]];
+			}];
+			break;
+		}
+		case DATE:
+		{
+			[array sortUsingComparator:(NSComparator)^(NSDictionary *a, NSDictionary *b){
+				NSComparisonResult res = [a[@"dateAdded"] compare:b[@"dateAdded"]];
 				if (res != NSOrderedSame)
 				{
 					return res;
