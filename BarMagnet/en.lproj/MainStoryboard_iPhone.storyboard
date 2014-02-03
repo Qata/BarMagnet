@@ -629,7 +629,7 @@
                                                     <rect key="frame" x="125" y="8" width="175" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="pcO-4V-FKq" id="Pky-og-I4k"/>
                                                     </connections>
@@ -684,23 +684,6 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="T7F-Ye-0vh" style="IBUITableViewCellStyleDefault" id="U6L-1B-fCA">
-                                        <rect key="frame" x="0.0" y="231" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="U6L-1B-fCA" id="X31-ZG-2ld">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Save" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="T7F-Ye-0vh">
-                                                    <rect key="frame" x="15" y="0.0" width="290" height="44"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -709,7 +692,13 @@
                             <outlet property="delegate" destination="pcO-4V-FKq" id="YrD-IN-dSH"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Add Query" id="DmO-E3-vNN"/>
+                    <navigationItem key="navigationItem" title="Add Query" id="DmO-E3-vNN">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="kF6-GW-yTU">
+                            <connections>
+                                <action selector="save:" destination="pcO-4V-FKq" id="Txm-g3-eqQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="URL" destination="9Lt-Zi-YI5" id="Fka-zx-8m6"/>
                         <outlet property="name" destination="Cyj-OT-AhZ" id="ump-SG-9bS"/>

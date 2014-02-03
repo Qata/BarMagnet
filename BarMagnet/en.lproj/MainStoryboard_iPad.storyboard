@@ -1219,10 +1219,10 @@ e.g. "www.google.com"</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="bg3-Ub-Tkb">
-                                                    <rect key="frame" x="125.00000086036773" y="7" width="623" height="30"/>
+                                                    <rect key="frame" x="125" y="7" width="623.00000109002724" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="GCG-46-HYz" id="SU2-g5-EfL"/>
                                                     </connections>
@@ -1245,7 +1245,7 @@ e.g. "www.google.com"</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="YKc-7G-fW6">
-                                                    <rect key="frame" x="125.00000086036773" y="7" width="623" height="30"/>
+                                                    <rect key="frame" x="125" y="7" width="623.00000109002724" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="URL" returnKeyType="done"/>
@@ -1277,23 +1277,6 @@ e.g. "www.google.com"</string>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="tZF-0e-qQG" style="IBUITableViewCellStyleDefault" id="MUK-eJ-bz8">
-                                        <rect key="frame" x="0.0" y="231" width="768" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MUK-eJ-bz8" id="5cV-Mo-TDI">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Save" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tZF-0e-qQG">
-                                                    <rect key="frame" x="15" y="0.0" width="738" height="44"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -1302,7 +1285,13 @@ e.g. "www.google.com"</string>
                             <outlet property="delegate" destination="GCG-46-HYz" id="28b-1P-LAV"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Add Query" id="eib-oF-SUC"/>
+                    <navigationItem key="navigationItem" title="Add Query" id="eib-oF-SUC">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="HkO-r9-IAl">
+                            <connections>
+                                <action selector="save:" destination="GCG-46-HYz" id="bhY-FZ-WeJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="URL" destination="YKc-7G-fW6" id="bm7-Of-ykf"/>
                         <outlet property="name" destination="bg3-Ub-Tkb" id="fZu-a3-gap"/>
