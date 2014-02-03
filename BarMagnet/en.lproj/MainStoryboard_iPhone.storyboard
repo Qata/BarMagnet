@@ -603,7 +603,7 @@
         <!--Add Query Table View Controller - Add Query-->
         <scene sceneID="S5r-ck-Naq">
             <objects>
-                <tableViewController id="pcO-4V-FKq" customClass="AddQueryTableViewController" sceneMemberID="viewController">
+                <tableViewController hidesBottomBarWhenPushed="YES" id="pcO-4V-FKq" customClass="AddQueryTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="eE7-EE-Jms">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -693,9 +693,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Add Query" id="DmO-E3-vNN">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="kF6-GW-yTU">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="xU2-ZL-0Ng">
                             <connections>
-                                <action selector="save:" destination="pcO-4V-FKq" id="Txm-g3-eqQ"/>
+                                <action selector="save" destination="pcO-4V-FKq" id="VEc-ET-kF4"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1338,7 +1338,7 @@ e.g. "http://www.google.com/q=%query%"</string>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="3s7-lY-OXz"/>
         <segue reference="0D0-mW-kOm"/>
-        <segue reference="WgM-5F-Elv"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -1219,7 +1219,7 @@ e.g. "www.google.com"</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="bg3-Ub-Tkb">
-                                                    <rect key="frame" x="125" y="7" width="623.00000109002724" height="30"/>
+                                                    <rect key="frame" x="125.00000109002727" y="7" width="623" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
@@ -1245,7 +1245,7 @@ e.g. "www.google.com"</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="YKc-7G-fW6">
-                                                    <rect key="frame" x="125" y="7" width="623.00000109002724" height="30"/>
+                                                    <rect key="frame" x="125.00000109002727" y="7" width="623" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="URL" returnKeyType="done"/>
@@ -1286,9 +1286,9 @@ e.g. "www.google.com"</string>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Add Query" id="eib-oF-SUC">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="HkO-r9-IAl">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="HGS-eg-tqx">
                             <connections>
-                                <action selector="save:" destination="GCG-46-HYz" id="bhY-FZ-WeJ"/>
+                                <action selector="save" destination="GCG-46-HYz" id="bhb-x0-lnU"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

@@ -12,6 +12,7 @@
 
 - (void)viewDidLoad
 {
+	[super viewDidLoad];
 	if (self.queryDictionary)
 	{
 		self.name.text = self.queryDictionary[@"name"];
@@ -20,7 +21,7 @@
 	}
 	else
 	{
-		self.navigationItem.leftBarButtonItem = [UIBarButtonItem.alloc initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(dismiss:)];
+		self.navigationItem.leftBarButtonItem = [UIBarButtonItem.alloc initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(dismiss)];
 	}
 }
 
@@ -29,7 +30,7 @@
 	return [textField resignFirstResponder];
 }
 
-- (IBAction)save:(id)sender
+- (IBAction)save
 {
 	if (self.name.text.length && self.URL.text.length)
 	{
@@ -51,7 +52,7 @@
 				[array addObject:object];
 			}
 			[NSUserDefaults.standardUserDefaults setObject:array forKey:@"queries"];
-			[self dismiss:nil];
+			[self dismiss];
 		}
 		else
 		{
@@ -60,7 +61,7 @@
 	}
 }
 
-- (IBAction)dismiss:(id)sender
+- (void)dismiss
 {
 	if (self.queryDictionary)
 	{
