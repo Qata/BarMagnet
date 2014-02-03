@@ -1129,7 +1129,7 @@ e.g. "www.google.com"</string>
         <!--Query Table View Controller - Add Torrents-->
         <scene sceneID="JZC-jg-eHc">
             <objects>
-                <tableViewController id="K5Y-Qe-u4s" customClass="QueryTableViewController" sceneMemberID="viewController">
+                <tableViewController hidesBottomBarWhenPushed="YES" id="K5Y-Qe-u4s" customClass="QueryTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ENd-i2-L9p">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1176,17 +1176,12 @@ e.g. "www.google.com"</string>
                             <outlet property="delegate" destination="K5Y-Qe-u4s" id="hkL-li-7O3"/>
                         </connections>
                     </tableView>
-                    <toolbarItems>
-                        <barButtonItem title="Add Query" id="ZIS-ET-PHL">
-                            <connections>
-                                <segue destination="3gu-rU-KdV" kind="modal" identifier="addQuery" id="tPc-yn-nEj"/>
-                            </connections>
-                        </barButtonItem>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Add Torrents" id="xd8-97-Atw"/>
                     <connections>
                         <segue destination="GCG-46-HYz" kind="push" identifier="editQuery" id="hdS-2a-XoL"/>
                         <segue destination="o3M-WV-uUa" kind="push" identifier="scanQRCode" id="xme-RI-TXT"/>
+                        <segue destination="3gu-rU-KdV" kind="modal" identifier="addQuery" id="gbn-fw-Y4v"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PXY-cd-mZa" userLabel="First Responder" sceneMemberID="firstResponder"/>

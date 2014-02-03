@@ -21,7 +21,7 @@
 	}
 	else
 	{
-		self.navigationItem.leftBarButtonItem = [UIBarButtonItem.alloc initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(dismiss)];
+		self.navigationItem.leftBarButtonItem = [UIBarButtonItem.alloc initWithTitle:@"Cancel" style:UIBarButtonSystemItemCancel target:self action:@selector(dismiss)];
 	}
 }
 

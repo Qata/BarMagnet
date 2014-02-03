@@ -90,30 +90,41 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-	return 2;
+	return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	if (section)
-		return [[NSUserDefaults.standardUserDefaults objectForKey:@"queries"] count];
-	return 2;
+	switch (section) {
+		case 0:
+			return 2;
+		case 1:
+			return [[NSUserDefaults.standardUserDefaults objectForKey:@"queries"] count];
+		case 2:
+			return 1;
+		default:
+			return 0;
+	}
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	QueryCell * cell = nil;
-	if (indexPath.section)
+	if (indexPath.section == 1)
 	{
 		NSDictionary * query = [NSUserDefaults.standardUserDefaults objectForKey:@"queries"][indexPath.row];
 		cell = [tableView dequeueReusableCellWithIdentifier:@"Static"];
 		cell.textLabel.text = query[@"name"];
 		cell.queryDictionary = query;
 	}
-	else
+	else if (!indexPath.section)
 	{
 		cell = [tableView dequeueReusableCellWithIdentifier:@"System"];
 		cell.textLabel.text = @[@"Open URL", @"Scan QR Code"][indexPath.row];
+	}
+	else
+	{
+		return UITableViewCell.new;
 	}
 	return cell;
 }
@@ -121,7 +132,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
-	if (indexPath.section)
+	if (indexPath.section == 1)
 	{
 		if ([[NSUserDefaults.standardUserDefaults objectForKey:@"queries"][indexPath.row][@"uses_query"] boolValue])
 		{
@@ -140,7 +151,7 @@
 			[self.navigationController presentViewController:webViewController animated:YES completion:nil];
 		}
 	}
-	else
+	else if (!indexPath.section)
 	{
 		switch (indexPath.row)
 		{
@@ -201,9 +212,13 @@
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	if (indexPath.section != 1)
+	if (!indexPath.section)
 	{
 		return UITableViewCellEditingStyleNone;
+	}
+	else if (indexPath.section == 2)
+	{
+		return UITableViewCellEditingStyleInsert;
 	}
 	return UITableViewCellEditingStyleDelete;
 }
@@ -216,6 +231,10 @@
 		[array removeObjectAtIndex:indexPath.row];
 		[NSUserDefaults.standardUserDefaults setObject:array forKey:@"queries"];
 		[self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+	}
+	else if (editingStyle == UITableViewCellEditingStyleInsert)
+	{
+		[self performSegueWithIdentifier:@"addQuery" sender:nil];
 	}
 }
 
@@ -231,9 +250,13 @@
 
 - (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath
 {
-	if (proposedDestinationIndexPath.section != 1)
+	if (proposedDestinationIndexPath.section < 1)
 	{
 		return [NSIndexPath indexPathForItem:0 inSection:1];
+	}
+	else if (proposedDestinationIndexPath.section > 1)
+	{
+		return [NSIndexPath indexPathForItem:[tableView numberOfRowsInSection:1] - 1 inSection:1];
 	}
 	return proposedDestinationIndexPath;
 }

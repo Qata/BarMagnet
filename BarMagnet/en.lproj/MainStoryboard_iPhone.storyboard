@@ -568,17 +568,12 @@
                             <outlet property="delegate" destination="cRV-aG-tb4" id="Sgc-3P-KAe"/>
                         </connections>
                     </tableView>
-                    <toolbarItems>
-                        <barButtonItem title="Add Query" id="gij-GD-q0x">
-                            <connections>
-                                <segue destination="8cy-RG-qgm" kind="modal" identifier="addQuery" id="qbw-Xr-TJJ"/>
-                            </connections>
-                        </barButtonItem>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Add Torrents" id="HvQ-RE-hiv"/>
                     <connections>
                         <segue destination="pcO-4V-FKq" kind="push" identifier="editQuery" id="WgM-5F-Elv"/>
                         <segue destination="UZh-vN-YWn" kind="push" identifier="scanQRCode" id="uv1-ju-MEa"/>
+                        <segue destination="8cy-RG-qgm" kind="modal" identifier="addQuery" id="K2W-rh-2wl"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KZb-pg-xei" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1338,7 +1333,7 @@ e.g. "http://www.google.com/q=%query%"</string>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="3s7-lY-OXz"/>
+        <segue reference="WgM-5F-Elv"/>
         <segue reference="0D0-mW-kOm"/>
     </inferredMetricsTieBreakers>
 </document>
