@@ -99,6 +99,8 @@
 		23E60FB71876D20400D2068B /* PlayPause.png in Resources */ = {isa = PBXBuildFile; fileRef = 23E60FB51876D20400D2068B /* PlayPause.png */; };
 		23E60FB81876D20400D2068B /* PlayPause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23E60FB61876D20400D2068B /* PlayPause@2x.png */; };
 		23EBC8F518851BE800B0A281 /* donate.png in Resources */ = {isa = PBXBuildFile; fileRef = 23EBC8F418851BE800B0A281 /* donate.png */; };
+		23F3E09B189F236300A8105A /* TorrentClientTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F3E09A189F236300A8105A /* TorrentClientTableViewController.m */; };
+		23F3E09E189F30EF00A8105A /* AddTorrentClientTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F3E09D189F30EF00A8105A /* AddTorrentClientTableViewController.m */; };
 		23FC25D81788F1D500CCE434 /* TorrentJobCheckerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FC25D71788F1D500CCE434 /* TorrentJobCheckerCell.m */; };
 /* End PBXBuildFile section */
 
@@ -275,6 +277,10 @@
 		23E60FB51876D20400D2068B /* PlayPause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayPause.png; sourceTree = "<group>"; };
 		23E60FB61876D20400D2068B /* PlayPause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PlayPause@2x.png"; sourceTree = "<group>"; };
 		23EBC8F418851BE800B0A281 /* donate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = donate.png; sourceTree = "<group>"; };
+		23F3E099189F236300A8105A /* TorrentClientTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TorrentClientTableViewController.h; sourceTree = "<group>"; };
+		23F3E09A189F236300A8105A /* TorrentClientTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TorrentClientTableViewController.m; sourceTree = "<group>"; };
+		23F3E09C189F30EF00A8105A /* AddTorrentClientTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTorrentClientTableViewController.h; sourceTree = "<group>"; };
+		23F3E09D189F30EF00A8105A /* AddTorrentClientTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTorrentClientTableViewController.m; sourceTree = "<group>"; };
 		23FC25D61788F1D500CCE434 /* TorrentJobCheckerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TorrentJobCheckerCell.h; sourceTree = "<group>"; };
 		23FC25D71788F1D500CCE434 /* TorrentJobCheckerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TorrentJobCheckerCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -305,6 +311,10 @@
 			children = (
 				23AC2B3F175D835600FCFA71 /* TorrentJobsTableViewController.h */,
 				23AC2B40175D835600FCFA71 /* TorrentJobsTableViewController.m */,
+				23F3E099189F236300A8105A /* TorrentClientTableViewController.h */,
+				23F3E09A189F236300A8105A /* TorrentClientTableViewController.m */,
+				23F3E09C189F30EF00A8105A /* AddTorrentClientTableViewController.h */,
+				23F3E09D189F30EF00A8105A /* AddTorrentClientTableViewController.m */,
 				23AC2B46175D835600FCFA71 /* SettingsTableViewController.h */,
 				23AC2B47175D835600FCFA71 /* SettingsTableViewController.m */,
 				232B0FA3178C356700A7B3DC /* TorrentDetailViewController.h */,
@@ -801,12 +811,14 @@
 				23AC45F4179BED2E00AD5F22 /* Synology.m in Sources */,
 				23B1BFEC177C3817000A0B07 /* VuzeRemoteUI.m in Sources */,
 				23B35F861894A115002F6E37 /* ScanQRCodeViewController.m in Sources */,
+				23F3E09B189F236300A8105A /* TorrentClientTableViewController.m in Sources */,
 				23B1BFFB177C4285000A0B07 /* TorrentClient.m in Sources */,
 				238A94D217A121630081EF6D /* TSMessageView.m in Sources */,
 				2374DDB21796F2C700F613EB /* SVWebViewController.m in Sources */,
 				238FD0091887CBB90005BCE2 /* NSBencodeSerialization.m in Sources */,
 				23FC25D81788F1D500CCE434 /* TorrentJobCheckerCell.m in Sources */,
 				2355276E1872864F00A9E6BC /* HexColor.m in Sources */,
+				23F3E09E189F30EF00A8105A /* AddTorrentClientTableViewController.m in Sources */,
 				2374DDB01796F2C700F613EB /* SVModalWebViewController.m in Sources */,
 				235527641872568D00A9E6BC /* AboutViewController.m in Sources */,
 				232AE1911891EE7400D3F018 /* AddQueryTableViewController.m in Sources */,

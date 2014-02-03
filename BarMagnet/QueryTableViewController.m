@@ -79,7 +79,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
-	[self.tableView reloadData];
+	[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -124,7 +124,7 @@
 	}
 	else
 	{
-		return UITableViewCell.new;
+		cell = [tableView dequeueReusableCellWithIdentifier:@"Add"];
 	}
 	return cell;
 }

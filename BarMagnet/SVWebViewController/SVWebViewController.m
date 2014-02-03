@@ -196,13 +196,19 @@ static const CGFloat kAddressHeight = 26.0f;
 	}
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
 	[super viewDidLoad];
 	self.torrentData = NSMutableData.new;
 	self.adKeys = @[@"ytimg.com", @"pstatic.org", @"privitize.com", @"lp.torchbrowser.com", @"adexprt.com", @"trafficposse.com", @"mobicow.com", @"amgct.com", @"cpactions.com", @"adsmarket.com", @"propellerads.com", @"doubleclick.net", @"sexad.net", @"adrotator.se", @"rtbpop.com", @"exoclick.com", @"a.kickass.to", @"about:blank"];
 	self.adsArray = @[@"document.getElementById('sky-banner').firstElementChild.src", @"document.getElementById('sky-right').firstElementChild.src", @"document.getElementById('main-content').firstElementChild.src", @"document.getElementById('header').firstElementChild.firstElementChild.src"];
 	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:[self navigationController] action:@selector(dismissViewControllerAnimated)];
     [self updateToolbarItems];
+}
+
+- (void)showPageAddress
+{
+	[[UIAlertView.alloc initWithTitle:mainWebView.request.URL.absoluteString message:nil delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil] show];
 }
 
 - (void)viewDidUnload {
@@ -390,7 +396,12 @@ static const CGFloat kAddressHeight = 26.0f;
 	}
 	else
 	{
-		self.navigationItem.title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+		UILabel * titleView = [UILabel.alloc initWithFrame:CGRectMake(0, 0, 70, 44)];
+		titleView.text = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+		titleView.userInteractionEnabled = YES;
+		[titleView addGestureRecognizer:[UITapGestureRecognizer.alloc initWithTarget:self action:@selector(showPageAddress)]];
+		self.navigationItem.titleView = titleView;
+		//self.navigationItem.title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
 		[self updateToolbarItems];
 	}
 	/*for (NSString * ad in adsArray)

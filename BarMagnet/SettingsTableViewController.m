@@ -93,8 +93,6 @@
     [FileHandler.sharedInstance setWebDataValue:self.relativePathField.text forKey:@"relative_path" andDict:nil];
 	[FileHandler.sharedInstance setWebDataValue:@(self.useSSLSegmentedControl.selectedSegmentIndex) forKey:@"use_ssl" andDict:nil];
 	[FileHandler.sharedInstance setSettingsValue:self.cellNames[self.torrentCellTypeSegmentedControl.selectedSegmentIndex] forKey:@"cell"];
-	//[FileHandler.sharedInstance setSettingsValue:[self.queryFormatField.text stringByReplacingOccurrencesOfString:@"http://" withString:@""] forKey:@"query_format"];
-	//[FileHandler.sharedInstance setSettingsValue:[self.torrentSiteField.text stringByReplacingOccurrencesOfString:@"http://" withString:@""] forKey:@"preferred_torrent_site"];
 
 	if (self.useSSLSegmentedControl.selectedSegmentIndex)
 	{
@@ -109,7 +107,7 @@
 	[self cell:self.labelCell setHidden:![[[torrentDelegate class] name] isEqual:@"ruTorrent"]];
 	[self cell:self.directoryCell setHidden:!torrentDelegate.supportsDirectoryChoice];
 
-	[self cell:[self relativePathCell] setHidden:!torrentDelegate.shouldShowSpecificsButton];
+	[self cell:[self relativePathCell] setHidden:!torrentDelegate.supportsRelativePath];
 	[self reloadDataAnimated:YES];
 }
 
@@ -146,8 +144,6 @@
 	[[self directoryField] setText:[[FileHandler.sharedInstance webDataValueForKey:@"directory" andDict:[self.sortedArray objectAtIndex:row]] orSome:@""]];
 	[[self labelField] setText:[[FileHandler.sharedInstance webDataValueForKey:@"label" andDict:[self.sortedArray objectAtIndex:row]] orSome:@""]];
 	[[self relativePathField] setText:[[FileHandler.sharedInstance webDataValueForKey:@"relative_path" andDict:[self.sortedArray objectAtIndex:row]] orSome:@""]];
-	//[[self queryFormatField] setText:[FileHandler.sharedInstance settingsValueForKey:@"query_format"]];
-	//[[self torrentSiteField] setText:[FileHandler.sharedInstance settingsValueForKey:@"preferred_torrent_site"]];
 	[[self useSSLSegmentedControl] setSelectedSegmentIndex:[[[FileHandler.sharedInstance webDataValueForKey:@"use_ssl" andDict:[self.sortedArray objectAtIndex:row]] orSome:@0] intValue]];
 	[self.torrentCellTypeSegmentedControl setSelectedSegmentIndex:[self.cellNames indexOfObject:[FileHandler.sharedInstance settingsValueForKey:@"cell"]]];
 	[TorrentDelegate.sharedInstance.currentlySelectedClient becameActive];
