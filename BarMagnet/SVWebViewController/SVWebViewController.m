@@ -324,7 +324,7 @@ static const CGFloat kAddressHeight = 26.0f;
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-	NSLog(@"%d, %@", navigationType, request.URL.absoluteString);
+	NSLog(@"%@", request.URL.absoluteString);
 	for (NSString * key in self.adKeys)
 	{
 		if ([request.URL.absoluteString rangeOfString:key].location != NSNotFound)

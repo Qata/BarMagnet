@@ -49,15 +49,9 @@ enum ORDER
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	[self setTitle:@"Torrents"];
 	self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
-
-	for (TorrentClient * client in TorrentDelegate.sharedInstance.torrentDelegates.allValues)
-    {
-        [client setDefaultViewController:self.navigationController];
-    }
-
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveUpdateTableNotification) name:@"update_torrent_jobs_table" object:nil];
+	self.title = [FileHandler.sharedInstance settingsValueForKey:@"server_name"];
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(receiveUpdateTableNotification) name:@"update_torrent_jobs_table" object:nil];
 	self.shouldRefresh = YES;
 	self.tableView.contentOffset = CGPointMake(0.0, 44.0);
 
@@ -65,6 +59,7 @@ enum ORDER
 	{
 		[self performSegueWithIdentifier:@"Settings" sender:nil];
 	}
+	[NSNotificationCenter.defaultCenter addObserver:self selector:@selector(changedClient) name:@"ChangedClient" object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -75,16 +70,19 @@ enum ORDER
 	{
 		[self.sortByDictionary addObject:@(DATE) pairedWithKey:@"Date Added"];
 	}
-	self.title = [FileHandler.sharedInstance settingsValueForKey:@"server_type"];
 	self.tableView.rowHeight = [[self.tableView dequeueReusableCellWithIdentifier:[FileHandler.sharedInstance settingsValueForKey:@"cell"]] frame].size.height;
 	self.searchDisplayController.searchResultsTableView.rowHeight = [[self.tableView dequeueReusableCellWithIdentifier:[FileHandler.sharedInstance settingsValueForKey:@"cell"]] frame].size.height;
 	[self receiveUpdateTableNotification];
-
 }
 
 - (void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [NSNotificationCenter.defaultCenter removeObserver:self];
+}
+
+- (void)changedClient
+{
+	self.title = [FileHandler.sharedInstance settingsValueForKey:@"server_name"];
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
@@ -235,7 +233,7 @@ enum ORDER
 			if (buttonIndex != [actionSheet cancelButtonIndex])
 			{
 				NSString * hashString = [self.sortedKeys objectAtIndex:actionSheet.tag][@"hash"];
-				[[NSNotificationCenter defaultCenter] postNotificationName:@"cancel_refresh" object:nil];
+				[NSNotificationCenter.defaultCenter postNotificationName:@"cancel_refresh" object:nil];
 				[TorrentDelegate.sharedInstance.currentlySelectedClient addTemporaryDeletedJob:8 forKey:hashString];
 				[TorrentDelegate.sharedInstance.currentlySelectedClient removeTorrent:hashString removeData:buttonIndex == 0];
 				self.shouldRefresh = NO;
@@ -322,12 +320,12 @@ enum ORDER
 				{
 					if (!([b[@"rawUploadSpeed"] integerValue] || [b[@"rawDownloadSpeed"] integerValue]))
 					{
-						return [@0 compare:@1];
+						return NSOrderedAscending;
 					}
 				}
 				else if ([b[@"rawUploadSpeed"] integerValue] || [b[@"rawDownloadSpeed"] integerValue])
 				{
-					return [@1 compare:@0];
+					return NSOrderedDescending;
 				}
 				return [a[@"name"] compare:b[@"name"]];
 			}];
@@ -342,12 +340,12 @@ enum ORDER
 				{
 					if (!([self.sortByDictionary[b[@"status"]] integerValue] == sortBy))
 					{
-						return [@0 compare:@1];
+						return NSOrderedAscending;
 					}
 				}
 				else if ([self.sortByDictionary[b[@"status"]] integerValue] == sortBy)
 				{
-					return [@1 compare:@0];
+					return NSOrderedDescending;
 				}
 				return [a[@"name"] compare:b[@"name"]];
 			}];
@@ -535,11 +533,11 @@ enum ORDER
 	}
 	if ([CellIdentifier characterAtIndex:0] == 'P')
 	{
-		cell.uploadSpeed.text = [NSString stringWithFormat:@"↑ %@", currentJob[@"uploadSpeed"]];
+		cell.downloadSpeed.text = [NSString stringWithFormat:@"↓ %@", currentJob[@"downloadSpeed"]];
 	}
 	else
 	{
-		cell.uploadSpeed.text = [NSString stringWithFormat:@"%@ ↑", currentJob[@"uploadSpeed"]];
+		cell.downloadSpeed.text = [NSString stringWithFormat:@"%@ ↓", currentJob[@"downloadSpeed"]];
 	}
 
 	if ([currentJob[@"status"] isEqualToString:@"Seeding"])
@@ -555,7 +553,7 @@ enum ORDER
 		cell.percentBar.progressTintColor = [UIColor darkGrayColor];
 	}
 
-	cell.downloadSpeed.text = [NSString stringWithFormat:@"↓ %@", currentJob[@"downloadSpeed"]];
+	cell.uploadSpeed.text = [NSString stringWithFormat:@"↑ %@", currentJob[@"uploadSpeed"]];
 	if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
 	{
 		UIFont * font = [UIFont fontWithName:@"Arial" size:10];

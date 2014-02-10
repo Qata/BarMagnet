@@ -252,11 +252,11 @@
 {
 	if (proposedDestinationIndexPath.section < 1)
 	{
-		return [NSIndexPath indexPathForItem:0 inSection:1];
+		return [NSIndexPath indexPathForRow:0 inSection:1];
 	}
 	else if (proposedDestinationIndexPath.section > 1)
 	{
-		return [NSIndexPath indexPathForItem:[tableView numberOfRowsInSection:1] - 1 inSection:1];
+		return [NSIndexPath indexPathForRow:[tableView numberOfRowsInSection:1] - 1 inSection:1];
 	}
 	return proposedDestinationIndexPath;
 }

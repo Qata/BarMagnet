@@ -8,6 +8,9 @@
 
 #import "TorrentClientTableViewController.h"
 #import "FileHandler.h"
+#import "TorrentDelegate.h"
+#import "TorrentJobChecker.h"
+#import "AddTorrentClientTableViewController.h"
 
 @interface TorrentClientTableViewController ()
 @property (nonatomic, assign) NSUInteger checkedCell;
@@ -20,14 +23,41 @@
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
+	self.checkedCell = -1;
 	self.cellNames = @[@"Pretty", @"Compact", @"Fast"];
 	self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)selectCurrentClient
+{
+	for (NSDictionary * dict in [NSUserDefaults.standardUserDefaults objectForKey:@"clients"])
+	{
+		if ([dict[@"name"] isEqualToString:[FileHandler.sharedInstance settingsValueForKey:@"server_name"]])
+		{
+			self.checkedCell = [[NSUserDefaults.standardUserDefaults objectForKey:@"clients"] indexOfObject:dict];
+			break;
+		}
+	}
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
-	[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationNone];
+	[self selectCurrentClient];
+	[self.tableView reloadData];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+	[NSNotificationCenter.defaultCenter postNotificationName:@"ChangedClient" object:nil];
+	[TorrentJobChecker.sharedInstance performSelectorInBackground:@selector(credentialsCheckInvocation) withObject:nil];
+	[super viewWillDisappear:animated];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+	self.editing = NO;
+	[super viewDidDisappear:animated];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -86,6 +116,14 @@
 	}
 }
 
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+	if (indexPath.section == 1)
+	{
+		[self performSegueWithIdentifier:@"editClient" sender:[NSUserDefaults.standardUserDefaults objectForKey:@"clients"][indexPath.row]];
+	}
+}
+
 - (BOOL)tableView:(UITableView *)tableView shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	return NO;
@@ -101,11 +139,11 @@
 {
 	if (proposedDestinationIndexPath.section < 1)
 	{
-		return [NSIndexPath indexPathForItem:0 inSection:1];
+		return [NSIndexPath indexPathForRow:0 inSection:1];
 	}
 	else if (proposedDestinationIndexPath.section > 1)
 	{
-		return [NSIndexPath indexPathForItem:[tableView numberOfRowsInSection:1] - 1 inSection:1];
+		return [NSIndexPath indexPathForRow:[tableView numberOfRowsInSection:1] - 1 inSection:1];
 	}
 	return proposedDestinationIndexPath;
 }
@@ -125,13 +163,19 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	if (indexPath.section == 1 && self.checkedCell != indexPath.row)
+	if (indexPath.section == 1)
 	{
-		NSUInteger previouslySelected = self.checkedCell;
-		self.checkedCell = indexPath.row;
-		[tableView reloadRowsAtIndexPaths:@[indexPath, [NSIndexPath indexPathForItem:previouslySelected inSection:1]] withRowAnimation:UITableViewRowAnimationNone];
-		[tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+		if (self.checkedCell != indexPath.row)
+		{
+			NSUInteger previouslySelected = self.checkedCell;
+			self.checkedCell = indexPath.row;
+			[tableView reloadRowsAtIndexPaths:@[indexPath, [NSIndexPath indexPathForRow:previouslySelected inSection:1]] withRowAnimation:UITableViewRowAnimationNone];
+			[tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+		}
 		[tableView deselectRowAtIndexPath:indexPath animated:YES];
+		[FileHandler.sharedInstance setSettingsValue:[NSUserDefaults.standardUserDefaults objectForKey:@"clients"][indexPath.row][@"name"] forKey:@"server_name"];
+		[FileHandler.sharedInstance setSettingsValue:[NSUserDefaults.standardUserDefaults objectForKey:@"clients"][indexPath.row][@"type"] forKey:@"server_type"];
+		[NSNotificationCenter.defaultCenter postNotificationName:@"ChangedClient" object:nil];
 	}
 	else
 	{
@@ -148,11 +192,25 @@
 {
 	if (editingStyle == UITableViewCellEditingStyleDelete)
 	{
-
+		NSMutableArray * array = [[NSUserDefaults.standardUserDefaults objectForKey:@"clients"] mutableCopy];
+		[array removeObjectAtIndex:indexPath.row];
+		[NSUserDefaults.standardUserDefaults setObject:array forKey:@"clients"];
+		[self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 	}
 	else if (editingStyle == UITableViewCellEditingStyleInsert)
 	{
 		[self performSegueWithIdentifier:@"addClient" sender:nil];
+	}
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+	if ([segue.destinationViewController respondsToSelector:@selector(setClientDictionary:)])
+	{
+		if ([sender respondsToSelector:@selector(objectForKey:)])
+		{
+			[segue.destinationViewController setClientDictionary:sender];
+		}
 	}
 }
 

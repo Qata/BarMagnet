@@ -20,7 +20,7 @@
 {
 	[super viewDidLoad];
 	hashDict = [TorrentDelegate.sharedInstance.currentlySelectedClient getJobsDict][self.hashString];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveUpdateTableNotification) name:@"update_torrent_jobs_table" object:nil];
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(receiveUpdateTableNotification) name:@"update_torrent_jobs_table" object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -171,7 +171,7 @@
 	{
 		[TorrentDelegate.sharedInstance.currentlySelectedClient addTemporaryDeletedJob:8 forKey:self.hashString];
 		[TorrentDelegate.sharedInstance.currentlySelectedClient removeTorrent:self.hashString removeData:buttonIndex == 0];
-		[[NSNotificationCenter defaultCenter] postNotificationName:@"update_torrent_jobs_table" object:nil];
+		[NSNotificationCenter.defaultCenter postNotificationName:@"update_torrent_jobs_table" object:nil];
 		[[self navigationController] popToRootViewControllerAnimated:YES];
 	}
 }

@@ -21,7 +21,6 @@
 		232B0FA5178C356700A7B3DC /* TorrentDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 232B0FA4178C356700A7B3DC /* TorrentDetailViewController.m */; };
 		23314152177FE95E0062B0FE /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 23314150177FE95E0062B0FE /* gear.png */; };
 		23314153177FE95E0062B0FE /* gear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23314151177FE95E0062B0FE /* gear@2x.png */; };
-		233C9F0617B9354300405CA7 /* FileHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 233C9F0517B9354300405CA7 /* FileHandler.m */; };
 		233C9F1317B93A3100405CA7 /* TorrentFileHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 233C9F1217B93A3100405CA7 /* TorrentFileHandler.m */; };
 		233C9F9617B9E2E500405CA7 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 233C9F9517B9E2E500405CA7 /* libz.dylib */; };
 		233C9F9717B9E31100405CA7 /* libz.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 233C9F9517B9E2E500405CA7 /* libz.dylib */; };
@@ -78,7 +77,6 @@
 		23AC2B2E175D835600FCFA71 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AC2B2D175D835600FCFA71 /* main.m */; };
 		23AC2B32175D835600FCFA71 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AC2B31175D835600FCFA71 /* AppDelegate.m */; };
 		23AC2B41175D835600FCFA71 /* TorrentJobsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AC2B40175D835600FCFA71 /* TorrentJobsTableViewController.m */; };
-		23AC2B48175D835600FCFA71 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AC2B47175D835600FCFA71 /* SettingsTableViewController.m */; };
 		23AC45F4179BED2E00AD5F22 /* Synology.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AC45F3179BED2E00AD5F22 /* Synology.m */; };
 		23AF74E01796D5F700AC4ED5 /* StaticDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AF74DF1796D5F700AC4ED5 /* StaticDataTableViewController.m */; };
 		23B1BFE6177C3817000A0B07 /* Deluge.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B1BFD9177C3817000A0B07 /* Deluge.m */; };
@@ -101,6 +99,7 @@
 		23EBC8F518851BE800B0A281 /* donate.png in Resources */ = {isa = PBXBuildFile; fileRef = 23EBC8F418851BE800B0A281 /* donate.png */; };
 		23F3E09B189F236300A8105A /* TorrentClientTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F3E09A189F236300A8105A /* TorrentClientTableViewController.m */; };
 		23F3E09E189F30EF00A8105A /* AddTorrentClientTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F3E09D189F30EF00A8105A /* AddTorrentClientTableViewController.m */; };
+		23F3E0A1189F59C700A8105A /* FileHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F3E0A0189F59C700A8105A /* FileHandler.m */; };
 		23FC25D81788F1D500CCE434 /* TorrentJobCheckerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FC25D71788F1D500CCE434 /* TorrentJobCheckerCell.m */; };
 /* End PBXBuildFile section */
 
@@ -140,8 +139,6 @@
 		232B0FA4178C356700A7B3DC /* TorrentDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TorrentDetailViewController.m; sourceTree = "<group>"; };
 		23314150177FE95E0062B0FE /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
 		23314151177FE95E0062B0FE /* gear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gear@2x.png"; sourceTree = "<group>"; };
-		233C9F0417B9354300405CA7 /* FileHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileHandler.h; path = "../../../Bar Magnet Shared Sources/FileHandler.h"; sourceTree = "<group>"; };
-		233C9F0517B9354300405CA7 /* FileHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FileHandler.m; path = "../../../Bar Magnet Shared Sources/FileHandler.m"; sourceTree = "<group>"; };
 		233C9F1117B93A3100405CA7 /* TorrentFileHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TorrentFileHandler.h; path = "../../../Bar Magnet Shared Sources/TorrentFileHandler.h"; sourceTree = "<group>"; };
 		233C9F1217B93A3100405CA7 /* TorrentFileHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TorrentFileHandler.m; path = "../../../Bar Magnet Shared Sources/TorrentFileHandler.m"; sourceTree = "<group>"; };
 		233C9F9517B9E2E500405CA7 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -232,8 +229,6 @@
 		23AC2B31175D835600FCFA71 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		23AC2B3F175D835600FCFA71 /* TorrentJobsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TorrentJobsTableViewController.h; sourceTree = "<group>"; };
 		23AC2B40175D835600FCFA71 /* TorrentJobsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TorrentJobsTableViewController.m; sourceTree = "<group>"; };
-		23AC2B46175D835600FCFA71 /* SettingsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
-		23AC2B47175D835600FCFA71 /* SettingsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
 		23AC2B53175D835600FCFA71 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		23AC2B5B175D835600FCFA71 /* BarMagnetTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BarMagnetTests-Info.plist"; sourceTree = "<group>"; };
 		23AC2B5D175D835600FCFA71 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -281,6 +276,8 @@
 		23F3E09A189F236300A8105A /* TorrentClientTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TorrentClientTableViewController.m; sourceTree = "<group>"; };
 		23F3E09C189F30EF00A8105A /* AddTorrentClientTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTorrentClientTableViewController.h; sourceTree = "<group>"; };
 		23F3E09D189F30EF00A8105A /* AddTorrentClientTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTorrentClientTableViewController.m; sourceTree = "<group>"; };
+		23F3E09F189F59C700A8105A /* FileHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHandler.h; sourceTree = "<group>"; };
+		23F3E0A0189F59C700A8105A /* FileHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileHandler.m; sourceTree = "<group>"; };
 		23FC25D61788F1D500CCE434 /* TorrentJobCheckerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TorrentJobCheckerCell.h; sourceTree = "<group>"; };
 		23FC25D71788F1D500CCE434 /* TorrentJobCheckerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TorrentJobCheckerCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -315,8 +312,6 @@
 				23F3E09A189F236300A8105A /* TorrentClientTableViewController.m */,
 				23F3E09C189F30EF00A8105A /* AddTorrentClientTableViewController.h */,
 				23F3E09D189F30EF00A8105A /* AddTorrentClientTableViewController.m */,
-				23AC2B46175D835600FCFA71 /* SettingsTableViewController.h */,
-				23AC2B47175D835600FCFA71 /* SettingsTableViewController.m */,
 				232B0FA3178C356700A7B3DC /* TorrentDetailViewController.h */,
 				232B0FA4178C356700A7B3DC /* TorrentDetailViewController.m */,
 				23B35F841894A115002F6E37 /* ScanQRCodeViewController.h */,
@@ -646,8 +641,8 @@
 				230F9EFE1781AA0E00705546 /* NSNumber+TransferRateFormatting.m */,
 				23B286BA17C0401700BB2DA6 /* NSOption.h */,
 				23B286BB17C0401700BB2DA6 /* NSOption.m */,
-				233C9F0417B9354300405CA7 /* FileHandler.h */,
-				233C9F0517B9354300405CA7 /* FileHandler.m */,
+				23F3E09F189F59C700A8105A /* FileHandler.h */,
+				23F3E0A0189F59C700A8105A /* FileHandler.m */,
 				23A0E5C617894C0A00898812 /* NSArray+Functions.h */,
 				23A0E5C717894C0A00898812 /* NSArray+Functions.m */,
 			);
@@ -790,7 +785,6 @@
 				23A0E5C817894C0A00898812 /* NSArray+Functions.m in Sources */,
 				23AC2B41175D835600FCFA71 /* TorrentJobsTableViewController.m in Sources */,
 				232B0FA5178C356700A7B3DC /* TorrentDetailViewController.m in Sources */,
-				23AC2B48175D835600FCFA71 /* SettingsTableViewController.m in Sources */,
 				23B1BFE6177C3817000A0B07 /* Deluge.m in Sources */,
 				23A48234177DE1BA000873CF /* TorrentJobChecker.m in Sources */,
 				2396C92B1895EA88009BC6D3 /* UIFastProgressBar.m in Sources */,
@@ -799,6 +793,7 @@
 				23B1BFE8177C3817000A0B07 /* ruTorrent.m in Sources */,
 				23B1BFE9177C3817000A0B07 /* Transmission.m in Sources */,
 				230F9EFF1781AA0E00705546 /* NSNumber+TransferRateFormatting.m in Sources */,
+				23F3E0A1189F59C700A8105A /* FileHandler.m in Sources */,
 				238FD00A1887CBB90005BCE2 /* NSOrderedDictionary.m in Sources */,
 				23B1BFEA177C3817000A0B07 /* uTorrent.m in Sources */,
 				2355276B187285BE00A9E6BC /* TSBlurView.m in Sources */,
@@ -806,7 +801,6 @@
 				23A94F22183CD6B7004A3924 /* UINavigationControllerNoAutoRotation.m in Sources */,
 				23AF74E01796D5F700AC4ED5 /* StaticDataTableViewController.m in Sources */,
 				232AE194189206C000D3F018 /* UITextField+UniqueString.m in Sources */,
-				233C9F0617B9354300405CA7 /* FileHandler.m in Sources */,
 				230E746D17940D270090BECF /* PingHandler.m in Sources */,
 				23AC45F4179BED2E00AD5F22 /* Synology.m in Sources */,
 				23B1BFEC177C3817000A0B07 /* VuzeRemoteUI.m in Sources */,

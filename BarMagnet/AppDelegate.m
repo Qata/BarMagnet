@@ -30,7 +30,25 @@
 		[FileHandler.sharedInstance setSettingsValue:@"Pretty" forKey:@"cell"];
 	}
 
-	[TorrentDelegate.sharedInstance.currentlySelectedClient becameActive];
+	if (![NSUserDefaults.standardUserDefaults objectForKey:@"clients"])
+	{
+		if ([[[FileHandler.sharedInstance oldWebDataValueForKey:@"url"] orSome:@""] length])
+		{
+			NSString * url = [[FileHandler.sharedInstance oldWebDataValueForKey:@"url"] orSome:@""];
+			NSString * username = [[FileHandler.sharedInstance oldWebDataValueForKey:@"username"] orSome:@""];
+			NSString * password = [[FileHandler.sharedInstance oldWebDataValueForKey:@"password"] orSome:@""];
+			NSString * port = [[FileHandler.sharedInstance oldWebDataValueForKey:@"port"] orSome:@""];
+			NSNumber * useSSL = [[FileHandler.sharedInstance oldWebDataValueForKey:@"use_ssl"] orSome:@""];
+			NSString * directory = [[FileHandler.sharedInstance oldWebDataValueForKey:@"directory"] orSome:@""];
+			NSString * label = [[FileHandler.sharedInstance oldWebDataValueForKey:@"label"] orSome:@""];
+			NSString * relative_path = [[FileHandler.sharedInstance oldWebDataValueForKey:@"relative_path"] orSome:@""];
+			if ([url length])
+			{
+				[FileHandler.sharedInstance setSettingsValue:@"Default" forKey:@"server_name"];
+				[NSUserDefaults.standardUserDefaults setObject:@[@{@"name":@"Default", @"url":url, @"type":[FileHandler.sharedInstance settingsValueForKey:@"server_type"], @"username":username, @"password":password, @"port":port, @"use_ssl":useSSL, @"directory":directory, @"label":label, @"relative_path":relative_path}] forKey:@"clients"];
+			}
+		}
+	}
 	pingHandler = [PingHandler new];
     __block NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[self methodSignatureForSelector:@selector(updateConnectionStatus)]];
 	[invocation setTarget:self];
@@ -50,7 +68,7 @@
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"clear_field_notification" object:nil];
+    [NSNotificationCenter.defaultCenter postNotificationName:@"clear_field_notification" object:nil];
     [[TorrentDelegate sharedInstance] handleMagnet:url.absoluteString];
     return YES;
 }
