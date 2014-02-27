@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "PingHandler.h"
 #import "FileHandler.h"
 #import "ConnectionHandler.h"
 #import "TorrentDelegate.h"
@@ -49,7 +48,6 @@
 			}
 		}
 	}
-	pingHandler = [PingHandler new];
     __block NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[self methodSignatureForSelector:@selector(updateConnectionStatus)]];
 	[invocation setTarget:self];
 	[invocation setSelector:@selector(updateConnectionStatus)];

@@ -20,7 +20,6 @@ static const CGFloat kAddressHeight = 26.0f;
 @interface SVWebViewController () <UIWebViewDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate, NSURLConnectionDataDelegate>
 
 @property (nonatomic, strong) NSArray *adKeys;
-@property (nonatomic, strong) NSArray *adsArray;
 @property (nonatomic, strong, readonly) UIBarButtonItem *backBarButtonItem;
 @property (nonatomic, strong, readonly) UIBarButtonItem *forwardBarButtonItem;
 @property (nonatomic, strong, readonly) UIBarButtonItem *refreshBarButtonItem;
@@ -200,8 +199,7 @@ static const CGFloat kAddressHeight = 26.0f;
 {
 	[super viewDidLoad];
 	self.torrentData = NSMutableData.new;
-	self.adKeys = @[@"ytimg.com", @"pstatic.org", @"privitize.com", @"lp.torchbrowser.com", @"adexprt.com", @"trafficposse.com", @"mobicow.com", @"amgct.com", @"cpactions.com", @"adsmarket.com", @"propellerads.com", @"doubleclick.net", @"sexad.net", @"adrotator.se", @"rtbpop.com", @"exoclick.com", @"a.kickass.to", @"about:blank"];
-	self.adsArray = @[@"document.getElementById('sky-banner').firstElementChild.src", @"document.getElementById('sky-right').firstElementChild.src", @"document.getElementById('main-content').firstElementChild.src", @"document.getElementById('header').firstElementChild.firstElementChild.src"];
+	self.adKeys = [NSDictionary dictionaryWithContentsOfFile:[NSBundle.mainBundle pathForResource:@"AdBlocker" ofType:@"plist"]][@"ads"];
 	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:[self navigationController] action:@selector(dismissViewControllerAnimated)];
     [self updateToolbarItems];
 }
@@ -396,21 +394,19 @@ static const CGFloat kAddressHeight = 26.0f;
 	}
 	else
 	{
-		UILabel * titleView = [UILabel.alloc initWithFrame:CGRectMake(0, 0, 70, 44)];
+		UILabel * titleView = [UILabel.alloc initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
+		titleView.backgroundColor = UIColor.clearColor;
+		titleView.textAlignment = NSTextAlignmentCenter;
+		if ([[UIDevice.currentDevice.systemVersion componentsSeparatedByString:@"."].firstObject integerValue] < 7)
+		{
+			titleView.textColor = [UIColor whiteColor];
+		}
 		titleView.text = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
 		titleView.userInteractionEnabled = YES;
 		[titleView addGestureRecognizer:[UITapGestureRecognizer.alloc initWithTarget:self action:@selector(showPageAddress)]];
 		self.navigationItem.titleView = titleView;
-		//self.navigationItem.title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
 		[self updateToolbarItems];
 	}
-	/*for (NSString * ad in adsArray)
-	{
-		if (![[webView stringByEvaluatingJavaScriptFromString:ad] isEqual:@"http://qata.cc/rgb.gif"])
-		{
-			[webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@ = 'http://qata.cc/rgb.gif'", ad]];
-		}
-	}*/
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {

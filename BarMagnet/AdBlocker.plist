@@ -1,5 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict/>
+<dict>
+	<key>ads</key>
+	<array>
+		<string>about:blank</string>
+		<string>ytimg.com</string>
+		<string>pstatic.org</string>
+		<string>privitize.com</string>
+		<string>lp.torchbrowser.com</string>
+		<string>adexprt.com</string>
+		<string>trafficposse.com</string>
+		<string>mobicow.com</string>
+		<string>amgct.com</string>
+		<string>cpactions.com</string>
+		<string>adsmarket.com</string>
+		<string>propellerads.com</string>
+		<string>doubleclick.net</string>
+		<string>sexad.net</string>
+		<string>adrotator.se</string>
+		<string>rtbpop.com</string>
+		<string>exoclick.com</string>
+		<string>a.kickass.to</string>
+	</array>
+</dict>
 </plist>

@@ -12,18 +12,15 @@
 		230C478118948FC6007D56FC /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 230C478018948FC6007D56FC /* CoreMedia.framework */; };
 		230C478218948FCE007D56FC /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 238A94D517A121C30081EF6D /* OpenGLES.framework */; };
 		230C478418948FD7007D56FC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 230C478318948FD7007D56FC /* AVFoundation.framework */; };
-		230E746D17940D270090BECF /* PingHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 230E746C17940D270090BECF /* PingHandler.m */; };
-		230F9EFF1781AA0E00705546 /* NSNumber+TransferRateFormatting.m in Sources */ = {isa = PBXBuildFile; fileRef = 230F9EFE1781AA0E00705546 /* NSNumber+TransferRateFormatting.m */; };
-		232AE18B1891E28000D3F018 /* QueryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 232AE18A1891E28000D3F018 /* QueryCell.m */; };
 		232AE18E1891E40100D3F018 /* QueryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 232AE18D1891E40100D3F018 /* QueryTableViewController.m */; };
 		232AE1911891EE7400D3F018 /* AddQueryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 232AE1901891EE7400D3F018 /* AddQueryTableViewController.m */; };
 		232AE194189206C000D3F018 /* UITextField+UniqueString.m in Sources */ = {isa = PBXBuildFile; fileRef = 232AE193189206C000D3F018 /* UITextField+UniqueString.m */; };
 		232B0FA5178C356700A7B3DC /* TorrentDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 232B0FA4178C356700A7B3DC /* TorrentDetailViewController.m */; };
 		23314152177FE95E0062B0FE /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 23314150177FE95E0062B0FE /* gear.png */; };
 		23314153177FE95E0062B0FE /* gear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23314151177FE95E0062B0FE /* gear@2x.png */; };
-		233C9F1317B93A3100405CA7 /* TorrentFileHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 233C9F1217B93A3100405CA7 /* TorrentFileHandler.m */; };
 		233C9F9617B9E2E500405CA7 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 233C9F9517B9E2E500405CA7 /* libz.dylib */; };
 		233C9F9717B9E31100405CA7 /* libz.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 233C9F9517B9E2E500405CA7 /* libz.dylib */; };
+		2346A5A418A8C2F0005EE9C0 /* AdBlocker.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2346A5A318A8C2F0005EE9C0 /* AdBlocker.plist */; };
 		2351200A1769C49000A3DE2C /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 235120071769C49000A3DE2C /* MainStoryboard_iPhone.storyboard */; };
 		235527571871718300A9E6BC /* UIButtonBarPause.png in Resources */ = {isa = PBXBuildFile; fileRef = 235527531871718300A9E6BC /* UIButtonBarPause.png */; };
 		235527581871718300A9E6BC /* UIButtonBarPause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 235527541871718300A9E6BC /* UIButtonBarPause@2x.png */; };
@@ -63,13 +60,28 @@
 		238A94D017A121630081EF6D /* NotificationButtonBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 238A94B317A121630081EF6D /* NotificationButtonBackground@2x.png */; };
 		238A94D217A121630081EF6D /* TSMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 238A94B717A121630081EF6D /* TSMessageView.m */; };
 		238FBE321856A27F00A02418 /* SVWebViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 238FBE311856A27F00A02418 /* SVWebViewController.bundle */; };
-		238FD0091887CBB90005BCE2 /* NSBencodeSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 238FD0061887CBB90005BCE2 /* NSBencodeSerialization.m */; };
-		238FD00A1887CBB90005BCE2 /* NSOrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 238FD0081887CBB90005BCE2 /* NSOrderedDictionary.m */; };
 		239145031795604100543347 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 239144FF1795604100543347 /* libTestFlight.a */; };
-		239162941795794400213C67 /* ConnectionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 239162931795794400213C67 /* ConnectionHandler.m */; };
 		2396C92B1895EA88009BC6D3 /* UIFastProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2396C92A1895EA88009BC6D3 /* UIFastProgressBar.m */; };
-		23A0E5C817894C0A00898812 /* NSArray+Functions.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A0E5C717894C0A00898812 /* NSArray+Functions.m */; };
-		23A48234177DE1BA000873CF /* TorrentJobChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A48233177DE1BA000873CF /* TorrentJobChecker.m */; };
+		23A868F218BF36F70066E383 /* libNSBencodeSerialization.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A868EF18BF36DB0066E383 /* libNSBencodeSerialization.a */; };
+		23A868F718BF383E0066E383 /* NSNumber+TransferRateFormatting.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A868F418BF383E0066E383 /* NSNumber+TransferRateFormatting.m */; };
+		23A868F818BF383E0066E383 /* NSOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A868F618BF383E0066E383 /* NSOption.m */; };
+		23A868FB18BF38750066E383 /* NSArray+Functions.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A868FA18BF38750066E383 /* NSArray+Functions.m */; };
+		23A868FE18BF38800066E383 /* ConnectionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A868FD18BF38800066E383 /* ConnectionHandler.m */; };
+		23A8690318BF388D0066E383 /* TorrentFileHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A8690018BF388D0066E383 /* TorrentFileHandler.m */; };
+		23A8690418BF388D0066E383 /* TorrentJobChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A8690218BF388D0066E383 /* TorrentJobChecker.m */; };
+		23A8690718BF389D0066E383 /* TorrentDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A8690618BF389D0066E383 /* TorrentDelegate.m */; };
+		23A8690A18BF38A90066E383 /* NSData+BEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A8690918BF38A90066E383 /* NSData+BEncode.m */; };
+		23A8690D18BF38B20066E383 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A8690C18BF38B20066E383 /* NSData+Base64.m */; };
+		23A8691018BF38BA0066E383 /* StringHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A8690F18BF38BA0066E383 /* StringHandler.m */; };
+		23A8691318BF38C10066E383 /* TorrentClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A8691218BF38C10066E383 /* TorrentClient.m */; };
+		23A8691618BF38CC0066E383 /* Deluge.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A8691518BF38CC0066E383 /* Deluge.m */; };
+		23A8691918BF38D40066E383 /* qBittorrent.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A8691818BF38D40066E383 /* qBittorrent.m */; };
+		23A8691C18BF38DF0066E383 /* ruTorrent.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A8691B18BF38DF0066E383 /* ruTorrent.m */; };
+		23A8691F18BF38E90066E383 /* Synology.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A8691E18BF38E90066E383 /* Synology.m */; };
+		23A8692218BF38F30066E383 /* Transmission.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A8692118BF38F30066E383 /* Transmission.m */; };
+		23A8692518BF38FD0066E383 /* uTorrent.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A8692418BF38FD0066E383 /* uTorrent.m */; };
+		23A8692818BF390A0066E383 /* VuzeRemoteUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A8692718BF390A0066E383 /* VuzeRemoteUI.m */; };
+		23A8692C18BF39BD0066E383 /* QueryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A8692B18BF39BD0066E383 /* QueryCell.m */; };
 		23A94F22183CD6B7004A3924 /* UINavigationControllerNoAutoRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A94F21183CD6B7004A3924 /* UINavigationControllerNoAutoRotation.m */; };
 		23AC2B22175D835600FCFA71 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23AC2B21175D835600FCFA71 /* UIKit.framework */; };
 		23AC2B24175D835600FCFA71 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23AC2B23175D835600FCFA71 /* Foundation.framework */; };
@@ -77,21 +89,7 @@
 		23AC2B2E175D835600FCFA71 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AC2B2D175D835600FCFA71 /* main.m */; };
 		23AC2B32175D835600FCFA71 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AC2B31175D835600FCFA71 /* AppDelegate.m */; };
 		23AC2B41175D835600FCFA71 /* TorrentJobsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AC2B40175D835600FCFA71 /* TorrentJobsTableViewController.m */; };
-		23AC45F4179BED2E00AD5F22 /* Synology.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AC45F3179BED2E00AD5F22 /* Synology.m */; };
 		23AF74E01796D5F700AC4ED5 /* StaticDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AF74DF1796D5F700AC4ED5 /* StaticDataTableViewController.m */; };
-		23B1BFE6177C3817000A0B07 /* Deluge.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B1BFD9177C3817000A0B07 /* Deluge.m */; };
-		23B1BFE7177C3817000A0B07 /* qBittorrent.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B1BFDB177C3817000A0B07 /* qBittorrent.m */; };
-		23B1BFE8177C3817000A0B07 /* ruTorrent.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B1BFDD177C3817000A0B07 /* ruTorrent.m */; };
-		23B1BFE9177C3817000A0B07 /* Transmission.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B1BFDF177C3817000A0B07 /* Transmission.m */; };
-		23B1BFEA177C3817000A0B07 /* uTorrent.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B1BFE1177C3817000A0B07 /* uTorrent.m */; };
-		23B1BFEB177C3817000A0B07 /* VuzeHTMLUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B1BFE3177C3817000A0B07 /* VuzeHTMLUI.m */; };
-		23B1BFEC177C3817000A0B07 /* VuzeRemoteUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B1BFE5177C3817000A0B07 /* VuzeRemoteUI.m */; };
-		23B1BFFB177C4285000A0B07 /* TorrentClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B1BFFA177C4285000A0B07 /* TorrentClient.m */; };
-		23B1C007177C494B000A0B07 /* NSData+BEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B1C006177C494B000A0B07 /* NSData+BEncode.m */; };
-		23B1C00C177C4AC4000A0B07 /* TorrentDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B1C009177C4AC4000A0B07 /* TorrentDelegate.m */; };
-		23B1C019177C4B3C000A0B07 /* StringHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B1C018177C4B3C000A0B07 /* StringHandler.m */; };
-		23B1C01F177C4B88000A0B07 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B1C01E177C4B88000A0B07 /* NSData+Base64.m */; };
-		23B286BC17C0401700BB2DA6 /* NSOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B286BB17C0401700BB2DA6 /* NSOption.m */; };
 		23B35F861894A115002F6E37 /* ScanQRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B35F851894A115002F6E37 /* ScanQRCodeViewController.m */; };
 		23B84F0F17B60F4F008C9D17 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23B84F0D17B60F4F008C9D17 /* MainStoryboard_iPad.storyboard */; };
 		23E60FB71876D20400D2068B /* PlayPause.png in Resources */ = {isa = PBXBuildFile; fileRef = 23E60FB51876D20400D2068B /* PlayPause.png */; };
@@ -102,6 +100,23 @@
 		23F3E0A1189F59C700A8105A /* FileHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F3E0A0189F59C700A8105A /* FileHandler.m */; };
 		23FC25D81788F1D500CCE434 /* TorrentJobCheckerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FC25D71788F1D500CCE434 /* TorrentJobCheckerCell.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		23A868EE18BF36DB0066E383 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 23A868EA18BF36DB0066E383 /* NSBencodeSerialization.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 23A8686318BF2FE20066E383;
+			remoteInfo = NSBencodeSerialization;
+		};
+		23A868F018BF36ED0066E383 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 23A868EA18BF36DB0066E383 /* NSBencodeSerialization.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 23A8686218BF2FE20066E383;
+			remoteInfo = NSBencodeSerialization;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		23AC2BBB175D905600FCFA71 /* CopyFiles */ = {
@@ -123,12 +138,6 @@
 		230C482A18949214007D56FC /* libGPUImage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGPUImage.a; path = "../../Downloads/GPUImage-master/build/Release-iphoneos/libGPUImage.a"; sourceTree = "<group>"; };
 		230C482C1894921F007D56FC /* libGPUImage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGPUImage.a; path = "../../Downloads/GPUImage-master/build/libGPUImage.a"; sourceTree = "<group>"; };
 		230C482E18949244007D56FC /* libGPUImage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGPUImage.a; path = Smerk/GPUImage/libGPUImage.a; sourceTree = "<group>"; };
-		230E746B17940D270090BECF /* PingHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PingHandler.h; path = "../../../Bar Magnet Shared Sources/PingHandler.h"; sourceTree = "<group>"; };
-		230E746C17940D270090BECF /* PingHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PingHandler.m; path = "../../../Bar Magnet Shared Sources/PingHandler.m"; sourceTree = "<group>"; };
-		230F9EFD1781AA0E00705546 /* NSNumber+TransferRateFormatting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSNumber+TransferRateFormatting.h"; path = "../../../Bar Magnet Shared Sources/NSNumber+TransferRateFormatting.h"; sourceTree = "<group>"; };
-		230F9EFE1781AA0E00705546 /* NSNumber+TransferRateFormatting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSNumber+TransferRateFormatting.m"; path = "../../../Bar Magnet Shared Sources/NSNumber+TransferRateFormatting.m"; sourceTree = "<group>"; };
-		232AE1891891E28000D3F018 /* QueryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryCell.h; sourceTree = "<group>"; };
-		232AE18A1891E28000D3F018 /* QueryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryCell.m; sourceTree = "<group>"; };
 		232AE18C1891E40100D3F018 /* QueryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryTableViewController.h; sourceTree = "<group>"; };
 		232AE18D1891E40100D3F018 /* QueryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryTableViewController.m; sourceTree = "<group>"; };
 		232AE18F1891EE7400D3F018 /* AddQueryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddQueryTableViewController.h; sourceTree = "<group>"; };
@@ -139,9 +148,8 @@
 		232B0FA4178C356700A7B3DC /* TorrentDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TorrentDetailViewController.m; sourceTree = "<group>"; };
 		23314150177FE95E0062B0FE /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
 		23314151177FE95E0062B0FE /* gear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gear@2x.png"; sourceTree = "<group>"; };
-		233C9F1117B93A3100405CA7 /* TorrentFileHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TorrentFileHandler.h; path = "../../../Bar Magnet Shared Sources/TorrentFileHandler.h"; sourceTree = "<group>"; };
-		233C9F1217B93A3100405CA7 /* TorrentFileHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TorrentFileHandler.m; path = "../../../Bar Magnet Shared Sources/TorrentFileHandler.m"; sourceTree = "<group>"; };
 		233C9F9517B9E2E500405CA7 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		2346A5A318A8C2F0005EE9C0 /* AdBlocker.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AdBlocker.plist; sourceTree = "<group>"; };
 		235120081769C49000A3DE2C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = BarMagnet/en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		235527531871718300A9E6BC /* UIButtonBarPause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIButtonBarPause.png; sourceTree = "<group>"; };
 		235527541871718300A9E6BC /* UIButtonBarPause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIButtonBarPause@2x.png"; sourceTree = "<group>"; };
@@ -199,22 +207,52 @@
 		238A94D317A121B70081EF6D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		238A94D517A121C30081EF6D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		238FBE311856A27F00A02418 /* SVWebViewController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVWebViewController.bundle; sourceTree = "<group>"; };
-		238FD0051887CBB90005BCE2 /* NSBencodeSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSBencodeSerialization.h; path = "../../../Bar Magnet Shared Sources/NSBencodeSerialization.h"; sourceTree = "<group>"; };
-		238FD0061887CBB90005BCE2 /* NSBencodeSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSBencodeSerialization.m; path = "../../../Bar Magnet Shared Sources/NSBencodeSerialization.m"; sourceTree = "<group>"; };
-		238FD0071887CBB90005BCE2 /* NSOrderedDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSOrderedDictionary.h; path = "../../../Bar Magnet Shared Sources/NSOrderedDictionary.h"; sourceTree = "<group>"; };
-		238FD0081887CBB90005BCE2 /* NSOrderedDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSOrderedDictionary.m; path = "../../../Bar Magnet Shared Sources/NSOrderedDictionary.m"; sourceTree = "<group>"; };
 		239144FF1795604100543347 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		239145001795604100543347 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		239145011795604100543347 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
 		239145021795604100543347 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
-		239162921795794400213C67 /* ConnectionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConnectionHandler.h; path = "../../../Bar Magnet Shared Sources/ConnectionHandler.h"; sourceTree = "<group>"; };
-		239162931795794400213C67 /* ConnectionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConnectionHandler.m; path = "../../../Bar Magnet Shared Sources/ConnectionHandler.m"; sourceTree = "<group>"; };
 		2396C9291895EA88009BC6D3 /* UIFastProgressBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFastProgressBar.h; sourceTree = "<group>"; };
 		2396C92A1895EA88009BC6D3 /* UIFastProgressBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFastProgressBar.m; sourceTree = "<group>"; };
-		23A0E5C617894C0A00898812 /* NSArray+Functions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSArray+Functions.h"; path = "../../../Bar Magnet Shared Sources/NSArray+Functions.h"; sourceTree = "<group>"; };
-		23A0E5C717894C0A00898812 /* NSArray+Functions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+Functions.m"; path = "../../../Bar Magnet Shared Sources/NSArray+Functions.m"; sourceTree = "<group>"; };
-		23A48232177DE1BA000873CF /* TorrentJobChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TorrentJobChecker.h; path = "../../../Bar Magnet Shared Sources/TorrentJobChecker.h"; sourceTree = "<group>"; };
-		23A48233177DE1BA000873CF /* TorrentJobChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TorrentJobChecker.m; path = "../../../Bar Magnet Shared Sources/TorrentJobChecker.m"; sourceTree = "<group>"; };
+		23A868B218BF31E30066E383 /* libNSBencodeSerialization.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libNSBencodeSerialization.a; path = "../../Library/Developer/Xcode/DerivedData/NSBencodeSerialization-ezakathubkhhsxayghzwbjqodwih/Build/Products/Debug-iphoneos/libNSBencodeSerialization.a"; sourceTree = "<group>"; };
+		23A868EA18BF36DB0066E383 /* NSBencodeSerialization.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NSBencodeSerialization.xcodeproj; path = NSBencodeSerialization/NSBencodeSerialization.xcodeproj; sourceTree = "<group>"; };
+		23A868F318BF383E0066E383 /* NSNumber+TransferRateFormatting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+TransferRateFormatting.h"; sourceTree = "<group>"; };
+		23A868F418BF383E0066E383 /* NSNumber+TransferRateFormatting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+TransferRateFormatting.m"; sourceTree = "<group>"; };
+		23A868F518BF383E0066E383 /* NSOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSOption.h; sourceTree = "<group>"; };
+		23A868F618BF383E0066E383 /* NSOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSOption.m; sourceTree = "<group>"; };
+		23A868F918BF38750066E383 /* NSArray+Functions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Functions.h"; sourceTree = "<group>"; };
+		23A868FA18BF38750066E383 /* NSArray+Functions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Functions.m"; sourceTree = "<group>"; };
+		23A868FC18BF38800066E383 /* ConnectionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionHandler.h; sourceTree = "<group>"; };
+		23A868FD18BF38800066E383 /* ConnectionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionHandler.m; sourceTree = "<group>"; };
+		23A868FF18BF388D0066E383 /* TorrentFileHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TorrentFileHandler.h; sourceTree = "<group>"; };
+		23A8690018BF388D0066E383 /* TorrentFileHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TorrentFileHandler.m; sourceTree = "<group>"; };
+		23A8690118BF388D0066E383 /* TorrentJobChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TorrentJobChecker.h; sourceTree = "<group>"; };
+		23A8690218BF388D0066E383 /* TorrentJobChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TorrentJobChecker.m; sourceTree = "<group>"; };
+		23A8690518BF389D0066E383 /* TorrentDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TorrentDelegate.h; sourceTree = "<group>"; };
+		23A8690618BF389D0066E383 /* TorrentDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TorrentDelegate.m; sourceTree = "<group>"; };
+		23A8690818BF38A90066E383 /* NSData+BEncode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+BEncode.h"; sourceTree = "<group>"; };
+		23A8690918BF38A90066E383 /* NSData+BEncode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+BEncode.m"; sourceTree = "<group>"; };
+		23A8690B18BF38B20066E383 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		23A8690C18BF38B20066E383 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		23A8690E18BF38BA0066E383 /* StringHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringHandler.h; sourceTree = "<group>"; };
+		23A8690F18BF38BA0066E383 /* StringHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringHandler.m; sourceTree = "<group>"; };
+		23A8691118BF38C10066E383 /* TorrentClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TorrentClient.h; sourceTree = "<group>"; };
+		23A8691218BF38C10066E383 /* TorrentClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TorrentClient.m; sourceTree = "<group>"; };
+		23A8691418BF38CC0066E383 /* Deluge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Deluge.h; sourceTree = "<group>"; };
+		23A8691518BF38CC0066E383 /* Deluge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Deluge.m; sourceTree = "<group>"; };
+		23A8691718BF38D40066E383 /* qBittorrent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = qBittorrent.h; sourceTree = "<group>"; };
+		23A8691818BF38D40066E383 /* qBittorrent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = qBittorrent.m; sourceTree = "<group>"; };
+		23A8691A18BF38DF0066E383 /* ruTorrent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ruTorrent.h; sourceTree = "<group>"; };
+		23A8691B18BF38DF0066E383 /* ruTorrent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ruTorrent.m; sourceTree = "<group>"; };
+		23A8691D18BF38E90066E383 /* Synology.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Synology.h; sourceTree = "<group>"; };
+		23A8691E18BF38E90066E383 /* Synology.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Synology.m; sourceTree = "<group>"; };
+		23A8692018BF38F30066E383 /* Transmission.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transmission.h; sourceTree = "<group>"; };
+		23A8692118BF38F30066E383 /* Transmission.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Transmission.m; sourceTree = "<group>"; };
+		23A8692318BF38FD0066E383 /* uTorrent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uTorrent.h; sourceTree = "<group>"; };
+		23A8692418BF38FD0066E383 /* uTorrent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uTorrent.m; sourceTree = "<group>"; };
+		23A8692618BF390A0066E383 /* VuzeRemoteUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VuzeRemoteUI.h; sourceTree = "<group>"; };
+		23A8692718BF390A0066E383 /* VuzeRemoteUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VuzeRemoteUI.m; sourceTree = "<group>"; };
+		23A8692A18BF39BD0066E383 /* QueryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryCell.h; sourceTree = "<group>"; };
+		23A8692B18BF39BD0066E383 /* QueryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryCell.m; sourceTree = "<group>"; };
 		23A94F20183CD6B7004A3924 /* UINavigationControllerNoAutoRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UINavigationControllerNoAutoRotation.h; sourceTree = "<group>"; };
 		23A94F21183CD6B7004A3924 /* UINavigationControllerNoAutoRotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UINavigationControllerNoAutoRotation.m; sourceTree = "<group>"; };
 		23AC2B1E175D835600FCFA71 /* BarMagnet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BarMagnet.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -234,36 +272,8 @@
 		23AC2B5D175D835600FCFA71 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		23AC2B5F175D835600FCFA71 /* BarMagnetTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BarMagnetTests.h; sourceTree = "<group>"; };
 		23AC2B60175D835600FCFA71 /* BarMagnetTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BarMagnetTests.m; sourceTree = "<group>"; };
-		23AC45F2179BED2E00AD5F22 /* Synology.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Synology.h; path = "../../../Bar Magnet Shared Sources/Synology.h"; sourceTree = "<group>"; };
-		23AC45F3179BED2E00AD5F22 /* Synology.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Synology.m; path = "../../../Bar Magnet Shared Sources/Synology.m"; sourceTree = "<group>"; };
 		23AF74DE1796D5F700AC4ED5 /* StaticDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaticDataTableViewController.h; sourceTree = "<group>"; };
 		23AF74DF1796D5F700AC4ED5 /* StaticDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaticDataTableViewController.m; sourceTree = "<group>"; };
-		23B1BFD8177C3817000A0B07 /* Deluge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Deluge.h; path = "../../../Bar Magnet Shared Sources/Deluge.h"; sourceTree = "<group>"; };
-		23B1BFD9177C3817000A0B07 /* Deluge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Deluge.m; path = "../../../Bar Magnet Shared Sources/Deluge.m"; sourceTree = "<group>"; };
-		23B1BFDA177C3817000A0B07 /* qBittorrent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = qBittorrent.h; path = "../../../Bar Magnet Shared Sources/qBittorrent.h"; sourceTree = "<group>"; };
-		23B1BFDB177C3817000A0B07 /* qBittorrent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = qBittorrent.m; path = "../../../Bar Magnet Shared Sources/qBittorrent.m"; sourceTree = "<group>"; };
-		23B1BFDC177C3817000A0B07 /* ruTorrent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ruTorrent.h; path = "../../../Bar Magnet Shared Sources/ruTorrent.h"; sourceTree = "<group>"; };
-		23B1BFDD177C3817000A0B07 /* ruTorrent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ruTorrent.m; path = "../../../Bar Magnet Shared Sources/ruTorrent.m"; sourceTree = "<group>"; };
-		23B1BFDE177C3817000A0B07 /* Transmission.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Transmission.h; path = "../../../Bar Magnet Shared Sources/Transmission.h"; sourceTree = "<group>"; };
-		23B1BFDF177C3817000A0B07 /* Transmission.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Transmission.m; path = "../../../Bar Magnet Shared Sources/Transmission.m"; sourceTree = "<group>"; };
-		23B1BFE0177C3817000A0B07 /* uTorrent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = uTorrent.h; path = "../../../Bar Magnet Shared Sources/uTorrent.h"; sourceTree = "<group>"; };
-		23B1BFE1177C3817000A0B07 /* uTorrent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = uTorrent.m; path = "../../../Bar Magnet Shared Sources/uTorrent.m"; sourceTree = "<group>"; };
-		23B1BFE2177C3817000A0B07 /* VuzeHTMLUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VuzeHTMLUI.h; path = "../../../Bar Magnet Shared Sources/VuzeHTMLUI.h"; sourceTree = "<group>"; };
-		23B1BFE3177C3817000A0B07 /* VuzeHTMLUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VuzeHTMLUI.m; path = "../../../Bar Magnet Shared Sources/VuzeHTMLUI.m"; sourceTree = "<group>"; };
-		23B1BFE4177C3817000A0B07 /* VuzeRemoteUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VuzeRemoteUI.h; path = "../../../Bar Magnet Shared Sources/VuzeRemoteUI.h"; sourceTree = "<group>"; };
-		23B1BFE5177C3817000A0B07 /* VuzeRemoteUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VuzeRemoteUI.m; path = "../../../Bar Magnet Shared Sources/VuzeRemoteUI.m"; sourceTree = "<group>"; };
-		23B1BFF9177C4285000A0B07 /* TorrentClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TorrentClient.h; path = "../../../Bar Magnet Shared Sources/TorrentClient.h"; sourceTree = "<group>"; };
-		23B1BFFA177C4285000A0B07 /* TorrentClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TorrentClient.m; path = "../../../Bar Magnet Shared Sources/TorrentClient.m"; sourceTree = "<group>"; };
-		23B1C005177C494B000A0B07 /* NSData+BEncode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+BEncode.h"; path = "../../../Bar Magnet Shared Sources/NSData+BEncode.h"; sourceTree = "<group>"; };
-		23B1C006177C494B000A0B07 /* NSData+BEncode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+BEncode.m"; path = "../../../Bar Magnet Shared Sources/NSData+BEncode.m"; sourceTree = "<group>"; };
-		23B1C008177C4AC4000A0B07 /* TorrentDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TorrentDelegate.h; path = "../../../Bar Magnet Shared Sources/TorrentDelegate.h"; sourceTree = "<group>"; };
-		23B1C009177C4AC4000A0B07 /* TorrentDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TorrentDelegate.m; path = "../../../Bar Magnet Shared Sources/TorrentDelegate.m"; sourceTree = "<group>"; };
-		23B1C017177C4B3C000A0B07 /* StringHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StringHandler.h; path = "../../../Bar Magnet Shared Sources/StringHandler.h"; sourceTree = "<group>"; };
-		23B1C018177C4B3C000A0B07 /* StringHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StringHandler.m; path = "../../../Bar Magnet Shared Sources/StringHandler.m"; sourceTree = "<group>"; };
-		23B1C01D177C4B88000A0B07 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+Base64.h"; path = "../../../Bar Magnet Shared Sources/NSData+Base64.h"; sourceTree = "<group>"; };
-		23B1C01E177C4B88000A0B07 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+Base64.m"; path = "../../../Bar Magnet Shared Sources/NSData+Base64.m"; sourceTree = "<group>"; };
-		23B286BA17C0401700BB2DA6 /* NSOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSOption.h; path = "../../../Bar Magnet Shared Sources/NSOption.h"; sourceTree = "<group>"; };
-		23B286BB17C0401700BB2DA6 /* NSOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSOption.m; path = "../../../Bar Magnet Shared Sources/NSOption.m"; sourceTree = "<group>"; };
 		23B35F5F1894941A002F6E37 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 		23B35F841894A115002F6E37 /* ScanQRCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanQRCodeViewController.h; sourceTree = "<group>"; };
 		23B35F851894A115002F6E37 /* ScanQRCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanQRCodeViewController.m; sourceTree = "<group>"; };
@@ -287,6 +297,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23A868F218BF36F70066E383 /* libNSBencodeSerialization.a in Frameworks */,
 				230C478418948FD7007D56FC /* AVFoundation.framework in Frameworks */,
 				230C478218948FCE007D56FC /* OpenGLES.framework in Frameworks */,
 				230C478118948FC6007D56FC /* CoreMedia.framework in Frameworks */,
@@ -335,12 +346,12 @@
 			children = (
 				23FC25D61788F1D500CCE434 /* TorrentJobCheckerCell.h */,
 				23FC25D71788F1D500CCE434 /* TorrentJobCheckerCell.m */,
-				232AE1891891E28000D3F018 /* QueryCell.h */,
-				232AE18A1891E28000D3F018 /* QueryCell.m */,
 				232AE192189206C000D3F018 /* UITextField+UniqueString.h */,
 				232AE193189206C000D3F018 /* UITextField+UniqueString.m */,
 				2396C9291895EA88009BC6D3 /* UIFastProgressBar.h */,
 				2396C92A1895EA88009BC6D3 /* UIFastProgressBar.m */,
+				23A8692A18BF39BD0066E383 /* QueryCell.h */,
+				23A8692B18BF39BD0066E383 /* QueryCell.m */,
 			);
 			name = "Custom UI";
 			sourceTree = "<group>";
@@ -435,9 +446,18 @@
 			path = TestFlightSDK1.2.6;
 			sourceTree = "<group>";
 		};
+		23A868EB18BF36DB0066E383 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				23A868EF18BF36DB0066E383 /* libNSBencodeSerialization.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		23AC2B15175D835600FCFA71 = {
 			isa = PBXGroup;
 			children = (
+				23A868EA18BF36DB0066E383 /* NSBencodeSerialization.xcodeproj */,
 				239144FE1795604100543347 /* TestFlightSDK1.2.6 */,
 				238A949417A121630081EF6D /* TSMessages */,
 				2374DDA11796F2C700F613EB /* SVWebViewController */,
@@ -459,6 +479,7 @@
 		23AC2B20175D835600FCFA71 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				23A868B218BF31E30066E383 /* libNSBencodeSerialization.a */,
 				23B35F5F1894941A002F6E37 /* libiconv.dylib */,
 				230C482E18949244007D56FC /* libGPUImage.a */,
 				230C482C1894921F007D56FC /* libGPUImage.a */,
@@ -484,7 +505,7 @@
 			children = (
 				23AC2B30175D835600FCFA71 /* AppDelegate.h */,
 				23AC2B31175D835600FCFA71 /* AppDelegate.m */,
-				23B1C026177C4ECE000A0B07 /* FileHandler */,
+				23B1C026177C4ECE000A0B07 /* Functions */,
 				23B1C025177C4EC6000A0B07 /* ConnectionHandler */,
 				23B1C024177C4EA3000A0B07 /* TorrentDelegate */,
 				23B1C023177C4E8F000A0B07 /* Bencode */,
@@ -505,6 +526,7 @@
 			isa = PBXGroup;
 			children = (
 				23AC2B29175D835600FCFA71 /* BarMagnet-Info.plist */,
+				2346A5A318A8C2F0005EE9C0 /* AdBlocker.plist */,
 				23AC2B2A175D835600FCFA71 /* InfoPlist.strings */,
 				23AC2B2D175D835600FCFA71 /* main.m */,
 				23AC2B2F175D835600FCFA71 /* BarMagnet-Prefix.pch */,
@@ -549,8 +571,8 @@
 		23AC2B82175D8A2700FCFA71 /* Torrent Interface Super */ = {
 			isa = PBXGroup;
 			children = (
-				23B1BFF9177C4285000A0B07 /* TorrentClient.h */,
-				23B1BFFA177C4285000A0B07 /* TorrentClient.m */,
+				23A8691118BF38C10066E383 /* TorrentClient.h */,
+				23A8691218BF38C10066E383 /* TorrentClient.m */,
 				23AC2B83175D8A4200FCFA71 /* Torrent Front-Ends */,
 			);
 			name = "Torrent Interface Super";
@@ -559,22 +581,20 @@
 		23AC2B83175D8A4200FCFA71 /* Torrent Front-Ends */ = {
 			isa = PBXGroup;
 			children = (
-				23B1BFD8177C3817000A0B07 /* Deluge.h */,
-				23B1BFD9177C3817000A0B07 /* Deluge.m */,
-				23B1BFDA177C3817000A0B07 /* qBittorrent.h */,
-				23B1BFDB177C3817000A0B07 /* qBittorrent.m */,
-				23B1BFDC177C3817000A0B07 /* ruTorrent.h */,
-				23B1BFDD177C3817000A0B07 /* ruTorrent.m */,
-				23AC45F2179BED2E00AD5F22 /* Synology.h */,
-				23AC45F3179BED2E00AD5F22 /* Synology.m */,
-				23B1BFDE177C3817000A0B07 /* Transmission.h */,
-				23B1BFDF177C3817000A0B07 /* Transmission.m */,
-				23B1BFE0177C3817000A0B07 /* uTorrent.h */,
-				23B1BFE1177C3817000A0B07 /* uTorrent.m */,
-				23B1BFE2177C3817000A0B07 /* VuzeHTMLUI.h */,
-				23B1BFE3177C3817000A0B07 /* VuzeHTMLUI.m */,
-				23B1BFE4177C3817000A0B07 /* VuzeRemoteUI.h */,
-				23B1BFE5177C3817000A0B07 /* VuzeRemoteUI.m */,
+				23A8691418BF38CC0066E383 /* Deluge.h */,
+				23A8691518BF38CC0066E383 /* Deluge.m */,
+				23A8691718BF38D40066E383 /* qBittorrent.h */,
+				23A8691818BF38D40066E383 /* qBittorrent.m */,
+				23A8691A18BF38DF0066E383 /* ruTorrent.h */,
+				23A8691B18BF38DF0066E383 /* ruTorrent.m */,
+				23A8691D18BF38E90066E383 /* Synology.h */,
+				23A8691E18BF38E90066E383 /* Synology.m */,
+				23A8692018BF38F30066E383 /* Transmission.h */,
+				23A8692118BF38F30066E383 /* Transmission.m */,
+				23A8692318BF38FD0066E383 /* uTorrent.h */,
+				23A8692418BF38FD0066E383 /* uTorrent.m */,
+				23A8692618BF390A0066E383 /* VuzeRemoteUI.h */,
+				23A8692718BF390A0066E383 /* VuzeRemoteUI.m */,
 			);
 			name = "Torrent Front-Ends";
 			sourceTree = "<group>";
@@ -582,8 +602,8 @@
 		23B1C021177C4E7C000A0B07 /* StringHandler */ = {
 			isa = PBXGroup;
 			children = (
-				23B1C017177C4B3C000A0B07 /* StringHandler.h */,
-				23B1C018177C4B3C000A0B07 /* StringHandler.m */,
+				23A8690E18BF38BA0066E383 /* StringHandler.h */,
+				23A8690F18BF38BA0066E383 /* StringHandler.m */,
 			);
 			name = StringHandler;
 			sourceTree = "<group>";
@@ -591,8 +611,8 @@
 		23B1C022177C4E86000A0B07 /* Base64 */ = {
 			isa = PBXGroup;
 			children = (
-				23B1C01D177C4B88000A0B07 /* NSData+Base64.h */,
-				23B1C01E177C4B88000A0B07 /* NSData+Base64.m */,
+				23A8690B18BF38B20066E383 /* NSData+Base64.h */,
+				23A8690C18BF38B20066E383 /* NSData+Base64.m */,
 			);
 			name = Base64;
 			sourceTree = "<group>";
@@ -600,12 +620,8 @@
 		23B1C023177C4E8F000A0B07 /* Bencode */ = {
 			isa = PBXGroup;
 			children = (
-				238FD0051887CBB90005BCE2 /* NSBencodeSerialization.h */,
-				238FD0061887CBB90005BCE2 /* NSBencodeSerialization.m */,
-				238FD0071887CBB90005BCE2 /* NSOrderedDictionary.h */,
-				238FD0081887CBB90005BCE2 /* NSOrderedDictionary.m */,
-				23B1C005177C494B000A0B07 /* NSData+BEncode.h */,
-				23B1C006177C494B000A0B07 /* NSData+BEncode.m */,
+				23A8690818BF38A90066E383 /* NSData+BEncode.h */,
+				23A8690918BF38A90066E383 /* NSData+BEncode.m */,
 			);
 			name = Bencode;
 			sourceTree = "<group>";
@@ -613,8 +629,8 @@
 		23B1C024177C4EA3000A0B07 /* TorrentDelegate */ = {
 			isa = PBXGroup;
 			children = (
-				23B1C008177C4AC4000A0B07 /* TorrentDelegate.h */,
-				23B1C009177C4AC4000A0B07 /* TorrentDelegate.m */,
+				23A8690518BF389D0066E383 /* TorrentDelegate.h */,
+				23A8690618BF389D0066E383 /* TorrentDelegate.m */,
 			);
 			name = TorrentDelegate;
 			sourceTree = "<group>";
@@ -622,31 +638,29 @@
 		23B1C025177C4EC6000A0B07 /* ConnectionHandler */ = {
 			isa = PBXGroup;
 			children = (
-				23A48232177DE1BA000873CF /* TorrentJobChecker.h */,
-				23A48233177DE1BA000873CF /* TorrentJobChecker.m */,
-				239162921795794400213C67 /* ConnectionHandler.h */,
-				239162931795794400213C67 /* ConnectionHandler.m */,
-				230E746B17940D270090BECF /* PingHandler.h */,
-				230E746C17940D270090BECF /* PingHandler.m */,
-				233C9F1117B93A3100405CA7 /* TorrentFileHandler.h */,
-				233C9F1217B93A3100405CA7 /* TorrentFileHandler.m */,
+				23A868FC18BF38800066E383 /* ConnectionHandler.h */,
+				23A868FD18BF38800066E383 /* ConnectionHandler.m */,
+				23A868FF18BF388D0066E383 /* TorrentFileHandler.h */,
+				23A8690018BF388D0066E383 /* TorrentFileHandler.m */,
+				23A8690118BF388D0066E383 /* TorrentJobChecker.h */,
+				23A8690218BF388D0066E383 /* TorrentJobChecker.m */,
 			);
 			name = ConnectionHandler;
 			sourceTree = "<group>";
 		};
-		23B1C026177C4ECE000A0B07 /* FileHandler */ = {
+		23B1C026177C4ECE000A0B07 /* Functions */ = {
 			isa = PBXGroup;
 			children = (
-				230F9EFD1781AA0E00705546 /* NSNumber+TransferRateFormatting.h */,
-				230F9EFE1781AA0E00705546 /* NSNumber+TransferRateFormatting.m */,
-				23B286BA17C0401700BB2DA6 /* NSOption.h */,
-				23B286BB17C0401700BB2DA6 /* NSOption.m */,
+				23A868F318BF383E0066E383 /* NSNumber+TransferRateFormatting.h */,
+				23A868F418BF383E0066E383 /* NSNumber+TransferRateFormatting.m */,
+				23A868F518BF383E0066E383 /* NSOption.h */,
+				23A868F618BF383E0066E383 /* NSOption.m */,
 				23F3E09F189F59C700A8105A /* FileHandler.h */,
 				23F3E0A0189F59C700A8105A /* FileHandler.m */,
-				23A0E5C617894C0A00898812 /* NSArray+Functions.h */,
-				23A0E5C717894C0A00898812 /* NSArray+Functions.m */,
+				23A868F918BF38750066E383 /* NSArray+Functions.h */,
+				23A868FA18BF38750066E383 /* NSArray+Functions.m */,
 			);
-			name = FileHandler;
+			name = Functions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -665,6 +679,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				23A868F118BF36ED0066E383 /* PBXTargetDependency */,
 			);
 			name = BarMagnet;
 			productName = BarMagnet;
@@ -702,12 +717,28 @@
 			mainGroup = 23AC2B15175D835600FCFA71;
 			productRefGroup = 23AC2B1F175D835600FCFA71 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 23A868EB18BF36DB0066E383 /* Products */;
+					ProjectRef = 23A868EA18BF36DB0066E383 /* NSBencodeSerialization.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				23AC2B1D175D835600FCFA71 /* BarMagnet */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		23A868EF18BF36DB0066E383 /* libNSBencodeSerialization.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libNSBencodeSerialization.a;
+			remoteRef = 23A868EE18BF36DB0066E383 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		23AC2B1C175D835600FCFA71 /* Resources */ = {
@@ -718,6 +749,7 @@
 				235527661872723700A9E6BC /* Images.xcassets in Resources */,
 				23E60FB81876D20400D2068B /* PlayPause@2x.png in Resources */,
 				238A94CC17A121630081EF6D /* NotificationBackgroundWarning@2x.png in Resources */,
+				2346A5A418A8C2F0005EE9C0 /* AdBlocker.plist in Resources */,
 				23AC2B2C175D835600FCFA71 /* InfoPlist.strings in Resources */,
 				23314153177FE95E0062B0FE /* gear@2x.png in Resources */,
 				238A94D017A121630081EF6D /* NotificationButtonBackground@2x.png in Resources */,
@@ -779,54 +811,58 @@
 			buildActionMask = 2147483647;
 			files = (
 				23AC2B2E175D835600FCFA71 /* main.m in Sources */,
+				23A8691F18BF38E90066E383 /* Synology.m in Sources */,
+				23A8691C18BF38DF0066E383 /* ruTorrent.m in Sources */,
+				23A8691618BF38CC0066E383 /* Deluge.m in Sources */,
 				235527701872901700A9E6BC /* TSMessage.m in Sources */,
-				239162941795794400213C67 /* ConnectionHandler.m in Sources */,
 				23AC2B32175D835600FCFA71 /* AppDelegate.m in Sources */,
-				23A0E5C817894C0A00898812 /* NSArray+Functions.m in Sources */,
 				23AC2B41175D835600FCFA71 /* TorrentJobsTableViewController.m in Sources */,
 				232B0FA5178C356700A7B3DC /* TorrentDetailViewController.m in Sources */,
-				23B1BFE6177C3817000A0B07 /* Deluge.m in Sources */,
-				23A48234177DE1BA000873CF /* TorrentJobChecker.m in Sources */,
 				2396C92B1895EA88009BC6D3 /* UIFastProgressBar.m in Sources */,
-				23B1BFE7177C3817000A0B07 /* qBittorrent.m in Sources */,
-				232AE18B1891E28000D3F018 /* QueryCell.m in Sources */,
-				23B1BFE8177C3817000A0B07 /* ruTorrent.m in Sources */,
-				23B1BFE9177C3817000A0B07 /* Transmission.m in Sources */,
-				230F9EFF1781AA0E00705546 /* NSNumber+TransferRateFormatting.m in Sources */,
 				23F3E0A1189F59C700A8105A /* FileHandler.m in Sources */,
-				238FD00A1887CBB90005BCE2 /* NSOrderedDictionary.m in Sources */,
-				23B1BFEA177C3817000A0B07 /* uTorrent.m in Sources */,
 				2355276B187285BE00A9E6BC /* TSBlurView.m in Sources */,
-				23B1BFEB177C3817000A0B07 /* VuzeHTMLUI.m in Sources */,
+				23A8692518BF38FD0066E383 /* uTorrent.m in Sources */,
+				23A868FB18BF38750066E383 /* NSArray+Functions.m in Sources */,
+				23A8690318BF388D0066E383 /* TorrentFileHandler.m in Sources */,
 				23A94F22183CD6B7004A3924 /* UINavigationControllerNoAutoRotation.m in Sources */,
 				23AF74E01796D5F700AC4ED5 /* StaticDataTableViewController.m in Sources */,
+				23A8691318BF38C10066E383 /* TorrentClient.m in Sources */,
+				23A8690D18BF38B20066E383 /* NSData+Base64.m in Sources */,
 				232AE194189206C000D3F018 /* UITextField+UniqueString.m in Sources */,
-				230E746D17940D270090BECF /* PingHandler.m in Sources */,
-				23AC45F4179BED2E00AD5F22 /* Synology.m in Sources */,
-				23B1BFEC177C3817000A0B07 /* VuzeRemoteUI.m in Sources */,
 				23B35F861894A115002F6E37 /* ScanQRCodeViewController.m in Sources */,
 				23F3E09B189F236300A8105A /* TorrentClientTableViewController.m in Sources */,
-				23B1BFFB177C4285000A0B07 /* TorrentClient.m in Sources */,
 				238A94D217A121630081EF6D /* TSMessageView.m in Sources */,
 				2374DDB21796F2C700F613EB /* SVWebViewController.m in Sources */,
-				238FD0091887CBB90005BCE2 /* NSBencodeSerialization.m in Sources */,
+				23A8691918BF38D40066E383 /* qBittorrent.m in Sources */,
 				23FC25D81788F1D500CCE434 /* TorrentJobCheckerCell.m in Sources */,
 				2355276E1872864F00A9E6BC /* HexColor.m in Sources */,
+				23A8691018BF38BA0066E383 /* StringHandler.m in Sources */,
 				23F3E09E189F30EF00A8105A /* AddTorrentClientTableViewController.m in Sources */,
+				23A8692218BF38F30066E383 /* Transmission.m in Sources */,
+				23A868FE18BF38800066E383 /* ConnectionHandler.m in Sources */,
 				2374DDB01796F2C700F613EB /* SVModalWebViewController.m in Sources */,
 				235527641872568D00A9E6BC /* AboutViewController.m in Sources */,
 				232AE1911891EE7400D3F018 /* AddQueryTableViewController.m in Sources */,
-				23B1C007177C494B000A0B07 /* NSData+BEncode.m in Sources */,
-				233C9F1317B93A3100405CA7 /* TorrentFileHandler.m in Sources */,
-				23B1C00C177C4AC4000A0B07 /* TorrentDelegate.m in Sources */,
-				23B286BC17C0401700BB2DA6 /* NSOption.m in Sources */,
+				23A8690718BF389D0066E383 /* TorrentDelegate.m in Sources */,
+				23A8690418BF388D0066E383 /* TorrentJobChecker.m in Sources */,
+				23A8692C18BF39BD0066E383 /* QueryCell.m in Sources */,
+				23A8692818BF390A0066E383 /* VuzeRemoteUI.m in Sources */,
 				232AE18E1891E40100D3F018 /* QueryTableViewController.m in Sources */,
-				23B1C019177C4B3C000A0B07 /* StringHandler.m in Sources */,
-				23B1C01F177C4B88000A0B07 /* NSData+Base64.m in Sources */,
+				23A868F818BF383E0066E383 /* NSOption.m in Sources */,
+				23A8690A18BF38A90066E383 /* NSData+BEncode.m in Sources */,
+				23A868F718BF383E0066E383 /* NSNumber+TransferRateFormatting.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		23A868F118BF36ED0066E383 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = NSBencodeSerialization;
+			targetProxy = 23A868F018BF36ED0066E383 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		235120071769C49000A3DE2C /* MainStoryboard_iPhone.storyboard */ = {
@@ -962,12 +998,14 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BarMagnet/BarMagnet-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../NSBencodeSerialization/NSBencodeSerialization";
 				INFOPLIST_FILE = "BarMagnet/BarMagnet-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/TestFlightSDK1.2.6",
 					"/Users/carlo/Obj-C_Apps/BarMagnet",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/NSBencodeSerialization-ezakathubkhhsxayghzwbjqodwih/Build/Products/Debug-iphoneos",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = BarMagnet;
@@ -991,16 +1029,18 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BarMagnet/BarMagnet-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../NSBencodeSerialization/NSBencodeSerialization";
 				INFOPLIST_FILE = "BarMagnet/BarMagnet-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/TestFlightSDK1.2.6",
 					"/Users/carlo/Obj-C_Apps/BarMagnet",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/NSBencodeSerialization-ezakathubkhhsxayghzwbjqodwih/Build/Products/Debug-iphoneos",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = BarMagnet;
-				PROVISIONING_PROFILE = "52F21893-97AE-438E-B7D5-BD9BB9DF32DE";
+				PROVISIONING_PROFILE = "2B204FB9-6F3F-4EA1-8C7C-23165F16E9BC";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;

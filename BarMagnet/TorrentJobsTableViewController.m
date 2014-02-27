@@ -49,9 +49,9 @@ enum ORDER
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	[self initialiseHeader];
 	self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
 	self.title = [FileHandler.sharedInstance settingsValueForKey:@"server_name"];
-    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(receiveUpdateTableNotification) name:@"update_torrent_jobs_table" object:nil];
 	self.shouldRefresh = YES;
 	self.tableView.contentOffset = CGPointMake(0.0, 44.0);
 
@@ -59,6 +59,8 @@ enum ORDER
 	{
 		[self performSegueWithIdentifier:@"Settings" sender:nil];
 	}
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(receiveUpdateTableNotification) name:@"update_torrent_jobs_table" object:nil];
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(receiveUpdateHeaderNotification) name:@"update_torrent_jobs_header" object:nil];
 	[NSNotificationCenter.defaultCenter addObserver:self selector:@selector(changedClient) name:@"ChangedClient" object:nil];
 }
 
@@ -85,10 +87,15 @@ enum ORDER
 	self.title = [FileHandler.sharedInstance settingsValueForKey:@"server_name"];
 }
 
-- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+- (void)initialiseHeader
 {
-	[super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
-	[self.tableView reloadData];
+	self.header = [UILabel.alloc initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, [self sizeForDevice])];
+	self.header.backgroundColor = [UIColor colorWithRed:0 green:0.9 blue:.2 alpha:.85];
+	self.header.textColor = [UIColor whiteColor];
+	self.header.text = @"Attempting Connection";
+	self.header.font = [UIFont fontWithName:@"Arial" size:self.sizeForDevice - 6];
+	self.header.textAlignment = NSTextAlignmentCenter;
+	self.header.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
 }
 
 - (void)receiveUpdateTableNotification
@@ -105,6 +112,20 @@ enum ORDER
 		cancelNextRefresh = NO;
 	}
 	[self createDownloadUploadTotals];
+}
+
+- (void)receiveUpdateHeaderNotification
+{
+	if ([TorrentDelegate.sharedInstance.currentlySelectedClient isHostOnline])
+	{
+		self.header.backgroundColor = [UIColor colorWithRed:.302 green:.584 blue:.772 alpha:.85];
+		self.header.text = @"Host Online";
+	}
+	else
+	{
+		self.header.backgroundColor = [UIColor colorWithRed:.98 green:.196 blue:.196 alpha:.85];
+		self.header.text = @"Host Offline";
+	}
 }
 
 - (void)searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller
@@ -515,7 +536,7 @@ enum ORDER
 	}
 	else
 	{
-		double completeValue = [[[TorrentDelegate.sharedInstance.currentlySelectedClient class] completeNumber] doubleValue];
+		double completeValue = [TorrentDelegate.sharedInstance.currentlySelectedClient.class completeNumber].doubleValue;
 		cell.percentBar.progress = completeValue ? [currentJob[@"progress"] doubleValue] / completeValue : 0;
 	}
 
@@ -567,7 +588,7 @@ enum ORDER
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	return YES;
+	return self.shouldRefresh;
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -604,33 +625,7 @@ enum ORDER
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-	if (!self.shouldRefresh)
-		return nil;
-	if (self.header)
-	{
-
-		if ([TorrentDelegate.sharedInstance.currentlySelectedClient isHostOnline])
-		{
-			self.header.backgroundColor = [UIColor colorWithRed:77/255. green:149/255. blue:197/255. alpha:0.85];
-			self.header.text = @"Host Online";
-		}
-		else
-		{
-			self.header.backgroundColor = [UIColor colorWithRed:250/255. green:50/255. blue:50/255. alpha:0.85];
-			self.header.text = @"Host Offline";
-		}
-	}
-	else
-	{
-		self.header = [UILabel.alloc initWithFrame:CGRectMake(0, 0, [tableView frame].size.width, [self sizeForDevice])];
-		self.header.backgroundColor = [UIColor colorWithRed:0 green:0.9 blue:.2 alpha:.85];
-		self.header.textColor = [UIColor whiteColor];
-		self.header.text = @"Attempting Connection";
-		self.header.font = [UIFont fontWithName:@"Arial" size:self.sizeForDevice - 6];
-		self.header.textAlignment = NSTextAlignmentCenter;
-		self.header.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-	}
-	return self.header;
+	return self.shouldRefresh ? self.header : nil;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
