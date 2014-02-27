@@ -1,0 +1,21 @@
+//
+//  TorrentDelegate.h
+//  Bar Magnet
+//
+//  Created by Carlo Tortorella on 8/04/13.
+//  Copyright (c) 2013 Carlo Tortorella. All rights reserved.
+//
+#import "TorrentClient.h"
+
+@interface TorrentDelegate : NSObject
+
++ (TorrentDelegate *)sharedInstance;
+- (TorrentClient *)currentlySelectedClient;
+- (void)handleMagnet:(NSString *)magnetLink;
+- (BOOL)handleTorrentFile:(NSString *)torrentFilePath;
+
+@property (nonatomic, strong) TorrentClient * currentlySelectedClient;
+@property (nonatomic, strong) NSArray * torrentClasses;
+@property (nonatomic, strong) NSDictionary * torrentDelegates;
+
+@end

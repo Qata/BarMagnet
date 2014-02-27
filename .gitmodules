@@ -1,0 +1,3 @@
+[submodule "NSBencodeSerialization"]
+	path = NSBencodeSerialization
+	url = git://github.com/Qata/NSBencodeSerialization
