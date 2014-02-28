@@ -105,7 +105,7 @@
 		23F0378318C153BD00B4D289 /* SVWebViewControllerActivitySafari.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F0377318C153BD00B4D289 /* SVWebViewControllerActivitySafari.m */; };
 		23F0378418C153BD00B4D289 /* SVWebViewControllerActivitySafari@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23F0377418C153BD00B4D289 /* SVWebViewControllerActivitySafari@2x.png */; };
 		23F0378518C153BD00B4D289 /* SVWebViewControllerActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F0377618C153BD00B4D289 /* SVWebViewControllerActivity.m */; };
-		23F0378818C1543400B4D289 /* TorrentDownloaderModalWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F0378718C1543400B4D289 /* TorrentDownloaderModalWebViewController.m */; };
+		23F0378B18C157E500B4D289 /* TorrentDownloaderModalWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F0378A18C157E500B4D289 /* TorrentDownloaderModalWebViewController.m */; };
 		23F3E09B189F236300A8105A /* TorrentClientTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F3E09A189F236300A8105A /* TorrentClientTableViewController.m */; };
 		23F3E09E189F30EF00A8105A /* AddTorrentClientTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F3E09D189F30EF00A8105A /* AddTorrentClientTableViewController.m */; };
 		23F3E0A1189F59C700A8105A /* FileHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F3E0A0189F59C700A8105A /* FileHandler.m */; };
@@ -307,8 +307,8 @@
 		23F0377618C153BD00B4D289 /* SVWebViewControllerActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVWebViewControllerActivity.m; sourceTree = "<group>"; };
 		23F0377718C153BD00B4D289 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SVWebViewController.strings"; sourceTree = "<group>"; };
 		23F0377818C153BD00B4D289 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/SVWebViewController.strings"; sourceTree = "<group>"; };
-		23F0378618C1543400B4D289 /* TorrentDownloaderModalWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TorrentDownloaderModalWebViewController.h; sourceTree = SOURCE_ROOT; };
-		23F0378718C1543400B4D289 /* TorrentDownloaderModalWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TorrentDownloaderModalWebViewController.m; sourceTree = SOURCE_ROOT; };
+		23F0378918C157E500B4D289 /* TorrentDownloaderModalWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TorrentDownloaderModalWebViewController.h; path = BarMagnet/TorrentDownloaderModalWebViewController.h; sourceTree = SOURCE_ROOT; };
+		23F0378A18C157E500B4D289 /* TorrentDownloaderModalWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TorrentDownloaderModalWebViewController.m; path = BarMagnet/TorrentDownloaderModalWebViewController.m; sourceTree = SOURCE_ROOT; };
 		23F3E099189F236300A8105A /* TorrentClientTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TorrentClientTableViewController.h; sourceTree = "<group>"; };
 		23F3E09A189F236300A8105A /* TorrentClientTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TorrentClientTableViewController.m; sourceTree = "<group>"; };
 		23F3E09C189F30EF00A8105A /* AddTorrentClientTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTorrentClientTableViewController.h; sourceTree = "<group>"; };
@@ -682,8 +682,8 @@
 			children = (
 				23F0375718C14F9A00B4D289 /* TorrentDownloaderWebViewController.h */,
 				23F0375818C14F9A00B4D289 /* TorrentDownloaderWebViewController.m */,
-				23F0378618C1543400B4D289 /* TorrentDownloaderModalWebViewController.h */,
-				23F0378718C1543400B4D289 /* TorrentDownloaderModalWebViewController.m */,
+				23F0378918C157E500B4D289 /* TorrentDownloaderModalWebViewController.h */,
+				23F0378A18C157E500B4D289 /* TorrentDownloaderModalWebViewController.m */,
 			);
 			name = "Web Controller";
 			path = SVWebViewController;
@@ -918,7 +918,7 @@
 				23B35F861894A115002F6E37 /* ScanQRCodeViewController.m in Sources */,
 				23F3E09B189F236300A8105A /* TorrentClientTableViewController.m in Sources */,
 				238A94D217A121630081EF6D /* TSMessageView.m in Sources */,
-				23F0378818C1543400B4D289 /* TorrentDownloaderModalWebViewController.m in Sources */,
+				23F0378B18C157E500B4D289 /* TorrentDownloaderModalWebViewController.m in Sources */,
 				23A8691918BF38D40066E383 /* qBittorrent.m in Sources */,
 				23FC25D81788F1D500CCE434 /* TorrentJobCheckerCell.m in Sources */,
 				2355276E1872864F00A9E6BC /* HexColor.m in Sources */,
