@@ -1,3 +1,6 @@
 [submodule "NSBencodeSerialization"]
 	path = NSBencodeSerialization
 	url = git://github.com/Qata/NSBencodeSerialization
+[submodule "SVWebViewController"]
+	path = SVWebViewController
+	url = git://github.com/samvermette/SVWebViewController

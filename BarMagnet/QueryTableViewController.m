@@ -11,6 +11,7 @@
 #import "SVModalWebViewController.h"
 #import "AddQueryTableViewController.h"
 #import "TorrentDelegate.h"
+#import "TorrentDownloaderModalWebViewController.h"
 
 @interface QueryTableViewController () <UITextFieldDelegate, UIAlertViewDelegate>
 @property (nonatomic, strong) UIAlertView * alertView;
@@ -59,12 +60,12 @@
 	{
 		if ([text rangeOfString:@"https://"].location != NSNotFound || [text rangeOfString:@"http://"].location != NSNotFound)
 		{
-			SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithAddress:text];
+			TorrentDownloaderModalWebViewController *webViewController = [TorrentDownloaderModalWebViewController.alloc initWithAddress:text];
 			[self.navigationController presentViewController:webViewController animated:YES completion:nil];
 		}
 		else
 		{
-			SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithAddress:[@"http://" stringByAppendingString:[text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
+			TorrentDownloaderModalWebViewController *webViewController = [TorrentDownloaderModalWebViewController.alloc initWithAddress:[@"http://" stringByAppendingString:[text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
 			[self.navigationController presentViewController:webViewController animated:YES completion:nil];
 		}
 	}
@@ -72,7 +73,7 @@
 
 - (void)search:(NSString *)text withQuery:(NSDictionary *)query
 {
-	SVModalWebViewController *webViewController = [SVModalWebViewController.alloc initWithAddress:[NSString stringWithFormat:@"%@%@", [query[@"query"] rangeOfString:@"https://"].location != NSNotFound ? @"" : @"http://", [query[@"query"] stringByReplacingOccurrencesOfString:@"%query%" withString:[text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]]];
+	TorrentDownloaderModalWebViewController *webViewController = [TorrentDownloaderModalWebViewController.alloc initWithAddress:[NSString stringWithFormat:@"%@%@", [query[@"query"] rangeOfString:@"https://"].location != NSNotFound ? @"" : @"http://", [query[@"query"] stringByReplacingOccurrencesOfString:@"%query%" withString:[text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]]];
 	[self.navigationController presentViewController:webViewController animated:YES completion:nil];
 }
 
