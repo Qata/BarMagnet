@@ -725,7 +725,6 @@
 				23AC2B1B175D835600FCFA71 /* Frameworks */,
 				23AC2B1C175D835600FCFA71 /* Resources */,
 				23AC2BBB175D905600FCFA71 /* CopyFiles */,
-				23AA24B01787D5AC00D3970D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -743,7 +742,7 @@
 		23AC2B16175D835600FCFA71 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Carlo Tortorella";
 				TargetAttributes = {
 					23AC2B1D175D835600FCFA71 = {
@@ -846,22 +845,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		23AA24B01787D5AC00D3970D /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/bash;
-			shellScript = "#z=${FULL_PRODUCT_NAME}; ssh iphone killall ${z%????}; scp -r \"${BUILD_ROOT}/Debug-iphoneos/${FULL_PRODUCT_NAME}\" iphone:/Applications;\ncp -r \"${BUILD_ROOT}/Release-iphoneos/${FULL_PRODUCT_NAME}\" ~/Cydia/BarMagnet/Applications;";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		23AC2B1A175D835600FCFA71 /* Sources */ = {
@@ -976,7 +959,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -1013,7 +995,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
