@@ -178,7 +178,6 @@
 		2355276D1872864F00A9E6BC /* HexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HexColor.m; sourceTree = "<group>"; };
 		2355276F1872901700A9E6BC /* TSMessage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSMessage.m; sourceTree = "<group>"; };
 		23704DF01880C6380029AB17 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		23704DF11880C6380029AB17 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2374DD9D1796F23100F613EB /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		237570AF1877B742008217BF /* UIButtonBarStop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIButtonBarStop.png; sourceTree = "<group>"; };
 		237570B01877B742008217BF /* UIButtonBarStop@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIButtonBarStop@2x.png"; sourceTree = "<group>"; };
@@ -266,10 +265,6 @@
 		23AC2B3F175D835600FCFA71 /* TorrentJobsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TorrentJobsTableViewController.h; sourceTree = "<group>"; };
 		23AC2B40175D835600FCFA71 /* TorrentJobsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TorrentJobsTableViewController.m; sourceTree = "<group>"; };
 		23AC2B53175D835600FCFA71 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		23AC2B5B175D835600FCFA71 /* BarMagnetTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BarMagnetTests-Info.plist"; sourceTree = "<group>"; };
-		23AC2B5D175D835600FCFA71 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		23AC2B5F175D835600FCFA71 /* BarMagnetTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BarMagnetTests.h; sourceTree = "<group>"; };
-		23AC2B60175D835600FCFA71 /* BarMagnetTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BarMagnetTests.m; sourceTree = "<group>"; };
 		23AF74DE1796D5F700AC4ED5 /* StaticDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaticDataTableViewController.h; sourceTree = "<group>"; };
 		23AF74DF1796D5F700AC4ED5 /* StaticDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaticDataTableViewController.m; sourceTree = "<group>"; };
 		23B35F5F1894941A002F6E37 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
@@ -475,7 +470,6 @@
 				239144FE1795604100543347 /* TestFlightSDK1.2.6 */,
 				238A949417A121630081EF6D /* TSMessages */,
 				23AC2B27175D835600FCFA71 /* BarMagnet */,
-				23AC2B59175D835600FCFA71 /* BarMagnetTests */,
 				23AC2B20175D835600FCFA71 /* Frameworks */,
 				23AC2B1F175D835600FCFA71 /* Products */,
 			);
@@ -559,25 +553,6 @@
 				23E60FB61876D20400D2068B /* PlayPause@2x.png */,
 				237570B31877B874008217BF /* Gripper.png */,
 				237570B41877B874008217BF /* Gripper@2x.png */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		23AC2B59175D835600FCFA71 /* BarMagnetTests */ = {
-			isa = PBXGroup;
-			children = (
-				23AC2B5F175D835600FCFA71 /* BarMagnetTests.h */,
-				23AC2B60175D835600FCFA71 /* BarMagnetTests.m */,
-				23AC2B5A175D835600FCFA71 /* Supporting Files */,
-			);
-			path = BarMagnetTests;
-			sourceTree = "<group>";
-		};
-		23AC2B5A175D835600FCFA71 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				23AC2B5B175D835600FCFA71 /* BarMagnetTests-Info.plist */,
-				23AC2B5C175D835600FCFA71 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -971,15 +946,6 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		23AC2B5C175D835600FCFA71 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				23AC2B5D175D835600FCFA71 /* en */,
-				23704DF11880C6380029AB17 /* it */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		23B84F0D17B60F4F008C9D17 /* MainStoryboard_iPad.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1086,13 +1052,16 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BarMagnet/BarMagnet-Prefix.pch";
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/../NSBencodeSerialization/NSBencodeSerialization";
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/NSBencodeSerialization/M13OrderedDictionary",
+					"$(SRCROOT)/NSBencodeSerialization/NSBencodeSerialization",
+				);
 				INFOPLIST_FILE = "BarMagnet/BarMagnet-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/TestFlightSDK1.2.6",
-					"/Users/carlo/Obj-C_Apps/BarMagnet",
+					"$(SRCROOT)/BarMagnet",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/NSBencodeSerialization-ezakathubkhhsxayghzwbjqodwih/Build/Products/Debug-iphoneos",
 				);
 				ONLY_ACTIVE_ARCH = NO;
@@ -1117,13 +1086,16 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BarMagnet/BarMagnet-Prefix.pch";
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/../NSBencodeSerialization/NSBencodeSerialization";
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/NSBencodeSerialization/M13OrderedDictionary",
+					"$(SRCROOT)/NSBencodeSerialization/NSBencodeSerialization",
+				);
 				INFOPLIST_FILE = "BarMagnet/BarMagnet-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/TestFlightSDK1.2.6",
-					"/Users/carlo/Obj-C_Apps/BarMagnet",
+					"$(SRCROOT)/BarMagnet",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/NSBencodeSerialization-ezakathubkhhsxayghzwbjqodwih/Build/Products/Debug-iphoneos",
 				);
 				ONLY_ACTIVE_ARCH = NO;

@@ -12,7 +12,7 @@
 #import "SVWebViewController.h"
 #import "TSMessages/Classes/TSMessage.h"
 #import "TorrentJobCheckerCell.h"
-#import "NSOrderedDictionary.h"
+#import "M13OrderedDictionary.h"
 
 #define IPHONE_HEIGHT 22
 #define IPAD_HEIGHT 28
