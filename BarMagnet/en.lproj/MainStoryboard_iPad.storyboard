@@ -1372,6 +1372,35 @@ e.g. "www.google.com"</string>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection id="CzH-oP-YPN">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="82" id="oHj-rl-ogX">
+                                        <rect key="frame" x="0.0" y="681" width="768" height="82"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oHj-rl-ogX" id="Mlc-se-aGK">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="82"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SeedStuff.ca" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ddf-UY-jej">
+                                                    <rect key="frame" x="20" y="7" width="145" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cH5-lp-DQ9">
+                                                    <rect key="frame" x="20" y="36" width="626" height="39"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <string key="text">You can rent a seedbox from SeedStuff, it's the easiest way to set up a torrenting server.
+To find out more, click this message.</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="bJx-R6-UGW" id="vRc-IQ-hH3"/>
@@ -1397,9 +1426,12 @@ e.g. "www.google.com"</string>
                         <outlet property="nameField" destination="qFu-Qp-6d6" id="KzC-qi-ZrJ"/>
                         <outlet property="passwordField" destination="8xU-yt-kua" id="zm7-yx-68u"/>
                         <outlet property="pickerView" destination="xO5-1L-JpC" id="jm5-2l-mtc"/>
+                        <outlet property="portCell" destination="0UW-Gg-UQ3" id="N8D-2s-OsQ"/>
                         <outlet property="portField" destination="7RY-Rk-PX7" id="Uld-Vc-wjk"/>
                         <outlet property="relativePathCell" destination="mbf-UJ-mJW" id="eRI-Gv-k4m"/>
                         <outlet property="relativePathField" destination="S7l-Ir-S8F" id="RxW-tE-lrF"/>
+                        <outlet property="seedStuffCell" destination="oHj-rl-ogX" id="3X9-0M-VJ6"/>
+                        <outlet property="useSSLCell" destination="xF2-iS-bSb" id="Ckz-8H-WaF"/>
                         <outlet property="useSSLSegmentedControl" destination="Lu3-HK-gEv" id="iqp-ku-IQW"/>
                         <outlet property="usernameField" destination="33C-QH-utq" id="3Wf-9l-FfE"/>
                     </connections>

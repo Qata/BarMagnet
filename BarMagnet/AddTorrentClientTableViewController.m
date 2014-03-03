@@ -11,8 +11,11 @@
 #import "TorrentJobChecker.h"
 #import "TorrentDelegate.h"
 #import "TorrentClient.h"
+#import "ruTorrent.h"
+#import "rTorrentXMLRPC.h"
+#import "SeedStuffSeedbox.h"
 
-@interface AddTorrentClientTableViewController () <UIPickerViewDataSource, UIPickerViewDelegate>
+@interface AddTorrentClientTableViewController () <UIPickerViewDataSource, UIPickerViewDelegate, UIAlertViewDelegate>
 @property (nonatomic, strong) NSArray * cellNames;
 @property (nonatomic, strong) NSArray * sortedArray;
 @property (nonatomic, strong) NSArray * fields;
@@ -51,18 +54,19 @@
 	self.navigationItem.rightBarButtonItem = [UIBarButtonItem.alloc initWithTitle:@"Save" style:UIBarButtonSystemItemSave target:self action:@selector(save)];
 	self.cellNames = @[@"Pretty", @"Compact", @"Fast"];
     self.sortedArray = [[TorrentDelegate.sharedInstance.torrentDelegates allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
-    [self.pickerView selectRow:[self.sortedArray indexOfObject:@"Transmission"] inComponent:0 animated:NO];
-	self.selectedClient = @"Transmission";
-	NSLog(@"%@", self.clientDictionary);
+    [self.pickerView selectRow:[self.sortedArray indexOfObject:[SeedStuffSeedbox.class name]] inComponent:0 animated:NO];
+	self.selectedClient = [SeedStuffSeedbox.class name];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
+
 	for (UITextField * field in self.fields = @[self.nameField, self.hostnameField, self.usernameField, self.passwordField, self.portField, self.directoryField, self.labelField, self.relativePathField])
 	{
 		field.delegate = self;
 	}
+
 	if (self.clientDictionary)
 	{
 		[self.pickerView selectRow:[self.sortedArray indexOfObject:self.clientDictionary[@"type"]] inComponent:0 animated:NO];
@@ -76,6 +80,8 @@
 		self.directoryField.text = self.clientDictionary[@"directory"];
 		self.relativePathField.text = self.clientDictionary[@"relative_path"];
 		self.labelField.text = self.clientDictionary[@"label"];
+		[self cell:self.seedStuffCell setHidden:YES];
+		[self reloadDataAnimated:NO];
 	}
 }
 
@@ -88,9 +94,12 @@
 - (void)hideCells
 {
 	Class torrentDelegate = TorrentDelegate.sharedInstance.torrentDelegates[self.selectedClient];
-	[self cell:self.labelCell setHidden:![[torrentDelegate name] isEqual:@"ruTorrent"]];
+	[self cell:self.portCell setHidden:[torrentDelegate isEqual:SeedStuffSeedbox.class]];
+	[self cell:self.useSSLCell setHidden:[torrentDelegate isEqual:SeedStuffSeedbox.class]];
+	[self cell:self.seedStuffCell setHidden:![torrentDelegate isEqual:SeedStuffSeedbox.class]];
+	[self cell:self.labelCell setHidden:![torrentDelegate isEqual:ruTorrent.class]];
 	[self cell:self.directoryCell setHidden:![torrentDelegate supportsDirectoryChoice]];
-	[self cell:[self relativePathCell] setHidden:![torrentDelegate supportsRelativePath]];
+	[self cell:self.relativePathCell setHidden:![torrentDelegate supportsRelativePath]];
 	[self reloadDataAnimated:YES];
 }
 
@@ -117,12 +126,15 @@
 
 - (void)save
 {
-	if (self.hostnameField.text.length && self.portField.text.length && self.nameField.text.length)
+	if (self.hostnameField.text.length && self.nameField.text.length)
 	{
+		if (!self.portField.text.length)
+		{
+			self.portField.text = [TorrentDelegate.sharedInstance.torrentDelegates[self.selectedClient] defaultPort];
+		}
 		NSMutableArray * array = [[NSUserDefaults.standardUserDefaults objectForKey:@"clients"] mutableCopy];
 		if (!array)
 		{
-			NSLog(@"Yolo");
 			array = NSMutableArray.new;
 			[FileHandler.sharedInstance setSettingsValue:[[NSOption fromNil:self.nameField.text] orSome:@""] forKey:@"server_name"];
 			[FileHandler.sharedInstance setSettingsValue:[[NSOption fromNil:self.selectedClient] orSome:@""] forKey:@"server_type"];
@@ -163,6 +175,22 @@
 
 		[NSUserDefaults.standardUserDefaults setObject:array forKey:@"clients"];
 		[self dismiss];
+	}
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+	if (buttonIndex != alertView.cancelButtonIndex)
+	{
+		[UIApplication.sharedApplication openURL:[NSURL URLWithString:@"http://seedstuff.ca/aff.php?aff=250"]];
+	}
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	if (indexPath.section)
+	{
+		[[UIAlertView.alloc initWithTitle:@"SeedStuff.ca" message:@"Seedstuff is a seedbox company who strives to be able to provide the best customer service and most reliable seedboxes at an affordable price while keeping a commitment to ensuring their customers personal privacy. " delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Visit Site", nil] show];
 	}
 }
 

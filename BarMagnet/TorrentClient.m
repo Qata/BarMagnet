@@ -170,6 +170,11 @@
 	return NO;
 }
 
++ (BOOL)supportsLabels
+{
+	return NO;
+}
+
 - (id)noJobImplementation
 {
 	return torrentJobsDict = nil;
@@ -228,31 +233,20 @@
 	[dict setObject:torrentDict forKey:[array[0] uppercaseString]];
 }
 
-#if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
-- (void)showNotification:(UIViewController *)viewController
-{
-	notificationViewController = viewController;
-}
-#endif
-
 - (void)handleMagnetLink:(NSString *)magnetLink
 {
 	hashString = [[magnetLink getStringBetween:@"btih:" andString:@"&"] uppercaseString];
 	if (![[NSSet setWithArray:torrentJobsDict.allKeys] containsObject:hashString])
 	{
 		torrentName = [StringHandler parseNotification:[StringHandler parseURLAsHumanReadable:[NSString stringWithFormat:@"\"%@\"", [magnetLink getStringBetween:@"dn=" andString:@"&"]]]];
-#if !TARGET_OS_IPHONE && !TARGET_IPHONE_SIMULATOR
-		[torrentJobsDict setObject:@{@"name":[magnetLink getStringBetween:@"dn=" andString:@"&"], @"progress":@0} forKey:hashString];
-#endif
 		theConnection = [NSURLConnection connectionWithRequest:[self virtualHandleMagnetLink:magnetLink] delegate:self];
 	}
 	else
 	{
 #if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
-		if (notificationViewController)
+		if (self.notificationViewController)
 		{
-			[TSMessage showNotificationInViewController:notificationViewController title:@"Unable to add torrent" subtitle:@"Duplicate Torrent" image:nil type:TSMessageNotificationTypeError duration:TSDURATION callback:nil buttonTitle:nil buttonCallback:nil atPosition:TSMessageNotificationPositionTop canBeDismissedByUser:YES];
-			notificationViewController = nil;
+			[TSMessage showNotificationInViewController:self.notificationViewController title:@"Unable to add torrent" subtitle:@"Duplicate Torrent" image:nil type:TSMessageNotificationTypeError duration:TSDURATION callback:nil buttonTitle:nil buttonCallback:nil atPosition:TSMessageNotificationPositionTop canBeDismissedByUser:YES];
 		}
 		else if (self.defaultViewController)
 		{
@@ -282,28 +276,19 @@
 	if (![[NSSet setWithArray:torrentJobsDict.allKeys] containsObject:hashString])
 	{
 		torrentName = [StringHandler parseNotification:[[data torrentName] orSome:@"Torrent"]];
-		NSLog(@"%@", torrentName);
-		NSLog(@"%@", data.magnetLink);
-		//theConnection = [NSURLConnection connectionWithRequest:[self virtualHandleMagnetLink:[data.magnetLink stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]] delegate:self];
 		theConnection = [NSURLConnection connectionWithRequest:[self virtualHandleTorrentFile:data withURL:fileURL] delegate:self];
 	}
 	else
 	{
-#if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
-		if (notificationViewController)
+		if (self.notificationViewController)
 		{
-			[TSMessage showNotificationInViewController:notificationViewController title:@"Unable to add torrent" subtitle:@"Duplicate Torrent" image:nil type:TSMessageNotificationTypeError duration:TSDURATION callback:nil buttonTitle:nil buttonCallback:nil atPosition:TSMessageNotificationPositionTop canBeDismissedByUser:YES];
-			notificationViewController = nil;
+			[TSMessage showNotificationInViewController:self.notificationViewController title:@"Unable to add torrent" subtitle:@"Duplicate Torrent" image:nil type:TSMessageNotificationTypeError duration:TSDURATION callback:nil buttonTitle:nil buttonCallback:nil atPosition:TSMessageNotificationPositionTop canBeDismissedByUser:YES];
 		}
 		else if (self.defaultViewController)
 		{
 			[TSMessage showNotificationInViewController:self.defaultViewController title:@"Unable to add torrent" subtitle:@"Duplicate Torrent" image:nil type:TSMessageNotificationTypeError duration:TSDURATION callback:nil buttonTitle:nil buttonCallback:nil atPosition:TSMessageNotificationPositionTop canBeDismissedByUser:YES];
 		}
-#else
-		[[NotificationHandler sharedInstance] sendNotification:@"Unable to add torrent" withTextBody:@"Duplicate torrent" withCallBackURL:[self getUserFriendlyAppendedURL] andSound:NO];
-#endif
 	}
-
 }
 
 - (void)pauseTorrent:(NSString *)hash
@@ -440,7 +425,7 @@
 
 - (NSString *)getHyperTextString
 {
-	return [NSString stringWithFormat:@"http%@://", [[[FileHandler.sharedInstance webDataValueForKey:@"use_ssl" andDict:nil] orSome:@"NO"] boolValue] ? @"s" : @""];
+	return [NSString stringWithFormat:@"http%@://", [[[FileHandler.sharedInstance webDataValueForKey:@"use_ssl" andDict:nil] orSome:@NO] boolValue] ? @"s" : @""];
 }
 
 - (NSString *)getAppendedURLWithoutAuth
@@ -542,10 +527,9 @@
 		notification = [error localizedDescription];
 	}
 #if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
-	if (notificationViewController)
+	if (self.notificationViewController)
 	{
-		[TSMessage showNotificationInViewController:notificationViewController title:@"An error occurred" subtitle:notification image:nil type:TSMessageNotificationTypeError duration:TSDURATION callback:nil buttonTitle:nil buttonCallback:nil atPosition:TSMessageNotificationPositionTop canBeDismissedByUser:YES];
-		notificationViewController = nil;
+		[TSMessage showNotificationInViewController:self.notificationViewController title:@"An error occurred" subtitle:notification image:nil type:TSMessageNotificationTypeError duration:TSDURATION callback:nil buttonTitle:nil buttonCallback:nil atPosition:TSMessageNotificationPositionTop canBeDismissedByUser:YES];
 	}
 	else if (self.defaultViewController)
 	{
@@ -561,10 +545,9 @@
 	if ([self receivedSuccessConditional:responseData])
 	{
 #if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
-		if (notificationViewController)
+		if (self.notificationViewController)
 		{
-			[TSMessage showNotificationInViewController:notificationViewController title:@"Torrent added successfully" subtitle:torrentName image:nil type:TSMessageNotificationTypeSuccess duration:TSDURATION callback:nil buttonTitle:nil buttonCallback:nil atPosition:TSMessageNotificationPositionTop canBeDismissedByUser:YES];
-			notificationViewController = nil;
+			[TSMessage showNotificationInViewController:self.notificationViewController title:@"Torrent added successfully" subtitle:torrentName image:nil type:TSMessageNotificationTypeSuccess duration:TSDURATION callback:nil buttonTitle:nil buttonCallback:nil atPosition:TSMessageNotificationPositionTop canBeDismissedByUser:YES];
 		}
 #else
         [[NotificationHandler sharedInstance] sendNotification:@"Torrent added successfully" withTextBody:torrentName withCallBackURL:[self getUserFriendlyAppendedURL] andSound:NO];
@@ -573,10 +556,9 @@
 	else if ([[responseData toUTF8String] length] > 1)
 	{
 #if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
-		if (notificationViewController)
+		if (self.notificationViewController)
 		{
-			[TSMessage showNotificationInViewController:notificationViewController title:@"An error occurred" subtitle:[[self parseTorrentFailure:responseData] sentenceParsedString] image:nil type:TSMessageNotificationTypeError duration:TSDURATION callback:^(void){} buttonTitle:nil buttonCallback:nil atPosition:TSMessageNotificationPositionTop canBeDismissedByUser:YES];
-			notificationViewController = nil;
+			[TSMessage showNotificationInViewController:self.notificationViewController title:@"An error occurred" subtitle:[[self parseTorrentFailure:responseData] sentenceParsedString] image:nil type:TSMessageNotificationTypeError duration:TSDURATION callback:^(void){} buttonTitle:nil buttonCallback:nil atPosition:TSMessageNotificationPositionTop canBeDismissedByUser:YES];
 		}
 		else if (self.defaultViewController)
 		{
@@ -589,15 +571,13 @@
 	else
 	{
 #if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
-		if (notificationViewController)
+		if (self.notificationViewController)
 		{
-			[TSMessage showNotificationInViewController:notificationViewController title:@"An error occurred" subtitle:@"No error info provided, are you sure that's the right port?" image:nil type:TSMessageNotificationTypeError duration:TSDURATION callback:nil buttonTitle:nil buttonCallback:nil atPosition:TSMessageNotificationPositionTop canBeDismissedByUser:YES];
-			notificationViewController = nil;
+			[TSMessage showNotificationInViewController:self.notificationViewController title:@"An error occurred" subtitle:@"No error info provided, are you sure that's the right port?" image:nil type:TSMessageNotificationTypeError duration:TSDURATION callback:nil buttonTitle:nil buttonCallback:nil atPosition:TSMessageNotificationPositionTop canBeDismissedByUser:YES];
 		}
 		else if (self.defaultViewController)
 		{
-			[TSMessage showNotificationInViewController:notificationViewController title:@"An error occurred" subtitle:@"No error info provided, are you sure that's the right port?" image:nil type:TSMessageNotificationTypeError duration:TSDURATION callback:nil buttonTitle:nil buttonCallback:nil atPosition:TSMessageNotificationPositionTop canBeDismissedByUser:YES];
-			notificationViewController = nil;
+			[TSMessage showNotificationInViewController:self.notificationViewController title:@"An error occurred" subtitle:@"No error info provided, are you sure that's the right port?" image:nil type:TSMessageNotificationTypeError duration:TSDURATION callback:nil buttonTitle:nil buttonCallback:nil atPosition:TSMessageNotificationPositionTop canBeDismissedByUser:YES];
 		}
 #else
 		[[NotificationHandler sharedInstance] sendNotification:@"An error occurred" withTextBody:@"No error info provided, are you sure that's the right port?" withCallBackURL:nil andSound:NO];

@@ -148,7 +148,7 @@
 		else
 		{
 			NSString * query = [NSUserDefaults.standardUserDefaults objectForKey:@"queries"][indexPath.row][@"query"];
-			SVModalWebViewController *webViewController = [SVModalWebViewController.alloc initWithAddress:[NSString stringWithFormat:@"%@%@", [query rangeOfString:@"https://"].location != NSNotFound ? @"" : @"http://", query]];
+			TorrentDownloaderModalWebViewController *webViewController = [TorrentDownloaderModalWebViewController.alloc initWithAddress:[NSString stringWithFormat:@"%@%@", [query rangeOfString:@"https://"].location != NSNotFound ? @"" : @"http://", query]];
 			[self.navigationController presentViewController:webViewController animated:YES completion:nil];
 		}
 	}

@@ -19,6 +19,7 @@
 
 - (void)viewDidLoad
 {
+	[TorrentDelegate.sharedInstance.currentlySelectedClient showNotification:self.navigationController];
 	AVCaptureSession *session = AVCaptureSession.new;
 	AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
 	NSError *error = nil;
@@ -61,12 +62,10 @@
 	if (text.length > magnet.length && [[text substringWithRange:NSMakeRange(0, magnet.length)] isEqual:magnet])
 	{
 		[TorrentDelegate.sharedInstance.currentlySelectedClient handleMagnetLink:text];
-		[TorrentDelegate.sharedInstance.currentlySelectedClient showNotification:self.navigationController];
 	}
 	else if (text.length > torrent.length && [[text substringWithRange:NSMakeRange(text.length - torrent.length, torrent.length)] isEqual:torrent])
 	{
 		[TorrentDelegate.sharedInstance.currentlySelectedClient handleTorrentURL:[NSURL URLWithString:text]];
-		[TorrentDelegate.sharedInstance.currentlySelectedClient showNotification:self.navigationController];
 	}
 	else if (text.length > http.length && [[text substringWithRange:NSMakeRange(0, http.length)] isEqual:http])
 	{

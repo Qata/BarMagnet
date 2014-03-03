@@ -26,6 +26,9 @@
 @property (strong, nonatomic) IBOutlet UITableViewCell *relativePathCell;
 @property (strong, nonatomic) IBOutlet UITableViewCell *directoryCell;
 @property (strong, nonatomic) IBOutlet UITableViewCell *labelCell;
+@property (strong, nonatomic) IBOutlet UITableViewCell * useSSLCell;
+@property (strong, nonatomic) IBOutlet UITableViewCell * portCell;
+@property (strong, nonatomic) IBOutlet UITableViewCell * seedStuffCell;
 @property (nonatomic, strong) NSDictionary * clientDictionary;
 
 @end

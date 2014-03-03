@@ -44,7 +44,7 @@ static TorrentJobChecker * sharedInstance;
 	@autoreleasepool
 	{
 		NSMutableURLRequest * request = [TorrentDelegate.sharedInstance.currentlySelectedClient checkTorrentJobs];
-		[request setTimeoutInterval:2];
+		[request setTimeoutInterval:8];
 		if (request)
 		{
 			[NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:request.URL.host];
@@ -72,7 +72,7 @@ static TorrentJobChecker * sharedInstance;
 	@autoreleasepool
 	{
 		NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[TorrentDelegate.sharedInstance.currentlySelectedClient getAppendedURL]]];
-		[request setTimeoutInterval:2];
+		[request setTimeoutInterval:8];
 		if (request)
 		{
 			NSData * receivedData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
@@ -93,7 +93,7 @@ static TorrentJobChecker * sharedInstance;
 	@autoreleasepool
 	{
 		NSMutableURLRequest * request = [TorrentDelegate.sharedInstance.currentlySelectedClient checkTorrentJobs];
-		[request setTimeoutInterval:2];
+		[request setTimeoutInterval:8];
 		if (request)
 		{
 			NSError * error = nil;

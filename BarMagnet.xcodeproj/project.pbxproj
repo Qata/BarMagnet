@@ -34,6 +34,8 @@
 		2355276B187285BE00A9E6BC /* TSBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2355276A187285BE00A9E6BC /* TSBlurView.m */; };
 		2355276E1872864F00A9E6BC /* HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2355276D1872864F00A9E6BC /* HexColor.m */; };
 		235527701872901700A9E6BC /* TSMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2355276F1872901700A9E6BC /* TSMessage.m */; };
+		2356F0D618C3375C008D70B9 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2356F0D518C3375C008D70B9 /* libTestFlight.a */; };
+		2363424218C485A700F66225 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2363424118C485A700F66225 /* LICENSE.txt */; };
 		2374DD9E1796F23100F613EB /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2374DD9D1796F23100F613EB /* MessageUI.framework */; };
 		237570B11877B742008217BF /* UIButtonBarStop.png in Resources */ = {isa = PBXBuildFile; fileRef = 237570AF1877B742008217BF /* UIButtonBarStop.png */; };
 		237570B21877B742008217BF /* UIButtonBarStop@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 237570B01877B742008217BF /* UIButtonBarStop@2x.png */; };
@@ -56,7 +58,6 @@
 		238A94CF17A121630081EF6D /* NotificationButtonBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 238A94B217A121630081EF6D /* NotificationButtonBackground.png */; };
 		238A94D017A121630081EF6D /* NotificationButtonBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 238A94B317A121630081EF6D /* NotificationButtonBackground@2x.png */; };
 		238A94D217A121630081EF6D /* TSMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 238A94B717A121630081EF6D /* TSMessageView.m */; };
-		239145031795604100543347 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 239144FF1795604100543347 /* libTestFlight.a */; };
 		2396C92B1895EA88009BC6D3 /* UIFastProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2396C92A1895EA88009BC6D3 /* UIFastProgressBar.m */; };
 		23A868F218BF36F70066E383 /* libNSBencodeSerialization.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A868EF18BF36DB0066E383 /* libNSBencodeSerialization.a */; };
 		23A868F718BF383E0066E383 /* NSNumber+TransferRateFormatting.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A868F418BF383E0066E383 /* NSNumber+TransferRateFormatting.m */; };
@@ -88,6 +89,8 @@
 		23AF74E01796D5F700AC4ED5 /* StaticDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AF74DF1796D5F700AC4ED5 /* StaticDataTableViewController.m */; };
 		23B35F861894A115002F6E37 /* ScanQRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B35F851894A115002F6E37 /* ScanQRCodeViewController.m */; };
 		23B84F0F17B60F4F008C9D17 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23B84F0D17B60F4F008C9D17 /* MainStoryboard_iPad.storyboard */; };
+		23DF81CC18C1F4FA005BAB1C /* rTorrentXMLRPC.m in Sources */ = {isa = PBXBuildFile; fileRef = 23DF81CB18C1F4FA005BAB1C /* rTorrentXMLRPC.m */; };
+		23DF81CF18C2C71D005BAB1C /* SeedStuffSeedbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 23DF81CE18C2C71D005BAB1C /* SeedStuffSeedbox.m */; };
 		23E60FB71876D20400D2068B /* PlayPause.png in Resources */ = {isa = PBXBuildFile; fileRef = 23E60FB51876D20400D2068B /* PlayPause.png */; };
 		23E60FB81876D20400D2068B /* PlayPause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23E60FB61876D20400D2068B /* PlayPause@2x.png */; };
 		23EBC8F518851BE800B0A281 /* donate.png in Resources */ = {isa = PBXBuildFile; fileRef = 23EBC8F418851BE800B0A281 /* donate.png */; };
@@ -178,6 +181,8 @@
 		2355276C1872864F00A9E6BC /* HexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HexColor.h; sourceTree = "<group>"; };
 		2355276D1872864F00A9E6BC /* HexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HexColor.m; sourceTree = "<group>"; };
 		2355276F1872901700A9E6BC /* TSMessage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSMessage.m; sourceTree = "<group>"; };
+		2356F0D518C3375C008D70B9 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libTestFlight.a; path = TestFlightSDK/libTestFlight.a; sourceTree = "<group>"; };
+		2363424118C485A700F66225 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		23704DF01880C6380029AB17 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2374DD9D1796F23100F613EB /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		237570AF1877B742008217BF /* UIButtonBarStop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIButtonBarStop.png; sourceTree = "<group>"; };
@@ -205,10 +210,6 @@
 		238A94B717A121630081EF6D /* TSMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSMessageView.m; sourceTree = "<group>"; };
 		238A94D317A121B70081EF6D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		238A94D517A121C30081EF6D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
-		239144FF1795604100543347 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
-		239145001795604100543347 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		239145011795604100543347 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
-		239145021795604100543347 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		2396C9291895EA88009BC6D3 /* UIFastProgressBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFastProgressBar.h; sourceTree = "<group>"; };
 		2396C92A1895EA88009BC6D3 /* UIFastProgressBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFastProgressBar.m; sourceTree = "<group>"; };
 		23A868B218BF31E30066E383 /* libNSBencodeSerialization.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libNSBencodeSerialization.a; path = "../../Library/Developer/Xcode/DerivedData/NSBencodeSerialization-ezakathubkhhsxayghzwbjqodwih/Build/Products/Debug-iphoneos/libNSBencodeSerialization.a"; sourceTree = "<group>"; };
@@ -273,6 +274,10 @@
 		23B35F851894A115002F6E37 /* ScanQRCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanQRCodeViewController.m; sourceTree = "<group>"; };
 		23B6E23117A337C9003D3B7C /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		23B84F0E17B60F4F008C9D17 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		23DF81CA18C1F4FA005BAB1C /* rTorrentXMLRPC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rTorrentXMLRPC.h; sourceTree = "<group>"; };
+		23DF81CB18C1F4FA005BAB1C /* rTorrentXMLRPC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rTorrentXMLRPC.m; sourceTree = "<group>"; };
+		23DF81CD18C2C71D005BAB1C /* SeedStuffSeedbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeedStuffSeedbox.h; sourceTree = "<group>"; };
+		23DF81CE18C2C71D005BAB1C /* SeedStuffSeedbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeedStuffSeedbox.m; sourceTree = "<group>"; };
 		23E60FB51876D20400D2068B /* PlayPause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayPause.png; sourceTree = "<group>"; };
 		23E60FB61876D20400D2068B /* PlayPause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PlayPause@2x.png"; sourceTree = "<group>"; };
 		23EBC8F418851BE800B0A281 /* donate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = donate.png; sourceTree = "<group>"; };
@@ -321,6 +326,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2356F0D618C3375C008D70B9 /* libTestFlight.a in Frameworks */,
 				23A868F218BF36F70066E383 /* libNSBencodeSerialization.a in Frameworks */,
 				230C478418948FD7007D56FC /* AVFoundation.framework in Frameworks */,
 				230C478218948FCE007D56FC /* OpenGLES.framework in Frameworks */,
@@ -331,7 +337,6 @@
 				23AC2B22175D835600FCFA71 /* UIKit.framework in Frameworks */,
 				23AC2B24175D835600FCFA71 /* Foundation.framework in Frameworks */,
 				2374DD9E1796F23100F613EB /* MessageUI.framework in Frameworks */,
-				239145031795604100543347 /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,17 +450,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		239144FE1795604100543347 /* TestFlightSDK1.2.6 */ = {
-			isa = PBXGroup;
-			children = (
-				239144FF1795604100543347 /* libTestFlight.a */,
-				239145001795604100543347 /* README.md */,
-				239145011795604100543347 /* release_notes.md */,
-				239145021795604100543347 /* TestFlight.h */,
-			);
-			path = TestFlightSDK1.2.6;
-			sourceTree = "<group>";
-		};
 		23A868EB18BF36DB0066E383 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -468,9 +462,9 @@
 			isa = PBXGroup;
 			children = (
 				23F0379418C163A400B4D289 /* README.md */,
+				2363424118C485A700F66225 /* LICENSE.txt */,
 				23A868EA18BF36DB0066E383 /* NSBencodeSerialization.xcodeproj */,
 				23F0375B18C153BD00B4D289 /* SVWebViewController */,
-				239144FE1795604100543347 /* TestFlightSDK1.2.6 */,
 				238A949417A121630081EF6D /* TSMessages */,
 				23AC2B27175D835600FCFA71 /* BarMagnet */,
 				23AC2B20175D835600FCFA71 /* Frameworks */,
@@ -489,6 +483,7 @@
 		23AC2B20175D835600FCFA71 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2356F0D518C3375C008D70B9 /* libTestFlight.a */,
 				23A868B218BF31E30066E383 /* libNSBencodeSerialization.a */,
 				23B35F5F1894941A002F6E37 /* libiconv.dylib */,
 				230C482E18949244007D56FC /* libGPUImage.a */,
@@ -579,6 +574,10 @@
 				23A8691818BF38D40066E383 /* qBittorrent.m */,
 				23A8691A18BF38DF0066E383 /* ruTorrent.h */,
 				23A8691B18BF38DF0066E383 /* ruTorrent.m */,
+				23DF81CA18C1F4FA005BAB1C /* rTorrentXMLRPC.h */,
+				23DF81CB18C1F4FA005BAB1C /* rTorrentXMLRPC.m */,
+				23DF81CD18C2C71D005BAB1C /* SeedStuffSeedbox.h */,
+				23DF81CE18C2C71D005BAB1C /* SeedStuffSeedbox.m */,
 				23A8691D18BF38E90066E383 /* Synology.h */,
 				23A8691E18BF38E90066E383 /* Synology.m */,
 				23A8692018BF38F30066E383 /* Transmission.h */,
@@ -838,6 +837,7 @@
 				237570B21877B742008217BF /* UIButtonBarStop@2x.png in Resources */,
 				238A94C217A121630081EF6D /* NotificationBackgroundError@2x.png in Resources */,
 				238A94C717A121630081EF6D /* NotificationBackgroundSuccess.png in Resources */,
+				2363424218C485A700F66225 /* LICENSE.txt in Resources */,
 				235527571871718300A9E6BC /* UIButtonBarPause.png in Resources */,
 				23F0378218C153BD00B4D289 /* SVWebViewControllerActivitySafari-iPad@2x.png in Resources */,
 				23F0377B18C153BD00B4D289 /* SVWebViewController.bundle in Resources */,
@@ -871,6 +871,7 @@
 				2355276B187285BE00A9E6BC /* TSBlurView.m in Sources */,
 				23A8692518BF38FD0066E383 /* uTorrent.m in Sources */,
 				23A868FB18BF38750066E383 /* NSArray+Functions.m in Sources */,
+				23DF81CF18C2C71D005BAB1C /* SeedStuffSeedbox.m in Sources */,
 				23A8690318BF388D0066E383 /* TorrentFileHandler.m in Sources */,
 				23A94F22183CD6B7004A3924 /* UINavigationControllerNoAutoRotation.m in Sources */,
 				23AF74E01796D5F700AC4ED5 /* StaticDataTableViewController.m in Sources */,
@@ -885,6 +886,7 @@
 				23FC25D81788F1D500CCE434 /* TorrentJobCheckerCell.m in Sources */,
 				2355276E1872864F00A9E6BC /* HexColor.m in Sources */,
 				23A8691018BF38BA0066E383 /* StringHandler.m in Sources */,
+				23DF81CC18C1F4FA005BAB1C /* rTorrentXMLRPC.m in Sources */,
 				23F3E09E189F30EF00A8105A /* AddTorrentClientTableViewController.m in Sources */,
 				23A8692218BF38F30066E383 /* Transmission.m in Sources */,
 				23A868FE18BF38800066E383 /* ConnectionHandler.m in Sources */,
@@ -1040,14 +1042,16 @@
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/NSBencodeSerialization/M13OrderedDictionary",
 					"$(SRCROOT)/NSBencodeSerialization/NSBencodeSerialization",
+					"$(SRCROOT)/TestFlightSDK",
 				);
 				INFOPLIST_FILE = "BarMagnet/BarMagnet-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/TestFlightSDK1.2.6",
+					"$(SRCROOT)/TestFlightSDK",
 					"$(SRCROOT)/BarMagnet",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/NSBencodeSerialization-ezakathubkhhsxayghzwbjqodwih/Build/Products/Debug-iphoneos",
+					"/Users/carlo/Obj-C_Apps/BarMagnet/TestFlightSDK",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = BarMagnet;
@@ -1074,18 +1078,20 @@
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/NSBencodeSerialization/M13OrderedDictionary",
 					"$(SRCROOT)/NSBencodeSerialization/NSBencodeSerialization",
+					"$(SRCROOT)/TestFlightSDK",
 				);
 				INFOPLIST_FILE = "BarMagnet/BarMagnet-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/TestFlightSDK1.2.6",
+					"$(SRCROOT)/TestFlightSDK",
 					"$(SRCROOT)/BarMagnet",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/NSBencodeSerialization-ezakathubkhhsxayghzwbjqodwih/Build/Products/Debug-iphoneos",
+					"/Users/carlo/Obj-C_Apps/BarMagnet/TestFlightSDK",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = BarMagnet;
-				PROVISIONING_PROFILE = "2B204FB9-6F3F-4EA1-8C7C-23165F16E9BC";
+				PROVISIONING_PROFILE = "4C2D36BA-AAA5-4753-B013-14BA919470C6";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;

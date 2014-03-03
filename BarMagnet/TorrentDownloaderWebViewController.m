@@ -15,6 +15,7 @@
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
+	[TorrentDelegate.sharedInstance.currentlySelectedClient showNotification:self.navigationController];
 	self.torrentData = NSMutableData.new;
 	self.adKeys = [NSDictionary dictionaryWithContentsOfFile:[NSBundle.mainBundle pathForResource:@"AdBlocker" ofType:@"plist"]][@"ads"];
 }
@@ -38,7 +39,6 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-	[TorrentDelegate.sharedInstance.currentlySelectedClient showNotification:self.navigationController];
 	[TorrentDelegate.sharedInstance.currentlySelectedClient handleTorrentData:self.torrentData withURL:self.torrentURL];
 	self.torrentData = NSMutableData.new;
 }
@@ -57,13 +57,11 @@
 	if (request.URL.absoluteString.length > 7 && [[request.URL.absoluteString substringToIndex:7] isEqual:@"magnet:"])
 	{
 		[TorrentDelegate.sharedInstance.currentlySelectedClient handleMagnetLink:request.URL.absoluteString];
-		[TorrentDelegate.sharedInstance.currentlySelectedClient showNotification:self.navigationController];
 		return NO;
 	}
 	else if (request.URL.absoluteString.length > 8 && [[request.URL.absoluteString substringFromIndex:request.URL.absoluteString.length - 8] isEqual:@".torrent"])
 	{
 		[TorrentDelegate.sharedInstance.currentlySelectedClient handleTorrentURL:request.URL];
-		[TorrentDelegate.sharedInstance.currentlySelectedClient showNotification:self.navigationController];
 		return NO;
 	}
 	else

@@ -24,7 +24,6 @@ enum
 	NSMutableArray * notificationJobs;
 #if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
 	TorrentFileHandler * torrentFileHandler;
-	UIViewController * notificationViewController;
 #endif
 	NSString * token;
 	NSString * torrentName;
@@ -38,21 +37,23 @@ enum
 @property (nonatomic, strong) UIViewController * defaultViewController;
 #endif
 @property (nonatomic, strong, setter = setTemporaryDeletedJobs:, getter = getTemporaryDeletedJobs) NSMutableDictionary * temporaryDeletedJobs;
+@property (nonatomic, weak, setter = showNotification:) UIViewController * notificationViewController;
 - (void)addTemporaryDeletedJob:(NSUInteger)object forKey:(NSString *)key;
 
 //-------Virtual functions-------
 + (NSString *)name;
 + (NSNumber *)completeNumber;
-- (BOOL)isValidJobsData:(NSData *)data;
-- (NSMutableURLRequest *)checkTorrentJobs;
 + (NSString *)defaultPort;
 + (BOOL)supportsRelativePath;
++ (BOOL)supportsLabels;
++ (BOOL)supportsDirectoryChoice;
+- (BOOL)isValidJobsData:(NSData *)data;
+- (NSMutableURLRequest *)checkTorrentJobs;
 - (NSInteger)windowChangeHeightValue;
 - (void)becameActive;
 - (void)becameIdle;
 - (void)willExit;
 - (BOOL)supportsMulticall;
-+ (BOOL)supportsDirectoryChoice;
 - (BOOL)supportsAddedDate;
 - (NSString *)parseTorrentFailure:(NSData *)response;
 //-------------------------------

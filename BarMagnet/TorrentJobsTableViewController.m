@@ -42,6 +42,9 @@ enum ORDER
 @property (nonatomic, strong) UILabel * header;
 @property (nonatomic, strong) NSArray * sortedKeys;
 @property (nonatomic, strong) NSMutableOrderedDictionary * sortByDictionary;
+@property (nonatomic, strong) UIView * totalsView;
+@property (nonatomic, strong) UILabel * uploadTotalLabel;
+@property (nonatomic, strong) UILabel * downloadTotalLabel;
 @end
 
 @implementation TorrentJobsTableViewController
@@ -49,6 +52,7 @@ enum ORDER
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	[self initialiseUploadDownloadLabels];
 	[self initialiseHeader];
 	self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
 	self.title = [FileHandler.sharedInstance settingsValueForKey:@"server_name"];
@@ -62,6 +66,32 @@ enum ORDER
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(receiveUpdateTableNotification) name:@"update_torrent_jobs_table" object:nil];
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(receiveUpdateHeaderNotification) name:@"update_torrent_jobs_header" object:nil];
 	[NSNotificationCenter.defaultCenter addObserver:self selector:@selector(changedClient) name:@"ChangedClient" object:nil];
+}
+
+- (void)initialiseUploadDownloadLabels
+{
+	unsigned height = 11;
+	self.totalsView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 80, height * 2)];
+	self.totalsView.backgroundColor = [UIColor clearColor];
+
+	UIFont * font = [UIFont fontWithName:@"Arial" size:height];
+
+	self.uploadTotalLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 80, height)];
+	self.downloadTotalLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, height, 80, height)];
+
+	if ([[UIDevice.currentDevice.systemVersion componentsSeparatedByString:@"."].firstObject integerValue] < 7)
+	{
+		self.uploadTotalLabel.textColor = [UIColor whiteColor];
+		self.downloadTotalLabel.textColor = [UIColor whiteColor];
+	}
+
+	self.uploadTotalLabel.font = font;
+	self.downloadTotalLabel.font = font;
+	self.uploadTotalLabel.backgroundColor = UIColor.clearColor;
+	self.downloadTotalLabel.backgroundColor = UIColor.clearColor;
+	[self.totalsView addSubview:self.uploadTotalLabel];
+	[self.totalsView addSubview:self.downloadTotalLabel];
+	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.totalsView];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -422,11 +452,6 @@ enum ORDER
 - (void)createDownloadUploadTotals
 {
 	NSUInteger uploadSpeed = 0, downloadSpeed = 0;
-	if (!self.sortedKeys.count)
-	{
-		self.navigationItem.rightBarButtonItem = nil;
-		return;
-	}
 	for (NSDictionary * dict in TorrentDelegate.sharedInstance.currentlySelectedClient.getJobsDict.allValues)
 	{
 		if (dict[@"rawUploadSpeed"] && dict[@"rawDownloadSpeed"])
@@ -434,37 +459,10 @@ enum ORDER
 			uploadSpeed += [dict[@"rawUploadSpeed"] integerValue];
 			downloadSpeed += [dict[@"rawDownloadSpeed"] integerValue];
 		}
-		else
-		{
-			self.navigationItem.rightBarButtonItem = nil;
-			return;
-		}
 	}
 
-	unsigned height = 11;
-	UIView * newView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 80, height * 2)];
-	newView.backgroundColor = [UIColor clearColor];
-
-	UIFont * font = [UIFont fontWithName:@"Arial" size:height];
-
-	UILabel * upload = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 80, height)];
-	UILabel * download = [[UILabel alloc] initWithFrame:CGRectMake(0, height, 80, height)];
-
-	if ([[UIDevice.currentDevice.systemVersion componentsSeparatedByString:@"."].firstObject integerValue] < 7)
-	{
-		upload.textColor = [UIColor whiteColor];
-		download.textColor = [UIColor whiteColor];
-	}
-
-	upload.font = font;
-	upload.text = [NSString stringWithFormat:@"↑ %@", @(uploadSpeed).transferRateString];
-	upload.backgroundColor = UIColor.clearColor;
-	download.font = font;
-	download.text = [NSString stringWithFormat:@"↓ %@", @(downloadSpeed).transferRateString];
-	download.backgroundColor = UIColor.clearColor;
-	[newView addSubview:upload];
-	[newView addSubview:download];
-	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:newView];
+	self.uploadTotalLabel.text = [NSString stringWithFormat:@"↑ %@", @(uploadSpeed).transferRateString];
+	self.downloadTotalLabel.text = [NSString stringWithFormat:@"↓ %@", @(downloadSpeed).transferRateString];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
