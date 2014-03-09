@@ -169,8 +169,16 @@
 		{
 			NSUInteger previouslySelected = self.checkedCell;
 			self.checkedCell = indexPath.row;
-			[tableView reloadRowsAtIndexPaths:@[indexPath, [NSIndexPath indexPathForRow:previouslySelected inSection:1]] withRowAnimation:UITableViewRowAnimationNone];
-			[tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+			if ([self tableView:tableView numberOfRowsInSection:indexPath.section] > previouslySelected)
+			{
+				[tableView reloadRowsAtIndexPaths:@[indexPath, [NSIndexPath indexPathForRow:previouslySelected inSection:1]] withRowAnimation:UITableViewRowAnimationNone];
+				[tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+			}
+			else
+			{
+				[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationNone];
+				[tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+			}
 		}
 		[tableView deselectRowAtIndexPath:indexPath animated:YES];
 		[FileHandler.sharedInstance setSettingsValue:[NSUserDefaults.standardUserDefaults objectForKey:@"clients"][indexPath.row][@"name"] forKey:@"server_name"];

@@ -23,9 +23,19 @@ enum
 @property (nonatomic, strong) NSXMLParser * parser;
 @property (nonatomic, strong) NSArray * keys;
 @property (nonatomic, strong) NSMutableArray * values;
+@property (nonatomic, strong) NSDictionary * dataTypes;
 @end
 
 @implementation rTorrentXMLRPC
+
+- (id)init
+{
+	if (self = [super init])
+	{
+		self.dataTypes = @{NSStringFromClass(NSString.class):@"string", NSStringFromClass(NSString.class):@"i8", NSStringFromClass(NSData.class):@"base64"};
+	}
+	return self;
+}
 
 - (NSMutableURLRequest *)RPCRequestWithMethodName:(NSString *)methodName view:(NSString *)view andParams:(NSArray *)params;
 {
@@ -36,17 +46,28 @@ enum
 	}
     for (id param in params)
     {
-		NSString * type = @"string";
-		if ([param isKindOfClass:[NSNumber class]])
+		NSString * type = nil;
+		for (NSString * class in self.dataTypes)
 		{
-			type = @"i8";
+			if ([param isKindOfClass:NSClassFromString(class)])
+			{
+				type = self.dataTypes[class];
+				break;
+			}
 		}
-        [RPCString appendFormat:@"<param><value><%@>%@</%@></value></param>", type, param, type];
+
+		id value = param;
+		if ([param isKindOfClass:NSData.class])
+		{
+			value = [param base64Encoding];
+		}
+
+        [RPCString appendFormat:@"<param><value><%@>%@</%@></value></param>", type, value, type];
     }
 	[RPCString appendString:@"</params></methodCall>"];
 	NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:self.getAppendedURL]];
 	[request setHTTPMethod:@"POST"];
-	[request setHTTPBody:[RPCString dataUsingEncoding:NSASCIIStringEncoding]];
+	[request setHTTPBody:[RPCString dataUsingEncoding:NSUTF8StringEncoding]];
 	return request;
 }
 
@@ -156,7 +177,8 @@ enum
 
 - (NSURLRequest *)virtualHandleTorrentFile:(NSData *)fileData withURL:(NSURL *)fileURL
 {
-	return [self RPCRequestWithMethodName:@"load_start" view:nil andParams:@[fileURL]];
+	[NSURLConnection connectionWithRequest:[self RPCRequestWithMethodName:@"set_xmlrpc_size_limit" view:nil andParams:@[@(fileData.base64Encoding.length + 1280)]] delegate:self];
+	return [self RPCRequestWithMethodName:@"load_raw_start" view:nil andParams:@[fileData]];
 }
 
 - (NSString *)getUserFriendlyAppendString
@@ -171,7 +193,7 @@ enum
 
 - (BOOL)receivedSuccessConditional:(NSData *)response
 {
-	return [response.toUTF8String rangeOfString:@"<fault>"].location == NSNotFound && [response.toUTF8String rangeOfString:@"<title>404 Not Found</title>"].location == NSNotFound;
+	return [response.toUTF8String rangeOfString:@"<title>404 Not Found</title>"].location == NSNotFound;
 }
 
 - (NSURLRequest *)virtualPauseTorrent:(NSString *)hash

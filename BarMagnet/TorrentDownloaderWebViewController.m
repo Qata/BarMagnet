@@ -15,6 +15,7 @@
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
+	[NSHTTPCookieStorage sharedHTTPCookieStorage].cookieAcceptPolicy = NSHTTPCookieAcceptPolicyAlways;
 	[TorrentDelegate.sharedInstance.currentlySelectedClient showNotification:self.navigationController];
 	self.torrentData = NSMutableData.new;
 	self.adKeys = [NSDictionary dictionaryWithContentsOfFile:[NSBundle.mainBundle pathForResource:@"AdBlocker" ofType:@"plist"]][@"ads"];

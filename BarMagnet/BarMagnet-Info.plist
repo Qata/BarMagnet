@@ -55,7 +55,9 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>3</string>
+	<string>4</string>
+	<key>Default New Server</key>
+	<string>SeedStuff Seedbox</string>
 	<key>Email Address</key>
 	<string>mailto:carlo.tortorella@me.com?subject=BarMagnet%20</string>
 	<key>LSRequiresIPhoneOS</key>
