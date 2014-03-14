@@ -199,7 +199,7 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="TaI-5p-LlI"/>
                         <barButtonItem image="Gripper.png" width="32" style="plain" id="9ce-9Q-yfE">
                             <connections>
-                                <action selector="sortBy:" destination="zWV-0Y-d6N" id="VId-YO-u40"/>
+                                <action selector="sortAndOrder:" destination="zWV-0Y-d6N" id="Bqp-S4-5fE"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="azT-uy-7RU"/>

@@ -348,12 +348,12 @@
 			children = (
 				23AC2B3F175D835600FCFA71 /* TorrentJobsTableViewController.h */,
 				23AC2B40175D835600FCFA71 /* TorrentJobsTableViewController.m */,
+				232B0FA3178C356700A7B3DC /* TorrentDetailViewController.h */,
+				232B0FA4178C356700A7B3DC /* TorrentDetailViewController.m */,
 				23F3E099189F236300A8105A /* TorrentClientTableViewController.h */,
 				23F3E09A189F236300A8105A /* TorrentClientTableViewController.m */,
 				23F3E09C189F30EF00A8105A /* AddTorrentClientTableViewController.h */,
 				23F3E09D189F30EF00A8105A /* AddTorrentClientTableViewController.m */,
-				232B0FA3178C356700A7B3DC /* TorrentDetailViewController.h */,
-				232B0FA4178C356700A7B3DC /* TorrentDetailViewController.m */,
 				23B35F841894A115002F6E37 /* ScanQRCodeViewController.h */,
 				23B35F851894A115002F6E37 /* ScanQRCodeViewController.m */,
 				232AE18C1891E40100D3F018 /* QueryTableViewController.h */,
@@ -1091,7 +1091,7 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = BarMagnet;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "48C57D45-C1F7-46B8-AED0-FA42778EA269";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;

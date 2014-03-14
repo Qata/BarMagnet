@@ -11,6 +11,7 @@
 #import "ConnectionHandler.h"
 #import "TorrentDelegate.h"
 #import "TorrentJobChecker.h"
+#import "TSMessage.h"
 
 @implementation AppDelegate
 	
@@ -19,6 +20,8 @@
 #ifndef ANDROID
 	[TestFlight takeOff:@"1d15ef35-8692-4cc4-9d94-96f36bb449b6"];
 #endif
+
+	[UIApplication.sharedApplication setMinimumBackgroundFetchInterval:60];
 
 	if (![FileHandler.sharedInstance settingsValueForKey:@"sort_by"])
 	{
@@ -48,7 +51,7 @@
 			}
 		}
 	}
-    __block NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[self methodSignatureForSelector:@selector(updateConnectionStatus)]];
+    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[self methodSignatureForSelector:@selector(updateConnectionStatus)]];
 	[invocation setTarget:self];
 	[invocation setSelector:@selector(updateConnectionStatus)];
 	[[NSRunLoop mainRunLoop] addTimer:[NSTimer timerWithTimeInterval:[[FileHandler.sharedInstance settingsValueForKey:@"refresh_connection_seconds"] doubleValue] invocation:invocation repeats:YES] forMode:NSRunLoopCommonModes];
@@ -64,9 +67,20 @@
     return YES;
 }
 
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+{
+
+}
+
+- (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
+{
+	dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 6 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+		completionHandler(UIBackgroundFetchResultNewData);
+	});
+}
+
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
-    [NSNotificationCenter.defaultCenter postNotificationName:@"clear_field_notification" object:nil];
     [[TorrentDelegate sharedInstance] handleMagnet:url.absoluteString];
     return YES;
 }
@@ -88,7 +102,7 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+	[UIApplication.sharedApplication cancelAllLocalNotifications];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application

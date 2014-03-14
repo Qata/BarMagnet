@@ -204,7 +204,7 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="Sy4-hT-fsN"/>
                         <barButtonItem image="Gripper.png" style="plain" id="2Ut-1d-wAR">
                             <connections>
-                                <action selector="sortBy:" destination="EgX-EY-3Mi" id="fcl-8b-jjW"/>
+                                <action selector="sortAndOrder:" destination="EgX-EY-3Mi" id="Div-TL-jfH"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="y1D-Uw-dch"/>

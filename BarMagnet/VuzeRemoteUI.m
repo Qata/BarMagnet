@@ -54,7 +54,7 @@
 	[request setHTTPMethod:@"POST"];
 	[request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
 	
-	[request setHTTPBody:[NSJSONSerialization dataWithJSONObject:@{@"method":@"torrent-get", @"arguments":@{@"fields":@[@"hashString", @"name", @"percentDone", @"status", @"sizeWhenDone", @"downloadedEver", @"uploadedEver", @"peersGettingFromUs", @"peersSendingToUs", @"rateDownload", @"rateUpload", @"eta", @"uploadRatio", @"addedDate"]}} options:0 error:nil]];
+	[request setHTTPBody:[NSJSONSerialization dataWithJSONObject:@{@"method":@"torrent-get", @"arguments":@{@"fields":@[@"hashString", @"name", @"percentDone", @"status", @"sizeWhenDone", @"downloadedEver", @"uploadedEver", @"peersGettingFromUs", @"peersSendingToUs", @"rateDownload", @"rateUpload", @"eta", @"uploadRatio", @"addedDate", @"doneDate"]}} options:0 error:nil]];
 	
 	return request;
 }
@@ -124,7 +124,7 @@
 		}
 		
 		NSString * ETA = [dict[@"eta"] respondsToSelector:@selector(intValue)] ? [dict[@"eta"] ETAString] : @"∞";
-		[self insertTorrentJobsDictWithArray:@[dict[@"hashString"], dict[@"name"], percentDone, status, [dict[@"rateDownload"] transferRateString], [dict[@"rateUpload"] transferRateString], ETA, [dict[@"downloadedEver"] sizeString], [dict[@"uploadedEver"] sizeString], dict[@"sizeWhenDone"], dict[@"peersGettingFromUs"], dict[@"peersSendingToUs"], dict[@"rateDownload"], dict[@"rateUpload"], dict[@"uploadRatio"], dict[@"addedDate"]] intoDict:tempJobs];
+		[self insertTorrentJobsDictWithArray:@[dict[@"hashString"], dict[@"name"], percentDone, status, [dict[@"rateDownload"] transferRateString], [dict[@"rateUpload"] transferRateString], ETA, [dict[@"downloadedEver"] sizeString], [dict[@"uploadedEver"] sizeString], dict[@"sizeWhenDone"], dict[@"peersGettingFromUs"], dict[@"peersSendingToUs"], dict[@"rateDownload"], dict[@"rateUpload"], dict[@"uploadRatio"], dict[@"addedDate"], dict[@"doneDate"]] intoDict:tempJobs];
 	}
 	return tempJobs;
 }
@@ -220,6 +220,11 @@
 }
 
 - (BOOL)supportsAddedDate
+{
+	return YES;
+}
+
+- (BOOL)supportsCompletedDate
 {
 	return YES;
 }

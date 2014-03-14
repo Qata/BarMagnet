@@ -11,7 +11,9 @@
 #import "TorrentClient.h"
 
 @interface TorrentDetailViewController () <UIActionSheetDelegate>
-
+@property (nonatomic, strong) NSArray * identifierArray;
+@property (nonatomic, strong) NSDateFormatter * formatter;
+@property (nonatomic, weak) TorrentClient * client;
 @end
 
 @implementation TorrentDetailViewController
@@ -19,27 +21,26 @@
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
+	self.client = TorrentDelegate.sharedInstance.currentlySelectedClient;
+	self.formatter = NSDateFormatter.new;
+	[self.formatter setDateStyle:NSDateFormatterShortStyle];
+	[self.formatter setTimeStyle:NSDateFormatterMediumStyle];
+	self.identifierArray = @[@[@"", @"Size", @"Downloaded", @"Uploaded", @"Completed", @"Date Added", @"Date Finished"], @[@"Download", @"Upload", @"Seeds Connected", @"Peers Connected", @"Ratio", @"ETA"]];
 	hashDict = [TorrentDelegate.sharedInstance.currentlySelectedClient getJobsDict][self.hashString];
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(receiveUpdateTableNotification) name:@"update_torrent_jobs_table" object:nil];
+	self.playPauseButton.image = [UIImage imageNamed:[NSString stringWithFormat:@"UIButtonBar%@", [hashDict[@"status"] isEqualToString:@"Paused"] ? @"Play" : @"Pause"]];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
 	[self setTitle:hashDict[@"name"]];
-	identifierArray = @[@[@"", @"Size", @"Downloaded", @"Uploaded", @"Completed"], @[@"Download", @"Upload", @"Seeds Connected", @"Peers Connected", @"Ratio", @"ETA"]];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
 	self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
 	[super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-	identifierArray = nil;
-	[super viewDidDisappear:animated];
 }
 
 - (void)dealloc
@@ -49,13 +50,14 @@
 
 - (void)receiveUpdateTableNotification
 {
+	self.playPauseButton.image = [UIImage imageNamed:[NSString stringWithFormat:@"UIButtonBar%@", [hashDict[@"status"] isEqualToString:@"Paused"] ? @"Play" : @"Pause"]];
 	[self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	NSString *CellIdentifier;
-	if (![indexPath section] && ![indexPath row])
+	if (!([indexPath section] | [indexPath row]))
 	{
 		CellIdentifier = @"RegularCell";
 	}
@@ -66,9 +68,8 @@
 
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 
-	cell.textLabel.text = [[identifierArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+	cell.textLabel.text = [[self.identifierArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
 
-	double completeValue;
 	switch (indexPath.section)
 	{
 		case 0:
@@ -87,9 +88,16 @@
 					cell.detailTextLabel.text = hashDict[@"uploaded"];
 					break;
 				case 4:
-					completeValue = [[[TorrentDelegate.sharedInstance.currentlySelectedClient class] completeNumber] floatValue];
-					cell.detailTextLabel.text = [NSString stringWithFormat:@"%.1f%%", completeValue ? [hashDict[@"progress"] floatValue] / completeValue * 100 : [hashDict[@"progress"] floatValue] / [hashDict[@"size"] floatValue]];
-				default:
+				{
+					double completeValue = [self.client.class completeNumber].doubleValue;
+					cell.detailTextLabel.text = [NSString stringWithFormat:@"%.1f%%", completeValue ? [hashDict[@"progress"] doubleValue] / completeValue * 100 : [hashDict[@"progress"] doubleValue] / [hashDict[@"size"] doubleValue]];
+					break;
+				}
+				case 5:
+					cell.detailTextLabel.text = [self.formatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:[hashDict[@"dateAdded"] integerValue]]];
+					break;
+				case 6:
+					cell.detailTextLabel.text = [self.formatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:[hashDict[@"dateDone"] integerValue]]];
 					break;
 			}
 			break;
@@ -97,28 +105,24 @@
 			switch (indexPath.row)
 			{
 				case 0:
-					cell.detailTextLabel.text = hashDict[@"downloadSpeed"];
+					cell.detailTextLabel.text = [hashDict[@"downloadSpeed"] description];
 					break;
 				case 1:
-					cell.detailTextLabel.text = hashDict[@"uploadSpeed"];
+					cell.detailTextLabel.text = [hashDict[@"uploadSpeed"] description];
 					break;
 				case 2:
-					cell.detailTextLabel.text = hashDict[@"seedsConnected"];
+					cell.detailTextLabel.text = [hashDict[@"seedsConnected"] description];
 					break;
 				case 3:
-					cell.detailTextLabel.text = hashDict[@"peersConnected"];
+					cell.detailTextLabel.text = [hashDict[@"peersConnected"] description];
 					break;
 				case 4:
-					cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", hashDict[@"ratio"]];
+					cell.detailTextLabel.text = [hashDict[@"ratio"] description];
 					break;
 				case 5:
-					cell.detailTextLabel.text = hashDict[@"ETA"];
-					break;
-				default:
+					cell.detailTextLabel.text = [hashDict[@"ETA"] description];
 					break;
 			}
-			break;
-		default:
 			break;
 	}
 
@@ -127,18 +131,15 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	self.playPauseButton.image = [UIImage imageNamed:[NSString stringWithFormat:@"UIButtonBar%@", [hashDict[@"status"] isEqualToString:@"Paused"] ? @"Play" : @"Pause"]];
-
-	switch (section)
-	{
+	switch (section) {
 		case 0:
-			return 5;
+			return [self.identifierArray[section] count] - 2 + self.client.supportsAddedDate + (self.client.supportsCompletedDate && [hashDict[@"progress"] doubleValue] == [self.client.class completeNumber].doubleValue);
 			break;
-		case 1:
-			return 6;
+
+		default:
 			break;
 	}
-	return 0;
+	return [self.identifierArray[section] count];
 }
 
 - (IBAction)playPause:(id)sender

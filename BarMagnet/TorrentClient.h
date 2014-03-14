@@ -19,12 +19,10 @@ enum
 
 @interface TorrentClient : NSObject <NSURLConnectionDelegate, NSURLConnectionDataDelegate>
 {
+	TorrentFileHandler * torrentFileHandler;
 	NSDictionary * previousJobs;
 	NSMutableDictionary * torrentJobsDict;
 	NSMutableArray * notificationJobs;
-#if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
-	TorrentFileHandler * torrentFileHandler;
-#endif
 	NSString * token;
 	NSString * torrentName;
 	NSString * hashString;
@@ -33,9 +31,7 @@ enum
 	NSMutableData * jobsData;
 	BOOL hostOnline;
 }
-#if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
-@property (nonatomic, strong) UIViewController * defaultViewController;
-#endif
+
 @property (nonatomic, strong, setter = setTemporaryDeletedJobs:, getter = getTemporaryDeletedJobs) NSMutableDictionary * temporaryDeletedJobs;
 @property (nonatomic, weak, setter = showNotification:) UIViewController * notificationViewController;
 - (void)addTemporaryDeletedJob:(NSUInteger)object forKey:(NSString *)key;
@@ -55,6 +51,7 @@ enum
 - (void)willExit;
 - (BOOL)supportsMulticall;
 - (BOOL)supportsAddedDate;
+- (BOOL)supportsCompletedDate;
 - (NSString *)parseTorrentFailure:(NSData *)response;
 //-------------------------------
 
@@ -69,9 +66,7 @@ enum
 - (void)pauseAllTorrents;
 - (void)resumeAllTorrents;
 - (void)handleTorrentJobs;
-#if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
 - (void)showNotification:(UIViewController *)viewController;
-#endif
 - (void)insertTorrentJobsDictWithArray:(NSArray *)array intoDict:(NSMutableDictionary *)dict;
 
 - (NSString *)getBaseURL;

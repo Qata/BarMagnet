@@ -106,13 +106,12 @@
 - (NSDictionary *)virtualHandleTorrentJobs
 {
 	NSMutableDictionary * tempJobs = [NSMutableDictionary new];
-	
 	for (NSArray * array in [self getTorrentJobs])
 	{
 		NSInteger number = [array[4] isEqual:self.class.completeNumber] ? [array[1] intValue] | (1 << 8) : [array[1] intValue];
 		NSString * status = [self statusFromBitField:number];
 
-		[self insertTorrentJobsDictWithArray:@[array[0], array[2], array[4], status, [array[9] transferRateString], [array[8] transferRateString], [array[10] ETAString], [array[5] sizeString], [array[6] sizeString], array[3], array[12], array[14], array[9], array[8], @([array[7] integerValue] / 1000.)] intoDict:tempJobs];
+		[self insertTorrentJobsDictWithArray:@[array[0], array[2], array[4], status, [array[9] transferRateString], [array[8] transferRateString], [array[10] ETAString], [array[5] sizeString], [array[6] sizeString], array[3], array[12], array[14], array[9], array[8], @([array[7] integerValue] / 1000.), array[23], array[24]] intoDict:tempJobs];
 	}
 	return tempJobs;
 }
@@ -231,6 +230,16 @@
 	{
 		[super connectionDidFinishLoading:connection];
 	}
+}
+
+- (BOOL)supportsAddedDate
+{
+	return YES;
+}
+
+- (BOOL)supportsCompletedDate
+{
+	return YES;
 }
 
 @end

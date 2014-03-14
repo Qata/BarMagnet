@@ -30,13 +30,16 @@ enum ORDER
 	NAME,
 	SIZE,
 	RATIO,
-	DATE
+	DATE_ADDED,
+	DATE_FINISHED
 };
 
 @interface TorrentJobsTableViewController () <UIActionSheetDelegate, UIAlertViewDelegate, UISearchBarDelegate, UISearchDisplayDelegate, UIScrollViewDelegate>
 @property (nonatomic, weak) UIActionSheet * controlSheet;
 @property (nonatomic, weak) UIActionSheet * deleteTorrentSheet;
 @property (nonatomic, strong) UIActionSheet * sortBySheet;
+@property (nonatomic, strong) UIActionSheet * orderBySheet;
+@property (nonatomic, strong) UIActionSheet * sortAndOrderSheet;
 @property (nonatomic, assign) BOOL shouldRefresh;
 @property (nonatomic, strong) NSMutableArray * filteredArray;
 @property (nonatomic, strong) UILabel * header;
@@ -52,6 +55,7 @@ enum ORDER
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	[TSMessage setDefaultViewController:self];
 	[self initialiseUploadDownloadLabels];
 	[self initialiseHeader];
 	self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
@@ -97,11 +101,7 @@ enum ORDER
 - (void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
-	self.sortByDictionary = [NSMutableOrderedDictionary.alloc initWithObjects:@[@(COMPLETED), @(INCOMPLETE), @(DOWNLOAD_SPEED), @(UPLOAD_SPEED), @(ACTIVE), @(DOWNLOADING), @(SEEDING), @(PAUSED), @(NAME), @(SIZE), @(RATIO)] pairedWithKeys:@[@"Completed", @"Incomplete", @"Download Speed", @"Upload Speed", @"Active", @"Downloading", @"Seeding", @"Paused", @"Name", @"Size", @"Ratio"]];
-	if ([TorrentDelegate.sharedInstance.currentlySelectedClient supportsAddedDate])
-	{
-		[self.sortByDictionary addObject:@(DATE) pairedWithKey:@"Date Added"];
-	}
+	self.sortByDictionary = [NSMutableOrderedDictionary.alloc initWithObjects:@[@(COMPLETED), @(DATE_ADDED), @(DATE_FINISHED), @(DOWNLOAD_SPEED), @(UPLOAD_SPEED), @(ACTIVE), @(NAME), @(SIZE), @(RATIO), @(DOWNLOADING), @(SEEDING), @(PAUSED)] pairedWithKeys:@[@"Progress", @"Date Added", @"Date Finished", @"Download Speed", @"Upload Speed", @"Active", @"Name", @"Size", @"Ratio", @"Downloading", @"Seeding", @"Paused"]];
 	self.tableView.rowHeight = [[self.tableView dequeueReusableCellWithIdentifier:[FileHandler.sharedInstance settingsValueForKey:@"cell"]] frame].size.height;
 	self.searchDisplayController.searchResultsTableView.rowHeight = [[self.tableView dequeueReusableCellWithIdentifier:[FileHandler.sharedInstance settingsValueForKey:@"cell"]] frame].size.height;
 	[self receiveUpdateTableNotification];
@@ -246,7 +246,7 @@ enum ORDER
 	[[self.controlSheet = UIActionSheet.alloc initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Resume All", @"Pause All", nil] showFromToolbar:self.navigationController.toolbar];
 }
 
-- (IBAction)sortBy:(id)sender
+- (void)showSortBySheet
 {
 	self.sortBySheet = [UIActionSheet.alloc initWithTitle:@"Sort By" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
 	for (NSString * string in self.sortByDictionary.allKeys)
@@ -258,13 +258,48 @@ enum ORDER
 	[self.sortBySheet showFromToolbar:self.navigationController.toolbar];
 }
 
+- (void)showOrderBySheet
+{
+	self.orderBySheet = [UIActionSheet.alloc initWithTitle:@"Order As" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Ascending", @"Descending", nil];
+	[self.orderBySheet showFromToolbar:self.navigationController.toolbar];
+}
+
+- (IBAction)sortAndOrder:(id)sender
+{
+	self.sortAndOrderSheet = [UIActionSheet.alloc initWithTitle:@"Sort and Order" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Order As", @"Sort By", nil];
+	[self.sortAndOrderSheet showFromToolbar:self.navigationController.toolbar];
+}
+
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
 	if (buttonIndex != actionSheet.cancelButtonIndex)
 	{
-		if (actionSheet == self.sortBySheet)
+		if (actionSheet == self.sortAndOrderSheet)
+		{
+			switch (buttonIndex)
+			{	case 0:
+					[self showOrderBySheet];
+					break;
+				case 1:
+					[self showSortBySheet];
+					break;
+			}
+		}
+		else if (actionSheet == self.sortBySheet)
 		{
 			[FileHandler.sharedInstance setSettingsValue:[actionSheet buttonTitleAtIndex:buttonIndex] forKey:@"sort_by"];
+			[self.tableView reloadData];
+		}
+		else if (actionSheet == self.orderBySheet)
+		{
+			switch (buttonIndex)
+			{	case 0:
+					[FileHandler.sharedInstance setSettingsValue:@-1 forKey:@"order_by"];
+					break;
+				case 1:
+					[FileHandler.sharedInstance setSettingsValue:@1 forKey:@"order_by"];
+					break;
+			}
 			[self.tableView reloadData];
 		}
 		else if (actionSheet == self.controlSheet)
@@ -312,26 +347,15 @@ enum ORDER
 
 - (void)sortArray:(NSMutableArray *)array
 {
+	NSInteger orderBy = [[FileHandler.sharedInstance settingsValueForKey:@"order_by"] integerValue];
 	NSInteger sortBy = [self.sortByDictionary[[FileHandler.sharedInstance settingsValueForKey:@"sort_by"]] integerValue];
 	switch (sortBy)
 	{
 		case COMPLETED:
-		{
-			[array sortUsingComparator: (NSComparator)^(NSDictionary *a, NSDictionary *b){
-				NSComparisonResult res = [b[@"progress"] compare:a[@"progress"]];
-				if (res != NSOrderedSame)
-				{
-					return res;
-				}
-				return [a[@"name"] compare:b[@"name"]];
-			}];
-			break;
-		}
-
 		case INCOMPLETE:
 		{
 			[array sortUsingComparator: (NSComparator)^(NSDictionary *a, NSDictionary *b){
-				NSComparisonResult res = [a[@"progress"] compare:b[@"progress"]];
+				NSComparisonResult res = orderBy != NSOrderedAscending ? [b[@"progress"] compare:a[@"progress"]] : [a[@"progress"] compare:b[@"progress"]];
 				if (res != NSOrderedSame)
 				{
 					return res;
@@ -343,7 +367,7 @@ enum ORDER
 		case DOWNLOAD_SPEED:
 		{
 			[array sortUsingComparator:(NSComparator)^(NSDictionary *a, NSDictionary *b){
-				NSComparisonResult res = [b[@"rawDownloadSpeed"] compare:a[@"rawDownloadSpeed"]];
+				NSComparisonResult res = orderBy != NSOrderedAscending ? [b[@"rawDownloadSpeed"] compare:a[@"rawDownloadSpeed"]] : [a[@"rawDownloadSpeed"] compare:b[@"rawDownloadSpeed"]];
 				if (res != NSOrderedSame)
 				{
 					return res;
@@ -355,7 +379,7 @@ enum ORDER
 		case UPLOAD_SPEED:
 		{
 			[array sortUsingComparator:(NSComparator)^(NSDictionary *a, NSDictionary *b){
-				NSComparisonResult res = [b[@"rawUploadSpeed"] compare:a[@"rawUploadSpeed"]];
+				NSComparisonResult res = orderBy != NSOrderedAscending ? [b[@"rawUploadSpeed"] compare:a[@"rawUploadSpeed"]] : [a[@"rawUploadSpeed"] compare:b[@"rawUploadSpeed"]];
 				if (res != NSOrderedSame)
 				{
 					return res;
@@ -367,16 +391,16 @@ enum ORDER
 		case ACTIVE:
 		{
 			[array sortUsingComparator:(NSComparator)^(NSDictionary *a, NSDictionary *b){
-				if ([a[@"rawUploadSpeed"] integerValue] || [a[@"rawDownloadSpeed"] integerValue])
+				if ([a[@"rawUploadSpeed"] integerValue] | [a[@"rawDownloadSpeed"] integerValue])
 				{
-					if (!([b[@"rawUploadSpeed"] integerValue] || [b[@"rawDownloadSpeed"] integerValue]))
+					if (!([b[@"rawUploadSpeed"] integerValue] | [b[@"rawDownloadSpeed"] integerValue]))
 					{
-						return NSOrderedAscending;
+						return orderBy != NSOrderedAscending ? NSOrderedAscending : NSOrderedDescending;
 					}
 				}
-				else if ([b[@"rawUploadSpeed"] integerValue] || [b[@"rawDownloadSpeed"] integerValue])
+				else if ([b[@"rawUploadSpeed"] integerValue] | [b[@"rawDownloadSpeed"] integerValue])
 				{
-					return NSOrderedDescending;
+					return orderBy != NSOrderedAscending ? NSOrderedDescending : NSOrderedAscending;
 				}
 				return [a[@"name"] compare:b[@"name"]];
 			}];
@@ -391,21 +415,13 @@ enum ORDER
 				{
 					if (!([self.sortByDictionary[b[@"status"]] integerValue] == sortBy))
 					{
-						return NSOrderedAscending;
+						return orderBy != NSOrderedAscending ? NSOrderedAscending : NSOrderedDescending;
 					}
 				}
 				else if ([self.sortByDictionary[b[@"status"]] integerValue] == sortBy)
 				{
-					return NSOrderedDescending;
+					return orderBy != NSOrderedAscending ? NSOrderedDescending : NSOrderedAscending;
 				}
-				return [a[@"name"] compare:b[@"name"]];
-			}];
-			break;
-		}
-		default:
-		case NAME:
-		{
-			[array sortUsingComparator: (NSComparator)^(NSDictionary *a, NSDictionary *b){
 				return [a[@"name"] compare:b[@"name"]];
 			}];
 			break;
@@ -413,7 +429,7 @@ enum ORDER
 		case SIZE:
 		{
 			[array sortUsingComparator:(NSComparator)^(NSDictionary *a, NSDictionary *b){
-				NSComparisonResult res = [a[@"size"] compare:b[@"size"]];
+				NSComparisonResult res = orderBy != NSOrderedAscending ? [b[@"size"] compare:a[@"size"]] : [a[@"size"] compare:b[@"size"]];
 				if (res != NSOrderedSame)
 				{
 					return res;
@@ -425,7 +441,7 @@ enum ORDER
 		case RATIO:
 		{
 			[array sortUsingComparator:(NSComparator)^(NSDictionary *a, NSDictionary *b){
-				NSComparisonResult res = [b[@"ratio"] compare:a[@"ratio"]];
+				NSComparisonResult res = orderBy != NSOrderedAscending ? [b[@"ratio"] compare:a[@"ratio"]] : [a[@"ratio"] compare:b[@"ratio"]];
 				if (res != NSOrderedSame)
 				{
 					return res;
@@ -434,15 +450,35 @@ enum ORDER
 			}];
 			break;
 		}
-		case DATE:
+		case DATE_ADDED:
 		{
 			[array sortUsingComparator:(NSComparator)^(NSDictionary *a, NSDictionary *b){
-				NSComparisonResult res = [a[@"dateAdded"] compare:b[@"dateAdded"]];
+				NSComparisonResult res = orderBy != NSOrderedAscending ? [a[@"dateAdded"] compare:b[@"dateAdded"]] : [b[@"dateAdded"] compare:a[@"dateAdded"]];
 				if (res != NSOrderedSame)
 				{
 					return res;
 				}
 				return [a[@"name"] compare:b[@"name"]];
+			}];
+			break;
+		}
+		case DATE_FINISHED:
+		{
+			[array sortUsingComparator:(NSComparator)^(NSDictionary *a, NSDictionary *b){
+				NSComparisonResult res = orderBy != NSOrderedAscending ? [b[@"dateDone"] compare:a[@"dateDone"]] : [a[@"dateDone"] compare:b[@"dateDone"]];
+				if (res != NSOrderedSame)
+				{
+					return res;
+				}
+				return [a[@"name"] compare:b[@"name"]];
+			}];
+			break;
+		}
+		default:
+		case NAME:
+		{
+			[array sortUsingComparator: (NSComparator)^(NSDictionary *a, NSDictionary *b){
+				return orderBy != NSOrderedAscending ? [b[@"name"] compare:a[@"name"]] : [a[@"name"] compare:b[@"name"]];
 			}];
 			break;
 		}

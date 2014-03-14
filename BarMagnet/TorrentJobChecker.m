@@ -54,9 +54,6 @@ static TorrentJobChecker * sharedInstance;
 				if ([TorrentDelegate.sharedInstance.currentlySelectedClient isValidJobsData:receivedData])
 				{
 					[TorrentDelegate.sharedInstance.currentlySelectedClient setJobsData:receivedData];
-#if !TARGET_OS_IPHONE && !TARGET_IPHONE_SIMULATOR
-					[TorrentDelegate.sharedInstance.currentlySelectedClient handleTorrentJobs];
-#endif
 				}
 				else
 				{
@@ -124,7 +121,7 @@ static TorrentJobChecker * sharedInstance;
 
 			if (notification)
 			{
-				[TSMessage showNotificationInViewController:TorrentDelegate.sharedInstance.currentlySelectedClient.defaultViewController title:@"Unable to authenticate" subtitle:notification image:nil type:TSMessageNotificationTypeError duration:8 callback:nil buttonTitle:nil buttonCallback:nil atPosition:TSMessageNotificationPositionTop canBeDismissedByUser:YES];
+				[TSMessage showNotificationWithTitle:@"Unable to authenticate" subtitle:notification type:TSMessageNotificationTypeError];
 			}
 		}
 	}

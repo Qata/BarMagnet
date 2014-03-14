@@ -10,7 +10,6 @@
 
 @interface TorrentDetailViewController : UITableViewController
 {
-	NSArray * identifierArray;
 	NSDictionary * hashDict;
 	UITableView * torrentJobsView;
 	UITableView * selfView;

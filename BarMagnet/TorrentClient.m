@@ -194,6 +194,8 @@
 	switch ([array count])
 	{
 		default:
+			[torrentDict setObject:array[16] forKey:@"dateDone"];
+		case 16:
 			[torrentDict setObject:array[15] forKey:@"dateAdded"];
 		case 15:
 			[torrentDict setObject:array[14] forKey:@"ratio"];
@@ -202,9 +204,9 @@
 		case 13:
 			[torrentDict setObject:array[12] forKey:@"rawDownloadSpeed"];
 		case 12:
-			[torrentDict setObject:[NSString stringWithFormat:@"%@", array[11]] forKey:@"seedsConnected"];
+			[torrentDict setObject:[array[11] description] forKey:@"seedsConnected"];
 		case 11:
-			[torrentDict setObject:[NSString stringWithFormat:@"%@", array[10]] forKey:@"peersConnected"];
+			[torrentDict setObject:[array[10] description] forKey:@"peersConnected"];
 		case 10:
 			[torrentDict setObject:array[9] forKey:@"size"];
 		case 9:
@@ -248,9 +250,9 @@
 		{
 			[TSMessage showNotificationInViewController:self.notificationViewController title:@"Unable to add torrent" subtitle:@"Duplicate Torrent" image:nil type:TSMessageNotificationTypeError duration:TSDURATION callback:nil buttonTitle:nil buttonCallback:nil atPosition:TSMessageNotificationPositionTop canBeDismissedByUser:YES];
 		}
-		else if (self.defaultViewController)
+		else
 		{
-			[TSMessage showNotificationInViewController:self.defaultViewController title:@"Unable to add torrent" subtitle:@"Duplicate Torrent" image:nil type:TSMessageNotificationTypeError duration:TSDURATION callback:nil buttonTitle:nil buttonCallback:nil atPosition:TSMessageNotificationPositionTop canBeDismissedByUser:YES];
+			[TSMessage showNotificationWithTitle:@"Unable to add torrent" subtitle:@"Duplicate Torrent" type:TSMessageNotificationTypeError];
 		}
 #else
 		[[NotificationHandler sharedInstance] sendNotification:@"Unable to add torrent" withTextBody:@"Duplicate torrent" withCallBackURL:[self getUserFriendlyAppendedURL] andSound:NO];
@@ -284,9 +286,9 @@
 		{
 			[TSMessage showNotificationInViewController:self.notificationViewController title:@"Unable to add torrent" subtitle:@"Duplicate Torrent" image:nil type:TSMessageNotificationTypeError duration:TSDURATION callback:nil buttonTitle:nil buttonCallback:nil atPosition:TSMessageNotificationPositionTop canBeDismissedByUser:YES];
 		}
-		else if (self.defaultViewController)
+		else
 		{
-			[TSMessage showNotificationInViewController:self.defaultViewController title:@"Unable to add torrent" subtitle:@"Duplicate Torrent" image:nil type:TSMessageNotificationTypeError duration:TSDURATION callback:nil buttonTitle:nil buttonCallback:nil atPosition:TSMessageNotificationPositionTop canBeDismissedByUser:YES];
+			[TSMessage showNotificationWithTitle:@"Unable to add torrent" subtitle:@"Duplicate Torrent" type:TSMessageNotificationTypeError];
 		}
 	}
 }
@@ -347,30 +349,26 @@
 	
 	for (NSString * key in torrentJobsDict)//The key is the hash string, the object for it is a dictionary described in virtualHandleTorrentJobs
 	{
-		if ([torrentJobsDict[key] respondsToSelector:@selector(objectForKey:)] && [previousJobs[key] respondsToSelector:@selector(objectForKey:)])
+		if ([torrentJobsDict[key] respondsToSelector:@selector(objectForKey:)] && previousJobs.count)
 		{
-			if (previousJobs[key][@"progress"])
+			if (self.class.completeNumber.integerValue)
 			{
-				if ([[[self class] completeNumber] integerValue])
+				if ([torrentJobsDict[key][@"progress"] isEqual:[[self class] completeNumber]] && [previousJobs[key][@"progress"] integerValue] < self.class.completeNumber.integerValue)
 				{
-					if ([torrentJobsDict[key][@"progress"] isEqual:[[self class] completeNumber]] && [previousJobs[key][@"progress"] integerValue] < [[[self class] completeNumber] integerValue])
-					{
-						[notificationJobs addObject:torrentJobsDict[key][@"name"]];
-					}
+					[notificationJobs addObject:torrentJobsDict[key][@"name"]];
 				}
 			}
 		}
 	}
-#if !TARGET_OS_IPHONE && !TARGET_IPHONE_SIMULATOR
-	if ([notificationJobs count] > 2)
+
+	for (NSString * name in notificationJobs)
 	{
-		[[NotificationHandler sharedInstance] sendNotification:@"Torrents have finished" withTextBody:[NSString stringWithFormat:@"%li torrents finished downloading", notificationJobs.count] withCallBackURL:[self getUserFriendlyAppendedURL] andSound:YES];
+		UILocalNotification * localNotification = UILocalNotification.new;
+		localNotification.fireDate = NSDate.date;
+		localNotification.alertBody = [NSString stringWithFormat:@"%@ finished downloading", name];
+		localNotification.soundName = UILocalNotificationDefaultSoundName;
+		[UIApplication.sharedApplication scheduleLocalNotification:localNotification];
 	}
-	else if ([notificationJobs count])
-	{
-		[[NotificationHandler sharedInstance] sendNotifications:@"A torrent has finished" withTextBodies:notificationJobs withFormatString:@"\"%@\" finished downloading" withCallBackURL:[self getUserFriendlyAppendedURL] andSound:YES];
-	}
-#endif
 }
 
 - (NSOption *)getWebDataForKey:(NSString *)key
@@ -497,6 +495,11 @@
 	return NO;
 }
 
+- (BOOL)supportsCompletedDate
+{
+	return NO;
+}
+
 - (BOOL)isHostOnline
 {
 	return hostOnline;
@@ -531,9 +534,9 @@
 	{
 		[TSMessage showNotificationInViewController:self.notificationViewController title:@"An error occurred" subtitle:notification image:nil type:TSMessageNotificationTypeError duration:TSDURATION callback:nil buttonTitle:nil buttonCallback:nil atPosition:TSMessageNotificationPositionTop canBeDismissedByUser:YES];
 	}
-	else if (self.defaultViewController)
+	else
 	{
-		[TSMessage showNotificationInViewController:self.defaultViewController title:@"An error occurred" subtitle:notification image:nil type:TSMessageNotificationTypeError duration:TSDURATION callback:nil buttonTitle:nil buttonCallback:nil atPosition:TSMessageNotificationPositionTop canBeDismissedByUser:YES];
+		[TSMessage showNotificationWithTitle:@"An error occurred" subtitle:notification type:TSMessageNotificationTypeError];
 	}
 #else
 	[[NotificationHandler sharedInstance] sendNotification:@"An error occurred" withTextBody:[notification sentenceParsedString] withCallBackURL:nil andSound:NO];
@@ -560,9 +563,9 @@
 		{
 			[TSMessage showNotificationInViewController:self.notificationViewController title:@"An error occurred" subtitle:[[self parseTorrentFailure:responseData] sentenceParsedString] image:nil type:TSMessageNotificationTypeError duration:TSDURATION callback:^(void){} buttonTitle:nil buttonCallback:nil atPosition:TSMessageNotificationPositionTop canBeDismissedByUser:YES];
 		}
-		else if (self.defaultViewController)
+		else
 		{
-			[TSMessage showNotificationInViewController:self.defaultViewController title:@"An error occurred" subtitle:[[self parseTorrentFailure:responseData] sentenceParsedString] image:nil type:TSMessageNotificationTypeError duration:TSDURATION callback:nil buttonTitle:nil buttonCallback:nil atPosition:TSMessageNotificationPositionTop canBeDismissedByUser:YES];
+			[TSMessage showNotificationWithTitle:@"An error occurred" subtitle:[[self parseTorrentFailure:responseData] sentenceParsedString] type:TSMessageNotificationTypeError];
 		}
 #else
 		[[NotificationHandler sharedInstance] sendNotification:@"An error occurred" withTextBody:[[self parseTorrentFailure:responseData] sentenceParsedString] withCallBackURL:nil andSound:NO];
@@ -575,9 +578,9 @@
 		{
 			[TSMessage showNotificationInViewController:self.notificationViewController title:@"An error occurred" subtitle:@"No error info provided, are you sure that's the right port?" image:nil type:TSMessageNotificationTypeError duration:TSDURATION callback:nil buttonTitle:nil buttonCallback:nil atPosition:TSMessageNotificationPositionTop canBeDismissedByUser:YES];
 		}
-		else if (self.defaultViewController)
+		else
 		{
-			[TSMessage showNotificationInViewController:self.notificationViewController title:@"An error occurred" subtitle:@"No error info provided, are you sure that's the right port?" image:nil type:TSMessageNotificationTypeError duration:TSDURATION callback:nil buttonTitle:nil buttonCallback:nil atPosition:TSMessageNotificationPositionTop canBeDismissedByUser:YES];
+			[TSMessage showNotificationWithTitle:@"An error occurred" subtitle:@"No error info provided, are you sure that's the right port?" type:TSMessageNotificationTypeError];
 		}
 #else
 		[[NotificationHandler sharedInstance] sendNotification:@"An error occurred" withTextBody:@"No error info provided, are you sure that's the right port?" withCallBackURL:nil andSound:NO];

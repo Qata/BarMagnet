@@ -60,7 +60,7 @@
 	[request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
 	[request setValue:localToken forHTTPHeaderField:@"X-Transmission-Session-Id"];
 	
-	[request setHTTPBody:[NSJSONSerialization dataWithJSONObject:@{@"method":@"torrent-get", @"arguments":@{@"fields":@[@"hashString", @"name", @"percentDone", @"status", @"sizeWhenDone", @"downloadedEver", @"uploadedEver", @"peersGettingFromUs", @"peersSendingToUs", @"rateDownload", @"rateUpload", @"eta", @"uploadRatio", @"addedDate"]}} options:0 error:nil]];
+	[request setHTTPBody:[NSJSONSerialization dataWithJSONObject:@{@"method":@"torrent-get", @"arguments":@{@"fields":@[@"hashString", @"name", @"percentDone", @"status", @"sizeWhenDone", @"downloadedEver", @"uploadedEver", @"peersGettingFromUs", @"peersSendingToUs", @"rateDownload", @"rateUpload", @"eta", @"uploadRatio", @"addedDate", @"doneDate"]}} options:0 error:nil]];
 	
 	return request;
 }
@@ -109,7 +109,7 @@
 		NSString * ETA = [dict[@"eta"] intValue] != -2 ? [dict[@"eta"] ETAString] : @"∞";
 		if (dict[@"hashString"])
 		{
-			[self insertTorrentJobsDictWithArray:@[dict[@"hashString"], dict[@"name"], dict[@"percentDone"], status, [dict[@"rateDownload"] transferRateString], [dict[@"rateUpload"] transferRateString], ETA, [dict[@"downloadedEver"] sizeString], [dict[@"uploadedEver"] sizeString], dict[@"sizeWhenDone"], dict[@"peersGettingFromUs"], dict[@"peersSendingToUs"], dict[@"rateDownload"], dict[@"rateUpload"], dict[@"uploadRatio"], dict[@"addedDate"]] intoDict:tempJobs];
+			[self insertTorrentJobsDictWithArray:@[dict[@"hashString"], dict[@"name"], dict[@"percentDone"], status, [dict[@"rateDownload"] transferRateString], [dict[@"rateUpload"] transferRateString], ETA, [dict[@"downloadedEver"] sizeString], [dict[@"uploadedEver"] sizeString], dict[@"sizeWhenDone"], dict[@"peersGettingFromUs"], dict[@"peersSendingToUs"], dict[@"rateDownload"], dict[@"rateUpload"], dict[@"uploadRatio"], dict[@"addedDate"], dict[@"doneDate"]] intoDict:tempJobs];
 		}
 	}
 	
@@ -225,8 +225,8 @@
 {
 	if ([[responseData toUTF8String] rangeOfString:@"X-Transmission-Session-Id"].location != NSNotFound && storedRequest)
 	{
-		[storedRequest setValue:[[responseData toUTF8String] getStringBetween:@"X-Transmission-Session-Id: " andString:@"</code>"] forHTTPHeaderField:@"X-Transmission-Session-Id"];
-		responseData = [NSMutableData new];
+		[storedRequest setValue:[responseData.toUTF8String getStringBetween:@"X-Transmission-Session-Id: " andString:@"</code>"] forHTTPHeaderField:@"X-Transmission-Session-Id"];
+		responseData = NSMutableData.new;
 		theConnection = [NSURLConnection connectionWithRequest:storedRequest delegate:self];
 		storedRequest = nil;
 	}
@@ -242,6 +242,11 @@
 }
 
 - (BOOL)supportsAddedDate
+{
+	return YES;
+}
+
+- (BOOL)supportsCompletedDate
 {
 	return YES;
 }
