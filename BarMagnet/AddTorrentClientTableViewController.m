@@ -61,7 +61,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
-
+	[self.navigationController setToolbarHidden:NO animated:NO];
 	for (UITextField * field in self.fields = @[self.nameField, self.hostnameField, self.usernameField, self.passwordField, self.portField, self.directoryField, self.labelField, self.relativePathField])
 	{
 		field.delegate = self;

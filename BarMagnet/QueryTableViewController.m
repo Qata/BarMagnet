@@ -89,6 +89,12 @@
 	[super viewWillDisappear:animated];
 }
 
+- (void)viewDidDisappear:(BOOL)animated
+{
+	self.editing = NO;
+	[super viewDidDisappear:animated];
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
 	return 3;

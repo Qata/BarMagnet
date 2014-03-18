@@ -21,7 +21,10 @@
 	[TestFlight takeOff:@"1d15ef35-8692-4cc4-9d94-96f36bb449b6"];
 #endif
 
-	[UIApplication.sharedApplication setMinimumBackgroundFetchInterval:60];
+	if ([UIApplication.sharedApplication respondsToSelector:@selector(setMinimumBackgroundFetchInterval:)])
+	{
+		[UIApplication.sharedApplication setMinimumBackgroundFetchInterval:60];
+	}
 
 	if (![FileHandler.sharedInstance settingsValueForKey:@"sort_by"])
 	{

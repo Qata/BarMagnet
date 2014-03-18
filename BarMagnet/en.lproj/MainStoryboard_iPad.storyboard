@@ -935,7 +935,7 @@ e.g. "www.google.com"</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="bg3-Ub-Tkb">
-                                                    <rect key="frame" x="125.00000109002727" y="7" width="623" height="30"/>
+                                                    <rect key="frame" x="125.00000132582727" y="7" width="623" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
@@ -961,7 +961,7 @@ e.g. "www.google.com"</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="YKc-7G-fW6">
-                                                    <rect key="frame" x="125.00000109002727" y="7" width="623" height="30"/>
+                                                    <rect key="frame" x="125.00000132582727" y="7" width="623" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="URL" returnKeyType="done"/>
@@ -1051,7 +1051,7 @@ e.g. "www.google.com"</string>
         <!--Torrent Client Table View Controller - Torrent Clients-->
         <scene sceneID="fcS-0t-bbS">
             <objects>
-                <tableViewController id="zGD-MZ-XW7" customClass="TorrentClientTableViewController" sceneMemberID="viewController">
+                <tableViewController hidesBottomBarWhenPushed="YES" id="zGD-MZ-XW7" customClass="TorrentClientTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="OlY-Ju-HZS">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1474,8 +1474,8 @@ To find out more, click this message.</string>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="hdS-2a-XoL"/>
         <segue reference="maJ-aJ-Lme"/>
-        <segue reference="1WP-t6-bNH"/>
+        <segue reference="hdS-2a-XoL"/>
+        <segue reference="yg3-9e-AYi"/>
     </inferredMetricsTieBreakers>
 </document>

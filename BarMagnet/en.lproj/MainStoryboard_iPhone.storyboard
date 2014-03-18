@@ -521,7 +521,7 @@
         <!--Query Table View Controller - Add Torrents-->
         <scene sceneID="di2-T2-cKm">
             <objects>
-                <tableViewController id="cRV-aG-tb4" customClass="QueryTableViewController" sceneMemberID="viewController">
+                <tableViewController hidesBottomBarWhenPushed="YES" id="cRV-aG-tb4" customClass="QueryTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Ptx-Qp-Axa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -586,7 +586,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KZb-pg-xei" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1739" y="-813"/>
+            <point key="canvasLocation" x="1739" y="-812"/>
         </scene>
         <!--ScanQR Code View Controller - Scan QR Code-->
         <scene sceneID="KGQ-V5-G9R">
@@ -715,7 +715,7 @@
         <!--Torrent Client Table View Controller - Torrent Clients-->
         <scene sceneID="baF-Pl-2JK">
             <objects>
-                <tableViewController id="UrW-6h-1as" customClass="TorrentClientTableViewController" sceneMemberID="viewController">
+                <tableViewController hidesBottomBarWhenPushed="YES" id="UrW-6h-1as" customClass="TorrentClientTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="m1h-Kd-uiB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1436,8 +1436,8 @@ e.g. "http://www.google.com/q=%query%"</string>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="0D0-mW-kOm"/>
         <segue reference="XYV-ub-VqM"/>
+        <segue reference="0D0-mW-kOm"/>
         <segue reference="WgM-5F-Elv"/>
     </inferredMetricsTieBreakers>
 </document>

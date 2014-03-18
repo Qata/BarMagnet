@@ -43,6 +43,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
+	[self.navigationController setToolbarHidden:YES animated:NO];
 	[self selectCurrentClient];
 	[self.tableView reloadData];
 }

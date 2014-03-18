@@ -345,6 +345,12 @@ enum ORDER
 	}
 }
 
+- (NSComparisonResult)orderBy:(NSComparisonResult)orderBy comparing:(NSDictionary *)a with:(NSDictionary *)b usingKey:(NSString *)key
+{
+	NSComparisonResult res = orderBy != NSOrderedAscending ? [a[key] compare:b[key]] : [b[key] compare:a[key]];
+	return res != NSOrderedSame ? res : [a[@"name"] compare:b[@"name"]];
+}
+
 - (void)sortArray:(NSMutableArray *)array
 {
 	NSInteger orderBy = [[FileHandler.sharedInstance settingsValueForKey:@"order_by"] integerValue];
@@ -355,36 +361,21 @@ enum ORDER
 		case INCOMPLETE:
 		{
 			[array sortUsingComparator: (NSComparator)^(NSDictionary *a, NSDictionary *b){
-				NSComparisonResult res = orderBy != NSOrderedAscending ? [b[@"progress"] compare:a[@"progress"]] : [a[@"progress"] compare:b[@"progress"]];
-				if (res != NSOrderedSame)
-				{
-					return res;
-				}
-				return [a[@"name"] compare:b[@"name"]];
+				return [self orderBy:orderBy comparing:b with:a usingKey:@"progress"];
 			}];
 			break;
 		}
 		case DOWNLOAD_SPEED:
 		{
 			[array sortUsingComparator:(NSComparator)^(NSDictionary *a, NSDictionary *b){
-				NSComparisonResult res = orderBy != NSOrderedAscending ? [b[@"rawDownloadSpeed"] compare:a[@"rawDownloadSpeed"]] : [a[@"rawDownloadSpeed"] compare:b[@"rawDownloadSpeed"]];
-				if (res != NSOrderedSame)
-				{
-					return res;
-				}
-				return [a[@"name"] compare:b[@"name"]];
+				return [self orderBy:orderBy comparing:b with:a usingKey:@"rawDownloadSpeed"];
 			}];
 			break;
 		}
 		case UPLOAD_SPEED:
 		{
 			[array sortUsingComparator:(NSComparator)^(NSDictionary *a, NSDictionary *b){
-				NSComparisonResult res = orderBy != NSOrderedAscending ? [b[@"rawUploadSpeed"] compare:a[@"rawUploadSpeed"]] : [a[@"rawUploadSpeed"] compare:b[@"rawUploadSpeed"]];
-				if (res != NSOrderedSame)
-				{
-					return res;
-				}
-				return [a[@"name"] compare:b[@"name"]];
+				return [self orderBy:orderBy comparing:b with:a usingKey:@"rawUploadSpeed"];
 			}];
 			break;
 		}
@@ -429,48 +420,28 @@ enum ORDER
 		case SIZE:
 		{
 			[array sortUsingComparator:(NSComparator)^(NSDictionary *a, NSDictionary *b){
-				NSComparisonResult res = orderBy != NSOrderedAscending ? [b[@"size"] compare:a[@"size"]] : [a[@"size"] compare:b[@"size"]];
-				if (res != NSOrderedSame)
-				{
-					return res;
-				}
-				return [a[@"name"] compare:b[@"name"]];
+				return [self orderBy:orderBy comparing:b with:a usingKey:@"size"];
 			}];
 			break;
 		}
 		case RATIO:
 		{
 			[array sortUsingComparator:(NSComparator)^(NSDictionary *a, NSDictionary *b){
-				NSComparisonResult res = orderBy != NSOrderedAscending ? [b[@"ratio"] compare:a[@"ratio"]] : [a[@"ratio"] compare:b[@"ratio"]];
-				if (res != NSOrderedSame)
-				{
-					return res;
-				}
-				return [a[@"name"] compare:b[@"name"]];
+				return [self orderBy:orderBy comparing:b with:a usingKey:@"ratio"];
 			}];
 			break;
 		}
 		case DATE_ADDED:
 		{
 			[array sortUsingComparator:(NSComparator)^(NSDictionary *a, NSDictionary *b){
-				NSComparisonResult res = orderBy != NSOrderedAscending ? [a[@"dateAdded"] compare:b[@"dateAdded"]] : [b[@"dateAdded"] compare:a[@"dateAdded"]];
-				if (res != NSOrderedSame)
-				{
-					return res;
-				}
-				return [a[@"name"] compare:b[@"name"]];
+				return [self orderBy:orderBy comparing:b with:a usingKey:@"dateAdded"];
 			}];
 			break;
 		}
 		case DATE_FINISHED:
 		{
 			[array sortUsingComparator:(NSComparator)^(NSDictionary *a, NSDictionary *b){
-				NSComparisonResult res = orderBy != NSOrderedAscending ? [b[@"dateDone"] compare:a[@"dateDone"]] : [a[@"dateDone"] compare:b[@"dateDone"]];
-				if (res != NSOrderedSame)
-				{
-					return res;
-				}
-				return [a[@"name"] compare:b[@"name"]];
+				return [self orderBy:orderBy comparing:b with:a usingKey:@"dateDone"];
 			}];
 			break;
 		}
