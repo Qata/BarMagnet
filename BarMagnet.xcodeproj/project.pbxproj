@@ -827,6 +827,7 @@
 				238A94CE17A121630081EF6D /* NotificationBackgroundWarningIcon@2x.png in Resources */,
 				235527591871718300A9E6BC /* UIButtonBarPlay.png in Resources */,
 				23B84F0F17B60F4F008C9D17 /* MainStoryboard_iPad.storyboard in Resources */,
+				2351200A1769C49000A3DE2C /* MainStoryboard_iPhone.storyboard in Resources */,
 				23552768187285B200A9E6BC /* TSMessagesDefaultDesign.json in Resources */,
 				23F0378418C153BD00B4D289 /* SVWebViewControllerActivitySafari@2x.png in Resources */,
 				237570B51877B874008217BF /* Gripper.png in Resources */,
@@ -841,7 +842,6 @@
 				235527571871718300A9E6BC /* UIButtonBarPause.png in Resources */,
 				23F0378218C153BD00B4D289 /* SVWebViewControllerActivitySafari-iPad@2x.png in Resources */,
 				23F0377B18C153BD00B4D289 /* SVWebViewController.bundle in Resources */,
-				2351200A1769C49000A3DE2C /* MainStoryboard_iPhone.storyboard in Resources */,
 				23E60FB71876D20400D2068B /* PlayPause.png in Resources */,
 				23F0378018C153BD00B4D289 /* SVWebViewControllerActivityChrome@2x.png in Resources */,
 				238A94C917A121630081EF6D /* NotificationBackgroundSuccessIcon.png in Resources */,
@@ -1091,7 +1091,7 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = BarMagnet;
-				PROVISIONING_PROFILE = "48C57D45-C1F7-46B8-AED0-FA42778EA269";
+				PROVISIONING_PROFILE = "C013D4E2-1878-474A-A1D4-884BFA080850";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;

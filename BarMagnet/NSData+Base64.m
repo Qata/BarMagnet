@@ -34,7 +34,7 @@ static unsigned char strToChar (char a, char b)
 	encoder[1] = b;
 	return (char) strtol(encoder,NULL,16);
 }
-static const char *const digits = "0123456789abcdef";
+//static const char *const digits = "0123456789abcdef";
 
 @implementation NSData (Hex)
 + (NSData *) dataFromHexidecimal: (NSString *)hexString

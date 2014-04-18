@@ -138,14 +138,14 @@
     self = [super init];
     if (self) {
         
-        int numberOfSections = [tableView numberOfSections];
+        NSInteger numberOfSections = [tableView numberOfSections];
         self.sections = [[NSMutableArray alloc] initWithCapacity:numberOfSections];
         
         int totalNumberOfRows = 0;
         for (int i = 0; i < numberOfSections; ++i) {
             OriginalSection * originalSection = [OriginalSection new];
             
-            int numberOfRows = [tableView numberOfRowsInSection:i];
+            NSInteger numberOfRows = [tableView numberOfRowsInSection:i];
             totalNumberOfRows += numberOfRows;
             originalSection.rows = [[NSMutableArray alloc] initWithCapacity:numberOfRows];
             for (int ii = 0; ii < numberOfRows; ++ii) {

@@ -45,13 +45,13 @@
     [super viewDidLoad];
 	if (!self.clientDictionary)
 	{
-		self.navigationItem.leftBarButtonItem = [UIBarButtonItem.alloc initWithTitle:@"Cancel" style:UIBarButtonSystemItemCancel target:self action:@selector(dismiss)];
+		self.navigationItem.leftBarButtonItem = [UIBarButtonItem.alloc initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(dismiss)];
 	}
 	else
 	{
 		self.title = @"Edit Client";
 	}
-	self.navigationItem.rightBarButtonItem = [UIBarButtonItem.alloc initWithTitle:@"Save" style:UIBarButtonSystemItemSave target:self action:@selector(save)];
+	self.navigationItem.rightBarButtonItem = [UIBarButtonItem.alloc initWithTitle:@"Save" style:UIBarButtonItemStyleDone target:self action:@selector(save)];
 	self.cellNames = @[@"Pretty", @"Compact", @"Fast"];
     self.sortedArray = [[TorrentDelegate.sharedInstance.torrentDelegates allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
     [self.pickerView selectRow:[self.sortedArray indexOfObject:[SeedStuffSeedbox.class name]] inComponent:0 animated:NO];

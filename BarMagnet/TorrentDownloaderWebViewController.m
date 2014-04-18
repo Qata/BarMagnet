@@ -95,7 +95,7 @@
 {
 	if ([super respondsToSelector:@selector(webView)])
 	{
-		[[UIAlertView.alloc initWithTitle:self.webView.request.URL.absoluteString message:nil delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil] show];
+		[[UIAlertView.alloc initWithTitle:self.webView.request.URL.absoluteString message:nil delegate:nil cancelButtonTitle:@"Indeed" otherButtonTitles:nil] show];
 	}
 }
 
