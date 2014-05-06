@@ -12,8 +12,25 @@
 #import "TorrentDelegate.h"
 #import "TorrentJobChecker.h"
 #import "TSMessage.h"
+#import <CoreMotion/CoreMotion.h>
+
+
+@import AudioToolbox;
+
+@interface AppDelegate ()
+@property (nonatomic, strong) CMMotionManager * motionManager;
+@end
 
 @implementation AppDelegate
+
+- (id)init
+{
+	if (self = [super init])
+	{
+		self.motionManager = [CMMotionManager new];
+	}
+	return self;
+}
 	
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -125,4 +142,7 @@
 	[[TorrentJobChecker sharedInstance] performSelectorInBackground:@selector(connectionCheckInvocation) withObject:nil];
 	[[TorrentJobChecker sharedInstance] performSelectorInBackground:@selector(jobCheckInvocation) withObject:nil];
 }
+
+
+
 @end

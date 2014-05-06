@@ -172,7 +172,7 @@ enum
 
 - (NSURLRequest *)virtualHandleMagnetLink:(NSString *)magnetLink
 {
-	return [self RPCRequestWithMethodName:@"load_start" view:nil andParams:@[[magnetLink componentsSeparatedByString:@"&"].firstObject]];
+	return [self RPCRequestWithMethodName:@"load_start" view:nil andParams:@[[magnetLink stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"]]];
 }
 
 - (NSURLRequest *)virtualHandleTorrentFile:(NSData *)fileData withURL:(NSURL *)fileURL
