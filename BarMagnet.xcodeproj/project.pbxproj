@@ -41,7 +41,6 @@
 		237570B21877B742008217BF /* UIButtonBarStop@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 237570B01877B742008217BF /* UIButtonBarStop@2x.png */; };
 		237570B51877B874008217BF /* Gripper.png in Resources */ = {isa = PBXBuildFile; fileRef = 237570B31877B874008217BF /* Gripper.png */; };
 		237570B61877B874008217BF /* Gripper@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 237570B41877B874008217BF /* Gripper@2x.png */; };
-		237CB5171913680D00C470D0 /* WilhelmScream.wav in Resources */ = {isa = PBXBuildFile; fileRef = 237CB5161913680D00C470D0 /* WilhelmScream.wav */; };
 		238A94C117A121630081EF6D /* NotificationBackgroundError.png in Resources */ = {isa = PBXBuildFile; fileRef = 238A94A417A121630081EF6D /* NotificationBackgroundError.png */; };
 		238A94C217A121630081EF6D /* NotificationBackgroundError@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 238A94A517A121630081EF6D /* NotificationBackgroundError@2x.png */; };
 		238A94C317A121630081EF6D /* NotificationBackgroundErrorIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 238A94A617A121630081EF6D /* NotificationBackgroundErrorIcon.png */; };
@@ -190,7 +189,6 @@
 		237570B01877B742008217BF /* UIButtonBarStop@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIButtonBarStop@2x.png"; sourceTree = "<group>"; };
 		237570B31877B874008217BF /* Gripper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gripper.png; sourceTree = "<group>"; };
 		237570B41877B874008217BF /* Gripper@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Gripper@2x.png"; sourceTree = "<group>"; };
-		237CB5161913680D00C470D0 /* WilhelmScream.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = WilhelmScream.wav; path = ../../../Downloads/WilhelmScream.wav; sourceTree = "<group>"; };
 		238A949817A121630081EF6D /* TSMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSMessage.h; sourceTree = "<group>"; };
 		238A94A417A121630081EF6D /* NotificationBackgroundError.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundError.png; sourceTree = "<group>"; };
 		238A94A517A121630081EF6D /* NotificationBackgroundError@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundError@2x.png"; sourceTree = "<group>"; };
@@ -533,7 +531,6 @@
 		23AC2B28175D835600FCFA71 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				237CB5161913680D00C470D0 /* WilhelmScream.wav */,
 				23AC2B29175D835600FCFA71 /* BarMagnet-Info.plist */,
 				2346A5A318A8C2F0005EE9C0 /* AdBlocker.plist */,
 				23AC2B2A175D835600FCFA71 /* InfoPlist.strings */,
@@ -843,7 +840,6 @@
 				238A94C717A121630081EF6D /* NotificationBackgroundSuccess.png in Resources */,
 				2363424218C485A700F66225 /* LICENSE.txt in Resources */,
 				235527571871718300A9E6BC /* UIButtonBarPause.png in Resources */,
-				237CB5171913680D00C470D0 /* WilhelmScream.wav in Resources */,
 				23F0378218C153BD00B4D289 /* SVWebViewControllerActivitySafari-iPad@2x.png in Resources */,
 				23F0377B18C153BD00B4D289 /* SVWebViewController.bundle in Resources */,
 				23E60FB71876D20400D2068B /* PlayPause.png in Resources */,
