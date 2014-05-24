@@ -14,30 +14,13 @@
 #import "TSMessage.h"
 #import <CoreMotion/CoreMotion.h>
 
-
-@import AudioToolbox;
-
-@interface AppDelegate ()
-@property (nonatomic, strong) CMMotionManager * motionManager;
-@end
-
 @implementation AppDelegate
-
-- (id)init
-{
-	if (self = [super init])
-	{
-		self.motionManager = [CMMotionManager new];
-	}
-	return self;
-}
 	
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 #ifndef ANDROID
 	[TestFlight takeOff:@"1d15ef35-8692-4cc4-9d94-96f36bb449b6"];
 #endif
-
 	if ([UIApplication.sharedApplication respondsToSelector:@selector(setMinimumBackgroundFetchInterval:)])
 	{
 		[UIApplication.sharedApplication setMinimumBackgroundFetchInterval:60];

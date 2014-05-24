@@ -547,18 +547,13 @@
 {
 	if ([self receivedSuccessConditional:responseData])
 	{
-#if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
 		if (self.notificationViewController)
 		{
 			[TSMessage showNotificationInViewController:self.notificationViewController title:@"Torrent added successfully" subtitle:torrentName image:nil type:TSMessageNotificationTypeSuccess duration:TSDURATION callback:nil buttonTitle:nil buttonCallback:nil atPosition:TSMessageNotificationPositionTop canBeDismissedByUser:YES];
 		}
-#else
-        [[NotificationHandler sharedInstance] sendNotification:@"Torrent added successfully" withTextBody:torrentName withCallBackURL:[self getUserFriendlyAppendedURL] andSound:NO];
-#endif
 	}
 	else if ([[responseData toUTF8String] length] > 1)
 	{
-#if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
 		if (self.notificationViewController)
 		{
 			[TSMessage showNotificationInViewController:self.notificationViewController title:@"An error occurred" subtitle:[[self parseTorrentFailure:responseData] sentenceParsedString] image:nil type:TSMessageNotificationTypeError duration:TSDURATION callback:^(void){} buttonTitle:nil buttonCallback:nil atPosition:TSMessageNotificationPositionTop canBeDismissedByUser:YES];
@@ -567,13 +562,9 @@
 		{
 			[TSMessage showNotificationWithTitle:@"An error occurred" subtitle:[[self parseTorrentFailure:responseData] sentenceParsedString] type:TSMessageNotificationTypeError];
 		}
-#else
-		[[NotificationHandler sharedInstance] sendNotification:@"An error occurred" withTextBody:[[self parseTorrentFailure:responseData] sentenceParsedString] withCallBackURL:nil andSound:NO];
-#endif
 	}
 	else
 	{
-#if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
 		if (self.notificationViewController)
 		{
 			[TSMessage showNotificationInViewController:self.notificationViewController title:@"An error occurred" subtitle:@"No error info provided, are you sure that's the right port?" image:nil type:TSMessageNotificationTypeError duration:TSDURATION callback:nil buttonTitle:nil buttonCallback:nil atPosition:TSMessageNotificationPositionTop canBeDismissedByUser:YES];
@@ -582,9 +573,6 @@
 		{
 			[TSMessage showNotificationWithTitle:@"An error occurred" subtitle:@"No error info provided, are you sure that's the right port?" type:TSMessageNotificationTypeError];
 		}
-#else
-		[[NotificationHandler sharedInstance] sendNotification:@"An error occurred" withTextBody:@"No error info provided, are you sure that's the right port?" withCallBackURL:nil andSound:NO];
-#endif
 	}
 	responseData = [NSMutableData new];
 	hashString = nil;

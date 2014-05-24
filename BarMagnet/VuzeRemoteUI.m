@@ -89,19 +89,15 @@
 				status = @"Paused";
 				break;
 			case 1:
-				status = @"Queued Checking";
+			case 3:
+			case 5:
+				status = @"Queued";
 				break;
 			case 2:
 				status = @"Checking";
 				break;
-			case 3:
-				status = @"Queued Download";
-				break;
 			case 4:
 				status = @"Downloading";
-				break;
-			case 5:
-				status = @"Queued Seed";
 				break;
 			case 6:
 				status = @"Seeding";
@@ -124,7 +120,14 @@
 		}
 		
 		NSString * ETA = [dict[@"eta"] respondsToSelector:@selector(intValue)] ? [dict[@"eta"] ETAString] : @"∞";
-		[self insertTorrentJobsDictWithArray:@[dict[@"hashString"], dict[@"name"], percentDone, status, [dict[@"rateDownload"] transferRateString], [dict[@"rateUpload"] transferRateString], ETA, [dict[@"downloadedEver"] sizeString], [dict[@"uploadedEver"] sizeString], dict[@"sizeWhenDone"], dict[@"peersGettingFromUs"], dict[@"peersSendingToUs"], dict[@"rateDownload"], dict[@"rateUpload"], dict[@"uploadRatio"], dict[@"addedDate"], dict[@"doneDate"]] intoDict:tempJobs];
+		if (dict[@"addedDate"] && dict[@"doneDate"])
+		{
+			[self insertTorrentJobsDictWithArray:@[dict[@"hashString"], dict[@"name"], percentDone, status, [dict[@"rateDownload"] transferRateString], [dict[@"rateUpload"] transferRateString], ETA, [dict[@"downloadedEver"] sizeString], [dict[@"uploadedEver"] sizeString], dict[@"sizeWhenDone"], dict[@"peersGettingFromUs"], dict[@"peersSendingToUs"], dict[@"rateDownload"], dict[@"rateUpload"], dict[@"uploadRatio"], dict[@"addedDate"], dict[@"doneDate"]] intoDict:tempJobs];
+		}
+		else
+		{
+			[self insertTorrentJobsDictWithArray:@[dict[@"hashString"], dict[@"name"], percentDone, status, [dict[@"rateDownload"] transferRateString], [dict[@"rateUpload"] transferRateString], ETA, [dict[@"downloadedEver"] sizeString], [dict[@"uploadedEver"] sizeString], dict[@"sizeWhenDone"], dict[@"peersGettingFromUs"], dict[@"peersSendingToUs"], dict[@"rateDownload"], dict[@"rateUpload"], dict[@"uploadRatio"]] intoDict:tempJobs];
+		}
 	}
 	return tempJobs;
 }
@@ -136,7 +139,7 @@
 
 - (NSString *)getURLAppendString
 {
-	return @"/vuze/rpc?json=";
+	return @"/transmission/rpc";
 }
 
 - (BOOL)receivedSuccessConditional:(NSData *)response
@@ -153,15 +156,20 @@
 	{
 		[arguments setObject:directory forKey:@"download-dir"];
 	}
-	
-	NSString * command = [[[NSJSONSerialization dataWithJSONObject:@{@"method":@"torrent-add", @"arguments":arguments} options:0 error:nil] toUTF8String] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-	NSURLRequest * request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", self.getAppendedURL, command]] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:180];
-	
+
+	NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:self.getAppendedURL] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:180];
+	[request setHTTPMethod:@"POST"];
+	[request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+	[request setHTTPBody:[NSJSONSerialization dataWithJSONObject:@{@"method":@"torrent-add", @"arguments":arguments} options:0 error:nil]];
 	return request;
 }
 
 - (NSURLRequest *)virtualHandleTorrentFile:(NSData *)fileData withURL:(NSURL *)fileURL
 {
+	NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:self.getAppendedURL]];
+	[request setHTTPMethod:@"POST"];
+	[request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+
 	NSMutableDictionary * arguments = [NSMutableDictionary dictionaryWithDictionary:@{@"metainfo":[fileData base64EncodedString]}];
 	NSString * directory = [[FileHandler.sharedInstance webDataValueForKey:@"directory" andDict:nil] orSome:@""];
 
@@ -169,8 +177,8 @@
 	{
 		[arguments setObject:directory forKey:@"download-dir"];
 	}
-	NSString * command = [[[NSJSONSerialization dataWithJSONObject:@{@"method":@"torrent-add", @"arguments":arguments} options:0 error:nil] toUTF8String] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-	NSURLRequest * request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", self.getAppendedURL, command]] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:180];
+
+	[request setHTTPBody:[NSJSONSerialization dataWithJSONObject:@{@"method":@"torrent-add", @"arguments":arguments} options:0 error:nil]];
 
 	return request;
 }
@@ -205,7 +213,6 @@
 
 - (NSString *)parseTorrentFailure:(NSData *)response
 {
-	//Bad requests are met with errors formatted with bencoding, make sure to fix this one day and show the bdecoded error
 	return @"Unable to add torrent, are you sure that's the right port?";
 }
 
