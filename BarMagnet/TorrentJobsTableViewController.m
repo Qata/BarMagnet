@@ -266,7 +266,8 @@ enum ORDER
 
 - (IBAction)sortAndOrder:(id)sender
 {
-	self.sortAndOrderSheet = [UIActionSheet.alloc initWithTitle:@"Sort and Order" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Order As", @"Sort By", nil];
+	NSInteger orderBy = [[FileHandler.sharedInstance settingsValueForKey:@"order_by"] integerValue];
+	self.sortAndOrderSheet = [UIActionSheet.alloc initWithTitle:[NSString stringWithFormat:@"%@, %@", [FileHandler.sharedInstance settingsValueForKey:@"sort_by"], orderBy != NSOrderedAscending ? @"Descending" : @"Ascending"] delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Order As", @"Sort By", nil];
 	[self.sortAndOrderSheet showFromToolbar:self.navigationController.toolbar];
 }
 
