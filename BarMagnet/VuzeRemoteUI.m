@@ -41,22 +41,26 @@
 	return NO;
 }
 
-- (NSMutableURLRequest *)HTTPRequestWithMethod:(NSString *)method andHashes:(NSArray *)hashes
+- (NSMutableURLRequest *)requestWithJSON:(NSDictionary *)JSON
 {
-	NSString * command = [[[NSJSONSerialization dataWithJSONObject:@{@"method":method, @"arguments":@{@"ids":hashes}} options:0 error:nil] toUTF8String] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-	NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", self.getAppendedURL, command]] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:180];
+	NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:self.getAppendedURL]];
+	[request setHTTPMethod:@"POST"];
+	[request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+
+	[request setHTTPBody:[NSJSONSerialization dataWithJSONObject:JSON options:0 error:nil]];
+
+	NSLog(@"%@", JSON);
 
 	return request;
 }
+
+- (NSMutableURLRequest *)HTTPRequestWithMethod:(NSString *)method andHashes:(NSArray *)hashes
+{
+	return [self requestWithJSON:@{@"method":method, @"arguments":@{@"ids":hashes}}];
+}
 - (NSMutableURLRequest *)checkTorrentJobs
 {
-	NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", [self getBaseURL], @"/transmission/rpc"]]];
-	[request setHTTPMethod:@"POST"];
-	[request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-	
-	[request setHTTPBody:[NSJSONSerialization dataWithJSONObject:@{@"method":@"torrent-get", @"arguments":@{@"fields":@[@"hashString", @"name", @"percentDone", @"status", @"sizeWhenDone", @"downloadedEver", @"uploadedEver", @"peersGettingFromUs", @"peersSendingToUs", @"rateDownload", @"rateUpload", @"eta", @"uploadRatio", @"addedDate", @"doneDate"]}} options:0 error:nil]];
-	
-	return request;
+	return [self requestWithJSON:@{@"method":@"torrent-get", @"arguments":@{@"fields":@[@"hashString", @"name", @"percentDone", @"status", @"sizeWhenDone", @"downloadedEver", @"uploadedEver", @"peersGettingFromUs", @"peersSendingToUs", @"rateDownload", @"rateUpload", @"eta", @"uploadRatio", @"addedDate", @"doneDate"]}}];
 }
 
 - (NSDictionary *)getTorrentJobs
@@ -82,7 +86,7 @@
 
 	for (NSDictionary * dict in [self getTorrentJobs])
 	{
-		NSString * status = @"";
+		NSString * status = @"Error";
 		switch ([dict[@"status"] intValue])
 		{
 			case 0:
@@ -101,9 +105,6 @@
 				break;
 			case 6:
 				status = @"Seeding";
-				break;
-			default:
-				status = @"Error";
 				break;
 		}
 		NSNumber * percentDone = @0;
@@ -157,19 +158,11 @@
 		[arguments setObject:directory forKey:@"download-dir"];
 	}
 
-	NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:self.getAppendedURL] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:180];
-	[request setHTTPMethod:@"POST"];
-	[request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-	[request setHTTPBody:[NSJSONSerialization dataWithJSONObject:@{@"method":@"torrent-add", @"arguments":arguments} options:0 error:nil]];
-	return request;
+	return [self requestWithJSON:@{@"method":@"torrent-add", @"arguments":arguments}];
 }
 
 - (NSURLRequest *)virtualHandleTorrentFile:(NSData *)fileData withURL:(NSURL *)fileURL
 {
-	NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:self.getAppendedURL]];
-	[request setHTTPMethod:@"POST"];
-	[request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-
 	NSMutableDictionary * arguments = [NSMutableDictionary dictionaryWithDictionary:@{@"metainfo":[fileData base64EncodedString]}];
 	NSString * directory = [[FileHandler.sharedInstance webDataValueForKey:@"directory" andDict:nil] orSome:@""];
 
@@ -178,9 +171,7 @@
 		[arguments setObject:directory forKey:@"download-dir"];
 	}
 
-	[request setHTTPBody:[NSJSONSerialization dataWithJSONObject:@{@"method":@"torrent-add", @"arguments":arguments} options:0 error:nil]];
-
-	return request;
+	return [self requestWithJSON:@{@"method":@"torrent-add", @"arguments":arguments}];
 }
 
 - (NSURLRequest *)virtualPauseTorrent:(NSString *)hash
@@ -205,15 +196,22 @@
 
 - (NSURLRequest *)virtualRemoveTorrent:(NSString *)hash removeData:(BOOL)removeData
 {
-	NSString * command = [[[NSJSONSerialization dataWithJSONObject:@{@"method":@"torrent-remove", @"arguments":@{@"ids":@[hash], @"delete-local-data":@(removeData)}} options:0 error:nil] toUTF8String] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-	NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", self.getAppendedURL, command]] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:180];
-
-	return request;
+	return [self requestWithJSON:@{@"method":@"torrent-remove", @"arguments":@{@"ids":@[hash], @"delete-local-data":@(removeData)}}];
 }
 
 - (NSString *)parseTorrentFailure:(NSData *)response
 {
-	return @"Unable to add torrent, are you sure that's the right port?";
+	NSError * error = nil;
+	NSDictionary * JSON = [NSJSONSerialization JSONObjectWithData:response options:0 error:&error];
+	if (!JSON || error)
+	{
+		return @"Client threw an error";
+	}
+	else if ([[JSON allKeys] containsObject:@"result"])
+	{
+		return JSON[@"result"];
+	}
+	return @"Unknown error encountered";
 }
 
 + (NSString *)defaultPort

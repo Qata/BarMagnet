@@ -28,7 +28,7 @@
 
 	if (![FileHandler.sharedInstance settingsValueForKey:@"sort_by"])
 	{
-		[FileHandler.sharedInstance setSettingsValue:@"Incomplete" forKey:@"sort_by"];
+		[FileHandler.sharedInstance setSettingsValue:@"Progress" forKey:@"sort_by"];
 	}
 	if (![FileHandler.sharedInstance settingsValueForKey:@"cell"])
 	{

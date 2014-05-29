@@ -42,7 +42,7 @@ static FileHandler * sharedInstance;
 			dict[@"refresh_connection_seconds"] = @2;
 			dict[@"notification_format"] = @"%t added to %s";
 			dict[@"query_format"] = @"google.com/search?q=%query%";
-			dict[@"sort_by"] = @"Incomplete";
+			dict[@"sort_by"] = @"Progress";
 			dict[@"cell"] = @"Pretty";
 
 			[masterDict setObject:dict forKey:@"settings"];
