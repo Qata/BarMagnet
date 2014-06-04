@@ -19,7 +19,7 @@
 		23314152177FE95E0062B0FE /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 23314150177FE95E0062B0FE /* gear.png */; };
 		23314153177FE95E0062B0FE /* gear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23314151177FE95E0062B0FE /* gear@2x.png */; };
 		233C9F9617B9E2E500405CA7 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 233C9F9517B9E2E500405CA7 /* libz.dylib */; };
-		233C9F9717B9E31100405CA7 /* libz.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 233C9F9517B9E2E500405CA7 /* libz.dylib */; };
+		233C9F9717B9E31100405CA7 /* libz.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 233C9F9517B9E2E500405CA7 /* libz.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		2346A5A418A8C2F0005EE9C0 /* AdBlocker.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2346A5A318A8C2F0005EE9C0 /* AdBlocker.plist */; };
 		2351200A1769C49000A3DE2C /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 235120071769C49000A3DE2C /* MainStoryboard_iPhone.storyboard */; };
 		235527571871718300A9E6BC /* UIButtonBarPause.png in Resources */ = {isa = PBXBuildFile; fileRef = 235527531871718300A9E6BC /* UIButtonBarPause.png */; };
@@ -744,7 +744,7 @@
 		23AC2B16175D835600FCFA71 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "Carlo Tortorella";
 				TargetAttributes = {
 					23AC2B1D175D835600FCFA71 = {

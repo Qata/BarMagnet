@@ -33,7 +33,13 @@ static FileHandler * sharedInstance;
 {
 	if (self = [super init])
 	{
-		masterDict = [[NSUserDefaults standardUserDefaults] objectForKey:@"delegates"] ? [[NSUserDefaults standardUserDefaults] objectForKey:@"delegates"] : [NSMutableDictionary new];
+		masterDict = [[[NSUserDefaults standardUserDefaults] objectForKey:@"delegates"] mutableCopy] ? [[[NSUserDefaults standardUserDefaults] objectForKey:@"delegates"] mutableCopy] : [NSMutableDictionary new];
+
+		for (NSString * key in masterDict.allKeys)
+		{
+			masterDict[key] = [masterDict[key] mutableCopy];
+		}
+
 		if (![[NSSet setWithArray:masterDict.allKeys] containsObject:@"settings"])
 		{
 			NSMutableDictionary * dict = [NSMutableDictionary dictionary];
@@ -61,7 +67,7 @@ static FileHandler * sharedInstance;
 {
 	if (value)
 	{
-		if (![masterDict.allKeys containsObject:@"settings"])
+		if (!masterDict[@"settings"])
 		{
 			masterDict[@"settings"] = NSMutableDictionary.new;
 		}

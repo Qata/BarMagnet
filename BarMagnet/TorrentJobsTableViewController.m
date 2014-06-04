@@ -34,7 +34,7 @@ enum ORDER
 	DATE_FINISHED
 };
 
-@interface TorrentJobsTableViewController () <UIActionSheetDelegate, UIAlertViewDelegate, UISearchBarDelegate, UISearchDisplayDelegate, UIScrollViewDelegate>
+@interface TorrentJobsTableViewController () <UIActionSheetDelegate, UIAlertViewDelegate, UISearchBarDelegate, UISearchDisplayDelegate, UIScrollViewDelegate, NSFileManagerDelegate>
 @property (nonatomic, weak) UIActionSheet * controlSheet;
 @property (nonatomic, weak) UIActionSheet * deleteTorrentSheet;
 @property (nonatomic, strong) UIActionSheet * sortBySheet;
