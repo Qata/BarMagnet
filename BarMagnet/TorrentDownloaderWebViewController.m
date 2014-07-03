@@ -25,6 +25,7 @@
 {
 	if ([response.MIMEType isEqualToString:@"application/x-bittorrent"])
 	{
+		[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 		self.torrentURL = response.URL;
 	}
 	else
@@ -44,6 +45,11 @@
 	self.torrentData = NSMutableData.new;
 }
 
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+}
+
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
 	NSLog(@"%@", request.URL.absoluteString);
@@ -55,13 +61,15 @@
 		}
 	}
 
-	if (request.URL.absoluteString.length > 7 && [[request.URL.absoluteString substringToIndex:7] isEqual:@"magnet:"])
+	if ([[request.URL.absoluteString componentsSeparatedByString:@":"].firstObject isEqual:@"magnet"])
 	{
+		[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 		[TorrentDelegate.sharedInstance.currentlySelectedClient handleMagnetLink:request.URL.absoluteString];
 		return NO;
 	}
-	else if (request.URL.absoluteString.length > 8 && [[request.URL.absoluteString substringFromIndex:request.URL.absoluteString.length - 8] isEqual:@".torrent"])
+	else if ([[request.URL.absoluteString componentsSeparatedByString:@"."].lastObject isEqual:@"torrent"])
 	{
+		[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 		[TorrentDelegate.sharedInstance.currentlySelectedClient handleTorrentURL:request.URL];
 		return NO;
 	}

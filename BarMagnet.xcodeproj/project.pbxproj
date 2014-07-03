@@ -41,6 +41,7 @@
 		237570B21877B742008217BF /* UIButtonBarStop@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 237570B01877B742008217BF /* UIButtonBarStop@2x.png */; };
 		237570B51877B874008217BF /* Gripper.png in Resources */ = {isa = PBXBuildFile; fileRef = 237570B31877B874008217BF /* Gripper.png */; };
 		237570B61877B874008217BF /* Gripper@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 237570B41877B874008217BF /* Gripper@2x.png */; };
+		2379763F19654AF500279520 /* ruTorrentHTTPRPC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2379763E19654AF500279520 /* ruTorrentHTTPRPC.m */; };
 		238A94C117A121630081EF6D /* NotificationBackgroundError.png in Resources */ = {isa = PBXBuildFile; fileRef = 238A94A417A121630081EF6D /* NotificationBackgroundError.png */; };
 		238A94C217A121630081EF6D /* NotificationBackgroundError@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 238A94A517A121630081EF6D /* NotificationBackgroundError@2x.png */; };
 		238A94C317A121630081EF6D /* NotificationBackgroundErrorIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 238A94A617A121630081EF6D /* NotificationBackgroundErrorIcon.png */; };
@@ -189,6 +190,8 @@
 		237570B01877B742008217BF /* UIButtonBarStop@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIButtonBarStop@2x.png"; sourceTree = "<group>"; };
 		237570B31877B874008217BF /* Gripper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gripper.png; sourceTree = "<group>"; };
 		237570B41877B874008217BF /* Gripper@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Gripper@2x.png"; sourceTree = "<group>"; };
+		2379763E19654AF500279520 /* ruTorrentHTTPRPC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ruTorrentHTTPRPC.m; sourceTree = "<group>"; };
+		2379764019654B0400279520 /* ruTorrentHTTPRPC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ruTorrentHTTPRPC.h; sourceTree = "<group>"; };
 		238A949817A121630081EF6D /* TSMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSMessage.h; sourceTree = "<group>"; };
 		238A94A417A121630081EF6D /* NotificationBackgroundError.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundError.png; sourceTree = "<group>"; };
 		238A94A517A121630081EF6D /* NotificationBackgroundError@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundError@2x.png"; sourceTree = "<group>"; };
@@ -574,6 +577,8 @@
 				23A8691818BF38D40066E383 /* qBittorrent.m */,
 				23A8691A18BF38DF0066E383 /* ruTorrent.h */,
 				23A8691B18BF38DF0066E383 /* ruTorrent.m */,
+				2379764019654B0400279520 /* ruTorrentHTTPRPC.h */,
+				2379763E19654AF500279520 /* ruTorrentHTTPRPC.m */,
 				23DF81CA18C1F4FA005BAB1C /* rTorrentXMLRPC.h */,
 				23DF81CB18C1F4FA005BAB1C /* rTorrentXMLRPC.m */,
 				23DF81CD18C2C71D005BAB1C /* SeedStuffSeedbox.h */,
@@ -891,6 +896,7 @@
 				23A8692218BF38F30066E383 /* Transmission.m in Sources */,
 				23A868FE18BF38800066E383 /* ConnectionHandler.m in Sources */,
 				23F0377A18C153BD00B4D289 /* SVModalWebViewController.m in Sources */,
+				2379763F19654AF500279520 /* ruTorrentHTTPRPC.m in Sources */,
 				235527641872568D00A9E6BC /* AboutViewController.m in Sources */,
 				232AE1911891EE7400D3F018 /* AddQueryTableViewController.m in Sources */,
 				23F0378518C153BD00B4D289 /* SVWebViewControllerActivity.m in Sources */,

@@ -348,8 +348,12 @@ enum ORDER
 
 - (NSComparisonResult)orderBy:(NSComparisonResult)orderBy comparing:(NSDictionary *)a with:(NSDictionary *)b usingKey:(NSString *)key
 {
-	NSComparisonResult res = orderBy != NSOrderedAscending ? [a[key] compare:b[key]] : [b[key] compare:a[key]];
-	return res != NSOrderedSame ? res : [a[@"name"] compare:b[@"name"]];
+	if (a[key] && b[key])
+	{
+		NSComparisonResult res = orderBy != NSOrderedAscending ? [a[key] compare:b[key]] : [b[key] compare:a[key]];
+		return res != NSOrderedSame ? res : [a[@"name"] compare:b[@"name"]];
+	}
+	return [a[@"name"] compare:b[@"name"]];
 }
 
 - (void)sortArray:(NSMutableArray *)array
@@ -523,6 +527,7 @@ enum ORDER
 		[cell.subviews.firstObject setDelegate:self];
 	}
 	NSDictionary * currentJob = nil;
+
 	if (tableView == self.searchDisplayController.searchResultsTableView)
 	{
 		currentJob = self.filteredArray[indexPath.row];

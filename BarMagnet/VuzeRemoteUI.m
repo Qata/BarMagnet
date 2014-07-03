@@ -49,8 +49,6 @@
 
 	[request setHTTPBody:[NSJSONSerialization dataWithJSONObject:JSON options:0 error:nil]];
 
-	NSLog(@"%@", JSON);
-
 	return request;
 }
 

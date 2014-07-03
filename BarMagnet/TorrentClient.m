@@ -518,6 +518,7 @@
 #pragma mark - Notification Handling
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
+	[UIApplication.sharedApplication setNetworkActivityIndicatorVisible:NO];
 	NSString * notification;
 	NSLog(@"%@, %li", error.description, (long)error.code);
 	
@@ -545,6 +546,7 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
+	[UIApplication.sharedApplication setNetworkActivityIndicatorVisible:NO];
 	if ([self receivedSuccessConditional:responseData])
 	{
 		if (self.notificationViewController)
