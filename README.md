@@ -4,7 +4,7 @@ BarMagnet is a simple torrent remote controller for iOS 5, 6 and 7.
 
 **BarMagnet features:**
 
-* Support for Deluge, qBittorrent, ruTorrent, rTorrent (XMLRPC), SeedStuff seedboxes, Synology, Transmission, Vuze (Remote UI plugin) and µTorrent.
+* Support for Deluge, qBittorrent, ruTorrent (HTTPRPC plugin), rTorrent (XMLRPC), SeedStuff seedboxes, Synology, Transmission, Vuze (Remote UI plugin) and µTorrent.
 * A query system that lets you easily search any torrent website that inserts the query into the URL, while also letting you add extra modifiers to automatically sort by whichever parameter you desire.
 * A web browser (based on SVWebViewController) that lets you add torrents to your remote server just by clicking on the magnet link or torrent file link.
 * Supports ordering by: completed, incomplete, download speed, upload speed, active, downloading, seeding, paused, name, size or ratio, but there's always room for more.

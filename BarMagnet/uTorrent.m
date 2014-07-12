@@ -10,6 +10,11 @@
 #import "FileHandler.h"
 #import "NSData+BEncode.h"
 
+@interface uTorrent () <NSXMLParserDelegate>
+@property (nonatomic, strong) NSXMLParser * parser;
+@property (nonatomic, strong) NSString * token;
+@end
+
 @implementation uTorrent
 
 + (NSString *)name
@@ -25,15 +30,7 @@
 - (BOOL)isValidJobsData:(NSData *)data
 {
 	id JSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-
-	if ([JSON respondsToSelector:@selector(allKeys)])
-	{
-		if ([[NSSet setWithArray:[JSON allKeys]] containsObject:@"torrents"])
-		{
-			return YES;
-		}
-	}
-	return NO;
+	return [JSON respondsToSelector:@selector(allKeys)] && [[NSSet setWithArray:[JSON allKeys]] containsObject:@"torrents"];
 }
 
 - (NSString *)statusFromBitField:(NSInteger)bitField
@@ -84,9 +81,19 @@
 	return [self tokenRequest];
 }
 
+- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
+{
+	self.token = string;
+}
+
 - (NSMutableURLRequest *)checkTorrentJobs
 {
-	return [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@?token=%@&list=1", [self getAppendedURL], [[NSURLConnection sendSynchronousRequest:[self tokenRequest] returningResponse:nil error:nil].toUTF8String getStringBetween:@"<div id='token' style='display:none;'>" andString:@"</div>"]]]];
+	NSData * data = [NSURLConnection sendSynchronousRequest:[self tokenRequest] returningResponse:nil error:nil];
+	self.parser = [NSXMLParser.alloc initWithData:data];
+	self.parser.delegate = self;
+	[self.parser parse];
+
+	return [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@?token=%@&list=1", self.getAppendedURL, self.token]]];
 }
 
 - (id)getTorrentJobs

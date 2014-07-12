@@ -69,7 +69,10 @@
 
 	if (self.clientDictionary)
 	{
-		[self.pickerView selectRow:[self.sortedArray indexOfObject:self.clientDictionary[@"type"]] inComponent:0 animated:NO];
+		if ([self.sortedArray containsObject:self.clientDictionary[@"type"]])
+		{
+			[self.pickerView selectRow:[self.sortedArray indexOfObject:self.clientDictionary[@"type"]] inComponent:0 animated:NO];
+		}
 		self.selectedClient = self.clientDictionary[@"type"];
 		self.nameField.text = self.clientDictionary[@"name"];
 		self.hostnameField.text = self.clientDictionary[@"url"];

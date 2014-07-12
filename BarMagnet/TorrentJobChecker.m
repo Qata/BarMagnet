@@ -48,6 +48,7 @@ static TorrentJobChecker * sharedInstance;
 		if (request)
 		{
 			[NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:request.URL.host];
+			NSLog(@"%@", request.URL.absoluteString);
 			NSData * receivedData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
 			if ([receivedData length])
 			{
