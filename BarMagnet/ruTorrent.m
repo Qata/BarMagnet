@@ -44,7 +44,7 @@ enum
 
 - (id)getTorrentJobs
 {
-	return [[NSJSONSerialization JSONObjectWithData:jobsData options:0 error:nil] objectForKey:@"torrents"];
+	return [[NSJSONSerialization JSONObjectWithData:self.jobsData options:0 error:nil] objectForKey:@"torrents"];
 }
 
 - (NSDictionary *)virtualHandleTorrentJobs

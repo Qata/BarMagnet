@@ -48,7 +48,7 @@
 
 - (id)getTorrentJobs
 {
-	id JSON = [NSJSONSerialization JSONObjectWithData:jobsData options:0 error:nil];
+	id JSON = [NSJSONSerialization JSONObjectWithData:self.jobsData options:0 error:nil];
 	if ([JSON respondsToSelector:@selector(objectForKey:)])
 	{
 		if ([[NSSet setWithArray:[JSON allKeys]] containsObject:@"result"])

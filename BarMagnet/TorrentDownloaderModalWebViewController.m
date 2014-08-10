@@ -11,23 +11,19 @@
 
 @implementation TorrentDownloaderModalWebViewController
 
-- (id)initWithURL:(NSURL *)URL
-{
-	if ([super respondsToSelector:@selector(webViewController)])
-	{
-		self.webViewController = [TorrentDownloaderWebViewController.alloc initWithURL:URL];
-		if (self = [super initWithRootViewController:self.webViewController]) {
-			UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
-																						target:self.webViewController
-																						action:@selector(doneButtonClicked:)];
+- (instancetype)initWithURLRequest:(NSURLRequest *)request {
+	self.webViewController = [[TorrentDownloaderWebViewController alloc] initWithURLRequest:request];
+	if (self = [super initWithRootViewController:self.webViewController]) {
+		UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+																					target:self.webViewController
+																					action:@selector(doneButtonTapped:)];
 
-			if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-				self.webViewController.navigationItem.leftBarButtonItem = doneButton;
-			else
-				self.webViewController.navigationItem.rightBarButtonItem = doneButton;
-		}
+		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+			self.webViewController.navigationItem.leftBarButtonItem = doneButton;
+		else
+			self.webViewController.navigationItem.rightBarButtonItem = doneButton;
 	}
-    return self;
+	return self;
 }
 
 @end

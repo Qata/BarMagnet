@@ -26,14 +26,11 @@
 {
 	if (self = [super init])
 	{
-		token = @"";
 		torrentJobsDict = [NSMutableDictionary new];
 		responseData = [NSMutableData new];
-		jobsData = [NSMutableData new];
-#if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
+		self.jobsData = [NSMutableData new];
 		torrentFileHandler = [TorrentFileHandler new];
 		_temporaryDeletedJobs = [NSMutableDictionary new];
-#endif
 	}
 	return self;
 }
@@ -463,11 +460,6 @@
 	forwardSlashRange.location = [fileName rangeOfString:@"/" options:NSBackwardsSearch].location + 1;
 	forwardSlashRange.length = [fileName length] - forwardSlashRange.location;
 	return [fileName substringWithRange:forwardSlashRange];
-}
-
-- (void)setJobsData:(NSData *)data
-{
-	[jobsData setData:data];
 }
 
 - (void)setJobsDict:(NSMutableDictionary *)dict

@@ -48,13 +48,12 @@ static TorrentJobChecker * sharedInstance;
 		if (request)
 		{
 			[NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:request.URL.host];
-			NSLog(@"%@", request.URL.absoluteString);
-			NSData * receivedData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+			NSMutableData * receivedData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil].mutableCopy;
 			if ([receivedData length])
 			{
 				if ([TorrentDelegate.sharedInstance.currentlySelectedClient isValidJobsData:receivedData])
 				{
-					[TorrentDelegate.sharedInstance.currentlySelectedClient setJobsData:receivedData];
+					TorrentDelegate.sharedInstance.currentlySelectedClient.jobsData = receivedData;
 				}
 				else
 				{

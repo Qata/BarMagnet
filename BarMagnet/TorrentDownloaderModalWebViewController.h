@@ -7,6 +7,7 @@
 //
 
 #import "SVModalWebViewController.h"
+#import "SVWebViewController.h"
 
 @interface SVModalWebViewController (WebViewController)
 @property (nonatomic, strong) SVWebViewController * webViewController;

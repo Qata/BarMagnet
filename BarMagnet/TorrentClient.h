@@ -23,15 +23,14 @@ enum
 	NSDictionary * previousJobs;
 	NSMutableDictionary * torrentJobsDict;
 	NSMutableArray * notificationJobs;
-	NSString * token;
 	NSString * torrentName;
 	NSString * hashString;
 	NSMutableData * responseData;
 	NSURLConnection * theConnection;
-	NSMutableData * jobsData;
 	BOOL hostOnline;
 }
 
+@property (nonatomic, strong) NSData * jobsData;
 @property (nonatomic, strong, setter = setTemporaryDeletedJobs:, getter = getTemporaryDeletedJobs) NSMutableDictionary * temporaryDeletedJobs;
 @property (nonatomic, weak, setter = showNotification:) UIViewController * notificationViewController;
 - (void)addTemporaryDeletedJob:(NSUInteger)object forKey:(NSString *)key;
@@ -78,7 +77,6 @@ enum
 - (NSString *)getUserFriendlyAppendedURL;
 - (NSOption *)getWebDataForKey:(NSString *)key;
 - (NSString *)parseTorrentFileName:(NSString *)fileName;
-- (void)setJobsData:(NSData *)data;
 - (void)setJobsDict:(NSMutableDictionary *)dict;
 - (void)setHostOnline:(BOOL)boolean;
 - (BOOL)isHostOnline;

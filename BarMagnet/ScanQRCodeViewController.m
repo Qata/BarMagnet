@@ -19,6 +19,7 @@
 
 - (void)viewDidLoad
 {
+	[super viewDidLoad];
 	[TorrentDelegate.sharedInstance.currentlySelectedClient showNotification:self.navigationController];
 	AVCaptureSession *session = AVCaptureSession.new;
 	AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];

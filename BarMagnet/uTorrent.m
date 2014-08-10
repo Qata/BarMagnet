@@ -11,7 +11,6 @@
 #import "NSData+BEncode.h"
 
 @interface uTorrent () <NSXMLParserDelegate>
-@property (nonatomic, strong) NSXMLParser * parser;
 @property (nonatomic, strong) NSString * token;
 @end
 
@@ -30,7 +29,7 @@
 - (BOOL)isValidJobsData:(NSData *)data
 {
 	id JSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-	return [JSON respondsToSelector:@selector(allKeys)] && [[NSSet setWithArray:[JSON allKeys]] containsObject:@"torrents"];
+	return [JSON respondsToSelector:@selector(allKeys)] && [[JSON allKeys] containsObject:@"torrents"];
 }
 
 - (NSString *)statusFromBitField:(NSInteger)bitField
@@ -89,16 +88,15 @@
 - (NSMutableURLRequest *)checkTorrentJobs
 {
 	NSData * data = [NSURLConnection sendSynchronousRequest:[self tokenRequest] returningResponse:nil error:nil];
-	self.parser = [NSXMLParser.alloc initWithData:data];
-	self.parser.delegate = self;
-	[self.parser parse];
-
+	NSXMLParser * parser = [NSXMLParser.alloc initWithData:data];
+	parser.delegate = self;
+	[parser parse];
 	return [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@?token=%@&list=1", self.getAppendedURL, self.token]]];
 }
 
 - (id)getTorrentJobs
 {
-	id JSON = [NSJSONSerialization JSONObjectWithData:jobsData options:0 error:nil];
+	id JSON = [NSJSONSerialization JSONObjectWithData:self.jobsData options:0 error:nil];
 
 	if ([JSON respondsToSelector:@selector(allKeys)])
 	{
@@ -157,6 +155,9 @@
 
 - (NSURLRequest *)virtualHandleTorrentFile:(NSData *)fileData withURL:(NSURL *)fileURL
 {
+	NSLog(@"%@", fileData.magnetLink);
+	return [self virtualHandleMagnetLink:fileData.magnetLink];
+
 	NSMutableURLRequest * request = [NSMutableURLRequest new];
 	NSString * boundary = [NSString stringWithFormat:@"AJAX-----------------------%f", [[NSDate new] timeIntervalSince1970]];
 	NSMutableData * body = [NSMutableData new];

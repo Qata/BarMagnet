@@ -10,6 +10,7 @@
 #import "FileHandler.h"
 #import "TorrentDelegate.h"
 #import "SVWebViewController.h"
+#import "SVModalWebViewController.h"
 #import "TSMessages/Classes/TSMessage.h"
 #import "TorrentJobCheckerCell.h"
 #import "M13OrderedDictionary.h"

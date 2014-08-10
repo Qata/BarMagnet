@@ -110,7 +110,7 @@ enum
 
 - (id)getTorrentJobs
 {
-	self.parser = [NSXMLParser.alloc initWithData:jobsData];
+	self.parser = [NSXMLParser.alloc initWithData:self.jobsData];
 	self.parser.delegate = self;
 	[self.parser parse];
 
