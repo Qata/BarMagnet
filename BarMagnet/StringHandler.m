@@ -54,7 +54,7 @@
 	return replacementStr;
 }
 
-+ (NSString *)parseNotification:(NSString *)notificationText;
++ (NSString *)parseNotification:(NSString *)notificationText
 {
 	NSString * notification = [FileHandler.sharedInstance settingsValueForKey:@"notification_format"];
 	NSString * url = [[FileHandler.sharedInstance webDataValueForKey:@"url" andDict:nil] orSome:@""];
@@ -110,18 +110,14 @@
 }
 
 
-- (NSString *)stringWithPrecedingAndSucceedingSlashes
+- (NSString *)stringWithPrecedingSlash
 {
-	NSMutableString * str = [NSMutableString stringWithString:self];
+	NSMutableString * str = self.mutableCopy;
 	if ([self length])
 	{
 		if ([str characterAtIndex:0] != '/')
 		{
 			[str insertString:@"/" atIndex:0];
-		}
-		if ([str characterAtIndex:[str length] - 1] != '/')
-		{
-			[str appendString:@"/"];
 		}
 		return str;
 	}

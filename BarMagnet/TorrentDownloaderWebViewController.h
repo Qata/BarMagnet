@@ -14,6 +14,5 @@
 
 @interface TorrentDownloaderWebViewController : SVWebViewController<NSURLConnectionDataDelegate>
 @property (nonatomic, strong) NSArray *adKeys;
-@property (nonatomic, strong) NSMutableData * torrentData;
-@property (nonatomic, strong) NSURL * torrentURL;
+@property (nonatomic, strong) NSMutableDictionary * torrents;
 @end

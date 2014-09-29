@@ -322,7 +322,7 @@ enum ORDER
 			{
 				NSString * hashString = [self.sortedKeys objectAtIndex:actionSheet.tag][@"hash"];
 				[NSNotificationCenter.defaultCenter postNotificationName:@"cancel_refresh" object:nil];
-				[TorrentDelegate.sharedInstance.currentlySelectedClient addTemporaryDeletedJob:8 forKey:hashString];
+				[TorrentDelegate.sharedInstance.currentlySelectedClient addTemporaryDeletedJob:4 forKey:hashString];
 				[TorrentDelegate.sharedInstance.currentlySelectedClient removeTorrent:hashString removeData:buttonIndex == 0];
 				self.shouldRefresh = NO;
 				dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC), dispatch_get_main_queue(), ^{

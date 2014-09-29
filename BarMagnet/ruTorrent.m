@@ -34,12 +34,12 @@ enum
 
 - (NSMutableURLRequest *)HTTPRequestWithMethod:(NSString *)method andHashes:(NSArray *)hashes
 {
-	return [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@php/rpc.php?action=%@&hashes=%@", [self getAppendedURL], method, [hashes componentsJoinedByString:@","]]]];
+	return [NSMutableURLRequest requestWithURL:[[NSURL URLWithString:self.getAppendedURL] URLByAppendingPathComponent:[NSString stringWithFormat:@"php/rpc.php?action=%@&hashes=%@", method, [hashes componentsJoinedByString:@","]]]];
 }
 
 - (NSMutableURLRequest *)checkTorrentJobs
 {
-	return [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@php/rpc.php?action=list&args=%@", [self getAppendedURL], [@[@"get_hash", @"get_state", @"get_name", @"get_down_rate", @"get_up_rate", @"get_bytes_done", @"get_up_total", @"get_size_bytes", @"get_peers_accounted", @"get_peers_complete", @"is_open", @"get_creation_date"] componentsJoinedByString:@","]]]];
+	return [NSMutableURLRequest requestWithURL:[[NSURL URLWithString:self.getAppendedURL] URLByAppendingPathComponent:[NSString stringWithFormat:@"php/rpc.php?action=list&args=%@", [@[@"get_hash", @"get_state", @"get_name", @"get_down_rate", @"get_up_rate", @"get_bytes_done", @"get_up_total", @"get_size_bytes", @"get_peers_accounted", @"get_peers_complete", @"is_open", @"get_creation_date"] componentsJoinedByString:@","]]]];
 }
 
 - (id)getTorrentJobs
@@ -96,12 +96,12 @@ enum
 
 - (NSString *)getUserFriendlyAppendString
 {
-	return [[[FileHandler.sharedInstance webDataValueForKey:@"relative_path" andDict:nil] orSome:@""] stringWithPrecedingAndSucceedingSlashes];
+	return [[[FileHandler.sharedInstance webDataValueForKey:@"relative_path" andDict:nil] orSome:@""] stringWithPrecedingSlash];
 }
 
 - (NSString *)getURLAppendString
 {
-	return [[[FileHandler.sharedInstance webDataValueForKey:@"relative_path" andDict:nil] orSome:@""] stringWithPrecedingAndSucceedingSlashes];
+	return [[[FileHandler.sharedInstance webDataValueForKey:@"relative_path" andDict:nil] orSome:@""] stringWithPrecedingSlash];
 }
 
 - (BOOL)receivedSuccessConditional:(NSData *)response
@@ -164,17 +164,17 @@ enum
 
 - (NSMutableURLRequest *)universalPOSTSetting
 {
-	NSString * url = [NSMutableString stringWithFormat:@"%@php/addtorrent.php?", self.getAppendedURL];
-
 	NSString * dir = [[FileHandler.sharedInstance webDataValueForKey:@"directory" andDict:nil] orSome:@""];
 	NSString * label = [[FileHandler.sharedInstance webDataValueForKey:@"label" andDict:nil] orSome:@""];
 
 	NSMutableArray * requestAppend = [NSMutableArray new];
-	
+
 	[dir length] ? [requestAppend addObject:[NSString stringWithFormat:@"dir_edit=%@", [dir stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]] : nil;
 	[label length] ? [requestAppend addObject:[NSString stringWithFormat:@"label=%@", [label stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]] : nil;
 
-	NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[url stringByAppendingString:[requestAppend componentsJoinedByString:@"&"]]]];
+	NSURL * url = [[NSURL URLWithString:self.getAppendedURL] URLByAppendingPathComponent:[@"php/addtorrent.php?" stringByAppendingString:[requestAppend componentsJoinedByString:@"&"]]];
+
+	NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:url];
 	[request setHTTPMethod:@"POST"];
 
 	return request;

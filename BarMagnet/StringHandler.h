@@ -42,7 +42,7 @@
 /**
  * Checks if the string has slashes at index 0 and index (count - 1), if not, these are added to the string and returned.
  */
-- (NSString *)stringWithPrecedingAndSucceedingSlashes;
+- (NSString *)stringWithPrecedingSlash;
 /**
  * Returns an NSString within two NSString keys.
  *

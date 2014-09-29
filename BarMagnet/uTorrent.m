@@ -70,7 +70,7 @@
 
 - (NSMutableURLRequest *)tokenRequest
 {
-	return [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[[self getAppendedURL] stringByAppendingString:@"token.html"]]];
+	return [NSMutableURLRequest requestWithURL:[[NSURL URLWithString:self.getAppendedURL] URLByAppendingPathComponent:@"token.html"]];
 }
 
 - (NSMutableURLRequest *)HTTPRequestWithMethod:(NSString *)method andHashes:(NSArray *)hashes
@@ -137,7 +137,7 @@
 
 - (NSString *)getURLAppendString
 {
-	return [[[FileHandler.sharedInstance webDataValueForKey:@"relative_path" andDict:nil] orSome:@"gui"] stringWithPrecedingAndSucceedingSlashes];
+	return [[[FileHandler.sharedInstance webDataValueForKey:@"relative_path" andDict:nil] orSome:@"gui/"] stringWithPrecedingSlash];
 }
 
 - (BOOL)receivedSuccessConditional:(NSData *)response
@@ -155,8 +155,7 @@
 
 - (NSURLRequest *)virtualHandleTorrentFile:(NSData *)fileData withURL:(NSURL *)fileURL
 {
-	NSLog(@"%@", fileData.magnetLink);
-	return [self virtualHandleMagnetLink:fileData.magnetLink];
+	//return [self virtualHandleMagnetLink:fileData.magnetLink];
 
 	NSMutableURLRequest * request = [NSMutableURLRequest new];
 	NSString * boundary = [NSString stringWithFormat:@"AJAX-----------------------%f", [[NSDate new] timeIntervalSince1970]];

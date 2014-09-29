@@ -23,7 +23,7 @@ enum
 
 - (NSMutableURLRequest *)RPCRequestWithMethodName:(NSString *)methodName
 {
-	NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[self.getAppendedURL stringByAppendingString:@"plugins/httprpc/action.php"]]];
+	NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:[[NSURL URLWithString:self.getAppendedURL] URLByAppendingPathComponent:@"plugins/httprpc/action.php"]];
 	[request setHTTPMethod:@"POST"];
 	[request setHTTPBody:[[NSString stringWithFormat:@"mode=%@", methodName] dataUsingEncoding:NSUTF8StringEncoding]];
 	return request;
@@ -106,8 +106,6 @@ enum
 
 - (NSMutableURLRequest *)universalPOSTSetting
 {
-	NSString * url = [NSMutableString stringWithFormat:@"%@php/addtorrent.php?", self.getAppendedURL];
-
 	NSString * dir = [[FileHandler.sharedInstance webDataValueForKey:@"directory" andDict:nil] orSome:@""];
 	NSString * label = [[FileHandler.sharedInstance webDataValueForKey:@"label" andDict:nil] orSome:@""];
 
@@ -116,7 +114,9 @@ enum
 	[dir length] ? [requestAppend addObject:[NSString stringWithFormat:@"dir_edit=%@", [dir stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]] : nil;
 	[label length] ? [requestAppend addObject:[NSString stringWithFormat:@"label=%@", [label stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]] : nil;
 
-	NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[url stringByAppendingString:[requestAppend componentsJoinedByString:@"&"]]]];
+	NSURL * url = [[NSURL URLWithString:self.getAppendedURL] URLByAppendingPathComponent:[@"php/addtorrent.php?" stringByAppendingString:[requestAppend componentsJoinedByString:@"&"]]];
+
+	NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:url];
 	[request setHTTPMethod:@"POST"];
 
 	return request;
@@ -166,12 +166,12 @@ enum
 
 - (NSString *)getUserFriendlyAppendString
 {
-	return [[[FileHandler.sharedInstance webDataValueForKey:@"relative_path" andDict:nil] orSome:@""] stringWithPrecedingAndSucceedingSlashes];
+	return [[[FileHandler.sharedInstance webDataValueForKey:@"relative_path" andDict:nil] orSome:@""] stringWithPrecedingSlash];
 }
 
 - (NSString *)getURLAppendString
 {
-	return [[[FileHandler.sharedInstance webDataValueForKey:@"relative_path" andDict:nil] orSome:@""] stringWithPrecedingAndSucceedingSlashes];
+	return [[[FileHandler.sharedInstance webDataValueForKey:@"relative_path" andDict:nil] orSome:@""] stringWithPrecedingSlash];
 }
 
 - (BOOL)receivedSuccessConditional:(NSData *)response

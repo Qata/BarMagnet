@@ -41,52 +41,78 @@ static TorrentJobChecker * sharedInstance;
 
 - (void)jobCheckInvocation
 {
-	@autoreleasepool
+	double refresh = [[FileHandler.sharedInstance settingsValueForKey:@"refresh_connection_seconds"] doubleValue];
+	for	(;;)
 	{
-		NSMutableURLRequest * request = [TorrentDelegate.sharedInstance.currentlySelectedClient checkTorrentJobs];
-		[request setTimeoutInterval:8];
-		if (request)
+		@autoreleasepool
 		{
-			[NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:request.URL.host];
-			NSMutableData * receivedData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil].mutableCopy;
-			if ([receivedData length])
+			double t = clock();
+			NSMutableURLRequest * request = [TorrentDelegate.sharedInstance.currentlySelectedClient checkTorrentJobs];
+			[request setTimeoutInterval:16];
+			if (request)
 			{
-				if ([TorrentDelegate.sharedInstance.currentlySelectedClient isValidJobsData:receivedData])
+				[NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:request.URL.host];
+				NSMutableData * receivedData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil].mutableCopy;
+				if ([receivedData length])
 				{
-					TorrentDelegate.sharedInstance.currentlySelectedClient.jobsData = receivedData;
-				}
-				else
-				{
-					NSLog(@"Incorrect response to request for jobs data: %@", [receivedData toUTF8String]);
+					if ([TorrentDelegate.sharedInstance.currentlySelectedClient isValidJobsData:receivedData])
+					{
+						TorrentDelegate.sharedInstance.currentlySelectedClient.jobsData = receivedData;
+					}
+					else
+					{
+						NSLog(@"Incorrect response to request for jobs data: %@", [receivedData toUTF8String]);
+					}
 				}
 			}
+			double elapsed = (clock() - t) / CLOCKS_PER_SEC;
+			if (elapsed < refresh)
+			{
+				double intpart, fractpart;
+				fractpart = modf(refresh - elapsed, &intpart);
+				struct timespec tspec = {.tv_sec = intpart, .tv_nsec = round(fractpart * 1e9)};
+				nanosleep(&tspec, NULL);
+			}
+			[[TorrentJobChecker sharedInstance] updateTorrentClientWithJobsData];
 		}
 	}
 }
 
 - (void)connectionCheckInvocation
 {
-	@autoreleasepool
+	double refresh = [[FileHandler.sharedInstance settingsValueForKey:@"refresh_connection_seconds"] doubleValue] * 4;
+	for (;;)
 	{
-		NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[TorrentDelegate.sharedInstance.currentlySelectedClient getAppendedURL]]];
-		[request setTimeoutInterval:8];
-		if (request)
+		@autoreleasepool
 		{
-			NSData * receivedData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-			if (![receivedData length])
+			double t = clock();
+			NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[TorrentDelegate.sharedInstance.currentlySelectedClient getAppendedURL]]];
+			[request setTimeoutInterval:8];
+			if (request)
 			{
-				[request setURL:[NSURL URLWithString:[TorrentDelegate.sharedInstance.currentlySelectedClient getUserFriendlyAppendedURL]]];
-				receivedData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+				NSData * receivedData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+				if (![receivedData length])
+				{
+					[request setURL:[NSURL URLWithString:[TorrentDelegate.sharedInstance.currentlySelectedClient getUserFriendlyAppendedURL]]];
+					receivedData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+				}
+				[TorrentDelegate.sharedInstance.currentlySelectedClient setHostOnline:receivedData.length];
+				[NSNotificationCenter.defaultCenter postNotificationName:@"update_torrent_jobs_header" object:nil];
 			}
-			[TorrentDelegate.sharedInstance.currentlySelectedClient setHostOnline:receivedData.length];
-			[NSNotificationCenter.defaultCenter postNotificationName:@"update_torrent_jobs_header" object:nil];
+			double elapsed = (clock() - t) / CLOCKS_PER_SEC;
+			if (elapsed < refresh)
+			{
+				double intpart, fractpart;
+				fractpart = modf(refresh - elapsed, &intpart);
+				struct timespec tspec = {.tv_sec = intpart, .tv_nsec = round(fractpart * 1e9)};
+				nanosleep(&tspec, NULL);
+			}
 		}
 	}
 }
 
 - (void)credentialsCheckInvocation
 {
-#if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
 	@autoreleasepool
 	{
 		NSMutableURLRequest * request = [TorrentDelegate.sharedInstance.currentlySelectedClient checkTorrentJobs];
@@ -125,7 +151,6 @@ static TorrentJobChecker * sharedInstance;
 			}
 		}
 	}
-#endif
 }
 
 @end

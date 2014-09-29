@@ -54,19 +54,8 @@
 			}
 		}
 	}
-    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[self methodSignatureForSelector:@selector(updateConnectionStatus)]];
-	[invocation setTarget:self];
-	[invocation setSelector:@selector(updateConnectionStatus)];
-	[[NSRunLoop mainRunLoop] addTimer:[NSTimer timerWithTimeInterval:[[FileHandler.sharedInstance settingsValueForKey:@"refresh_connection_seconds"] doubleValue] invocation:invocation repeats:YES] forMode:NSRunLoopCommonModes];
-
-	invocation = [NSInvocation invocationWithMethodSignature:[[TorrentJobChecker sharedInstance] methodSignatureForSelector:@selector(updateTorrentClientWithJobsData)]];
-	[invocation setTarget:[TorrentJobChecker sharedInstance]];
-	[invocation setSelector:@selector(updateTorrentClientWithJobsData)];
-
-	dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-		[[NSRunLoop mainRunLoop] addTimer:[NSTimer timerWithTimeInterval:[[FileHandler.sharedInstance settingsValueForKey:@"refresh_connection_seconds"] doubleValue] invocation:invocation repeats:YES] forMode:NSRunLoopCommonModes];
-	});
-
+	[[TorrentJobChecker sharedInstance] performSelectorInBackground:@selector(jobCheckInvocation) withObject:nil];
+	[[TorrentJobChecker sharedInstance] performSelectorInBackground:@selector(connectionCheckInvocation) withObject:nil];
     return YES;
 }
 
@@ -119,13 +108,5 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 	[TorrentDelegate.sharedInstance.currentlySelectedClient willExit];
 }
-
-- (void)updateConnectionStatus
-{
-	[[TorrentJobChecker sharedInstance] performSelectorInBackground:@selector(connectionCheckInvocation) withObject:nil];
-	[[TorrentJobChecker sharedInstance] performSelectorInBackground:@selector(jobCheckInvocation) withObject:nil];
-}
-
-
 
 @end

@@ -17,8 +17,9 @@
 	[super viewDidLoad];
 	[NSHTTPCookieStorage sharedHTTPCookieStorage].cookieAcceptPolicy = NSHTTPCookieAcceptPolicyAlways;
 	[TorrentDelegate.sharedInstance.currentlySelectedClient showNotification:self.navigationController];
-	self.torrentData = NSMutableData.new;
+	self.torrents = NSMutableDictionary.new;
 	self.adKeys = [NSDictionary dictionaryWithContentsOfFile:[NSBundle.mainBundle pathForResource:@"AdBlocker" ofType:@"plist"]][@"ads"];
+	self.webView.dataDetectorTypes = UIDataDetectorTypeNone;
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -26,7 +27,7 @@
 	if ([response.MIMEType isEqualToString:@"application/x-bittorrent"])
 	{
 		[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-		self.torrentURL = response.URL;
+		[self.torrents setObject:@[NSMutableData.new, response.URL] forKey:connection.description];
 	}
 	else
 	{
@@ -36,13 +37,13 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
-	[self.torrentData appendData:data];
+	[[[self.torrents objectForKey:connection.description] firstObject] appendData:data];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-	[TorrentDelegate.sharedInstance.currentlySelectedClient handleTorrentData:self.torrentData withURL:self.torrentURL];
-	self.torrentData = NSMutableData.new;
+	[TorrentDelegate.sharedInstance.currentlySelectedClient handleTorrentData:[[self.torrents objectForKey:connection.description] firstObject] withURL:[[self.torrents objectForKey:connection.description] lastObject]];
+	[self.torrents removeObjectForKey:connection.description];
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
@@ -57,6 +58,7 @@
 	{
 		if ([request.URL.absoluteString rangeOfString:key].location != NSNotFound)
 		{
+			NSLog(@"Blocking: %@", request.URL.absoluteString);
 			return NO;
 		}
 	}
@@ -103,7 +105,17 @@
 {
 	if ([super respondsToSelector:@selector(webView)])
 	{
-		[[UIAlertView.alloc initWithTitle:self.webView.request.URL.absoluteString message:nil delegate:nil cancelButtonTitle:@"Indeed" otherButtonTitles:nil] show];
+		[[UIAlertView.alloc initWithTitle:self.webView.request.URL.absoluteString message:nil delegate:self cancelButtonTitle:@"Close" otherButtonTitles:@"Copy", nil] show];
+	}
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+	if (buttonIndex != alertView.cancelButtonIndex)
+	{
+		UIPasteboard * appPasteboard = [UIPasteboard generalPasteboard];
+		appPasteboard.persistent = YES;
+		appPasteboard.string = self.webView.request.URL.absoluteString;
 	}
 }
 
