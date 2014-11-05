@@ -48,7 +48,7 @@ static TorrentJobChecker * sharedInstance;
 		{
 			double t = clock();
 			NSMutableURLRequest * request = [TorrentDelegate.sharedInstance.currentlySelectedClient checkTorrentJobs];
-			[request setTimeoutInterval:16];
+			[request setTimeoutInterval:0x20];
 			if (request)
 			{
 				[NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:request.URL.host];
@@ -87,7 +87,7 @@ static TorrentJobChecker * sharedInstance;
 		{
 			double t = clock();
 			NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[TorrentDelegate.sharedInstance.currentlySelectedClient getAppendedURL]]];
-			[request setTimeoutInterval:8];
+			[request setTimeoutInterval:0x20];
 			if (request)
 			{
 				NSData * receivedData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
@@ -96,8 +96,10 @@ static TorrentJobChecker * sharedInstance;
 					[request setURL:[NSURL URLWithString:[TorrentDelegate.sharedInstance.currentlySelectedClient getUserFriendlyAppendedURL]]];
 					receivedData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
 				}
-				[TorrentDelegate.sharedInstance.currentlySelectedClient setHostOnline:receivedData.length];
-				[NSNotificationCenter.defaultCenter postNotificationName:@"update_torrent_jobs_header" object:nil];
+				dispatch_sync(dispatch_get_main_queue(), ^{
+					[TorrentDelegate.sharedInstance.currentlySelectedClient setHostOnline:receivedData.length];
+					[NSNotificationCenter.defaultCenter postNotificationName:@"update_torrent_jobs_header" object:nil];
+				});
 			}
 			double elapsed = (clock() - t) / CLOCKS_PER_SEC;
 			if (elapsed < refresh)
@@ -116,7 +118,7 @@ static TorrentJobChecker * sharedInstance;
 	@autoreleasepool
 	{
 		NSMutableURLRequest * request = [TorrentDelegate.sharedInstance.currentlySelectedClient checkTorrentJobs];
-		[request setTimeoutInterval:8];
+		[request setTimeoutInterval:0x20];
 		if (request)
 		{
 			NSError * error = nil;

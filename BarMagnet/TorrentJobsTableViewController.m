@@ -474,8 +474,10 @@ enum ORDER
 		}
 	}
 
-	self.uploadTotalLabel.text = [NSString stringWithFormat:@"↑ %@", @(uploadSpeed).transferRateString];
-	self.downloadTotalLabel.text = [NSString stringWithFormat:@"↓ %@", @(downloadSpeed).transferRateString];
+	dispatch_async(dispatch_get_main_queue(), ^{
+		self.uploadTotalLabel.text = [NSString stringWithFormat:@"↑ %@", @(uploadSpeed).transferRateString];
+		self.downloadTotalLabel.text = [NSString stringWithFormat:@"↓ %@", @(downloadSpeed).transferRateString];
+	});
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

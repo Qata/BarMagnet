@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.17" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="Zb0-tx-VhR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="Zb0-tx-VhR">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.11"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
         <!--Torrent Jobs Table View Controller-->
@@ -517,7 +517,7 @@
             </objects>
             <point key="canvasLocation" x="653" y="-138"/>
         </scene>
-        <!--Query Table View Controller - Add Torrents-->
+        <!--Add Torrents-->
         <scene sceneID="di2-T2-cKm">
             <objects>
                 <tableViewController hidesBottomBarWhenPushed="YES" id="cRV-aG-tb4" customClass="QueryTableViewController" sceneMemberID="viewController">
@@ -587,7 +587,7 @@
             </objects>
             <point key="canvasLocation" x="1739" y="-812"/>
         </scene>
-        <!--ScanQR Code View Controller - Scan QR Code-->
+        <!--Scan QR Code-->
         <scene sceneID="KGQ-V5-G9R">
             <objects>
                 <viewController hidesBottomBarWhenPushed="YES" id="UZh-vN-YWn" customClass="ScanQRCodeViewController" sceneMemberID="viewController">
@@ -602,7 +602,7 @@
             </objects>
             <point key="canvasLocation" x="1739" y="-1472"/>
         </scene>
-        <!--Add Query Table View Controller - Add Query-->
+        <!--Add Query-->
         <scene sceneID="S5r-ck-Naq">
             <objects>
                 <tableViewController hidesBottomBarWhenPushed="YES" id="pcO-4V-FKq" customClass="AddQueryTableViewController" sceneMemberID="viewController">
@@ -711,7 +711,7 @@
             </objects>
             <point key="canvasLocation" x="2660" y="-1163"/>
         </scene>
-        <!--Torrent Client Table View Controller - Torrent Clients-->
+        <!--Torrent Clients-->
         <scene sceneID="baF-Pl-2JK">
             <objects>
                 <tableViewController hidesBottomBarWhenPushed="YES" id="UrW-6h-1as" customClass="TorrentClientTableViewController" sceneMemberID="viewController">
@@ -784,7 +784,7 @@
             </objects>
             <point key="canvasLocation" x="1739" y="518"/>
         </scene>
-        <!--Add Torrent Client Table View Controller - Add Client-->
+        <!--Add Client-->
         <scene sceneID="bse-Mp-Ytw">
             <objects>
                 <tableViewController id="VXy-lH-dmq" customClass="AddTorrentClientTableViewController" sceneMemberID="viewController">
@@ -1097,7 +1097,7 @@ To find out more, tap this message.</string>
             </objects>
             <point key="canvasLocation" x="2646" y="338"/>
         </scene>
-        <!--Table View Controller - Join #barmagnet on irc.krono.net-->
+        <!--Join #barmagnet on irc.krono.net-->
         <scene sceneID="M7p-TN-kNE">
             <objects>
                 <tableViewController hidesBottomBarWhenPushed="YES" id="pml-eH-yYW" sceneMemberID="viewController">
