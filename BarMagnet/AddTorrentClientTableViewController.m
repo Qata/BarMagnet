@@ -62,11 +62,7 @@
 {
 	[super viewWillAppear:animated];
 	[self.navigationController setToolbarHidden:NO animated:NO];
-	for (UITextField * field in self.fields = @[self.nameField, self.hostnameField, self.usernameField, self.passwordField, self.portField, self.directoryField, self.labelField, self.relativePathField])
-	{
-		field.delegate = self;
-	}
-
+	
 	if (self.clientDictionary)
 	{
 		if ([self.sortedArray containsObject:self.clientDictionary[@"type"]])
