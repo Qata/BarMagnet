@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="Zb0-tx-VhR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Zb0-tx-VhR">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Torrent Jobs Table View Controller-->
@@ -21,60 +23,6 @@
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Pretty" rowHeight="58" id="Jip-Id-gdM" customClass="TorrentJobCheckerCell">
-                                <rect key="frame" x="0.0" y="130" width="320" height="58"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jip-Id-gdM" id="KUO-df-Agt">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="57"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="846264338" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="↑ 1024.9 KiB/s" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gvs-WD-TdV">
-                                            <rect key="frame" x="20" y="31" width="86" height="12"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="10"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="358979323" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="↓ 1024.9 KiB/s" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wmO-Zy-4e0">
-                                            <rect key="frame" x="20" y="43" width="101" height="12"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="10"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="128462083" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Downloading" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aJ5-WF-3ed">
-                                            <rect key="frame" x="201" y="31" width="99" height="12"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="10"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="283476564" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hDK-GA-wE4">
-                                            <rect key="frame" x="20" y="2" width="272" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="14"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="128462083" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ETA: -" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TE1-bO-TeI">
-                                            <rect key="frame" x="201" y="43" width="99" height="12"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="10"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <view contentMode="scaleToFill" id="VRW-Zo-l5q" customClass="UIFastProgressBar">
-                                            <rect key="frame" x="20" y="24" width="280" height="2"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </view>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="ETA" destination="TE1-bO-TeI" id="HPD-z3-FWJ"/>
-                                    <outlet property="currentStatus" destination="aJ5-WF-3ed" id="jbb-6U-sOq"/>
-                                    <outlet property="downloadSpeed" destination="wmO-Zy-4e0" id="NL0-9A-HrI"/>
-                                    <outlet property="name" destination="hDK-GA-wE4" id="nxh-PK-Jfc"/>
-                                    <outlet property="percentBar" destination="VRW-Zo-l5q" id="wtZ-6M-n1a"/>
-                                    <outlet property="uploadSpeed" destination="gvs-WD-TdV" id="gXB-y1-BjA"/>
-                                    <segue destination="aQm-fc-cHO" kind="push" identifier="detail" id="0D0-mW-kOm"/>
-                                </connections>
-                            </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Compact" rowHeight="40" id="1uE-69-I7a" customClass="TorrentJobCheckerCell">
                                 <rect key="frame" x="0.0" y="188" width="320" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -82,42 +30,72 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="39"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="846264338" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="↑ 1024.9 KiB/s" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BIE-cH-WTt">
-                                            <rect key="frame" x="166" y="25" width="65" height="12"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="846264338" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="↑ 1024.9 KiB/s" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BIE-cH-WTt">
+                                            <rect key="frame" x="166" y="24" width="65" height="12"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="65" id="7eQ-XR-xC7"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="10"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="358979323" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1024.9 KiB/s ↓" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7Di-Pp-fcX">
-                                            <rect key="frame" x="88" y="25" width="70" height="12"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="10"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="128462083" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Downloading" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HbO-La-vZr">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="128462083" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Downloading" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HbO-La-vZr">
                                             <rect key="frame" x="20" y="25" width="60" height="12"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="60" id="jmJ-xb-hUG"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="10"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="283476564" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gqI-gC-jvO">
-                                            <rect key="frame" x="20" y="1" width="272" height="16"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="283476564" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gqI-gC-jvO">
+                                            <rect key="frame" x="20" y="0.0" width="272" height="16"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="16" id="QYE-wi-2ej"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="14"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="128462083" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ETA: 52m53s" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wc1-Vq-gEd">
-                                            <rect key="frame" x="233" y="25" width="67" height="12"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="128462083" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ETA: 52m53s" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wc1-Vq-gEd">
+                                            <rect key="frame" x="233" y="24" width="67" height="12"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="67" id="JHm-Bb-sVY"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="10"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <view contentMode="scaleToFill" id="MCQ-z0-kar" customClass="UIFastProgressBar">
-                                            <rect key="frame" x="20" y="18" width="280" height="2"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MCQ-z0-kar" customClass="UIFastProgressBar">
+                                            <rect key="frame" x="20" y="17" width="280" height="2"/>
                                             <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="2" id="EOQ-kf-i9r"/>
+                                            </constraints>
                                         </view>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="358979323" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1024.9 KiB/s ↓" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Di-Pp-fcX">
+                                            <rect key="frame" x="88" y="24" width="70" height="12"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="70" id="8Bk-HM-XJs"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="10"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="gqI-gC-jvO" firstAttribute="top" secondItem="ttq-yW-b1e" secondAttribute="topMargin" constant="-8" id="4yu-8N-P3q"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="gqI-gC-jvO" secondAttribute="trailing" constant="20" id="5VH-4Y-kYt"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="MCQ-z0-kar" secondAttribute="trailing" constant="12" id="Ak5-TX-AOX"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="7Di-Pp-fcX" secondAttribute="bottom" constant="-5" id="B8a-dt-Zfn"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="wc1-Vq-gEd" secondAttribute="bottom" constant="-5" id="C8G-ea-wIS"/>
+                                        <constraint firstItem="wc1-Vq-gEd" firstAttribute="leading" secondItem="BIE-cH-WTt" secondAttribute="trailing" constant="2" id="L0o-J6-jLB"/>
+                                        <constraint firstItem="gqI-gC-jvO" firstAttribute="leading" secondItem="ttq-yW-b1e" secondAttribute="leadingMargin" constant="12" id="M6q-MR-Jnk"/>
+                                        <constraint firstItem="MCQ-z0-kar" firstAttribute="leading" secondItem="ttq-yW-b1e" secondAttribute="leadingMargin" constant="12" id="QGw-IJ-2NQ"/>
+                                        <constraint firstItem="MCQ-z0-kar" firstAttribute="top" secondItem="gqI-gC-jvO" secondAttribute="bottom" constant="1" id="VVg-Nh-yU6"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="HbO-La-vZr" secondAttribute="bottom" constant="-6" id="Y3q-IU-FuL"/>
+                                        <constraint firstItem="BIE-cH-WTt" firstAttribute="leading" secondItem="7Di-Pp-fcX" secondAttribute="trailing" constant="8" id="Y9j-PW-ZTD"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="wc1-Vq-gEd" secondAttribute="trailing" constant="12" id="f3E-pa-srL"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="BIE-cH-WTt" secondAttribute="bottom" constant="-5" id="fXl-eu-0Rg"/>
+                                        <constraint firstAttribute="centerX" secondItem="7Di-Pp-fcX" secondAttribute="centerX" constant="37" id="q6c-W0-dXP"/>
+                                        <constraint firstAttribute="centerX" secondItem="BIE-cH-WTt" secondAttribute="centerX" constant="-38.5" id="qQO-Iy-FV7"/>
+                                        <constraint firstItem="HbO-La-vZr" firstAttribute="leading" secondItem="ttq-yW-b1e" secondAttribute="leadingMargin" constant="12" id="vJh-tT-z4T"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="ETA" destination="wc1-Vq-gEd" id="U3r-Ck-Hcw"/>
@@ -127,54 +105,6 @@
                                     <outlet property="percentBar" destination="MCQ-z0-kar" id="b5l-yG-1vr"/>
                                     <outlet property="uploadSpeed" destination="BIE-cH-WTt" id="eab-qS-Nd0"/>
                                     <segue destination="aQm-fc-cHO" kind="push" id="amo-Ds-Acd"/>
-                                </connections>
-                            </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Fast" rowHeight="36" id="ze6-QW-bYm" customClass="TorrentJobCheckerCell">
-                                <rect key="frame" x="0.0" y="228" width="320" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ze6-QW-bYm" id="CkN-VF-46s">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="35"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="846264338" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="↑ 1024.9 KiB/s " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="n4p-Rz-lPp">
-                                            <rect key="frame" x="160" y="20" width="68" height="12"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="10"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="358979323" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1024.9 KiB/s ↓" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="S0B-XA-fRU">
-                                            <rect key="frame" x="85" y="20" width="70" height="12"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="10"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="128462083" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Downloading" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0n8-I1-fxc">
-                                            <rect key="frame" x="20" y="20" width="65" height="12"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="10"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="283476564" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="e2V-ET-0g4">
-                                            <rect key="frame" x="20" y="1" width="272" height="16"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="14"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="128462083" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ETA: 52m53s" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KSg-do-Oxm">
-                                            <rect key="frame" x="233" y="20" width="67" height="12"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="10"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="ETA" destination="KSg-do-Oxm" id="wHm-dT-IQ0"/>
-                                    <outlet property="currentStatus" destination="0n8-I1-fxc" id="hCb-Yc-PeB"/>
-                                    <outlet property="downloadSpeed" destination="S0B-XA-fRU" id="MxZ-cS-6Ni"/>
-                                    <outlet property="name" destination="e2V-ET-0g4" id="zJ1-ll-L9D"/>
-                                    <outlet property="uploadSpeed" destination="n4p-Rz-lPp" id="TT4-8C-qwY"/>
-                                    <segue destination="aQm-fc-cHO" kind="push" id="qab-72-TJF"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -237,7 +167,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1179" y="-138"/>
+            <point key="canvasLocation" x="1299" y="-220"/>
         </scene>
         <!--Torrent Detail View Controller-->
         <scene sceneID="0Al-cP-Sxb">
@@ -383,23 +313,20 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you find this app useful?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="K2F-PT-rcv">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Do you find this app useful?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K2F-PT-rcv">
                                                     <rect key="frame" x="52" y="0.0" width="215" height="22"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please donate so I can continue development." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="89L-LM-Avp">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please donate so I can continue development." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89L-LM-Avp">
                                                     <rect key="frame" x="-15" y="17" width="350" height="22"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="donate.png" id="X14-Pf-XNX">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="donate.png" translatesAutoresizingMaskIntoConstraints="NO" id="X14-Pf-XNX">
                                                     <rect key="frame" x="86" y="47" width="147" height="47"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -591,6 +518,10 @@
         <scene sceneID="KGQ-V5-G9R">
             <objects>
                 <viewController hidesBottomBarWhenPushed="YES" id="UZh-vN-YWn" customClass="ScanQRCodeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HfZ-vt-Jm3"/>
+                        <viewControllerLayoutGuide type="bottom" id="g3T-VV-Es8"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="X6b-RM-2Lx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -620,16 +551,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Query Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jl8-su-6T9">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Query Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jl8-su-6T9">
                                                     <rect key="frame" x="20" y="11" width="97" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="Cyj-OT-AhZ">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cyj-OT-AhZ">
                                                     <rect key="frame" x="125" y="8" width="175" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                                     <connections>
@@ -646,16 +575,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Query URL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SZM-js-4dX">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Query URL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZM-js-4dX">
                                                     <rect key="frame" x="20" y="11" width="89" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="9Lt-Zi-YI5">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Lt-Zi-YI5">
                                                     <rect key="frame" x="125" y="7" width="175" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="URL" returnKeyType="done"/>
                                                     <connections>
@@ -672,16 +599,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uses %query%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VT6-AK-wu5">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Uses %query%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VT6-AK-wu5">
                                                     <rect key="frame" x="20" y="11" width="121" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="q0h-W0-c60">
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q0h-W0-c60">
                                                     <rect key="frame" x="251" y="6" width="51" height="31"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                                 </switch>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -720,28 +645,6 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="styleCell" rowHeight="66" id="tkp-uC-KJO">
-                                <rect key="frame" x="0.0" y="86" width="320" height="66"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tkp-uC-KJO" id="YX3-14-g4Q">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <segmentedControl opaque="NO" tag="-8" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="JtZ-Go-KjS">
-                                            <rect key="frame" x="20" y="19" width="280" height="29"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                            <segments>
-                                                <segment title="Pretty"/>
-                                                <segment title="Compact"/>
-                                                <segment title="Fast"/>
-                                            </segments>
-                                            <connections>
-                                                <action selector="synchronizeData" destination="UrW-6h-1as" eventType="valueChanged" id="QHa-zF-NSl"/>
-                                            </connections>
-                                        </segmentedControl>
-                                    </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" showsReorderControl="YES" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="clientCell" editingAccessoryType="detailDisclosureButton" textLabel="ges-Yw-PG4" style="IBUITableViewCellStyleDefault" id="UYP-9l-pTG">
                                 <rect key="frame" x="0.0" y="152" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
@@ -802,9 +705,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="203"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <pickerView contentMode="scaleToFill" id="StU-km-ist">
+                                                <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="StU-km-ist">
                                                     <rect key="frame" x="20" y="21" width="280" height="162"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                     <connections>
                                                         <outlet property="dataSource" destination="VXy-lH-dmq" id="a9l-dW-sEb"/>
                                                         <outlet property="delegate" destination="VXy-lH-dmq" id="4uG-xw-oAd"/>
@@ -820,7 +722,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" id="7FT-xS-Lqv">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="7FT-xS-Lqv">
                                                     <rect key="frame" x="104" y="7" width="196" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
@@ -828,9 +730,8 @@
                                                         <outlet property="delegate" destination="VXy-lH-dmq" id="eg1-Pe-1rz"/>
                                                     </connections>
                                                 </textField>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XDS-sP-SIM">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XDS-sP-SIM">
                                                     <rect key="frame" x="20" y="11" width="76" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -845,7 +746,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" id="GUb-JA-wbB">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="GUb-JA-wbB">
                                                     <rect key="frame" x="104" y="7" width="196" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="URL" returnKeyType="done"/>
@@ -853,9 +754,8 @@
                                                         <outlet property="delegate" destination="VXy-lH-dmq" id="cUh-uN-DJ1"/>
                                                     </connections>
                                                 </textField>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oxN-Be-U6p">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oxN-Be-U6p">
                                                     <rect key="frame" x="20" y="11" width="76" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -870,13 +770,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Port" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KgL-iH-x1E">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Port" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KgL-iH-x1E">
                                                     <rect key="frame" x="20" y="10" width="76" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" id="w9f-dG-VuE">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="w9f-dG-VuE">
                                                     <rect key="frame" x="104" y="8" width="196" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" returnKeyType="done"/>
@@ -894,7 +793,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" id="qOM-TW-lgK">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="qOM-TW-lgK">
                                                     <rect key="frame" x="104" y="8" width="196" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
@@ -902,9 +801,8 @@
                                                         <outlet property="delegate" destination="VXy-lH-dmq" id="oD3-JH-wPf"/>
                                                     </connections>
                                                 </textField>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="00w-Af-hEp">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="00w-Af-hEp">
                                                     <rect key="frame" x="20" y="11" width="76" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -918,13 +816,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mYy-fC-o1k">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mYy-fC-o1k">
                                                     <rect key="frame" x="20" y="11" width="73" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" id="GKl-zo-Llq">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="GKl-zo-Llq">
                                                     <rect key="frame" x="104" y="7" width="196" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" secureTextEntry="YES"/>
@@ -942,9 +839,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="62"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="CyB-Zl-A2T">
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="CyB-Zl-A2T">
                                                     <rect key="frame" x="20" y="17" width="280" height="29"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                     <segments>
                                                         <segment title="Use HTTP"/>
                                                         <segment title="Use HTTPS"/>
@@ -960,13 +856,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Relative Path" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Opx-zk-6xO">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Relative Path" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Opx-zk-6xO">
                                                     <rect key="frame" x="20" y="11" width="96" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" id="TKo-Op-SeI">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="TKo-Op-SeI">
                                                     <rect key="frame" x="124" y="8" width="176" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
@@ -984,13 +879,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Directory" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iiq-oD-DvA">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Directory" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iiq-oD-DvA">
                                                     <rect key="frame" x="20" y="11" width="66" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" id="tea-To-AOi">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="tea-To-AOi">
                                                     <rect key="frame" x="124" y="8" width="176" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
@@ -1008,13 +902,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2Vq-5B-PjI">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Vq-5B-PjI">
                                                     <rect key="frame" x="20" y="11" width="40" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" id="cls-r0-siU">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="cls-r0-siU">
                                                     <rect key="frame" x="124" y="8" width="176" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
@@ -1036,16 +929,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="112"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SeedStuff.ca" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="c40-Ag-Y5B">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SeedStuff.ca" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c40-Ag-Y5B">
                                                     <rect key="frame" x="20" y="7" width="280" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bsw-yJ-HWY">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bsw-yJ-HWY">
                                                     <rect key="frame" x="20" y="36" width="280" height="67"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <string key="text">You can rent a seedbox from SeedStuff, it's the easiest way to set up a torrenting server.
 To find out more, tap this message.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1139,16 +1030,14 @@ To find out more, tap this message.</string>
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="76"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HTTPS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EkZ-0h-ctp">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HTTPS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EkZ-0h-ctp">
                                                     <rect key="frame" x="20" y="7" width="280" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Only use HTTPS if you have enabled it on your server for the given port." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6X8-vs-MuA">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Only use HTTPS if you have enabled it on your server for the given port." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6X8-vs-MuA">
                                                     <rect key="frame" x="20" y="36" width="280" height="36"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1162,16 +1051,14 @@ To find out more, tap this message.</string>
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="127"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Query" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="47a-ZM-uWk">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Query" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="47a-ZM-uWk">
                                                     <rect key="frame" x="20" y="7" width="280" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hXo-Ee-fZb">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXo-Ee-fZb">
                                                     <rect key="frame" x="20" y="36" width="280" height="84"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <string key="text">The query format is used to search a torrent site, to use it, you just replace the part of the URL where your query would normally be, with "%query%", 
 e.g. "http://www.google.com/q=%query%"</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1187,16 +1074,14 @@ e.g. "http://www.google.com/q=%query%"</string>
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="111"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Relative Path" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7hF-i1-cYB">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Relative Path" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7hF-i1-cYB">
                                                     <rect key="frame" x="20" y="7" width="280" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BCH-p8-5JX">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BCH-p8-5JX">
                                                     <rect key="frame" x="20" y="36" width="280" height="71"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <string key="text">The relative path field does not need to be set unless you have ruTorrent or you have configured your torrent client to not use the default path.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="highlightedColor"/>
@@ -1211,16 +1096,14 @@ e.g. "http://www.google.com/q=%query%"</string>
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="111"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Torrent Site" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HEn-Il-nfw">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Torrent Site" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HEn-Il-nfw">
                                                     <rect key="frame" x="20" y="7" width="280" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The torrent site is a static website that you can use when you just want to browse instead of searching, e.g. &quot;www.google.com&quot;" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="md8-FJ-eer">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The torrent site is a static website that you can use when you just want to browse instead of searching, e.g. &quot;www.google.com&quot;" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="md8-FJ-eer">
                                                     <rect key="frame" x="20" y="36" width="280" height="71"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1234,16 +1117,14 @@ e.g. "http://www.google.com/q=%query%"</string>
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="92"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Directory" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="98g-e7-ouN">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Directory" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="98g-e7-ouN">
                                                     <rect key="frame" x="20" y="7" width="72" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The directory field specifies which directory to save the files in. If not set, it uses the application's default." lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fG7-13-8SS">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The directory field specifies which directory to save the files in. If not set, it uses the application's default." lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fG7-13-8SS">
                                                     <rect key="frame" x="20" y="36" width="280" height="56"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1257,16 +1138,14 @@ e.g. "http://www.google.com/q=%query%"</string>
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="111"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XOr-cP-dnO">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XOr-cP-dnO">
                                                     <rect key="frame" x="20" y="7" width="280" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xwa-G9-4SY">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xwa-G9-4SY">
                                                     <rect key="frame" x="20" y="36" width="280" height="71"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <string key="text">The label field is purely for ruTorrent. It seems to be entirely aesthetic but can help keep track of multiple users downloading to the same client.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="highlightedColor"/>
@@ -1306,16 +1185,14 @@ e.g. "http://www.google.com/q=%query%"</string>
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="76"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="It says &quot;Host Online&quot; but..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xp4-37-1tG">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="It says &quot;Host Online&quot; but..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xp4-37-1tG">
                                                     <rect key="frame" x="20" y="7" width="208" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You're probably missing rpc.php, if you can add torrents but you can't see them." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Zfh-Re-Pgp">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You're probably missing rpc.php, if you can add torrents but you can't see them." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zfh-Re-Pgp">
                                                     <rect key="frame" x="20" y="36" width="280" height="36"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1329,16 +1206,14 @@ e.g. "http://www.google.com/q=%query%"</string>
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="127"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I'm using rpc.php, but I can't see or do anything" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="03d-Sx-7ej">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I'm using rpc.php, but I can't see or do anything" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="03d-Sx-7ej">
                                                     <rect key="frame" x="20" y="0.0" width="280" height="45"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="p4k-fZ-HDP">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p4k-fZ-HDP">
                                                     <rect key="frame" x="20" y="53" width="280" height="67"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <string key="text">You need to set the relative path for ruTorrent. Every other client has their usual defaults as a placeholder, but ruTorrent is special, since no value is a valid value.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="highlightedColor"/>
@@ -1357,16 +1232,14 @@ e.g. "http://www.google.com/q=%query%"</string>
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="71"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I can't connect to my uTorrent Remote account" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JuK-ih-Rg3">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I can't connect to my uTorrent Remote account" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JuK-ih-Rg3">
                                                     <rect key="frame" x="20" y="0.0" width="280" height="45"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="It's not supported. You need a real server." lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tOn-IV-m0r">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="It's not supported. You need a real server." lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tOn-IV-m0r">
                                                     <rect key="frame" x="20" y="48" width="280" height="17"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1437,7 +1310,6 @@ e.g. "http://www.google.com/q=%query%"</string>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="XYV-ub-VqM"/>
-        <segue reference="0D0-mW-kOm"/>
         <segue reference="WgM-5F-Elv"/>
     </inferredMetricsTieBreakers>
 </document>

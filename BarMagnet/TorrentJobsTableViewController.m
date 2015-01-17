@@ -64,10 +64,6 @@ enum ORDER
 	self.shouldRefresh = YES;
 	self.tableView.contentOffset = CGPointMake(0.0, 44.0);
 
-	if (![[[FileHandler.sharedInstance webDataValueForKey:@"url" andDict:nil] orSome:nil] length])
-	{
-		[self performSegueWithIdentifier:@"Settings" sender:nil];
-	}
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(receiveUpdateTableNotification) name:@"update_torrent_jobs_table" object:nil];
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(receiveUpdateHeaderNotification) name:@"update_torrent_jobs_header" object:nil];
 	[NSNotificationCenter.defaultCenter addObserver:self selector:@selector(changedClient) name:@"ChangedClient" object:nil];
@@ -103,8 +99,7 @@ enum ORDER
 {
 	[super viewWillAppear:animated];
 	self.sortByDictionary = [NSMutableOrderedDictionary.alloc initWithObjects:@[@(COMPLETED), @(DATE_ADDED), @(DATE_FINISHED), @(DOWNLOAD_SPEED), @(UPLOAD_SPEED), @(ACTIVE), @(NAME), @(SIZE), @(RATIO), @(DOWNLOADING), @(SEEDING), @(PAUSED)] pairedWithKeys:@[@"Progress", @"Date Added", @"Date Finished", @"Download Speed", @"Upload Speed", @"Active", @"Name", @"Size", @"Ratio", @"Downloading", @"Seeding", @"Paused"]];
-	self.tableView.rowHeight = [[self.tableView dequeueReusableCellWithIdentifier:[FileHandler.sharedInstance settingsValueForKey:@"cell"]] frame].size.height;
-	self.searchDisplayController.searchResultsTableView.rowHeight = [[self.tableView dequeueReusableCellWithIdentifier:[FileHandler.sharedInstance settingsValueForKey:@"cell"]] frame].size.height;
+	self.tableView.rowHeight = self.searchDisplayController.searchResultsTableView.rowHeight = [[self.tableView dequeueReusableCellWithIdentifier:@"Compact"] frame].size.height;
 	[self receiveUpdateTableNotification];
 }
 
@@ -524,7 +519,7 @@ enum ORDER
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	NSString *CellIdentifier = [FileHandler.sharedInstance settingsValueForKey:@"cell"];
-	TorrentJobCheckerCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+	TorrentJobCheckerCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Compact"];
 	if ([cell.subviews.firstObject isKindOfClass:UIScrollView.class])
 	{
 		[cell.subviews.firstObject setDelegate:self];
@@ -544,7 +539,7 @@ enum ORDER
 	cell.hashString = currentJob[@"hash"];
 	cell.currentStatus.text = currentJob[@"status"];
 	
-	if ([CellIdentifier characterAtIndex:0] == 'F')
+	if ([CellIdentifier isEqual:@"Fast"])
 	{
 		[self addProgressViewToCell:cell withJob:currentJob];
 	}

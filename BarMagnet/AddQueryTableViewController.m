@@ -69,14 +69,7 @@
 	}
 	else
 	{
-		if ([[UIDevice.currentDevice.systemVersion componentsSeparatedByString:@"."].firstObject integerValue] < 6)
-		{
-			[self dismissModalViewControllerAnimated:YES];
-		}
-		else
-		{
-			[self dismissViewControllerAnimated:YES completion:nil];
-		}
+		[self dismissViewControllerAnimated:YES completion:nil];
 	}
 }
 

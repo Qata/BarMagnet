@@ -63,12 +63,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-	return 3;
+	return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	if (section == 1)
+	if (!section)
 		return [[NSUserDefaults.standardUserDefaults objectForKey:@"clients"] count];
 	return 1;
 }
@@ -79,11 +79,6 @@
 	switch (indexPath.section)
 	{
 		case 0:
-			cell = [tableView dequeueReusableCellWithIdentifier:@"styleCell"];
-			self.torrentCellTypeSegmentedControl = (UISegmentedControl *)[cell viewWithTag:-(1 << 3)];
-			self.torrentCellTypeSegmentedControl.selectedSegmentIndex = [self.cellNames indexOfObject:[FileHandler.sharedInstance settingsValueForKey:@"cell"]];
-			break;
-		case 1:
 		{
 			cell = [tableView dequeueReusableCellWithIdentifier:@"clientCell"];
 			cell.textLabel.text = [NSUserDefaults.standardUserDefaults objectForKey:@"clients"][indexPath.row][@"name"];
@@ -97,7 +92,7 @@
 			}
 			break;
 		}
-		case 2:
+		case 1:
 			cell = [tableView dequeueReusableCellWithIdentifier:@"addCell"];
 			break;
 	}
@@ -106,20 +101,16 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-	switch (section)
+	if (!section)
 	{
-		case 0:
-			return @"Cell Style";
-		case 1:
-			return @"Torrent Clients";
-		default:
-			return nil;
+		return @"Torrent Clients";
 	}
+	return nil;
 }
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-	if (indexPath.section == 1)
+	if (!indexPath.section)
 	{
 		[self performSegueWithIdentifier:@"editClient" sender:[NSUserDefaults.standardUserDefaults objectForKey:@"clients"][indexPath.row]];
 	}
@@ -128,34 +119,25 @@
 - (BOOL)tableView:(UITableView *)tableView shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	return NO;
-	return indexPath.section == 1;
 }
 
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	return indexPath.section == 1;
+	return indexPath.section == 0;
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath
 {
-	if (proposedDestinationIndexPath.section < 1)
+	if (proposedDestinationIndexPath.section > 0)
 	{
-		return [NSIndexPath indexPathForRow:0 inSection:1];
-	}
-	else if (proposedDestinationIndexPath.section > 1)
-	{
-		return [NSIndexPath indexPathForRow:[tableView numberOfRowsInSection:1] - 1 inSection:1];
+		return [NSIndexPath indexPathForRow:[tableView numberOfRowsInSection:0] - 1 inSection:0];
 	}
 	return proposedDestinationIndexPath;
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	if (!indexPath.section)
-	{
-		return UITableViewCellEditingStyleNone;
-	}
-	else if (indexPath.section == 2)
+	if (indexPath.section == 1)
 	{
 		return UITableViewCellEditingStyleInsert;
 	}
@@ -164,7 +146,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	if (indexPath.section == 1)
+	if (indexPath.section == 0)
 	{
 		if (self.checkedCell != indexPath.row)
 		{
@@ -172,12 +154,12 @@
 			self.checkedCell = indexPath.row;
 			if ([self tableView:tableView numberOfRowsInSection:indexPath.section] > previouslySelected)
 			{
-				[tableView reloadRowsAtIndexPaths:@[indexPath, [NSIndexPath indexPathForRow:previouslySelected inSection:1]] withRowAnimation:UITableViewRowAnimationNone];
+				[tableView reloadRowsAtIndexPaths:@[indexPath, [NSIndexPath indexPathForRow:previouslySelected inSection:indexPath.section]] withRowAnimation:UITableViewRowAnimationNone];
 				[tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
 			}
 			else
 			{
-				[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationNone];
+				[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
 				[tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
 			}
 		}
