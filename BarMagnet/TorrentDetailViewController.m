@@ -14,6 +14,7 @@
 @property (nonatomic, strong) NSArray * identifierArray;
 @property (nonatomic, strong) NSDateFormatter * formatter;
 @property (nonatomic, weak) TorrentClient * client;
+@property (nonatomic, assign) BOOL shouldRefresh;
 @end
 
 @implementation TorrentDetailViewController
@@ -27,19 +28,20 @@
 	[self.formatter setTimeStyle:NSDateFormatterMediumStyle];
 	self.identifierArray = @[@[@"", @"Size", @"Downloaded", @"Uploaded", @"Completed", @"Date Added", @"Date Finished"], @[@"Download", @"Upload", @"Seeds Connected", @"Peers Connected", @"Ratio", @"ETA"]];
 	hashDict = [TorrentDelegate.sharedInstance.currentlySelectedClient getJobsDict][self.hashString];
-    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(receiveUpdateTableNotification) name:@"update_torrent_jobs_table" object:nil];
-	[self receiveUpdateTableNotification];
+	[NSNotificationCenter.defaultCenter addObserver:self selector:@selector(receiveUpdateTableNotification) name:@"update_torrent_jobs_table" object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
 	[self setTitle:hashDict[@"name"]];
+	self.shouldRefresh = YES;
+	[self receiveUpdateTableNotification];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-	self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
+	self.shouldRefresh = NO;
 	[super viewWillDisappear:animated];
 }
 
@@ -50,8 +52,13 @@
 
 - (void)receiveUpdateTableNotification
 {
-	[self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
-	self.playPauseButton.image = [UIImage imageNamed:[NSString stringWithFormat:@"UIButtonBar%@", [hashDict[@"status"] isEqualToString:@"Paused"] ? @"Play" : @"Pause"]];
+	if (self.shouldRefresh)
+	{
+		dispatch_async(dispatch_get_main_queue(), ^{
+			[self.tableView reloadData];
+			self.playPauseButton.image = [UIImage imageNamed:[NSString stringWithFormat:@"UIButtonBar%@", [hashDict[@"status"] isEqualToString:@"Paused"] ? @"Play" : @"Pause"]];
+		});
+	}
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

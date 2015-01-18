@@ -62,7 +62,7 @@
 {
 	[super viewWillAppear:animated];
 	[self.navigationController setToolbarHidden:NO animated:NO];
-	
+
 	if (self.clientDictionary)
 	{
 		if ([self.sortedArray containsObject:self.clientDictionary[@"type"]])
@@ -139,7 +139,16 @@
 			[FileHandler.sharedInstance setSettingsValue:[[NSOption fromNil:self.selectedClient] orSome:@""] forKey:@"server_type"];
 		}
 
-		NSDictionary * object = @{@"name":[[NSOption fromNil:self.nameField.text] orSome:@""], @"type":[[NSOption fromNil:self.selectedClient] orSome:@""], @"url":[self cleanURL:[[NSOption fromNil:self.hostnameField.text] orSome:@""]], @"port":[[NSOption fromNil:self.portField.text] orSome:@""], @"username":[[NSOption fromNil:self.usernameField.text] orSome:@""], @"password":[[NSOption fromNil:self.passwordField.text] orSome:@""], @"use_ssl":@(self.useSSLSegmentedControl.selectedSegmentIndex), @"relative_path":[[NSOption fromNil:self.relativePathField.text] orSome:@""], @"directory":[[NSOption fromNil:self.directoryField.text] orSome:@""], @"label":[[NSOption fromNil:self.labelField.text] orSome:@""]};
+		NSDictionary * object = @{@"name":[[NSOption fromNil:self.nameField.text] orSome:@""],
+								  @"type":[[NSOption fromNil:self.selectedClient] orSome:@""],
+								  @"url":[self cleanURL:[[NSOption fromNil:self.hostnameField.text] orSome:@""]],
+								  @"port":[[NSOption fromNil:self.portField.text] orSome:@""],
+								  @"username":[[NSOption fromNil:self.usernameField.text] orSome:@""],
+								  @"password":[[NSOption fromNil:self.passwordField.text] orSome:@""],
+								  @"use_ssl":@(self.useSSLSegmentedControl.selectedSegmentIndex),
+								  @"relative_path":[[NSOption fromNil:self.relativePathField.text] orSome:@""],
+								  @"directory":[[NSOption fromNil:self.directoryField.text] orSome:@""],
+								  @"label":[[NSOption fromNil:self.labelField.text] orSome:@""]};
 
 
 		BOOL containsName = NO;
@@ -189,7 +198,11 @@
 {
 	if (indexPath.section)
 	{
-		[[UIAlertView.alloc initWithTitle:@"SeedStuff.ca" message:@"Seedstuff is a seedbox company who strives to be able to provide the best customer service and most reliable seedboxes at an affordable price while keeping a commitment to ensuring their customers personal privacy. " delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Visit Site", nil] show];
+		[[UIAlertView.alloc initWithTitle:@"SeedStuff.ca"
+								  message:@"Seedstuff is a seedbox company who strives to be able to provide the best customer service and most reliable seedboxes at an affordable price while keeping a commitment to ensuring their customers personal privacy. "
+								 delegate:self
+						cancelButtonTitle:@"Cancel"
+						otherButtonTitles:@"Visit Site", nil] show];
 	}
 }
 

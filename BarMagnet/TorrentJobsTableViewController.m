@@ -128,7 +128,7 @@ enum ORDER
 {
 	if (!cancelNextRefresh)
 	{
-		if (self.shouldRefresh && !self.tableView.isEditing && !self.tableView.isDragging && !self.tableView.isDecelerating)
+		if (self.shouldRefresh && !self.tableView.isEditing && !self.tableView.isDragging && !self.tableView.isDecelerating && self.view.window && self.navigationController.viewControllers.lastObject == self)
 		{
 			[self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
 		}
