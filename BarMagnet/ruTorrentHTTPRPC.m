@@ -230,6 +230,11 @@ enum
 	return YES;
 }
 
++ (BOOL)supportsLabels
+{
+	return YES;
+}
+
 - (BOOL)supportsEraseChoice
 {
 	return NO;
