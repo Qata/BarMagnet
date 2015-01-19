@@ -41,7 +41,6 @@ enum ORDER
 @property (nonatomic, strong) UIActionSheet * sortBySheet;
 @property (nonatomic, strong) UIActionSheet * orderBySheet;
 @property (nonatomic, strong) UIActionSheet * sortAndOrderSheet;
-@property (nonatomic, assign) BOOL shouldRefresh;
 @property (nonatomic, strong) NSMutableArray * filteredArray;
 @property (nonatomic, strong) UILabel * header;
 @property (nonatomic, strong) NSArray * sortedKeys;
@@ -61,7 +60,6 @@ enum ORDER
 	[self initialiseHeader];
 	self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
 	self.title = [FileHandler.sharedInstance settingsValueForKey:@"server_name"];
-	self.shouldRefresh = YES;
 	self.tableView.contentOffset = CGPointMake(0.0, 44.0);
 
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(receiveUpdateTableNotification) name:@"update_torrent_jobs_table" object:nil];
@@ -98,6 +96,7 @@ enum ORDER
 - (void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
+	self.shouldRefresh = YES;
 	self.sortByDictionary = [NSMutableOrderedDictionary.alloc initWithObjects:@[@(COMPLETED), @(DATE_ADDED), @(DATE_FINISHED), @(DOWNLOAD_SPEED), @(UPLOAD_SPEED), @(ACTIVE), @(NAME), @(SIZE), @(RATIO), @(DOWNLOADING), @(SEEDING), @(PAUSED)] pairedWithKeys:@[@"Progress", @"Date Added", @"Date Finished", @"Download Speed", @"Upload Speed", @"Active", @"Name", @"Size", @"Ratio", @"Downloading", @"Seeding", @"Paused"]];
 	self.tableView.rowHeight = self.searchDisplayController.searchResultsTableView.rowHeight = [[self.tableView dequeueReusableCellWithIdentifier:@"Compact"] frame].size.height;
 	[self receiveUpdateTableNotification];
@@ -128,7 +127,7 @@ enum ORDER
 {
 	if (!cancelNextRefresh)
 	{
-		if (self.shouldRefresh && !self.tableView.isEditing && !self.tableView.isDragging && !self.tableView.isDecelerating && self.view.window && self.navigationController.viewControllers.lastObject == self)
+		if (self.shouldRefresh && !self.tableView.isEditing && !self.tableView.isDragging && !self.tableView.isDecelerating)
 		{
 			[self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
 		}
@@ -520,6 +519,7 @@ enum ORDER
 {
 	NSString *CellIdentifier = [FileHandler.sharedInstance settingsValueForKey:@"cell"];
 	TorrentJobCheckerCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Compact"];
+	cell.table = self;
 	if ([cell.subviews.firstObject isKindOfClass:UIScrollView.class])
 	{
 		[cell.subviews.firstObject setDelegate:self];
@@ -561,13 +561,37 @@ enum ORDER
 	{
 		cell.ETA.text = @"";
 	}
-	if ([CellIdentifier characterAtIndex:0] == 'P')
+	cell.downloadSpeed.text = [NSString stringWithFormat:@"%@ ↓", currentJob[@"downloadSpeed"]];
+
+	MGSwipeButton * delete = [MGSwipeButton buttonWithTitle:@"Delete" backgroundColor:[UIColor redColor] callback:^BOOL(MGSwipeTableCell *sender) {
+		UIActionSheet *popupQuery = nil;
+		if (TorrentDelegate.sharedInstance.currentlySelectedClient.supportsEraseChoice)
+		{
+			popupQuery = [[UIActionSheet alloc] initWithTitle:@"Also delete data?" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Delete data" otherButtonTitles:@"Delete torrent", nil];
+		}
+		else
+		{
+			popupQuery = [[UIActionSheet alloc] initWithTitle:@"Are you sure?" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Delete torrent" otherButtonTitles:nil];
+		}
+		self.deleteTorrentSheet = popupQuery;
+		popupQuery.tag = indexPath.row;
+		[popupQuery showFromToolbar:self.navigationController.toolbar];
+		return YES;
+	}];
+
+	if ([currentJob[@"status"] isEqualToString:@"Paused"])
 	{
-		cell.downloadSpeed.text = [NSString stringWithFormat:@"↓ %@", currentJob[@"downloadSpeed"]];
+		cell.rightButtons =  @[delete, [MGSwipeButton buttonWithTitle:@"Resume" backgroundColor:[UIColor greenColor] callback:^BOOL(MGSwipeTableCell *sender) {
+			[TorrentDelegate.sharedInstance.currentlySelectedClient resumeTorrent:currentJob[@"hash"]];
+			return YES;
+		}]];
 	}
 	else
 	{
-		cell.downloadSpeed.text = [NSString stringWithFormat:@"%@ ↓", currentJob[@"downloadSpeed"]];
+		cell.rightButtons =  @[delete, [MGSwipeButton buttonWithTitle:@"Pause" backgroundColor:[UIColor lightGrayColor] callback:^BOOL(MGSwipeTableCell *sender) {
+			[TorrentDelegate.sharedInstance.currentlySelectedClient pauseTorrent:currentJob[@"hash"]];
+			return YES;
+		}]];
 	}
 
 	if ([currentJob[@"status"] isEqualToString:@"Seeding"])
@@ -602,13 +626,13 @@ enum ORDER
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	return UITableViewCellEditingStyleDelete;
+	return UITableViewCellEditingStyleNone;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	self.tableView = tableView;
-	UIActionSheet *popupQuery;
+	UIActionSheet *popupQuery = nil;
 	if (TorrentDelegate.sharedInstance.currentlySelectedClient.supportsEraseChoice)
 	{
 		popupQuery = [[UIActionSheet alloc] initWithTitle:@"Also delete data?" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Delete data" otherButtonTitles:@"Delete torrent", nil];

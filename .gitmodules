@@ -4,3 +4,6 @@
 [submodule "SVWebViewController"]
 	path = SVWebViewController
 	url = git://github.com/samvermette/SVWebViewController
+[submodule "MGSwipeTableCell"]
+	path = MGSwipeTableCell
+	url = https://github.com/MortimerGoro/MGSwipeTableCell.git

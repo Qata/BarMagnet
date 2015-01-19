@@ -80,6 +80,8 @@
 		23A8692518BF38FD0066E383 /* uTorrent.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A8692418BF38FD0066E383 /* uTorrent.m */; };
 		23A8692818BF390A0066E383 /* VuzeRemoteUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A8692718BF390A0066E383 /* VuzeRemoteUI.m */; };
 		23A8692C18BF39BD0066E383 /* QueryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A8692B18BF39BD0066E383 /* QueryCell.m */; };
+		23A94D141A6CF11C00A255B7 /* MGSwipeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A94D111A6CF11C00A255B7 /* MGSwipeButton.m */; };
+		23A94D151A6CF11C00A255B7 /* MGSwipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A94D131A6CF11C00A255B7 /* MGSwipeTableCell.m */; };
 		23A94F22183CD6B7004A3924 /* UINavigationControllerNoAutoRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A94F21183CD6B7004A3924 /* UINavigationControllerNoAutoRotation.m */; };
 		23AC2B22175D835600FCFA71 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23AC2B21175D835600FCFA71 /* UIKit.framework */; };
 		23AC2B24175D835600FCFA71 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23AC2B23175D835600FCFA71 /* Foundation.framework */; };
@@ -255,6 +257,10 @@
 		23A8692718BF390A0066E383 /* VuzeRemoteUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VuzeRemoteUI.m; sourceTree = "<group>"; };
 		23A8692A18BF39BD0066E383 /* QueryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryCell.h; sourceTree = "<group>"; };
 		23A8692B18BF39BD0066E383 /* QueryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryCell.m; sourceTree = "<group>"; };
+		23A94D101A6CF11C00A255B7 /* MGSwipeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSwipeButton.h; sourceTree = "<group>"; };
+		23A94D111A6CF11C00A255B7 /* MGSwipeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSwipeButton.m; sourceTree = "<group>"; };
+		23A94D121A6CF11C00A255B7 /* MGSwipeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSwipeTableCell.h; sourceTree = "<group>"; };
+		23A94D131A6CF11C00A255B7 /* MGSwipeTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSwipeTableCell.m; sourceTree = "<group>"; };
 		23A94F20183CD6B7004A3924 /* UINavigationControllerNoAutoRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UINavigationControllerNoAutoRotation.h; sourceTree = "<group>"; };
 		23A94F21183CD6B7004A3924 /* UINavigationControllerNoAutoRotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UINavigationControllerNoAutoRotation.m; sourceTree = "<group>"; };
 		23AC2B1E175D835600FCFA71 /* BarMagnet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BarMagnet.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -461,6 +467,18 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		23A94D0F1A6CF11C00A255B7 /* MGSwipeTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				23A94D101A6CF11C00A255B7 /* MGSwipeButton.h */,
+				23A94D111A6CF11C00A255B7 /* MGSwipeButton.m */,
+				23A94D121A6CF11C00A255B7 /* MGSwipeTableCell.h */,
+				23A94D131A6CF11C00A255B7 /* MGSwipeTableCell.m */,
+			);
+			name = MGSwipeTableCell;
+			path = MGSwipeTableCell/MGSwipeTableCell;
+			sourceTree = "<group>";
+		};
 		23AC2B15175D835600FCFA71 = {
 			isa = PBXGroup;
 			children = (
@@ -468,6 +486,7 @@
 				2363424118C485A700F66225 /* LICENSE.txt */,
 				23A868EA18BF36DB0066E383 /* NSBencodeSerialization.xcodeproj */,
 				23F0375B18C153BD00B4D289 /* SVWebViewController */,
+				23A94D0F1A6CF11C00A255B7 /* MGSwipeTableCell */,
 				238A949417A121630081EF6D /* TSMessages */,
 				23AC2B27175D835600FCFA71 /* BarMagnet */,
 				23AC2B20175D835600FCFA71 /* Frameworks */,
@@ -872,6 +891,7 @@
 				232B0FA5178C356700A7B3DC /* TorrentDetailViewController.m in Sources */,
 				2396C92B1895EA88009BC6D3 /* UIFastProgressBar.m in Sources */,
 				23F0378318C153BD00B4D289 /* SVWebViewControllerActivitySafari.m in Sources */,
+				23A94D141A6CF11C00A255B7 /* MGSwipeButton.m in Sources */,
 				23F3E0A1189F59C700A8105A /* FileHandler.m in Sources */,
 				2355276B187285BE00A9E6BC /* TSBlurView.m in Sources */,
 				23A8692518BF38FD0066E383 /* uTorrent.m in Sources */,
@@ -908,6 +928,7 @@
 				232AE18E1891E40100D3F018 /* QueryTableViewController.m in Sources */,
 				23A868F818BF383E0066E383 /* NSOption.m in Sources */,
 				23A8690A18BF38A90066E383 /* NSData+BEncode.m in Sources */,
+				23A94D151A6CF11C00A255B7 /* MGSwipeTableCell.m in Sources */,
 				23A868F718BF383E0066E383 /* NSNumber+TransferRateFormatting.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

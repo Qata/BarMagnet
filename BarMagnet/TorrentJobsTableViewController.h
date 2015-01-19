@@ -16,4 +16,5 @@
 }
 
 - (IBAction)openUI:(id)sender;
+@property (nonatomic, assign) BOOL shouldRefresh;
 @end
