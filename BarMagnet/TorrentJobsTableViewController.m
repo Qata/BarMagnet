@@ -314,19 +314,30 @@ enum ORDER
 		{
 			if (buttonIndex != [actionSheet cancelButtonIndex])
 			{
-				NSString * hashString = [self.sortedKeys objectAtIndex:actionSheet.tag][@"hash"];
-				[NSNotificationCenter.defaultCenter postNotificationName:@"cancel_refresh" object:nil];
-				[TorrentDelegate.sharedInstance.currentlySelectedClient addTemporaryDeletedJob:4 forKey:hashString];
-				[TorrentDelegate.sharedInstance.currentlySelectedClient removeTorrent:hashString removeData:buttonIndex == 0];
 				self.shouldRefresh = NO;
+				NSString * hashString = nil;
+				NSUInteger index = 0;
+				for (NSDictionary * dict in self.sortedKeys)
+				{
+					if ([dict[@"hash"] hash] == actionSheet.tag)
+					{
+						NSLog(@"%@", dict[@"name"]);
+						hashString = dict[@"hash"];
+						index = [self.sortedKeys indexOfObject:dict];
+						break;
+					}
+				}
+
+				if (hashString)
+				{
+					[NSNotificationCenter.defaultCenter postNotificationName:@"cancel_refresh" object:nil];
+					[TorrentDelegate.sharedInstance.currentlySelectedClient addTemporaryDeletedJob:4 forKey:hashString];
+					[TorrentDelegate.sharedInstance.currentlySelectedClient removeTorrent:hashString removeData:buttonIndex == 0];
+					[self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+				}
 				dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC), dispatch_get_main_queue(), ^{
 					self.shouldRefresh = YES;
 				});
-				[self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:actionSheet.tag inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
-			}
-			else
-			{
-				[self.tableView setEditing:NO animated:YES];
 			}
 		}
 	}
@@ -574,7 +585,7 @@ enum ORDER
 			popupQuery = [[UIActionSheet alloc] initWithTitle:@"Are you sure?" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Delete torrent" otherButtonTitles:nil];
 		}
 		self.deleteTorrentSheet = popupQuery;
-		popupQuery.tag = indexPath.row;
+		popupQuery.tag = [currentJob[@"hash"] hash];
 		[popupQuery showFromToolbar:self.navigationController.toolbar];
 		return YES;
 	}];
