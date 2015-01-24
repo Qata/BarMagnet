@@ -18,7 +18,7 @@
 	
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-#ifndef ANDROID
+#ifdef TESTFLIGHT
 	[TestFlight takeOff:@"1d15ef35-8692-4cc4-9d94-96f36bb449b6"];
 #endif
 	if ([UIApplication.sharedApplication respondsToSelector:@selector(setMinimumBackgroundFetchInterval:)])

@@ -4,24 +4,25 @@
 
 #import <Availability.h>
 
-#ifndef __IPHONE_5_0
-#warning "This project uses features only available in iOS SDK 5.0 and later."
+#ifndef __IPHONE_6_0
+#warning "This project uses features only available in iOS SDK 6.0 and later."
 #endif
 
 //#define SAM
 
 #ifdef __OBJC__
-    #import <UIKit/UIKit.h>
-    #import <Foundation/Foundation.h>
-	#import "NSArray+Functions.h"
-	#import "StringHandler.h"
-	#import "NSNumber+TransferRateFormatting.h"
-	#import "NSOption.h"
-	#ifndef ANDROID
-	#import "TestFlight.h"
-	#define NSLog(__FORMAT__, ...) TFLog((@"%s [Line %d] " __FORMAT__), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
-	#endif
-
+#	import <UIKit/UIKit.h>
+#	import <Foundation/Foundation.h>
+#	import "NSArray+Functions.h"
+#	import "StringHandler.h"
+#	import "NSNumber+TransferRateFormatting.h"
+#	import "NSOption.h"
+#	ifdef TESTFLIGHT
+#		import "TestFlight.h"
+#		define NSLog(__FORMAT__, ...) TFLog((@"%s [Line %d] " __FORMAT__), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+#	else
+#		define NSLog(__FORMAT__, ...) NSLog((@"%s [Line %d] " __FORMAT__), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+#	endif
 
 @interface NSURLRequest (DummyInterface)
 + (BOOL)allowsAnyHTTPSCertificateForHost:(NSString*)host;

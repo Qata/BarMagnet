@@ -1118,7 +1118,7 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = BarMagnet;
-				PROVISIONING_PROFILE = "b5d94bda-1f05-4c5d-a8cf-cfd7e6d3c1f1";
+				PROVISIONING_PROFILE = "cf6450b3-fa41-4eb9-b5c5-0f9488615aec";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
