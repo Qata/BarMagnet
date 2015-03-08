@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Zb0-tx-VhR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Zb0-tx-VhR">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
@@ -439,7 +439,7 @@
             </objects>
             <point key="canvasLocation" x="661" y="-220"/>
         </scene>
-        <!--Add Torrents-->
+        <!--Query Central-->
         <scene sceneID="di2-T2-cKm">
             <objects>
                 <tableViewController hidesBottomBarWhenPushed="YES" id="cRV-aG-tb4" customClass="QueryTableViewController" sceneMemberID="viewController">
@@ -498,7 +498,7 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Add Torrents" id="HvQ-RE-hiv"/>
+                    <navigationItem key="navigationItem" title="Query Central" id="HvQ-RE-hiv"/>
                     <connections>
                         <segue destination="pcO-4V-FKq" kind="push" identifier="editQuery" id="WgM-5F-Elv"/>
                         <segue destination="UZh-vN-YWn" kind="push" identifier="scanQRCode" id="uv1-ju-MEa"/>

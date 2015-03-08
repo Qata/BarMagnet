@@ -51,7 +51,7 @@ static TorrentJobChecker * sharedInstance;
 			[request setTimeoutInterval:0x20];
 			if (request)
 			{
-				[NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:request.URL.host];
+				//[NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:request.URL.host];
 				NSMutableData * receivedData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil].mutableCopy;
 				if ([receivedData length])
 				{

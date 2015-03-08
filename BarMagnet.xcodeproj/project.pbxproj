@@ -18,8 +18,6 @@
 		232B0FA5178C356700A7B3DC /* TorrentDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 232B0FA4178C356700A7B3DC /* TorrentDetailViewController.m */; };
 		23314152177FE95E0062B0FE /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 23314150177FE95E0062B0FE /* gear.png */; };
 		23314153177FE95E0062B0FE /* gear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23314151177FE95E0062B0FE /* gear@2x.png */; };
-		233C9F9617B9E2E500405CA7 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 233C9F9517B9E2E500405CA7 /* libz.dylib */; };
-		233C9F9717B9E31100405CA7 /* libz.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 233C9F9517B9E2E500405CA7 /* libz.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		2346A5A418A8C2F0005EE9C0 /* AdBlocker.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2346A5A318A8C2F0005EE9C0 /* AdBlocker.plist */; };
 		2351200A1769C49000A3DE2C /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 235120071769C49000A3DE2C /* MainStoryboard_iPhone.storyboard */; };
 		235527571871718300A9E6BC /* UIButtonBarPause.png in Resources */ = {isa = PBXBuildFile; fileRef = 235527531871718300A9E6BC /* UIButtonBarPause.png */; };
@@ -34,7 +32,6 @@
 		2355276B187285BE00A9E6BC /* TSBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2355276A187285BE00A9E6BC /* TSBlurView.m */; };
 		2355276E1872864F00A9E6BC /* HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2355276D1872864F00A9E6BC /* HexColor.m */; };
 		235527701872901700A9E6BC /* TSMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2355276F1872901700A9E6BC /* TSMessage.m */; };
-		2356F0D618C3375C008D70B9 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2356F0D518C3375C008D70B9 /* libTestFlight.a */; };
 		2363424218C485A700F66225 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2363424118C485A700F66225 /* LICENSE.txt */; };
 		2374DD9E1796F23100F613EB /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2374DD9D1796F23100F613EB /* MessageUI.framework */; };
 		237570B11877B742008217BF /* UIButtonBarStop.png in Resources */ = {isa = PBXBuildFile; fileRef = 237570AF1877B742008217BF /* UIButtonBarStop.png */; };
@@ -143,7 +140,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				233C9F9717B9E31100405CA7 /* libz.dylib in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,9 +149,6 @@
 		230C477E18948FBD007D56FC /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		230C478018948FC6007D56FC /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		230C478318948FD7007D56FC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		230C482A18949214007D56FC /* libGPUImage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGPUImage.a; path = "../../Downloads/GPUImage-master/build/Release-iphoneos/libGPUImage.a"; sourceTree = "<group>"; };
-		230C482C1894921F007D56FC /* libGPUImage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGPUImage.a; path = "../../Downloads/GPUImage-master/build/libGPUImage.a"; sourceTree = "<group>"; };
-		230C482E18949244007D56FC /* libGPUImage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGPUImage.a; path = Smerk/GPUImage/libGPUImage.a; sourceTree = "<group>"; };
 		232AE18C1891E40100D3F018 /* QueryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryTableViewController.h; sourceTree = "<group>"; };
 		232AE18D1891E40100D3F018 /* QueryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryTableViewController.m; sourceTree = "<group>"; };
 		232AE18F1891EE7400D3F018 /* AddQueryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddQueryTableViewController.h; sourceTree = "<group>"; };
@@ -184,7 +177,6 @@
 		2355276C1872864F00A9E6BC /* HexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HexColor.h; sourceTree = "<group>"; };
 		2355276D1872864F00A9E6BC /* HexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HexColor.m; sourceTree = "<group>"; };
 		2355276F1872901700A9E6BC /* TSMessage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSMessage.m; sourceTree = "<group>"; };
-		2356F0D518C3375C008D70B9 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libTestFlight.a; path = TestFlightSDK/libTestFlight.a; sourceTree = "<group>"; };
 		2363424118C485A700F66225 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		23704DF01880C6380029AB17 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2374DD9D1796F23100F613EB /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -335,14 +327,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2356F0D618C3375C008D70B9 /* libTestFlight.a in Frameworks */,
 				23A868F218BF36F70066E383 /* libNSBencodeSerialization.a in Frameworks */,
 				230C478418948FD7007D56FC /* AVFoundation.framework in Frameworks */,
 				230C478218948FCE007D56FC /* OpenGLES.framework in Frameworks */,
 				230C478118948FC6007D56FC /* CoreMedia.framework in Frameworks */,
 				230C477F18948FBD007D56FC /* CoreVideo.framework in Frameworks */,
 				230C477D18948FA4007D56FC /* QuartzCore.framework in Frameworks */,
-				233C9F9617B9E2E500405CA7 /* libz.dylib in Frameworks */,
 				23AC2B22175D835600FCFA71 /* UIKit.framework in Frameworks */,
 				23AC2B24175D835600FCFA71 /* Foundation.framework in Frameworks */,
 				2374DD9E1796F23100F613EB /* MessageUI.framework in Frameworks */,
@@ -505,12 +495,8 @@
 		23AC2B20175D835600FCFA71 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2356F0D518C3375C008D70B9 /* libTestFlight.a */,
 				23A868B218BF31E30066E383 /* libNSBencodeSerialization.a */,
 				23B35F5F1894941A002F6E37 /* libiconv.dylib */,
-				230C482E18949244007D56FC /* libGPUImage.a */,
-				230C482C1894921F007D56FC /* libGPUImage.a */,
-				230C482A18949214007D56FC /* libGPUImage.a */,
 				230C478318948FD7007D56FC /* AVFoundation.framework */,
 				230C478018948FC6007D56FC /* CoreMedia.framework */,
 				230C477E18948FBD007D56FC /* CoreVideo.framework */,
@@ -1066,11 +1052,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BarMagnet/BarMagnet-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"TESTFLIGHT=1",
-					"$(inherited)",
-				);
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/NSBencodeSerialization/M13OrderedDictionary",
 					"$(SRCROOT)/NSBencodeSerialization/NSBencodeSerialization",

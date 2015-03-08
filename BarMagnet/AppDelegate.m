@@ -73,7 +73,14 @@
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
-    [[TorrentDelegate sharedInstance] handleMagnet:url.absoluteString];
+	if ([url isFileURL])
+	{
+		[[TorrentDelegate sharedInstance] handleTorrentFile:url.absoluteString];
+	}
+	else
+	{
+		[[TorrentDelegate sharedInstance] handleMagnet:url.absoluteString];
+	}
     return YES;
 }
 

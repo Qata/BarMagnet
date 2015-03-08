@@ -242,7 +242,6 @@
 	}
 	else
 	{
-#if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
 		if (self.notificationViewController)
 		{
 			[TSMessage showNotificationInViewController:self.notificationViewController title:@"Unable to add torrent" subtitle:@"Duplicate Torrent" image:nil type:TSMessageNotificationTypeError duration:TSDURATION callback:nil buttonTitle:nil buttonCallback:nil atPosition:TSMessageNotificationPositionTop canBeDismissedByUser:YES];
@@ -251,9 +250,6 @@
 		{
 			[TSMessage showNotificationWithTitle:@"Unable to add torrent" subtitle:@"Duplicate Torrent" type:TSMessageNotificationTypeError];
 		}
-#else
-		[[NotificationHandler sharedInstance] sendNotification:@"Unable to add torrent" withTextBody:@"Duplicate torrent" withCallBackURL:[self getUserFriendlyAppendedURL] andSound:NO];
-#endif
 	}
 }
 
@@ -264,9 +260,7 @@
 
 - (void)handleTorrentURL:(NSURL *)fileURL
 {
-#if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
 	[torrentFileHandler downloadTorrentFile:fileURL withDelegate:self];
-#endif
 }
 
 - (void)handleTorrentData:(NSData *)data withURL:(NSURL *)fileURL
@@ -522,7 +516,7 @@
 	{
 		notification = [error localizedDescription];
 	}
-#if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
+
 	if (self.notificationViewController)
 	{
 		[TSMessage showNotificationInViewController:self.notificationViewController title:@"An error occurred" subtitle:notification image:nil type:TSMessageNotificationTypeError duration:TSDURATION callback:nil buttonTitle:nil buttonCallback:nil atPosition:TSMessageNotificationPositionTop canBeDismissedByUser:YES];
@@ -531,9 +525,6 @@
 	{
 		[TSMessage showNotificationWithTitle:@"An error occurred" subtitle:notification type:TSMessageNotificationTypeError];
 	}
-#else
-	[[NotificationHandler sharedInstance] sendNotification:@"An error occurred" withTextBody:[notification sentenceParsedString] withCallBackURL:nil andSound:NO];
-#endif
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection

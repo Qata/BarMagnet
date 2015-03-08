@@ -321,7 +321,6 @@ enum ORDER
 				{
 					if ([dict[@"hash"] hash] == actionSheet.tag)
 					{
-						NSLog(@"%@", dict[@"name"]);
 						hashString = dict[@"hash"];
 						index = [self.sortedKeys indexOfObject:dict];
 						break;
