@@ -196,7 +196,7 @@
 		NSNumber * ratio = @0;
 		if ([dict[@"additional"][@"transfer"][@"size_downloaded"] doubleValue])
 		{
-			ratio = @(fabs([dict[@"additional"][@"transfer"][@"size_uploaded"] doubleValue] / [dict[@"additional"][@"transfer"][@"size_downloaded"] doubleValue]));
+			ratio = @([dict[@"additional"][@"transfer"][@"size_uploaded"] doubleValue] / [dict[@"additional"][@"transfer"][@"size_downloaded"] doubleValue]);
 		}
 		[self insertTorrentJobsDictWithArray:@[dict[@"id"], dict[@"title"], percentDone, [dict[@"status"] sentenceParsedString], [dict[@"additional"][@"transfer"][@"speed_download"] transferRateString], [dict[@"additional"][@"transfer"][@"speed_upload"] transferRateString], ETA, [dict[@"additional"][@"transfer"][@"size_downloaded"] sizeString], [dict[@"additional"][@"transfer"][@"size_uploaded"] sizeString], [dict[@"size"] toNumber], dict[@"additional"][@"detail"][@"connected_leechers"], dict[@"additional"][@"detail"][@"connected_seeders"], dict[@"additional"][@"transfer"][@"speed_download"], dict[@"additional"][@"transfer"][@"speed_upload"], ratio] intoDict:tempJobs];
 	}
