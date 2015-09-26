@@ -147,7 +147,7 @@
 {
     NSMutableURLRequest * retVal;
 	NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:self.getAppendedURLWithoutAuth]];
-    randomID = @(abs(arc4random()));
+    randomID = @(arc4random());
 	[request setHTTPMethod:@"POST"];
 
     retVal = [request copy];
