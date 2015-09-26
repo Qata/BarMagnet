@@ -53,7 +53,6 @@
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-	NSLog(@"%@", request.URL.absoluteString);
 	for (NSString * key in self.adKeys)
 	{
 		if ([request.URL.absoluteString rangeOfString:key].location != NSNotFound)
@@ -62,16 +61,15 @@
 			return NO;
 		}
 	}
+	NSLog(@"%@", request.URL.absoluteString);
 
 	if ([[request.URL.absoluteString componentsSeparatedByString:@":"].firstObject isEqual:@"magnet"])
 	{
-		[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 		[TorrentDelegate.sharedInstance.currentlySelectedClient handleMagnetLink:request.URL.absoluteString];
 		return NO;
 	}
 	else if ([[request.URL.absoluteString componentsSeparatedByString:@"."].lastObject isEqual:@"torrent"])
 	{
-		[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 		[TorrentDelegate.sharedInstance.currentlySelectedClient handleTorrentURL:request.URL];
 		return NO;
 	}
