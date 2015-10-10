@@ -1410,7 +1410,7 @@
 				SKIP_INSTALL = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 4;
-				VALID_ARCHS = "arm64 armv7 armv7s armv6 i386";
+				VALID_ARCHS = "$(ARCHS_STANDARD)";
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
@@ -1445,7 +1445,7 @@
 				SDKROOT = watchos;
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = 4;
-				VALID_ARCHS = "arm64 armv7 armv7s armv6 i386";
+				VALID_ARCHS = "$(ARCHS_STANDARD)";
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
