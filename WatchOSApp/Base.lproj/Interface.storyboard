@@ -1,15 +1,80 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="6221" systemVersion="13E28" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="9052" systemVersion="15B30a" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6213"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3733"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9040"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="9016"/>
     </dependencies>
     <scenes>
         <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModuleProvider="target"/>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="WatchOSApp" customModuleProvider="target">
+                    <items>
+                        <button width="1" alignment="left" title="STATUS" id="VV6-Zy-dsA">
+                            <connections>
+                                <segue destination="ivH-FL-OR2" kind="push" id="h3M-II-MDn"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="PAUSE ALL TORRENTS" id="caJ-5Q-RmY">
+                            <connections>
+                                <segue destination="m1d-NL-SvH" kind="push" id="wDv-M3-Lkx"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="RESUME ALL TORRENTS" id="ViR-AV-jsN">
+                            <connections>
+                                <segue destination="ZfB-aE-lmq" kind="push" id="Av6-rd-y5X"/>
+                            </connections>
+                        </button>
+                    </items>
+                </controller>
             </objects>
+        </scene>
+        <!--Status Interface Controller-->
+        <scene sceneID="DBH-Fo-9dx">
+            <objects>
+                <controller id="ivH-FL-OR2" customClass="StatusInterfaceController" customModule="WatchOSApp_Extension">
+                    <items>
+                        <label alignment="left" text="Total torrent files:" id="Knh-e4-RI4"/>
+                        <label width="134" height="124" alignment="left" text="24" textAlignment="center" id="Got-gn-2ul"/>
+                        <separator alignment="left" id="cMo-c4-ZvN"/>
+                        <label alignment="left" text="Finished" id="zLf-DM-OXr"/>
+                        <label width="134" height="124" alignment="left" text="4" textAlignment="center" id="wHt-4c-QrA"/>
+                        <separator alignment="left" id="0ae-4X-svg"/>
+                        <label alignment="left" text="Incomplete:" id="JG0-vX-zmV"/>
+                        <label width="134" height="124" alignment="left" text="20" textAlignment="center" id="aAf-5s-gbI"/>
+                    </items>
+                    <connections>
+                        <outlet property="FinishedTorrentLabel" destination="wHt-4c-QrA" id="OX9-sP-gDV"/>
+                        <outlet property="IncompleteTorrentLabel" destination="aAf-5s-gbI" id="Tgz-IQ-KQz"/>
+                        <outlet property="TotalTorrentLabel" destination="Got-gn-2ul" id="PdK-r9-XU4"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="557" y="-112.5"/>
+        </scene>
+        <!--Pause Interface Controller-->
+        <scene sceneID="ymD-nz-FRL">
+            <objects>
+                <controller id="m1d-NL-SvH" customClass="PauseInterfaceController" customModule="WatchOSApp_Extension">
+                    <items>
+                        <label width="131" height="107" alignment="left" text="This will pause all active torrents on your BarMagnet added torrent clients." textAlignment="center" numberOfLines="5" id="IB0-QL-D6d"/>
+                        <button width="1" alignment="left" title="Do It!" id="eDb-N1-yTZ"/>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="670" y="334"/>
+        </scene>
+        <!--Resume Interface Controller-->
+        <scene sceneID="AYn-l2-Ccb">
+            <objects>
+                <controller id="ZfB-aE-lmq" customClass="ResumeInterfaceController" customModule="WatchOSApp_Extension">
+                    <items>
+                        <label width="131" height="107" alignment="left" text="This will resume all paused torrents on your BarMagnet added torrent clients." textAlignment="center" numberOfLines="5" id="1XJ-6l-g0S"/>
+                        <button width="1" alignment="left" title="Do It!" id="cKj-UP-455"/>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="545" y="654"/>
         </scene>
     </scenes>
 </document>

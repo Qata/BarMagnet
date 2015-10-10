@@ -121,6 +121,10 @@
 		76323B461BC9645D006495F3 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76323B451BC9645D006495F3 /* ExtensionDelegate.swift */; };
 		76323B481BC9645D006495F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76323B471BC9645D006495F3 /* Assets.xcassets */; };
 		76323B4C1BC9645D006495F3 /* WatchOSApp.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 76323B321BC9645D006495F3 /* WatchOSApp.app */; };
+		76323B561BC97FF6006495F3 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76323B551BC97FF6006495F3 /* Launch Screen.storyboard */; };
+		76F25C921BC99292005429C0 /* StatusInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F25C911BC99292005429C0 /* StatusInterfaceController.swift */; };
+		76F25C941BC992C5005429C0 /* PauseInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F25C931BC992C5005429C0 /* PauseInterfaceController.swift */; };
+		76F25C961BC992D9005429C0 /* ResumeInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F25C951BC992D9005429C0 /* ResumeInterfaceController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -372,6 +376,10 @@
 		76323B451BC9645D006495F3 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		76323B471BC9645D006495F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		76323B491BC9645D006495F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		76323B551BC97FF6006495F3 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "../Launch Screen.storyboard"; sourceTree = "<group>"; };
+		76F25C911BC99292005429C0 /* StatusInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusInterfaceController.swift; sourceTree = "<group>"; };
+		76F25C931BC992C5005429C0 /* PauseInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PauseInterfaceController.swift; sourceTree = "<group>"; };
+		76F25C951BC992D9005429C0 /* ResumeInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResumeInterfaceController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -593,6 +601,7 @@
 				2324910B178E492400D5454E /* Custom UI */,
 				235120071769C49000A3DE2C /* MainStoryboard_iPhone.storyboard */,
 				23B84F0D17B60F4F008C9D17 /* MainStoryboard_iPad.storyboard */,
+				76323B551BC97FF6006495F3 /* Launch Screen.storyboard */,
 				235527651872723700A9E6BC /* Images.xcassets */,
 				23AC2B28175D835600FCFA71 /* Supporting Files */,
 			);
@@ -803,6 +812,9 @@
 			isa = PBXGroup;
 			children = (
 				76323B431BC9645D006495F3 /* InterfaceController.swift */,
+				76F25C911BC99292005429C0 /* StatusInterfaceController.swift */,
+				76F25C931BC992C5005429C0 /* PauseInterfaceController.swift */,
+				76F25C951BC992D9005429C0 /* ResumeInterfaceController.swift */,
 				76323B451BC9645D006495F3 /* ExtensionDelegate.swift */,
 				76323B471BC9645D006495F3 /* Assets.xcassets */,
 				76323B491BC9645D006495F3 /* Info.plist */,
@@ -874,7 +886,7 @@
 		23AC2B16175D835600FCFA71 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Carlo Tortorella";
 				TargetAttributes = {
 					23AC2B1D175D835600FCFA71 = {
@@ -981,6 +993,7 @@
 				238A94C717A121630081EF6D /* NotificationBackgroundSuccess.png in Resources */,
 				2363424218C485A700F66225 /* LICENSE.txt in Resources */,
 				235527571871718300A9E6BC /* UIButtonBarPause.png in Resources */,
+				76323B561BC97FF6006495F3 /* Launch Screen.storyboard in Resources */,
 				23F0378218C153BD00B4D289 /* SVWebViewControllerActivitySafari-iPad@2x.png in Resources */,
 				23F0377B18C153BD00B4D289 /* SVWebViewController.bundle in Resources */,
 				23E60FB71876D20400D2068B /* PlayPause.png in Resources */,
@@ -1071,6 +1084,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76F25C961BC992D9005429C0 /* ResumeInterfaceController.swift in Sources */,
+				76F25C941BC992C5005429C0 /* PauseInterfaceController.swift in Sources */,
+				76F25C921BC99292005429C0 /* StatusInterfaceController.swift in Sources */,
 				76323B461BC9645D006495F3 /* ExtensionDelegate.swift in Sources */,
 				76323B441BC9645D006495F3 /* InterfaceController.swift in Sources */,
 			);
@@ -1164,6 +1180,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Carlo Tortorella (F688N26J6J)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Carlo Tortorella (F688N26J6J)";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1316,7 +1333,7 @@
 				IBSC_MODULE = WatchOSApp_Extension;
 				INFOPLIST_FILE = WatchOSApp/Info.plist;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tiferrei.watchkit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tiferrei.barmagnet.watchkit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
@@ -1353,7 +1370,7 @@
 				IBSC_MODULE = WatchOSApp_Extension;
 				INFOPLIST_FILE = WatchOSApp/Info.plist;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tiferrei.watchkit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tiferrei.barmagnet.watchkit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
@@ -1386,7 +1403,7 @@
 				INFOPLIST_FILE = "WatchOSApp Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tiferrei.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tiferrei.barmagnet.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
@@ -1422,7 +1439,7 @@
 				INFOPLIST_FILE = "WatchOSApp Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tiferrei.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tiferrei.barmagnet.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
@@ -1461,6 +1478,7 @@
 				76323B501BC9645D006495F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		76323B531BC9645D006495F3 /* Build configuration list for PBXNativeTarget "WatchOSApp" */ = {
 			isa = XCConfigurationList;
@@ -1469,6 +1487,7 @@
 				76323B4E1BC9645D006495F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
