@@ -1,0 +1,51 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "0F868C27A8BFEC3769349FD663B17E865CE6BEEF",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "00DEE37500E6C7998F4D113C875F3996AE26D5BE" : 0,
+    "0F868C27A8BFEC3769349FD663B17E865CE6BEEF" : 0,
+    "EB98C87D6503FFC3C1279E95807AA0E8467FFD82" : 0,
+    "4099C8052EE7ABC80938CE060D9B759272FE60A4" : 0,
+    "4D6939BC40226AB2E6BC6677303EAE8B03CDEA08" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "F317C2C3-0E4A-407D-86CA-0B0EAE8B5B87",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "00DEE37500E6C7998F4D113C875F3996AE26D5BE" : "BarMagnet\/SVWebViewController\/",
+    "0F868C27A8BFEC3769349FD663B17E865CE6BEEF" : "BarMagnet\/",
+    "EB98C87D6503FFC3C1279E95807AA0E8467FFD82" : "BarMagnet\/NSBencodeSerialization\/M13OrderedDictionary\/",
+    "4099C8052EE7ABC80938CE060D9B759272FE60A4" : "BarMagnet\/MGSwipeTableCell\/",
+    "4D6939BC40226AB2E6BC6677303EAE8B03CDEA08" : "BarMagnet\/NSBencodeSerialization\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "BarMagnet",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "BarMagnet.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "git:\/\/github.com\/samvermette\/SVWebViewController",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "00DEE37500E6C7998F4D113C875F3996AE26D5BE"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/tiferrei\/BarMagnet.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0F868C27A8BFEC3769349FD663B17E865CE6BEEF"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/MortimerGoro\/MGSwipeTableCell.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4099C8052EE7ABC80938CE060D9B759272FE60A4"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "git:\/\/github.com\/Qata\/NSBencodeSerialization",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4D6939BC40226AB2E6BC6677303EAE8B03CDEA08"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Marxon13\/M13OrderedDictionary",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "EB98C87D6503FFC3C1279E95807AA0E8467FFD82"
+    }
+  ]
+}
