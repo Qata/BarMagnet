@@ -224,7 +224,7 @@
 	NSDictionary * APIDict = APIInfo[key];
 	NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", [self getAppendedURLWithoutAuth], APIDict[@"path"]]]];
 	[request setHTTPMethod:@"POST"];
-	[request setHTTPBody:[[NSString stringWithFormat:@"api=%@&version=%@&method=create&uri=%@&username=%@&password=%@", key, APIDict[@"maxVersion"], [magnetLink encodeAmpersands], [[self getWebDataForKey:@"username"] orSome:@""], [[self getWebDataForKey:@"password"] orSome:@""]] dataUsingEncoding:NSUTF8StringEncoding]];
+	[request setHTTPBody:[[NSString stringWithFormat:@"api=%@&version=%@&method=create&uri=%@&username=%@&password=%@", key, APIDict[@"maxVersion"], [[magnetLink stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] encodeAmpersands], [[self getWebDataForKey:@"username"] orSome:@""], [[self getWebDataForKey:@"password"] orSome:@""]] dataUsingEncoding:NSUTF8StringEncoding]];
 	
 	return [self checkForSID:request];
 }

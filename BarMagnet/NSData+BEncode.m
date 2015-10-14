@@ -107,7 +107,7 @@
 				}
 			}
 		}
-		return [[NSString stringWithFormat:@"magnet:?xt=urn:btih:%@&dn=%@%@", self.torrentHash, [self.torrentName orSome:@""], [trackers count] ? [NSString stringWithFormat:@"&%@", [trackers componentsJoinedByString:@"&"]] : @""] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+		return [NSString stringWithFormat:@"magnet:?xt=urn:btih:%@&dn=%@%@", self.torrentHash, [self.torrentName orSome:@""], [trackers count] ? [NSString stringWithFormat:@"&%@", [trackers componentsJoinedByString:@"&"]] : @""];
 	}
 	return nil;
 }

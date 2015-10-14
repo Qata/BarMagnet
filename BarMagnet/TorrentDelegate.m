@@ -18,6 +18,7 @@
 #import "ruTorrentHTTPRPC.h"
 #import "rTorrentXMLRPC.h"
 #import "SeedStuffSeedbox.h"
+#import "XirvikSeedbox.h"
 
 @interface TorrentDelegate ()
 
@@ -46,7 +47,7 @@ static TorrentDelegate * sharedInstance;
 {
 	if (self = [super init])
 	{
-		self.torrentClasses = @[uTorrent.class, Transmission.class, VuzeRemoteUI.class, ruTorrent.class, Deluge.class, qBittorrent.class, Synology.class, ruTorrentHTTPRPC.class, rTorrentXMLRPC.class, SeedStuffSeedbox.class];
+		self.torrentClasses = @[uTorrent.class, Transmission.class, VuzeRemoteUI.class, ruTorrent.class, Deluge.class, qBittorrent.class, Synology.class, ruTorrentHTTPRPC.class, rTorrentXMLRPC.class, SeedStuffSeedbox.class, XirvikSeedbox.class];
 		NSMutableDictionary * dict = NSMutableDictionary.new;
 		for (Class class in self.torrentClasses)
 		{

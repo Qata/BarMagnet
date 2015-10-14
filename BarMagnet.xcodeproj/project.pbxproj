@@ -114,6 +114,7 @@
 		23F3E09E189F30EF00A8105A /* AddTorrentClientTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F3E09D189F30EF00A8105A /* AddTorrentClientTableViewController.m */; };
 		23F3E0A1189F59C700A8105A /* FileHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F3E0A0189F59C700A8105A /* FileHandler.m */; };
 		23FC25D81788F1D500CCE434 /* TorrentJobCheckerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FC25D71788F1D500CCE434 /* TorrentJobCheckerCell.m */; };
+		9EA311881BB6515400A91454 /* XirvikSeedbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EA311871BB6515400A91454 /* XirvikSeedbox.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -330,6 +331,8 @@
 		23F3E0A0189F59C700A8105A /* FileHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileHandler.m; sourceTree = "<group>"; };
 		23FC25D61788F1D500CCE434 /* TorrentJobCheckerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TorrentJobCheckerCell.h; sourceTree = "<group>"; };
 		23FC25D71788F1D500CCE434 /* TorrentJobCheckerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TorrentJobCheckerCell.m; sourceTree = "<group>"; };
+		9EA311861BB6515400A91454 /* XirvikSeedbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XirvikSeedbox.h; sourceTree = "<group>"; };
+		9EA311871BB6515400A91454 /* XirvikSeedbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XirvikSeedbox.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -606,6 +609,8 @@
 				23A8692418BF38FD0066E383 /* uTorrent.m */,
 				23A8692618BF390A0066E383 /* VuzeRemoteUI.h */,
 				23A8692718BF390A0066E383 /* VuzeRemoteUI.m */,
+				9EA311861BB6515400A91454 /* XirvikSeedbox.h */,
+				9EA311871BB6515400A91454 /* XirvikSeedbox.m */,
 			);
 			name = "Torrent Front-Ends";
 			sourceTree = "<group>";
@@ -766,7 +771,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0710;
-				ORGANIZATIONNAME = "Carlo Tortorella";
+				ORGANIZATIONNAME = "Charlotte Tortorella";
 			};
 			buildConfigurationList = 23AC2B19175D835600FCFA71 /* Build configuration list for PBXProject "BarMagnet" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -877,6 +882,7 @@
 				23A8691C18BF38DF0066E383 /* ruTorrent.m in Sources */,
 				23A8691618BF38CC0066E383 /* Deluge.m in Sources */,
 				23F0377F18C153BD00B4D289 /* SVWebViewControllerActivityChrome.m in Sources */,
+				9EA311881BB6515400A91454 /* XirvikSeedbox.m in Sources */,
 				235527701872901700A9E6BC /* TSMessage.m in Sources */,
 				23AC2B32175D835600FCFA71 /* AppDelegate.m in Sources */,
 				23AC2B41175D835600FCFA71 /* TorrentJobsTableViewController.m in Sources */,
@@ -1065,7 +1071,6 @@
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/NSBencodeSerialization/M13OrderedDictionary",
 					"$(SRCROOT)/NSBencodeSerialization/NSBencodeSerialization",
-					"$(SRCROOT)/TestFlightSDK",
 				);
 				INFOPLIST_FILE = "BarMagnet/BarMagnet-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
@@ -1074,10 +1079,9 @@
 					"$(SRCROOT)/TestFlightSDK",
 					"$(SRCROOT)/BarMagnet",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/NSBencodeSerialization-ezakathubkhhsxayghzwbjqodwih/Build/Products/Debug-iphoneos",
-					"/Users/carlo/Obj-C_Apps/BarMagnet/TestFlightSDK",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.carlotortorella.barmagnet;
+				PRODUCT_BUNDLE_IDENTIFIER = "Quarter.BarMagnet";
 				PRODUCT_NAME = BarMagnet;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -1103,7 +1107,6 @@
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/NSBencodeSerialization/M13OrderedDictionary",
 					"$(SRCROOT)/NSBencodeSerialization/NSBencodeSerialization",
-					"$(SRCROOT)/TestFlightSDK",
 				);
 				INFOPLIST_FILE = "BarMagnet/BarMagnet-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
@@ -1112,10 +1115,9 @@
 					"$(SRCROOT)/TestFlightSDK",
 					"$(SRCROOT)/BarMagnet",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/NSBencodeSerialization-ezakathubkhhsxayghzwbjqodwih/Build/Products/Debug-iphoneos",
-					"/Users/carlo/Obj-C_Apps/BarMagnet/TestFlightSDK",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.carlotortorella.barmagnet;
+				PRODUCT_BUNDLE_IDENTIFIER = "Quarter.BarMagnet";
 				PRODUCT_NAME = BarMagnet;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;

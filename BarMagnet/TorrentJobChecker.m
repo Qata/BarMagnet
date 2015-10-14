@@ -65,6 +65,7 @@ static TorrentJobChecker * sharedInstance;
 					}
 				}
 			}
+
 			double elapsed = (clock() - t) / CLOCKS_PER_SEC;
 			if (elapsed < refresh)
 			{

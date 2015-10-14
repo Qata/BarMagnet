@@ -155,8 +155,6 @@
 
 - (NSURLRequest *)virtualHandleTorrentFile:(NSData *)fileData withURL:(NSURL *)fileURL
 {
-	//return [self virtualHandleMagnetLink:fileData.magnetLink];
-
 	NSMutableURLRequest * request = [NSMutableURLRequest new];
 	NSString * boundary = [NSString stringWithFormat:@"AJAX-----------------------%f", [[NSDate new] timeIntervalSince1970]];
 	NSMutableData * body = [NSMutableData new];
