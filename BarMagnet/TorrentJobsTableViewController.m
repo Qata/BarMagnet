@@ -65,6 +65,36 @@ enum ORDER
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(receiveUpdateTableNotification) name:@"update_torrent_jobs_table" object:nil];
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(receiveUpdateHeaderNotification) name:@"update_torrent_jobs_header" object:nil];
 	[NSNotificationCenter.defaultCenter addObserver:self selector:@selector(changedClient) name:@"ChangedClient" object:nil];
+    
+    if ([NSProcessInfo instancesRespondToSelector:@selector(isOperatingSystemAtLeastVersion:)] && [[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:(NSOperatingSystemVersion){9, 0, 0}]) {
+        [self registerForPreviewingWithDelegate:self sourceView:self.tableView];
+    }
+}
+
+- (nullable UIViewController *)previewingContext:(id <UIViewControllerPreviewing>)previewingContext viewControllerForLocation:(CGPoint)location{
+    CGPoint cellPostion = [self.tableView convertPoint:location fromView:self.view];
+    NSIndexPath *path = [self.tableView indexPathForRowAtPoint:cellPostion];
+    
+    if (path) {
+        NSDictionary * currentJob = nil;
+        
+        if (self.tableView == self.searchDisplayController.searchResultsTableView)
+            currentJob = self.filteredArray[path.row];
+        else
+            currentJob = self.sortedKeys[path.row];
+        
+        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:path];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
+        TorrentDetailViewController *previewController = [storyboard instantiateViewControllerWithIdentifier:@"detail"];
+        [previewController setHashString:currentJob[@"hash"]];
+        previewingContext.sourceRect = [self.view convertRect:cell.frame fromView:self.tableView];
+        return previewController;
+    }
+    return nil;
+}
+
+- (void)previewingContext:(id <UIViewControllerPreviewing>)previewingContext commitViewController:(UIViewController *)viewControllerToCommit {
+    [self showViewController:viewControllerToCommit sender:nil];
 }
 
 - (void)initialiseUploadDownloadLabels
@@ -203,13 +233,13 @@ enum ORDER
 					{
 						if ([text rangeOfString:@"https://"].location != NSNotFound || [text rangeOfString:@"http://"].location != NSNotFound)
 						{
-							SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithAddress:text];
-							[self.navigationController presentViewController:webViewController animated:YES completion:nil];
+                            SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithAddress:text];
+                            [self.navigationController presentViewController:webViewController animated:YES completion:nil];
 						}
 						else
 						{
-							SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithAddress:[@"http://" stringByAppendingString:[text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
-							[self.navigationController presentViewController:webViewController animated:YES completion:nil];
+                            SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithAddress:[@"http://" stringByAppendingString:[text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
+                            [self.navigationController presentViewController:webViewController animated:YES completion:nil];
 						}
 					}
 				}
@@ -346,8 +376,8 @@ enum ORDER
 {
 	if ([[TorrentDelegate.sharedInstance.currentlySelectedClient getUserFriendlyAppendedURL] length])
 	{
-		SVModalWebViewController *webViewController = [SVModalWebViewController.alloc initWithAddress:TorrentDelegate.sharedInstance.currentlySelectedClient.getUserFriendlyAppendedURL];
-		[self presentViewController:webViewController animated:YES completion:nil];
+        SVModalWebViewController *webViewController = [SVModalWebViewController.alloc initWithAddress:TorrentDelegate.sharedInstance.currentlySelectedClient.getUserFriendlyAppendedURL];
+        [self presentViewController:webViewController animated:YES completion:nil];
 	}
 }
 

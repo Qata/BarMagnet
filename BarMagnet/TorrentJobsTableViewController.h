@@ -10,7 +10,7 @@
 #import "TorrentClient.h"
 #import "TorrentDetailViewController.h"
 
-@interface TorrentJobsTableViewController : UITableViewController
+@interface TorrentJobsTableViewController : UITableViewController <UIViewControllerPreviewingDelegate>
 {
 	BOOL cancelNextRefresh;
 }
