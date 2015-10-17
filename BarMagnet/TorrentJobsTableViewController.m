@@ -235,23 +235,13 @@ enum ORDER
 					{
 						if ([text rangeOfString:@"https://"].location != NSNotFound || [text rangeOfString:@"http://"].location != NSNotFound)
 						{
-                            if ([NSProcessInfo instancesRespondToSelector:@selector(isOperatingSystemAtLeastVersion:)] && [[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:(NSOperatingSystemVersion){9, 0, 0}]) {
-                                SFSafariViewController *controller = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:text]];
-                                [self.navigationController presentViewController:controller animated:YES completion:nil];
-                            } else {
-                                SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithAddress:text];
-                                [self.navigationController presentViewController:webViewController animated:YES completion:nil];
-                            }
+                            SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithAddress:text];
+                            [self.navigationController presentViewController:webViewController animated:YES completion:nil];
 						}
 						else
 						{
-                            if ([NSProcessInfo instancesRespondToSelector:@selector(isOperatingSystemAtLeastVersion:)] && [[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:(NSOperatingSystemVersion){9, 0, 0}]) {
-                                SFSafariViewController *controller = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:[@"http://" stringByAppendingString:[text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]]];
-                                [self.navigationController presentViewController:controller animated:YES completion:nil];
-                            } else {
-                                SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithAddress:[@"http://" stringByAppendingString:[text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
-                                [self.navigationController presentViewController:webViewController animated:YES completion:nil];
-                            }
+                            SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithAddress:[@"http://" stringByAppendingString:[text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
+                            [self.navigationController presentViewController:webViewController animated:YES completion:nil];
 						}
 					}
 				}
@@ -388,13 +378,8 @@ enum ORDER
 {
 	if ([[TorrentDelegate.sharedInstance.currentlySelectedClient getUserFriendlyAppendedURL] length])
 	{
-        if ([NSProcessInfo instancesRespondToSelector:@selector(isOperatingSystemAtLeastVersion:)] && [[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:(NSOperatingSystemVersion){9, 0, 0}]) {
-            SFSafariViewController *controller = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:TorrentDelegate.sharedInstance.currentlySelectedClient.getUserFriendlyAppendedURL]];
-            [self presentViewController:controller animated:YES completion:nil];
-        } else {
-            SVModalWebViewController *webViewController = [SVModalWebViewController.alloc initWithAddress:TorrentDelegate.sharedInstance.currentlySelectedClient.getUserFriendlyAppendedURL];
-            [self presentViewController:webViewController animated:YES completion:nil];
-        }
+        SVModalWebViewController *webViewController = [SVModalWebViewController.alloc initWithAddress:TorrentDelegate.sharedInstance.currentlySelectedClient.getUserFriendlyAppendedURL];
+        [self presentViewController:webViewController animated:YES completion:nil];
 	}
 }
 
