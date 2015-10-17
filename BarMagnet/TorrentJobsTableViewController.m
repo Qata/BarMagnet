@@ -15,8 +15,6 @@
 #import "TorrentJobCheckerCell.h"
 #import "M13OrderedDictionary.h"
 
-@import SafariServices;
-
 #define IPHONE_HEIGHT 22
 #define IPAD_HEIGHT 28
 
