@@ -2,8 +2,8 @@
 //  Deluge.h
 //  Bar Magnet
 //
-//  Created by Carlo Tortorella on 30/05/13.
-//  Copyright (c) 2013 Carlo Tortorella. All rights reserved.
+//  Created by Charlotte Tortorella on 30/05/13.
+//  Copyright (c) 2013 Charlotte Tortorella. All rights reserved.
 //
 
 #import "TorrentClient.h"

@@ -2,8 +2,8 @@
 //  qBittorrent.m
 //  Bar Magnet
 //
-//  Created by Carlo Tortorella on 13/06/13.
-//  Copyright (c) 2013 Carlo Tortorella. All rights reserved.
+//  Created by Charlotte Tortorella on 13/06/13.
+//  Copyright (c) 2013 Charlotte Tortorella. All rights reserved.
 //
 
 #import "qBittorrent.h"

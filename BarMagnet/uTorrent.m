@@ -2,8 +2,8 @@
 //  NSObject+PreferencesInterface.m
 //  Magnet Fondler
 //
-//  Created by Carlo Tortorella on 11/03/13.
-//  Copyright (c) 2013 Carlo Tortorella. All rights reserved.
+//  Created by Charlotte Tortorella on 11/03/13.
+//  Copyright (c) 2013 Charlotte Tortorella. All rights reserved.
 //
 
 #import "uTorrent.h"

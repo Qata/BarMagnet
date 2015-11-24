@@ -2,8 +2,8 @@
 //  NSData+BEncode.m
 //  Bar Magnet
 //
-//  Created by Carlo Tortorella on 17/04/13.
-//  Copyright (c) 2013 Carlo Tortorella. All rights reserved.
+//  Created by Charlotte Tortorella on 17/04/13.
+//  Copyright (c) 2013 Charlotte Tortorella. All rights reserved.
 //
 
 #import "NSData+BEncode.h"

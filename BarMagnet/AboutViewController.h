@@ -2,8 +2,8 @@
 //  AboutViewController.h
 //  BarMagnet
 //
-//  Created by Carlo Tortorella on 31/12/2013.
-//  Copyright (c) 2013 Carlo Tortorella. All rights reserved.
+//  Created by Charlotte Tortorella on 31/12/2013.
+//  Copyright (c) 2013 Charlotte Tortorella. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9052" systemVersion="15B30a" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="K3W-hW-l8C">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="K3W-hW-l8C">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9040"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <scenes>
         <!--Torrent Jobs Table View Controller-->
@@ -25,10 +24,10 @@
                         </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Pretty" rowHeight="80" id="a7w-MV-isB" customClass="TorrentJobCheckerCell">
-                                <rect key="frame" x="0.0" y="130" width="768" height="80"/>
+                                <rect key="frame" x="0.0" y="66" width="768" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="a7w-MV-isB" id="YJP-b6-HwV">
-                                    <rect key="frame" x="0.0" y="0.0" width="768" height="79"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="79.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="846264338" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Up: 888.8 KB/s" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YBt-Pz-POo">
@@ -87,10 +86,10 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Compact" rowHeight="66" id="Udp-Ka-QdN" customClass="TorrentJobCheckerCell">
-                                <rect key="frame" x="0.0" y="210" width="768" height="66"/>
+                                <rect key="frame" x="0.0" y="146" width="768" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Udp-Ka-QdN" id="2yK-wp-uhx">
-                                    <rect key="frame" x="0.0" y="0.0" width="768" height="65"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="65.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="358979323" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Down: 888.8 KB/s" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RKT-Ih-BBK">
@@ -149,10 +148,10 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Fast" rowHeight="48" id="rlr-zG-o3l" customClass="TorrentJobCheckerCell">
-                                <rect key="frame" x="0.0" y="276" width="768" height="48"/>
+                                <rect key="frame" x="0.0" y="212" width="768" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rlr-zG-o3l" id="py9-4l-htr">
-                                    <rect key="frame" x="0.0" y="0.0" width="768" height="47"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="47.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="846264338" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Up: 888.8 KB/s" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nXj-0a-Kwx">
@@ -307,7 +306,7 @@
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RegularCell" textLabel="1Lg-eM-dK6" style="IBUITableViewCellStyleDefault" id="yUS-oc-PeK">
-                                <rect key="frame" x="0.0" y="50" width="768" height="44"/>
+                                <rect key="frame" x="0.0" y="49.5" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yUS-oc-PeK" id="nkR-tD-fL5">
                                     <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
@@ -327,7 +326,7 @@
                                 <animations/>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TorrentDetailCell" textLabel="TWd-KX-ndU" detailTextLabel="QuQ-aV-C9u" style="IBUITableViewCellStyleValue1" id="KqT-Ty-Ook">
-                                <rect key="frame" x="0.0" y="94" width="768" height="44"/>
+                                <rect key="frame" x="0.0" y="93.5" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KqT-Ty-Ook" id="OIs-zY-4yl">
                                     <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
@@ -395,10 +394,10 @@
                             <tableViewSection id="u49-41-PXB">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="FQr-gY-jnd" detailTextLabel="1dv-SQ-Fdz" style="IBUITableViewCellStyleValue1" id="rcC-Lr-WFX">
-                                        <rect key="frame" x="0.0" y="99" width="768" height="44"/>
+                                        <rect key="frame" x="0.0" y="35" width="768" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rcC-Lr-WFX" id="ejO-l3-fDj">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Created By" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FQr-gY-jnd">
@@ -409,7 +408,7 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Carlo Tortorella" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1dv-SQ-Fdz">
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Charlotte Tortorella" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1dv-SQ-Fdz">
                                                     <rect key="frame" x="582" y="11" width="118" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <animations/>
@@ -423,10 +422,10 @@
                                         <animations/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="f4g-FS-bvp" detailTextLabel="1I0-ys-BKj" style="IBUITableViewCellStyleValue1" id="2rb-KB-SmG">
-                                        <rect key="frame" x="0.0" y="143" width="768" height="44"/>
+                                        <rect key="frame" x="0.0" y="79" width="768" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2rb-KB-SmG" id="ax4-ib-trQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Version" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="f4g-FS-bvp">
@@ -451,10 +450,10 @@
                                         <animations/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="136" id="Qu3-08-GSs">
-                                        <rect key="frame" x="0.0" y="187" width="768" height="136"/>
+                                        <rect key="frame" x="0.0" y="123" width="768" height="136"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qu3-08-GSs" id="nQU-0B-uca">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="135"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="135.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you find this app useful?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rCQ-Ng-UkR">
@@ -488,10 +487,10 @@
                             <tableViewSection id="bTE-ot-7Kq">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="qbb-Of-mup" detailTextLabel="AFG-9v-Bi7" style="IBUITableViewCellStyleSubtitle" id="H2b-At-4Lb">
-                                        <rect key="frame" x="0.0" y="343" width="768" height="44"/>
+                                        <rect key="frame" x="0.0" y="279" width="768" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="H2b-At-4Lb" id="GW9-et-Mtw">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Icons courtesy of VisualPharm" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qbb-Of-mup">
@@ -516,10 +515,10 @@
                                         <animations/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="0i6-9b-SHp" detailTextLabel="j5M-gx-p7e" style="IBUITableViewCellStyleSubtitle" id="IJl-Re-AvC">
-                                        <rect key="frame" x="0.0" y="387" width="768" height="44"/>
+                                        <rect key="frame" x="0.0" y="323" width="768" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IJl-Re-AvC" id="Les-Zh-jxR">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="App icon courtesy of Freepik" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0i6-9b-SHp">
@@ -544,10 +543,10 @@
                                         <animations/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="qfR-Kb-q79" detailTextLabel="b0f-FI-N5q" style="IBUITableViewCellStyleSubtitle" id="fj6-dj-yud">
-                                        <rect key="frame" x="0.0" y="431" width="768" height="44"/>
+                                        <rect key="frame" x="0.0" y="367" width="768" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fj6-dj-yud" id="MqJ-ox-2O8">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="TSMessages by Felix Krause" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qfR-Kb-q79">
@@ -601,7 +600,7 @@
                                         <rect key="frame" x="0.0" y="22" width="768" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="C68-CO-f2c" id="tt5-ae-V94">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Need a setup guide?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tMP-Gd-DgI">
@@ -629,7 +628,7 @@
                                         <rect key="frame" x="0.0" y="66" width="768" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="W3k-Jy-cwR" id="F7Q-76-vqF">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="54"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="54.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I put in all of the correct credentials but it doesn't work" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5hh-a2-spP">
@@ -656,7 +655,7 @@
                                         <rect key="frame" x="0.0" y="121" width="768" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xd3-u3-RiN" id="oMV-IA-zMF">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="56"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="56.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HTTPS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GOr-G0-s6M">
@@ -683,7 +682,7 @@
                                         <rect key="frame" x="0.0" y="178" width="768" height="93"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PFh-M7-dsq" id="OKc-wl-arQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="92"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="92.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Query" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jAX-MV-lin">
@@ -712,7 +711,7 @@ e.g. "http://www.google.com/q=%query%"</string>
                                         <rect key="frame" x="0.0" y="271" width="768" height="76"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5Wp-eU-q2J" id="UQe-Km-WTa">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="75"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="75.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Relative Path" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RNn-rI-Gi4">
@@ -740,7 +739,7 @@ e.g. "http://www.google.com/q=%query%"</string>
                                         <rect key="frame" x="0.0" y="347" width="768" height="79"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="haW-oo-0SY" id="TDt-J2-4IL">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="78"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="78.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Torrent Site" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="C23-Em-Fcr">
@@ -769,7 +768,7 @@ e.g. "www.google.com"</string>
                                         <rect key="frame" x="0.0" y="426" width="768" height="59"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tgm-yY-xbS" id="pML-4l-aCK">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="58"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="58.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Directory" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MuP-A4-4tT">
@@ -796,7 +795,7 @@ e.g. "www.google.com"</string>
                                         <rect key="frame" x="0.0" y="485" width="768" height="77"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HrW-8x-XGy" id="xxE-11-y7e">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="76"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="76.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bc1-Yz-C1j">
@@ -828,7 +827,7 @@ e.g. "www.google.com"</string>
                                         <rect key="frame" x="0.0" y="584" width="768" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kyb-b3-2dV" id="mgG-C7-v9a">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="See µTorrent, they're the same" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6rZ-Sl-OXT">
@@ -852,7 +851,7 @@ e.g. "www.google.com"</string>
                                         <rect key="frame" x="0.0" y="650" width="768" height="62"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="92p-Sw-US0" id="gEb-0D-OLO">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="61"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="61.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="It says &quot;Host Online&quot; but there aren't any torrents showing" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ClG-eQ-17J">
@@ -879,7 +878,7 @@ e.g. "www.google.com"</string>
                                         <rect key="frame" x="0.0" y="712" width="768" height="77"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tGE-2v-2ab" id="RZO-rX-xkb">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="76"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="76.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I'm using rpc.php, but I can't see or do anything" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Q1C-V2-ybP">
@@ -911,7 +910,7 @@ e.g. "www.google.com"</string>
                                         <rect key="frame" x="0.0" y="811" width="768" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YKK-uf-oTZ" id="7FW-HL-90X">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I can't connect to my uTorrent Remote account" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3Iy-Mb-cbe">
@@ -962,7 +961,7 @@ e.g. "www.google.com"</string>
                                 <rect key="frame" x="0.0" y="22" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sGx-WJ-3Z7" id="dxB-Ii-sr4">
-                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sje-Wh-IAM">
@@ -983,7 +982,7 @@ e.g. "www.google.com"</string>
                                 <rect key="frame" x="0.0" y="66" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eT6-B4-uKu" id="8a5-Vj-cW7">
-                                    <rect key="frame" x="0.0" y="0.0" width="648" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="648" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Query name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sEY-G4-adY">
@@ -1003,7 +1002,7 @@ e.g. "www.google.com"</string>
                                 <rect key="frame" x="0.0" y="110" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="d94-uh-5gF" id="ToN-X3-hs0">
-                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <animations/>
                                 </tableViewCellContentView>
@@ -1195,7 +1194,7 @@ e.g. "www.google.com"</string>
                                 <rect key="frame" x="0.0" y="22" width="768" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wS0-rf-dcd" id="SnG-3c-SyV">
-                                    <rect key="frame" x="0.0" y="0.0" width="768" height="65"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="65.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <segmentedControl opaque="NO" tag="-8" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="5Lt-Vm-eWd">
@@ -1220,7 +1219,7 @@ e.g. "www.google.com"</string>
                                 <rect key="frame" x="0.0" y="88" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rcs-Kp-qpx" id="NLR-Pd-1jA">
-                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="µTorrent@Home" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7vP-WD-CVC">
@@ -1240,7 +1239,7 @@ e.g. "www.google.com"</string>
                                 <rect key="frame" x="0.0" y="132" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zVc-qs-lfC" id="x4P-lu-9fo">
-                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <animations/>
                                 </tableViewCellContentView>
