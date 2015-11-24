@@ -15,4 +15,4 @@ After downloading, cd to the root folder and run `git submodule update --init --
 
 ## Credits
 
-BarMagnet is brought to you by Carlo Tortorella and [contributors to the project](https://github.com/Qata/BarMagnet/contributors). If you have feature suggestions or bug reports, feel free to help out by sending pull requests or by [creating new issues](https://github.com/Qata/BarMagnet/issues/new).
+BarMagnet is brought to you by Charlotte Tortorella and [contributors to the project](https://github.com/Qata/BarMagnet/contributors). If you have feature suggestions or bug reports, feel free to help out by sending pull requests or by [creating new issues](https://github.com/Qata/BarMagnet/issues/new).
