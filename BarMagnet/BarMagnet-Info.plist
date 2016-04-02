@@ -19,7 +19,7 @@
 			<string>Owner</string>
 			<key>LSItemContentTypes</key>
 			<array>
-				<string>org.bittorrent.torrent</string>
+				<string>Quarter.BarMagnet.torrent</string>
 			</array>
 		</dict>
 	</array>
@@ -120,11 +120,14 @@
 			<key>UTTypeDescription</key>
 			<string>Torrent File</string>
 			<key>UTTypeIdentifier</key>
-			<string>org.bittorrent.torrent</string>
-			<key>public.filename-extension</key>
-			<string>torrent</string>
-			<key>public.mime-type</key>
-			<string>application/x-bittorrent</string>
+			<string>Quarter.BarMagnet.torrent</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>torrent</string>
+				</array>
+			</dict>
 		</dict>
 	</array>
 </dict>
