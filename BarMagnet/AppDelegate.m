@@ -75,7 +75,7 @@
 {
 	if ([url isFileURL])
 	{
-		[[TorrentDelegate sharedInstance] handleTorrentFile:url.absoluteString];
+		[[TorrentDelegate sharedInstance] handleTorrentFile:url.path];
 	}
 	else
 	{
