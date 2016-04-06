@@ -15,7 +15,12 @@
 #import <CoreMotion/CoreMotion.h>
 
 @implementation AppDelegate
-	
+
++ (void)initialize {
+	// Set user agent (the only problem is that we can't modify the User-Agent later in the program)
+	[[NSUserDefaults standardUserDefaults] registerDefaults:@{@"UserAgent":@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_2) AppleWebKit/601.3.9 (KHTML, like Gecko) Version/9.0.2 Safari/601.3.9"}];
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 #ifdef TESTFLIGHT

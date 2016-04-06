@@ -4,6 +4,7 @@
 <dict>
 	<key>ads</key>
 	<array>
+		<string>thepiratebay.se/static/ads</string>
 		<string>about:blank</string>
 		<string>ytimg.com</string>
 		<string>pstatic.org</string>
