@@ -1,9 +1,9 @@
 [submodule "NSBencodeSerialization"]
 	path = NSBencodeSerialization
-	url = git://github.com/Qata/NSBencodeSerialization
+	url = https://github.com/Qata/NSBencodeSerialization.git
 [submodule "SVWebViewController"]
 	path = SVWebViewController
-	url = git://github.com/samvermette/SVWebViewController
+	url = https://github.com/TransitApp/SVWebViewController.git
 [submodule "MGSwipeTableCell"]
 	path = MGSwipeTableCell
 	url = https://github.com/MortimerGoro/MGSwipeTableCell.git
