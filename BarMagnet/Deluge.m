@@ -149,6 +149,7 @@
 	NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:self.getAppendedURLWithoutAuth]];
     randomID = @(arc4random());
 	[request setHTTPMethod:@"POST"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
 
     retVal = [request copy];
 
