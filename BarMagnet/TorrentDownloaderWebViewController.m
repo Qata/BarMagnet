@@ -55,13 +55,13 @@
 {
 	for (NSString * key in self.adKeys)
 	{
-		if ([request.URL.absoluteString rangeOfString:key].location != NSNotFound)
+		if ([request.URL.absoluteString containsString:key])
 		{
-			NSLog(@"Blocking: %@", request.URL.absoluteString);
+			printf("Blocking: %s\n", request.URL.absoluteString.UTF8String);
 			return NO;
 		}
-	}
-	NSLog(@"%@", request.URL.absoluteString);
+    }
+    printf("Accepting: %s\n", request.URL.absoluteString.UTF8String);
 
 	if ([[request.URL.absoluteString componentsSeparatedByString:@":"].firstObject isEqual:@"magnet"])
 	{

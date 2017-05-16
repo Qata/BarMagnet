@@ -4,7 +4,7 @@
 <dict>
 	<key>ads</key>
 	<array>
-		<string>thepiratebay.se/static/ads</string>
+		<string>/static/ads</string>
 		<string>about:blank</string>
 		<string>ytimg.com</string>
 		<string>pstatic.org</string>
@@ -43,6 +43,7 @@
 		<string>offerservice.go2cloud.org</string>
 		<string>onlineprizedraws-au2015.com</string>
 		<string>flbarcode.com</string>
+		<string>2468.go2cloud.org</string>
 	</array>
 </dict>
 </plist>

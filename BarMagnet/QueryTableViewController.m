@@ -15,6 +15,7 @@
 
 @interface QueryTableViewController () <UITextFieldDelegate, UIAlertViewDelegate>
 @property (nonatomic, strong) UIAlertView * alertView;
+@property (nonatomic, strong) NSString * previousQuery;
 @end
 
 @implementation QueryTableViewController
@@ -73,6 +74,7 @@
 
 - (void)search:(NSString *)text withQuery:(NSDictionary *)query
 {
+    self.previousQuery = text;
 	TorrentDownloaderModalWebViewController *webViewController = [TorrentDownloaderModalWebViewController.alloc initWithAddress:[NSString stringWithFormat:@"%@%@", [query[@"query"] rangeOfString:@"https://"].location != NSNotFound ? @"" : @"http://", [query[@"query"] stringByReplacingOccurrencesOfString:@"%query%" withString:[text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]]];
 	[self.navigationController presentViewController:webViewController animated:YES completion:nil];
 }
@@ -146,10 +148,17 @@
 			self.alertView = [UIAlertView.alloc initWithTitle:[NSUserDefaults.standardUserDefaults objectForKey:@"queries"][indexPath.row][@"name"] message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Search", nil];
 			self.alertView.tag = indexPath.row;
 			self.alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
-			[self.alertView textFieldAtIndex:0].returnKeyType = UIReturnKeySearch;
-			[self.alertView textFieldAtIndex:0].delegate = self;
-			[self.alertView textFieldAtIndex:0].autocorrectionType = UITextAutocorrectionTypeYes;
-			[self.alertView show];
+            UITextField * textField = [self.alertView textFieldAtIndex:0];
+			textField.returnKeyType = UIReturnKeySearch;
+			textField.delegate = self;
+			textField.autocorrectionType = UITextAutocorrectionTypeYes;
+            if (self.previousQuery) {
+                textField.text = self.previousQuery;
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [textField selectAll:nil];
+                });
+            }
+            [self.alertView show];
 		}
 		else
 		{
@@ -193,23 +202,21 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
 	self.alertView = nil;
-	if (buttonIndex != alertView.cancelButtonIndex)
-	{
-		if (alertView.alertViewStyle == UIAlertViewStylePlainTextInput)
-		{
-			if ([alertView textFieldAtIndex:0].text.length)
-			{
-				if (alertView.tag == -1)
-				{
-					[self openURL:[alertView textFieldAtIndex:0].text];
-				}
-				else
-				{
-					[self search:[alertView textFieldAtIndex:0].text withQuery:[NSUserDefaults.standardUserDefaults objectForKey:@"queries"][alertView.tag]];
-				}
-			}
-		}
+	if (buttonIndex != alertView.cancelButtonIndex && alertView.alertViewStyle == UIAlertViewStylePlainTextInput && [alertView textFieldAtIndex:0].text.length)
+    {
+        if (alertView.tag == -1)
+        {
+            [self openURL:[alertView textFieldAtIndex:0].text];
+        }
+        else
+        {
+            [self search:[alertView textFieldAtIndex:0].text withQuery:[NSUserDefaults.standardUserDefaults objectForKey:@"queries"][alertView.tag]];
+        }
 	}
+}
+
+- (BOOL)alertViewShouldEnableFirstOtherButton:(UIAlertView *)alertView {
+    return alertView.alertViewStyle == UIAlertViewStylePlainTextInput && [alertView textFieldAtIndex:0].text.length > 0;
 }
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath

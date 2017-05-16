@@ -26,9 +26,14 @@
 
 - (void)awakeFromNib
 {
+    [super awakeFromNib];
 	self.backgroundColor = UIColor.lightGrayColor;
 	self.progressTintColor = [UIColor blueColor];
-	[NSNotificationCenter.defaultCenter addObserver:self selector:@selector(setNeedsDisplay) name:@"UIDeviceOrientationDidChangeNotification" object:nil];
+	[NSNotificationCenter.defaultCenter
+     addObserver:self
+     selector:@selector(setNeedsDisplay)
+     name:UIDeviceOrientationDidChangeNotification
+     object:nil];
 }
 
 - (void)drawRect:(CGRect)rect
@@ -38,11 +43,6 @@
 	progress.size.width *= self.progress;
 	[self.progressTintColor setFill];
 	[[UIBezierPath bezierPathWithRect:progress] fill];
-}
-
-- (void)rotated
-{
-	[self setNeedsDisplay];
 }
 
 - (void)setProgress:(double)progress
