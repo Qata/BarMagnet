@@ -116,14 +116,19 @@
 	return tempJobs;
 }
 
+- (NSString *)commonAppendString
+{
+    return [[[[FileHandler.sharedInstance webDataValueForKey:@"relative_path" andDict:nil] orSome:@""] stringByAppendingPathComponent:@"transmission"] stringWithPrecedingSlash];
+}
+
 - (NSString *)getUserFriendlyAppendString
 {
-	return @"/transmission/web/";
+	return [self.commonAppendString stringByAppendingPathComponent:@"web"];
 }
 
 - (NSString *)getURLAppendString
 {
-	return @"/transmission/rpc/";
+    return [self.commonAppendString stringByAppendingPathComponent:@"rpc"];
 }
 
 - (BOOL)receivedSuccessConditional:(NSData *)response
@@ -170,6 +175,7 @@
 
 	return [NSMutableURLRequest requestWithURL:[NSURL URLWithString:self.getAppendedURL]];
 }
+
 - (NSURLRequest *)virtualPauseTorrent:(NSString *)hash
 {
 	return [self HTTPRequestWithMethod:@"torrent-stop" andHashes:@[hash]];
@@ -234,6 +240,11 @@
 	{
 		[super connectionDidFinishLoading:connection];
 	}
+}
+
++ (BOOL)supportsRelativePath
+{
+    return YES;
 }
 
 + (BOOL)supportsDirectoryChoice
