@@ -49,7 +49,6 @@ static FileHandler * sharedInstance;
 			dict[@"notification_format"] = @"%t added to %s";
 			dict[@"query_format"] = @"google.com/search?q=%query%";
 			dict[@"sort_by"] = @"Progress";
-			dict[@"cell"] = @"Pretty";
 
 			[masterDict setObject:dict forKey:@"settings"];
 		}
@@ -75,7 +74,7 @@ static FileHandler * sharedInstance;
 	}
 }
 
-- (NSOption *)webDataValueForKey:(NSString *)key andDict:(NSString *)dictName
+- (NSOption *)webDataValueForKey:(NSString *)key
 {
 	NSString * name = [self settingsValueForKey:@"server_name"];
 	for (NSDictionary * dict in [NSUserDefaults.standardUserDefaults objectForKey:@"clients"])

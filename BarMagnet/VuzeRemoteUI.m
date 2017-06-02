@@ -149,7 +149,7 @@
 - (NSURLRequest *)virtualHandleMagnetLink:(NSString *)magnetLink
 {
 	NSMutableDictionary * arguments = [NSMutableDictionary dictionaryWithDictionary:@{@"filename":magnetLink}];
-	NSString * directory = [[FileHandler.sharedInstance webDataValueForKey:@"directory" andDict:nil] orSome:@""];
+	NSString * directory = [[FileHandler.sharedInstance webDataValueForKey:@"directory"] orSome:@""];
 
 	if (directory.length)
 	{
@@ -162,7 +162,7 @@
 - (NSURLRequest *)virtualHandleTorrentFile:(NSData *)fileData withURL:(NSURL *)fileURL
 {
 	NSMutableDictionary * arguments = [NSMutableDictionary dictionaryWithDictionary:@{@"metainfo":[fileData base64EncodedString]}];
-	NSString * directory = [[FileHandler.sharedInstance webDataValueForKey:@"directory" andDict:nil] orSome:@""];
+	NSString * directory = [[FileHandler.sharedInstance webDataValueForKey:@"directory"] orSome:@""];
 
 	if (directory.length)
 	{

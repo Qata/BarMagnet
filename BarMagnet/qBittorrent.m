@@ -116,12 +116,12 @@
 
 - (NSString *)getUserFriendlyAppendString
 {
-	return [[[FileHandler.sharedInstance webDataValueForKey:@"relative_path" andDict:nil] orSome:@""] stringWithPrecedingSlash];
+	return [[FileHandler.sharedInstance webDataValueForKey:@"relative_path"] orSome:@""];
 }
 
 - (NSString *)getURLAppendString
 {
-	return [[[[FileHandler.sharedInstance webDataValueForKey:@"relative_path" andDict:nil] orSome:@""] stringWithPrecedingSlash] stringByAppendingString:@"/command"];
+	return [[[FileHandler.sharedInstance webDataValueForKey:@"relative_path"] orSome:@""] stringByAppendingPathComponent:@"command"];
 }
 
 - (BOOL)receivedSuccessConditional:(NSData *)response

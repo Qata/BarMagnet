@@ -93,7 +93,6 @@
 		23DF81CF18C2C71D005BAB1C /* SeedStuffSeedbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 23DF81CE18C2C71D005BAB1C /* SeedStuffSeedbox.m */; };
 		23E60FB71876D20400D2068B /* PlayPause.png in Resources */ = {isa = PBXBuildFile; fileRef = 23E60FB51876D20400D2068B /* PlayPause.png */; };
 		23E60FB81876D20400D2068B /* PlayPause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23E60FB61876D20400D2068B /* PlayPause@2x.png */; };
-		23EBC8F518851BE800B0A281 /* donate.png in Resources */ = {isa = PBXBuildFile; fileRef = 23EBC8F418851BE800B0A281 /* donate.png */; };
 		23F0375918C14F9A00B4D289 /* TorrentDownloaderWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F0375818C14F9A00B4D289 /* TorrentDownloaderWebViewController.m */; };
 		23F0377918C153BD00B4D289 /* SVWebViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 23F0375C18C153BD00B4D289 /* SVWebViewController.strings */; };
 		23F0377A18C153BD00B4D289 /* SVModalWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F0376418C153BD00B4D289 /* SVModalWebViewController.m */; };
@@ -292,7 +291,6 @@
 		23DF81CE18C2C71D005BAB1C /* SeedStuffSeedbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeedStuffSeedbox.m; sourceTree = "<group>"; };
 		23E60FB51876D20400D2068B /* PlayPause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayPause.png; sourceTree = "<group>"; };
 		23E60FB61876D20400D2068B /* PlayPause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PlayPause@2x.png"; sourceTree = "<group>"; };
-		23EBC8F418851BE800B0A281 /* donate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = donate.png; sourceTree = "<group>"; };
 		23F0375718C14F9A00B4D289 /* TorrentDownloaderWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TorrentDownloaderWebViewController.h; path = BarMagnet/TorrentDownloaderWebViewController.h; sourceTree = SOURCE_ROOT; };
 		23F0375818C14F9A00B4D289 /* TorrentDownloaderWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TorrentDownloaderWebViewController.m; path = BarMagnet/TorrentDownloaderWebViewController.m; sourceTree = SOURCE_ROOT; };
 		23F0375D18C153BD00B4D289 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/SVWebViewController.strings; sourceTree = "<group>"; };
@@ -557,7 +555,6 @@
 				23AC2B2A175D835600FCFA71 /* InfoPlist.strings */,
 				23AC2B2D175D835600FCFA71 /* main.m */,
 				23AC2B2F175D835600FCFA71 /* BarMagnet-Prefix.pch */,
-				23EBC8F418851BE800B0A281 /* donate.png */,
 				23314150177FE95E0062B0FE /* gear.png */,
 				23314151177FE95E0062B0FE /* gear@2x.png */,
 				2355275B18722A8600A9E6BC /* info.png */,
@@ -847,7 +844,6 @@
 				238A94CF17A121630081EF6D /* NotificationButtonBackground.png in Resources */,
 				238A94CB17A121630081EF6D /* NotificationBackgroundWarning.png in Resources */,
 				2355275A1871718300A9E6BC /* UIButtonBarPlay@2x.png in Resources */,
-				23EBC8F518851BE800B0A281 /* donate.png in Resources */,
 				23314152177FE95E0062B0FE /* gear.png in Resources */,
 				238A94C317A121630081EF6D /* NotificationBackgroundErrorIcon.png in Resources */,
 				238A94CD17A121630081EF6D /* NotificationBackgroundWarningIcon.png in Resources */,

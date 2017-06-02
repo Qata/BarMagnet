@@ -183,12 +183,12 @@ enum
 
 - (NSString *)getUserFriendlyAppendString
 {
-	return [[[FileHandler.sharedInstance webDataValueForKey:@"relative_path" andDict:nil] orSome:@""] stringWithPrecedingSlash];
+	return self.getURLAppendString;
 }
 
 - (NSString *)getURLAppendString
 {
-	return [[[FileHandler.sharedInstance webDataValueForKey:@"relative_path" andDict:nil] orSome:@""] stringWithPrecedingSlash];
+	return [[FileHandler.sharedInstance webDataValueForKey:@"relative_path"] orSome:@""];
 }
 
 - (BOOL)receivedSuccessConditional:(NSData *)response

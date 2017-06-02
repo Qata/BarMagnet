@@ -305,48 +305,12 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="100" id="xWo-dQ-bh9">
-                                        <rect key="frame" x="0.0" y="123" width="375" height="100"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xWo-dQ-bh9" id="Kta-Os-eOG">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please donate so I can continue development." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89L-LM-Avp">
-                                                    <rect key="frame" x="0.0" y="20" width="375" height="17"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="donate.png" translatesAutoresizingMaskIntoConstraints="NO" id="X14-Pf-XNX">
-                                                    <rect key="frame" x="114" y="47" width="147" height="47"/>
-                                                </imageView>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you find this app useful?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K2F-PT-rcv">
-                                                    <rect key="frame" x="8" y="0.0" width="359" height="17"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="leadingMargin" secondItem="K2F-PT-rcv" secondAttribute="leading" id="3lv-YL-9uZ"/>
-                                                <constraint firstItem="89L-LM-Avp" firstAttribute="top" secondItem="K2F-PT-rcv" secondAttribute="bottom" constant="3" id="7cz-cQ-H5l"/>
-                                                <constraint firstItem="X14-Pf-XNX" firstAttribute="centerX" secondItem="Kta-Os-eOG" secondAttribute="centerX" id="Aj4-M3-l4P"/>
-                                                <constraint firstItem="89L-LM-Avp" firstAttribute="top" secondItem="K2F-PT-rcv" secondAttribute="bottom" constant="3" id="EuM-fQ-OGy"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="K2F-PT-rcv" secondAttribute="trailing" id="IWV-9I-TmZ"/>
-                                                <constraint firstItem="89L-LM-Avp" firstAttribute="leading" secondItem="Kta-Os-eOG" secondAttribute="leadingMargin" constant="-8" id="NOz-Bc-3x8"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="X14-Pf-XNX" secondAttribute="bottom" constant="-3" id="bJW-rs-GCW"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="89L-LM-Avp" secondAttribute="trailing" constant="-8" id="fBZ-gy-aEM"/>
-                                                <constraint firstItem="K2F-PT-rcv" firstAttribute="top" secondItem="Kta-Os-eOG" secondAttribute="topMargin" constant="-8" id="i14-oM-UkB"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection id="qAh-AY-ZiJ">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="2M1-3S-NS5" detailTextLabel="wbs-d9-qju" style="IBUITableViewCellStyleSubtitle" id="dO5-2G-61F">
-                                        <rect key="frame" x="0.0" y="243" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="143" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dO5-2G-61F" id="qBz-he-Hc3">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -370,7 +334,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="5eb-og-P2j" detailTextLabel="zgk-1h-OAP" style="IBUITableViewCellStyleSubtitle" id="RgW-U6-Rnn">
-                                        <rect key="frame" x="0.0" y="287" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="187" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RgW-U6-Rnn" id="lVr-Ja-4l2">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -394,7 +358,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="N1h-B5-zUj" detailTextLabel="gZl-9w-9j7" style="IBUITableViewCellStyleSubtitle" id="74e-8r-GWS">
-                                        <rect key="frame" x="0.0" y="331" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="231" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="74e-8r-GWS" id="mgI-wi-HHi">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -1453,7 +1417,6 @@ e.g. "http://www.google.com/q=%query%"</string>
         <image name="PlayPause.png" width="31" height="18"/>
         <image name="UIButtonBarPlay.png" width="15" height="18"/>
         <image name="UIButtonBarStop.png" width="17" height="17"/>
-        <image name="donate.png" width="147" height="47"/>
         <image name="gear.png" width="30" height="30"/>
         <image name="info.png" width="30" height="30"/>
     </resources>

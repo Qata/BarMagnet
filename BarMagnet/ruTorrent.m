@@ -96,12 +96,12 @@ enum
 
 - (NSString *)getUserFriendlyAppendString
 {
-	return [[[FileHandler.sharedInstance webDataValueForKey:@"relative_path" andDict:nil] orSome:@""] stringWithPrecedingSlash];
+	return self.getURLAppendString;
 }
 
 - (NSString *)getURLAppendString
 {
-	return [[[FileHandler.sharedInstance webDataValueForKey:@"relative_path" andDict:nil] orSome:@""] stringWithPrecedingSlash];
+	return [[FileHandler.sharedInstance webDataValueForKey:@"relative_path"] orSome:@""];
 }
 
 - (BOOL)receivedSuccessConditional:(NSData *)response
@@ -164,8 +164,8 @@ enum
 
 - (NSMutableURLRequest *)universalPOSTSetting
 {
-	NSString * dir = [[FileHandler.sharedInstance webDataValueForKey:@"directory" andDict:nil] orSome:@""];
-	NSString * label = [[FileHandler.sharedInstance webDataValueForKey:@"label" andDict:nil] orSome:@""];
+	NSString * dir = [[FileHandler.sharedInstance webDataValueForKey:@"directory"] orSome:@""];
+	NSString * label = [[FileHandler.sharedInstance webDataValueForKey:@"label"] orSome:@""];
 
 	NSMutableArray * requestAppend = [NSMutableArray new];
 
@@ -192,8 +192,8 @@ enum
 - (NSURLRequest *)virtualHandleTorrentFile:(NSData *)fileData withURL:(NSURL *)fileURL
 {
 	NSMutableURLRequest * request = [self universalPOSTSetting];
-	NSString * dir = [[FileHandler.sharedInstance webDataValueForKey:@"directory" andDict:nil] orSome:@""];
-	NSString * label = [[FileHandler.sharedInstance webDataValueForKey:@"label" andDict:nil] orSome:@""];
+	NSString * dir = [[FileHandler.sharedInstance webDataValueForKey:@"directory"] orSome:@""];
+	NSString * label = [[FileHandler.sharedInstance webDataValueForKey:@"label"] orSome:@""];
 	NSString * boundary = [NSString stringWithFormat:@"AJAX-----------------------%f", [[NSDate new] timeIntervalSince1970]];
 	NSMutableData * body = [NSMutableData new];
 	[request setHTTPMethod:@"POST"];

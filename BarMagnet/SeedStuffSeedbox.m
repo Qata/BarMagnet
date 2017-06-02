@@ -61,7 +61,7 @@
 
 - (NSString *)getUserFriendlyAppendedURL
 {
-	return [self.getBaseURL stringByAppendingString:@"/rutorrent"];
+	return [self.getBaseURL stringByAppendingPathComponent:@"rutorrent"];
 }
 
 @end

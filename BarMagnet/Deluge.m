@@ -80,12 +80,12 @@
 
 - (NSString *)getUserFriendlyAppendString
 {
-	return [[[FileHandler.sharedInstance webDataValueForKey:@"relative_path" andDict:nil] orSome:@""] stringWithPrecedingSlash];
+	return [[FileHandler.sharedInstance webDataValueForKey:@"relative_path"] orSome:@""];
 }
 
 - (NSString *)getURLAppendString
 {
-	return [[NSURL URLWithString:[[[FileHandler.sharedInstance webDataValueForKey:@"relative_path" andDict:nil] orSome:@""] stringWithPrecedingSlash]] URLByAppendingPathComponent:@"json"].absoluteString;
+	return [[[FileHandler.sharedInstance webDataValueForKey:@"relative_path"] orSome:@""] stringByAppendingPathComponent:@"json"];
 }
 
 - (BOOL)receivedSuccessConditional:(NSData *)response
@@ -178,7 +178,7 @@
 	NSMutableURLRequest * request = [self universalPOSTSetting];
 	NSDictionary * options = @{};
 	NSString * path = @"";
-	if ([path = [[FileHandler.sharedInstance webDataValueForKey:@"directory" andDict:nil] orSome:@""] length])
+	if ([path = [[FileHandler.sharedInstance webDataValueForKey:@"directory"] orSome:@""] length])
 	{
 		options = @{@"download_location":path};
 	}
@@ -191,7 +191,7 @@
 {
 	NSDictionary * options = @{};
 	NSString * path = @"";
-	if ([path = [[FileHandler.sharedInstance webDataValueForKey:@"directory" andDict:nil] orSome:@""] length])
+	if ([path = [[FileHandler.sharedInstance webDataValueForKey:@"directory"] orSome:@""] length])
 	{
 		options = @{@"download_location":path};
 	}

@@ -118,7 +118,7 @@
 
 - (NSString *)commonAppendString
 {
-    return [[[[FileHandler.sharedInstance webDataValueForKey:@"relative_path" andDict:nil] orSome:@""] stringByAppendingPathComponent:@"transmission"] stringWithPrecedingSlash];
+    return [[[[FileHandler.sharedInstance webDataValueForKey:@"relative_path"] orSome:@""] stringByAppendingPathComponent:@"transmission"] stringWithPrecedingSlash];
 }
 
 - (NSString *)getUserFriendlyAppendString
@@ -143,7 +143,7 @@
 	[request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
 
 	NSMutableDictionary * arguments = [NSMutableDictionary dictionaryWithDictionary:@{@"filename":magnetLink}];
-	NSString * directory = [[FileHandler.sharedInstance webDataValueForKey:@"directory" andDict:nil] orSome:@""];
+	NSString * directory = [[FileHandler.sharedInstance webDataValueForKey:@"directory"] orSome:@""];
 
 	if (directory.length)
 	{
@@ -163,7 +163,7 @@
 	[request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
 
 	NSMutableDictionary * arguments = [NSMutableDictionary dictionaryWithDictionary:@{@"metainfo":[fileData base64EncodedString]}];
-	NSString * directory = [[FileHandler.sharedInstance webDataValueForKey:@"directory" andDict:nil] orSome:@""];
+	NSString * directory = [[FileHandler.sharedInstance webDataValueForKey:@"directory"] orSome:@""];
 
 	if (directory.length)
 	{

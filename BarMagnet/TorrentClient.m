@@ -364,7 +364,7 @@
 
 - (NSOption *)getWebDataForKey:(NSString *)key
 {
-	NSOption * retVal = [FileHandler.sharedInstance webDataValueForKey:key andDict:nil];
+	NSOption * retVal = [FileHandler.sharedInstance webDataValueForKey:key];
 	return retVal;
 }
 
@@ -409,12 +409,13 @@
 
 - (NSString *)getAppendedURL
 {
-	return [[self getBaseURL] stringByAppendingString:self.getURLAppendString];
+    NSLog(@"Base: %@", [[NSURL URLWithString:self.getBaseURL] URLByAppendingPathComponent:self.getURLAppendString].absoluteString);
+    return [[NSURL URLWithString:self.getBaseURL] URLByAppendingPathComponent:self.getURLAppendString].absoluteString;
 }
 
 - (NSString *)getHyperTextString
 {
-	return [NSString stringWithFormat:@"http%@://", [[[FileHandler.sharedInstance webDataValueForKey:@"use_ssl" andDict:nil] orSome:@NO] boolValue] ? @"s" : @""];
+	return [NSString stringWithFormat:@"http%@://", [[[FileHandler.sharedInstance webDataValueForKey:@"use_ssl"] orSome:@NO] boolValue] ? @"s" : @""];
 }
 
 - (NSString *)getAppendedURLWithoutAuth
@@ -440,11 +441,11 @@
 	
 	if ([port isEqualToString:@"80"])
 	{
-		return [NSString stringWithFormat:@"%@%@%@", [self getHyperTextString], url, self.getUserFriendlyAppendString];
+        return [[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", [self getHyperTextString], url]] URLByAppendingPathComponent:self.getUserFriendlyAppendString].absoluteString;
 	}
 	else
 	{
-		return [NSString stringWithFormat:@"%@%@:%@%@", [self getHyperTextString], url, port, self.getUserFriendlyAppendString];
+        return [[NSURL URLWithString:[NSString stringWithFormat:@"%@%@:%@", [self getHyperTextString], url, port]] URLByAppendingPathComponent:self.getUserFriendlyAppendString].absoluteString;
 	}
 }
 

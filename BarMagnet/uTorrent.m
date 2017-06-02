@@ -137,7 +137,7 @@
 
 - (NSString *)getURLAppendString
 {
-	return [[[FileHandler.sharedInstance webDataValueForKey:@"relative_path" andDict:nil] orSome:@"gui/"] stringWithPrecedingSlash];
+	return [[FileHandler.sharedInstance webDataValueForKey:@"relative_path"] orSome:@"gui/"];
 }
 
 - (BOOL)receivedSuccessConditional:(NSData *)response

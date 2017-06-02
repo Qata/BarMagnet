@@ -196,7 +196,7 @@ enum ORDER
 
 - (void)searchDisplayController:(UISearchDisplayController *)controller didLoadSearchResultsTableView:(UITableView *)tableView
 {
-	tableView.rowHeight = [[self.tableView dequeueReusableCellWithIdentifier:[FileHandler.sharedInstance settingsValueForKey:@"cell"]] frame].size.height;
+	tableView.rowHeight = [[self.tableView dequeueReusableCellWithIdentifier:@"Compact"] frame].size.height;
 }
 
 - (IBAction)addTorrentPopup:(id)sender
@@ -557,7 +557,6 @@ enum ORDER
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	NSString *CellIdentifier = [FileHandler.sharedInstance settingsValueForKey:@"cell"];
 	TorrentJobCheckerCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Compact"];
 	cell.table = self;
 	if ([cell.subviews.firstObject isKindOfClass:UIScrollView.class])
@@ -578,16 +577,9 @@ enum ORDER
 	cell.name.text = currentJob[@"name"];
 	cell.hashString = currentJob[@"hash"];
 	cell.currentStatus.text = currentJob[@"status"];
-	
-	if ([CellIdentifier isEqual:@"Fast"])
-	{
-		[self addProgressViewToCell:cell withJob:currentJob];
-	}
-	else
-	{
-		double completeValue = [TorrentDelegate.sharedInstance.currentlySelectedClient.class completeNumber].doubleValue;
-		cell.percentBar.progress = completeValue ? [currentJob[@"progress"] doubleValue] / completeValue : 0;
-	}
+    
+    double completeValue = [TorrentDelegate.sharedInstance.currentlySelectedClient.class completeNumber].doubleValue;
+    cell.percentBar.progress = completeValue ? [currentJob[@"progress"] doubleValue] / completeValue : 0;
 
 	if ([currentJob[@"ETA"] length] && [currentJob[@"progress"] doubleValue] != [[TorrentDelegate.sharedInstance.currentlySelectedClient.class completeNumber] doubleValue])
 	{

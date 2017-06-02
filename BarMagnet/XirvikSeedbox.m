@@ -26,11 +26,6 @@
 	return NO;
 }
 
-+ (NSString *)relativePath
-{
-	return @"/rtorrent";
-}
-
 - (NSURLRequest *)virtualHandleMagnetLink:(NSString *)magnetLink
 {
 	NSURL * url = [[NSURL URLWithString:self.getAppendedURL] URLByAppendingPathComponent:@"php/addtorrent.php"];
@@ -38,7 +33,6 @@
 	[request setHTTPMethod:@"POST"];
 	NSString * body = [NSString stringWithFormat:@"url=%@", [[magnetLink stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] encodeAmpersands]];
 	[request setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
-	NSLog(@"%@", body);
 	return request;
 }
 
@@ -49,7 +43,7 @@
 
 - (NSString *)getUserFriendlyAppendedURL
 {
-	return [self.getBaseURL stringByAppendingString:[self.class relativePath]];
+	return [self.getBaseURL stringByAppendingPathComponent:@"rtorrent"];
 }
 
 @end

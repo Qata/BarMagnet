@@ -29,12 +29,4 @@
 	return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-	if (indexPath.section == 0 && indexPath.row == 2)
-	{
-		[UIApplication.sharedApplication openURL:[NSURL URLWithString:@"https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CAFZNLKE6ZRR6"]];
-	}
-}
-
 @end

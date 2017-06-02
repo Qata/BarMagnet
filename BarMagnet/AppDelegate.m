@@ -35,10 +35,6 @@
 	{
 		[FileHandler.sharedInstance setSettingsValue:@"Progress" forKey:@"sort_by"];
 	}
-	if (![FileHandler.sharedInstance settingsValueForKey:@"cell"])
-	{
-		[FileHandler.sharedInstance setSettingsValue:@"Pretty" forKey:@"cell"];
-	}
 
 	if (![NSUserDefaults.standardUserDefaults objectForKey:@"clients"])
 	{

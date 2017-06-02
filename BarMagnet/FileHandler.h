@@ -16,7 +16,7 @@
 
 - (id)settingsValueForKey:(NSString *)key;
 - (void)setSettingsValue:(id)value forKey:(NSString *)key;
-- (NSOption *)webDataValueForKey:(NSString *)key andDict:(NSString *)dictName;
+- (NSOption *)webDataValueForKey:(NSString *)key;
 - (NSOption *)oldWebDataValueForKey:(NSString *)key;
 - (void)setWebDataValue:(id)value forKey:(NSString *)key andDict:(NSString *)dictName;
 - (void)saveAllPlists;

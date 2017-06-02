@@ -57,9 +57,9 @@
 + (NSString *)parseNotification:(NSString *)notificationText
 {
 	NSString * notification = [FileHandler.sharedInstance settingsValueForKey:@"notification_format"];
-	NSString * url = [[FileHandler.sharedInstance webDataValueForKey:@"url" andDict:nil] orSome:@""];
-	NSString * port = [[FileHandler.sharedInstance webDataValueForKey:@"port" andDict:nil] orSome:@""];
-	NSString * user = [[FileHandler.sharedInstance webDataValueForKey:@"username" andDict:nil] orSome:@""];
+	NSString * url = [[FileHandler.sharedInstance webDataValueForKey:@"url"] orSome:@""];
+	NSString * port = [[FileHandler.sharedInstance webDataValueForKey:@"port"] orSome:@""];
+	NSString * user = [[FileHandler.sharedInstance webDataValueForKey:@"username"] orSome:@""];
 	NSString * serverType = [FileHandler.sharedInstance settingsValueForKey:@"server_type"];
 	
 	notification = [notification length] ? notification : @"%t";
