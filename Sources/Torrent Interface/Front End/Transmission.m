@@ -8,7 +8,6 @@
 
 #import "Transmission.h"
 #import "FileHandler.h"
-#import "NSData+Base64.h"
 
 @implementation Transmission
 
@@ -162,7 +161,7 @@
 	[request setHTTPMethod:@"POST"];
 	[request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
 
-	NSMutableDictionary * arguments = [NSMutableDictionary dictionaryWithDictionary:@{@"metainfo":[fileData base64EncodedString]}];
+	NSMutableDictionary * arguments = [NSMutableDictionary dictionaryWithDictionary:@{@"metainfo":[fileData base64EncodedStringWithOptions:0]}];
 	NSString * directory = [[FileHandler.sharedInstance webDataValueForKey:@"directory"] orSome:@""];
 
 	if (directory.length)

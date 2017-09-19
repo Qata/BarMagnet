@@ -66,7 +66,6 @@
 		23A8690418BF388D0066E383 /* TorrentJobChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A8690218BF388D0066E383 /* TorrentJobChecker.m */; };
 		23A8690718BF389D0066E383 /* TorrentDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A8690618BF389D0066E383 /* TorrentDelegate.m */; };
 		23A8690A18BF38A90066E383 /* NSData+BEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A8690918BF38A90066E383 /* NSData+BEncode.m */; };
-		23A8690D18BF38B20066E383 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A8690C18BF38B20066E383 /* NSData+Base64.m */; };
 		23A8691018BF38BA0066E383 /* StringHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A8690F18BF38BA0066E383 /* StringHandler.m */; };
 		23A8691318BF38C10066E383 /* TorrentClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A8691218BF38C10066E383 /* TorrentClient.m */; };
 		23A8691618BF38CC0066E383 /* Deluge.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A8691518BF38CC0066E383 /* Deluge.m */; };
@@ -93,7 +92,6 @@
 		23DF81CF18C2C71D005BAB1C /* SeedStuffSeedbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 23DF81CE18C2C71D005BAB1C /* SeedStuffSeedbox.m */; };
 		23E60FB71876D20400D2068B /* PlayPause.png in Resources */ = {isa = PBXBuildFile; fileRef = 23E60FB51876D20400D2068B /* PlayPause.png */; };
 		23E60FB81876D20400D2068B /* PlayPause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23E60FB61876D20400D2068B /* PlayPause@2x.png */; };
-		23F0375918C14F9A00B4D289 /* TorrentDownloaderWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F0375818C14F9A00B4D289 /* TorrentDownloaderWebViewController.m */; };
 		23F0377918C153BD00B4D289 /* SVWebViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 23F0375C18C153BD00B4D289 /* SVWebViewController.strings */; };
 		23F0377A18C153BD00B4D289 /* SVModalWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F0376418C153BD00B4D289 /* SVModalWebViewController.m */; };
 		23F0377B18C153BD00B4D289 /* SVWebViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 23F0376518C153BD00B4D289 /* SVWebViewController.bundle */; };
@@ -107,12 +105,13 @@
 		23F0378318C153BD00B4D289 /* SVWebViewControllerActivitySafari.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F0377318C153BD00B4D289 /* SVWebViewControllerActivitySafari.m */; };
 		23F0378418C153BD00B4D289 /* SVWebViewControllerActivitySafari@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23F0377418C153BD00B4D289 /* SVWebViewControllerActivitySafari@2x.png */; };
 		23F0378518C153BD00B4D289 /* SVWebViewControllerActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F0377618C153BD00B4D289 /* SVWebViewControllerActivity.m */; };
-		23F0378B18C157E500B4D289 /* TorrentDownloaderModalWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F0378A18C157E500B4D289 /* TorrentDownloaderModalWebViewController.m */; };
 		23F0379518C163A400B4D289 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 23F0379418C163A400B4D289 /* README.md */; };
 		23F3E09B189F236300A8105A /* TorrentClientTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F3E09A189F236300A8105A /* TorrentClientTableViewController.m */; };
 		23F3E09E189F30EF00A8105A /* AddTorrentClientTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F3E09D189F30EF00A8105A /* AddTorrentClientTableViewController.m */; };
 		23F3E0A1189F59C700A8105A /* FileHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F3E0A0189F59C700A8105A /* FileHandler.m */; };
 		23FC25D81788F1D500CCE434 /* TorrentJobCheckerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FC25D71788F1D500CCE434 /* TorrentJobCheckerCell.m */; };
+		9E46C83A1F68C9B600EA2DED /* TorrentDownloaderModalWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E46C8351F68C8CB00EA2DED /* TorrentDownloaderModalWebViewController.m */; };
+		9E46C83B1F68C9BE00EA2DED /* TorrentDownloaderWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E46C8341F68C8CB00EA2DED /* TorrentDownloaderWebViewController.m */; };
 		9EA311881BB6515400A91454 /* XirvikSeedbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EA311871BB6515400A91454 /* XirvikSeedbox.m */; };
 /* End PBXBuildFile section */
 
@@ -169,9 +168,8 @@
 		232B0FA4178C356700A7B3DC /* TorrentDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TorrentDetailViewController.m; sourceTree = "<group>"; };
 		23314150177FE95E0062B0FE /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
 		23314151177FE95E0062B0FE /* gear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gear@2x.png"; sourceTree = "<group>"; };
-		233C9F9517B9E2E500405CA7 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		2346A5A318A8C2F0005EE9C0 /* AdBlocker.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AdBlocker.plist; sourceTree = "<group>"; };
-		235120081769C49000A3DE2C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = BarMagnet/en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		235120081769C49000A3DE2C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = Sources/en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		235527531871718300A9E6BC /* UIButtonBarPause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIButtonBarPause.png; sourceTree = "<group>"; };
 		235527541871718300A9E6BC /* UIButtonBarPause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIButtonBarPause@2x.png"; sourceTree = "<group>"; };
 		235527551871718300A9E6BC /* UIButtonBarPlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIButtonBarPlay.png; sourceTree = "<group>"; };
@@ -219,7 +217,6 @@
 		238A94D517A121C30081EF6D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		2396C9291895EA88009BC6D3 /* UIFastProgressBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFastProgressBar.h; sourceTree = "<group>"; };
 		2396C92A1895EA88009BC6D3 /* UIFastProgressBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFastProgressBar.m; sourceTree = "<group>"; };
-		23A868B218BF31E30066E383 /* libNSBencodeSerialization.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libNSBencodeSerialization.a; path = "../../Library/Developer/Xcode/DerivedData/NSBencodeSerialization-ezakathubkhhsxayghzwbjqodwih/Build/Products/Debug-iphoneos/libNSBencodeSerialization.a"; sourceTree = "<group>"; };
 		23A868EA18BF36DB0066E383 /* NSBencodeSerialization.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NSBencodeSerialization.xcodeproj; path = NSBencodeSerialization/NSBencodeSerialization.xcodeproj; sourceTree = "<group>"; };
 		23A868F318BF383E0066E383 /* NSNumber+TransferRateFormatting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+TransferRateFormatting.h"; sourceTree = "<group>"; };
 		23A868F418BF383E0066E383 /* NSNumber+TransferRateFormatting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+TransferRateFormatting.m"; sourceTree = "<group>"; };
@@ -237,8 +234,6 @@
 		23A8690618BF389D0066E383 /* TorrentDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TorrentDelegate.m; sourceTree = "<group>"; };
 		23A8690818BF38A90066E383 /* NSData+BEncode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+BEncode.h"; sourceTree = "<group>"; };
 		23A8690918BF38A90066E383 /* NSData+BEncode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+BEncode.m"; sourceTree = "<group>"; };
-		23A8690B18BF38B20066E383 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
-		23A8690C18BF38B20066E383 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
 		23A8690E18BF38BA0066E383 /* StringHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringHandler.h; sourceTree = "<group>"; };
 		23A8690F18BF38BA0066E383 /* StringHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringHandler.m; sourceTree = "<group>"; };
 		23A8691118BF38C10066E383 /* TorrentClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TorrentClient.h; sourceTree = "<group>"; };
@@ -277,10 +272,8 @@
 		23AC2B31175D835600FCFA71 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		23AC2B3F175D835600FCFA71 /* TorrentJobsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TorrentJobsTableViewController.h; sourceTree = "<group>"; };
 		23AC2B40175D835600FCFA71 /* TorrentJobsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TorrentJobsTableViewController.m; sourceTree = "<group>"; };
-		23AC2B53175D835600FCFA71 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		23AF74DE1796D5F700AC4ED5 /* StaticDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaticDataTableViewController.h; sourceTree = "<group>"; };
 		23AF74DF1796D5F700AC4ED5 /* StaticDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaticDataTableViewController.m; sourceTree = "<group>"; };
-		23B35F5F1894941A002F6E37 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 		23B35F841894A115002F6E37 /* ScanQRCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanQRCodeViewController.h; sourceTree = "<group>"; };
 		23B35F851894A115002F6E37 /* ScanQRCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanQRCodeViewController.m; sourceTree = "<group>"; };
 		23B6E23117A337C9003D3B7C /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
@@ -291,8 +284,6 @@
 		23DF81CE18C2C71D005BAB1C /* SeedStuffSeedbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeedStuffSeedbox.m; sourceTree = "<group>"; };
 		23E60FB51876D20400D2068B /* PlayPause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayPause.png; sourceTree = "<group>"; };
 		23E60FB61876D20400D2068B /* PlayPause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PlayPause@2x.png"; sourceTree = "<group>"; };
-		23F0375718C14F9A00B4D289 /* TorrentDownloaderWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TorrentDownloaderWebViewController.h; path = BarMagnet/TorrentDownloaderWebViewController.h; sourceTree = SOURCE_ROOT; };
-		23F0375818C14F9A00B4D289 /* TorrentDownloaderWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TorrentDownloaderWebViewController.m; path = BarMagnet/TorrentDownloaderWebViewController.m; sourceTree = SOURCE_ROOT; };
 		23F0375D18C153BD00B4D289 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/SVWebViewController.strings; sourceTree = "<group>"; };
 		23F0375E18C153BD00B4D289 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SVWebViewController.strings; sourceTree = "<group>"; };
 		23F0375F18C153BD00B4D289 /* es-ES */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-ES"; path = "es-ES.lproj/SVWebViewController.strings"; sourceTree = "<group>"; };
@@ -318,8 +309,6 @@
 		23F0377618C153BD00B4D289 /* SVWebViewControllerActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVWebViewControllerActivity.m; sourceTree = "<group>"; };
 		23F0377718C153BD00B4D289 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SVWebViewController.strings"; sourceTree = "<group>"; };
 		23F0377818C153BD00B4D289 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/SVWebViewController.strings"; sourceTree = "<group>"; };
-		23F0378918C157E500B4D289 /* TorrentDownloaderModalWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TorrentDownloaderModalWebViewController.h; path = BarMagnet/TorrentDownloaderModalWebViewController.h; sourceTree = SOURCE_ROOT; };
-		23F0378A18C157E500B4D289 /* TorrentDownloaderModalWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TorrentDownloaderModalWebViewController.m; path = BarMagnet/TorrentDownloaderModalWebViewController.m; sourceTree = SOURCE_ROOT; };
 		23F0379418C163A400B4D289 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		23F3E099189F236300A8105A /* TorrentClientTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TorrentClientTableViewController.h; sourceTree = "<group>"; };
 		23F3E09A189F236300A8105A /* TorrentClientTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TorrentClientTableViewController.m; sourceTree = "<group>"; };
@@ -329,6 +318,10 @@
 		23F3E0A0189F59C700A8105A /* FileHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileHandler.m; sourceTree = "<group>"; };
 		23FC25D61788F1D500CCE434 /* TorrentJobCheckerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TorrentJobCheckerCell.h; sourceTree = "<group>"; };
 		23FC25D71788F1D500CCE434 /* TorrentJobCheckerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TorrentJobCheckerCell.m; sourceTree = "<group>"; };
+		9E46C8331F68C8CB00EA2DED /* TorrentDownloaderModalWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TorrentDownloaderModalWebViewController.h; sourceTree = "<group>"; };
+		9E46C8341F68C8CB00EA2DED /* TorrentDownloaderWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TorrentDownloaderWebViewController.m; sourceTree = "<group>"; };
+		9E46C8351F68C8CB00EA2DED /* TorrentDownloaderModalWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TorrentDownloaderModalWebViewController.m; sourceTree = "<group>"; };
+		9E46C8361F68C8CB00EA2DED /* TorrentDownloaderWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TorrentDownloaderWebViewController.h; sourceTree = "<group>"; };
 		9EA311861BB6515400A91454 /* XirvikSeedbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XirvikSeedbox.h; sourceTree = "<group>"; };
 		9EA311871BB6515400A91454 /* XirvikSeedbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XirvikSeedbox.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -353,48 +346,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2324910A178E491500D5454E /* View Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				23AC2B3F175D835600FCFA71 /* TorrentJobsTableViewController.h */,
-				23AC2B40175D835600FCFA71 /* TorrentJobsTableViewController.m */,
-				232B0FA3178C356700A7B3DC /* TorrentDetailViewController.h */,
-				232B0FA4178C356700A7B3DC /* TorrentDetailViewController.m */,
-				23F3E099189F236300A8105A /* TorrentClientTableViewController.h */,
-				23F3E09A189F236300A8105A /* TorrentClientTableViewController.m */,
-				23F3E09C189F30EF00A8105A /* AddTorrentClientTableViewController.h */,
-				23F3E09D189F30EF00A8105A /* AddTorrentClientTableViewController.m */,
-				23B35F841894A115002F6E37 /* ScanQRCodeViewController.h */,
-				23B35F851894A115002F6E37 /* ScanQRCodeViewController.m */,
-				232AE18C1891E40100D3F018 /* QueryTableViewController.h */,
-				232AE18D1891E40100D3F018 /* QueryTableViewController.m */,
-				232AE18F1891EE7400D3F018 /* AddQueryTableViewController.h */,
-				232AE1901891EE7400D3F018 /* AddQueryTableViewController.m */,
-				23A94F20183CD6B7004A3924 /* UINavigationControllerNoAutoRotation.h */,
-				23A94F21183CD6B7004A3924 /* UINavigationControllerNoAutoRotation.m */,
-				235527621872568D00A9E6BC /* AboutViewController.h */,
-				235527631872568D00A9E6BC /* AboutViewController.m */,
-				23AF74DE1796D5F700AC4ED5 /* StaticDataTableViewController.h */,
-				23AF74DF1796D5F700AC4ED5 /* StaticDataTableViewController.m */,
-			);
-			name = "View Controllers";
-			sourceTree = "<group>";
-		};
-		2324910B178E492400D5454E /* Custom UI */ = {
-			isa = PBXGroup;
-			children = (
-				23FC25D61788F1D500CCE434 /* TorrentJobCheckerCell.h */,
-				23FC25D71788F1D500CCE434 /* TorrentJobCheckerCell.m */,
-				232AE192189206C000D3F018 /* UITextField+UniqueString.h */,
-				232AE193189206C000D3F018 /* UITextField+UniqueString.m */,
-				2396C9291895EA88009BC6D3 /* UIFastProgressBar.h */,
-				2396C92A1895EA88009BC6D3 /* UIFastProgressBar.m */,
-				23A8692A18BF39BD0066E383 /* QueryCell.h */,
-				23A8692B18BF39BD0066E383 /* QueryCell.m */,
-			);
-			name = "Custom UI";
-			sourceTree = "<group>";
-		};
 		238A949417A121630081EF6D /* TSMessages */ = {
 			isa = PBXGroup;
 			children = (
@@ -403,7 +354,7 @@
 				238A94B517A121630081EF6D /* Views */,
 			);
 			name = TSMessages;
-			path = BarMagnet/TSMessages;
+			path = Sources/TSMessages;
 			sourceTree = "<group>";
 		};
 		238A949717A121630081EF6D /* Classes */ = {
@@ -489,7 +440,7 @@
 				23F0375B18C153BD00B4D289 /* SVWebViewController */,
 				23A94D0F1A6CF11C00A255B7 /* MGSwipeTableCell */,
 				238A949417A121630081EF6D /* TSMessages */,
-				23AC2B27175D835600FCFA71 /* BarMagnet */,
+				23AC2B27175D835600FCFA71 /* Sources */,
 				23AC2B20175D835600FCFA71 /* Frameworks */,
 				23AC2B1F175D835600FCFA71 /* Products */,
 			);
@@ -506,186 +457,38 @@
 		23AC2B20175D835600FCFA71 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				23A868B218BF31E30066E383 /* libNSBencodeSerialization.a */,
-				23B35F5F1894941A002F6E37 /* libiconv.dylib */,
 				230C478318948FD7007D56FC /* AVFoundation.framework */,
 				230C478018948FC6007D56FC /* CoreMedia.framework */,
 				230C477E18948FBD007D56FC /* CoreVideo.framework */,
-				233C9F9517B9E2E500405CA7 /* libz.dylib */,
 				23B6E23117A337C9003D3B7C /* Accelerate.framework */,
 				238A94D517A121C30081EF6D /* OpenGLES.framework */,
 				238A94D317A121B70081EF6D /* QuartzCore.framework */,
 				2374DD9D1796F23100F613EB /* MessageUI.framework */,
 				23AC2B25175D835600FCFA71 /* CoreGraphics.framework */,
 				23AC2B23175D835600FCFA71 /* Foundation.framework */,
-				23AC2B53175D835600FCFA71 /* SenTestingKit.framework */,
 				23AC2B21175D835600FCFA71 /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		23AC2B27175D835600FCFA71 /* BarMagnet */ = {
+		23AC2B27175D835600FCFA71 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				23AC2B30175D835600FCFA71 /* AppDelegate.h */,
 				23AC2B31175D835600FCFA71 /* AppDelegate.m */,
-				23F0375A18C150DA00B4D289 /* Web Controller */,
-				23B1C026177C4ECE000A0B07 /* Functions */,
-				23B1C025177C4EC6000A0B07 /* ConnectionHandler */,
-				23B1C024177C4EA3000A0B07 /* TorrentDelegate */,
-				23B1C023177C4E8F000A0B07 /* Bencode */,
-				23B1C022177C4E86000A0B07 /* Base64 */,
-				23B1C021177C4E7C000A0B07 /* StringHandler */,
-				23AC2B82175D8A2700FCFA71 /* Torrent Interface Super */,
-				2324910A178E491500D5454E /* View Controllers */,
-				2324910B178E492400D5454E /* Custom UI */,
+				9E46C8321F68C8A600EA2DED /* Web Controller */,
+				9E46C8381F68C8E700EA2DED /* Functions */,
+				9E46C8391F68C90900EA2DED /* Connection Handler */,
+				9E46C8401F68CC0400EA2DED /* Bencode */,
+				9E46C83E1F68CAB800EA2DED /* Torrent Interface */,
+				9E46C83C1F68CA6500EA2DED /* View Controllers */,
+				9E46C83D1F68CA8700EA2DED /* Custom UI */,
 				235120071769C49000A3DE2C /* MainStoryboard_iPhone.storyboard */,
 				23B84F0D17B60F4F008C9D17 /* MainStoryboard_iPad.storyboard */,
 				235527651872723700A9E6BC /* Images.xcassets */,
-				23AC2B28175D835600FCFA71 /* Supporting Files */,
+				9E46C8431F68CD9200EA2DED /* Supporting Files */,
 			);
-			path = BarMagnet;
-			sourceTree = "<group>";
-		};
-		23AC2B28175D835600FCFA71 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				23AC2B29175D835600FCFA71 /* BarMagnet-Info.plist */,
-				2346A5A318A8C2F0005EE9C0 /* AdBlocker.plist */,
-				23AC2B2A175D835600FCFA71 /* InfoPlist.strings */,
-				23AC2B2D175D835600FCFA71 /* main.m */,
-				23AC2B2F175D835600FCFA71 /* BarMagnet-Prefix.pch */,
-				23314150177FE95E0062B0FE /* gear.png */,
-				23314151177FE95E0062B0FE /* gear@2x.png */,
-				2355275B18722A8600A9E6BC /* info.png */,
-				2355275C18722A8600A9E6BC /* info@2x.png */,
-				235527531871718300A9E6BC /* UIButtonBarPause.png */,
-				235527541871718300A9E6BC /* UIButtonBarPause@2x.png */,
-				235527551871718300A9E6BC /* UIButtonBarPlay.png */,
-				235527561871718300A9E6BC /* UIButtonBarPlay@2x.png */,
-				237570AF1877B742008217BF /* UIButtonBarStop.png */,
-				237570B01877B742008217BF /* UIButtonBarStop@2x.png */,
-				23E60FB51876D20400D2068B /* PlayPause.png */,
-				23E60FB61876D20400D2068B /* PlayPause@2x.png */,
-				237570B31877B874008217BF /* Gripper.png */,
-				237570B41877B874008217BF /* Gripper@2x.png */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		23AC2B82175D8A2700FCFA71 /* Torrent Interface Super */ = {
-			isa = PBXGroup;
-			children = (
-				23A8691118BF38C10066E383 /* TorrentClient.h */,
-				23A8691218BF38C10066E383 /* TorrentClient.m */,
-				23AC2B83175D8A4200FCFA71 /* Torrent Front-Ends */,
-			);
-			name = "Torrent Interface Super";
-			sourceTree = "<group>";
-		};
-		23AC2B83175D8A4200FCFA71 /* Torrent Front-Ends */ = {
-			isa = PBXGroup;
-			children = (
-				23A8691418BF38CC0066E383 /* Deluge.h */,
-				23A8691518BF38CC0066E383 /* Deluge.m */,
-				23A8691718BF38D40066E383 /* qBittorrent.h */,
-				23A8691818BF38D40066E383 /* qBittorrent.m */,
-				23A8691A18BF38DF0066E383 /* ruTorrent.h */,
-				23A8691B18BF38DF0066E383 /* ruTorrent.m */,
-				2379764019654B0400279520 /* ruTorrentHTTPRPC.h */,
-				2379763E19654AF500279520 /* ruTorrentHTTPRPC.m */,
-				23DF81CA18C1F4FA005BAB1C /* rTorrentXMLRPC.h */,
-				23DF81CB18C1F4FA005BAB1C /* rTorrentXMLRPC.m */,
-				23DF81CD18C2C71D005BAB1C /* SeedStuffSeedbox.h */,
-				23DF81CE18C2C71D005BAB1C /* SeedStuffSeedbox.m */,
-				23A8691D18BF38E90066E383 /* Synology.h */,
-				23A8691E18BF38E90066E383 /* Synology.m */,
-				23A8692018BF38F30066E383 /* Transmission.h */,
-				23A8692118BF38F30066E383 /* Transmission.m */,
-				23A8692318BF38FD0066E383 /* uTorrent.h */,
-				23A8692418BF38FD0066E383 /* uTorrent.m */,
-				23A8692618BF390A0066E383 /* VuzeRemoteUI.h */,
-				23A8692718BF390A0066E383 /* VuzeRemoteUI.m */,
-				9EA311861BB6515400A91454 /* XirvikSeedbox.h */,
-				9EA311871BB6515400A91454 /* XirvikSeedbox.m */,
-			);
-			name = "Torrent Front-Ends";
-			sourceTree = "<group>";
-		};
-		23B1C021177C4E7C000A0B07 /* StringHandler */ = {
-			isa = PBXGroup;
-			children = (
-				23A8690E18BF38BA0066E383 /* StringHandler.h */,
-				23A8690F18BF38BA0066E383 /* StringHandler.m */,
-			);
-			name = StringHandler;
-			sourceTree = "<group>";
-		};
-		23B1C022177C4E86000A0B07 /* Base64 */ = {
-			isa = PBXGroup;
-			children = (
-				23A8690B18BF38B20066E383 /* NSData+Base64.h */,
-				23A8690C18BF38B20066E383 /* NSData+Base64.m */,
-			);
-			name = Base64;
-			sourceTree = "<group>";
-		};
-		23B1C023177C4E8F000A0B07 /* Bencode */ = {
-			isa = PBXGroup;
-			children = (
-				23A8690818BF38A90066E383 /* NSData+BEncode.h */,
-				23A8690918BF38A90066E383 /* NSData+BEncode.m */,
-			);
-			name = Bencode;
-			sourceTree = "<group>";
-		};
-		23B1C024177C4EA3000A0B07 /* TorrentDelegate */ = {
-			isa = PBXGroup;
-			children = (
-				23A8690518BF389D0066E383 /* TorrentDelegate.h */,
-				23A8690618BF389D0066E383 /* TorrentDelegate.m */,
-			);
-			name = TorrentDelegate;
-			sourceTree = "<group>";
-		};
-		23B1C025177C4EC6000A0B07 /* ConnectionHandler */ = {
-			isa = PBXGroup;
-			children = (
-				23A868FC18BF38800066E383 /* ConnectionHandler.h */,
-				23A868FD18BF38800066E383 /* ConnectionHandler.m */,
-				23A868FF18BF388D0066E383 /* TorrentFileHandler.h */,
-				23A8690018BF388D0066E383 /* TorrentFileHandler.m */,
-				23A8690118BF388D0066E383 /* TorrentJobChecker.h */,
-				23A8690218BF388D0066E383 /* TorrentJobChecker.m */,
-			);
-			name = ConnectionHandler;
-			sourceTree = "<group>";
-		};
-		23B1C026177C4ECE000A0B07 /* Functions */ = {
-			isa = PBXGroup;
-			children = (
-				23A868F318BF383E0066E383 /* NSNumber+TransferRateFormatting.h */,
-				23A868F418BF383E0066E383 /* NSNumber+TransferRateFormatting.m */,
-				23A868F518BF383E0066E383 /* NSOption.h */,
-				23A868F618BF383E0066E383 /* NSOption.m */,
-				23F3E09F189F59C700A8105A /* FileHandler.h */,
-				23F3E0A0189F59C700A8105A /* FileHandler.m */,
-				23A868F918BF38750066E383 /* NSArray+Functions.h */,
-				23A868FA18BF38750066E383 /* NSArray+Functions.m */,
-			);
-			name = Functions;
-			sourceTree = "<group>";
-		};
-		23F0375A18C150DA00B4D289 /* Web Controller */ = {
-			isa = PBXGroup;
-			children = (
-				23F0375718C14F9A00B4D289 /* TorrentDownloaderWebViewController.h */,
-				23F0375818C14F9A00B4D289 /* TorrentDownloaderWebViewController.m */,
-				23F0378918C157E500B4D289 /* TorrentDownloaderModalWebViewController.h */,
-				23F0378A18C157E500B4D289 /* TorrentDownloaderModalWebViewController.m */,
-			);
-			name = "Web Controller";
-			path = SVWebViewController;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		23F0375B18C153BD00B4D289 /* SVWebViewController */ = {
@@ -736,6 +539,173 @@
 				23F0377418C153BD00B4D289 /* SVWebViewControllerActivitySafari@2x.png */,
 			);
 			path = Safari;
+			sourceTree = "<group>";
+		};
+		9E46C8321F68C8A600EA2DED /* Web Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9E46C8331F68C8CB00EA2DED /* TorrentDownloaderModalWebViewController.h */,
+				9E46C8351F68C8CB00EA2DED /* TorrentDownloaderModalWebViewController.m */,
+				9E46C8361F68C8CB00EA2DED /* TorrentDownloaderWebViewController.h */,
+				9E46C8341F68C8CB00EA2DED /* TorrentDownloaderWebViewController.m */,
+			);
+			path = "Web Controller";
+			sourceTree = "<group>";
+		};
+		9E46C8381F68C8E700EA2DED /* Functions */ = {
+			isa = PBXGroup;
+			children = (
+				23A868F318BF383E0066E383 /* NSNumber+TransferRateFormatting.h */,
+				23A868F418BF383E0066E383 /* NSNumber+TransferRateFormatting.m */,
+				23A868F518BF383E0066E383 /* NSOption.h */,
+				23A868F618BF383E0066E383 /* NSOption.m */,
+				23F3E09F189F59C700A8105A /* FileHandler.h */,
+				23F3E0A0189F59C700A8105A /* FileHandler.m */,
+				23A868F918BF38750066E383 /* NSArray+Functions.h */,
+				23A868FA18BF38750066E383 /* NSArray+Functions.m */,
+			);
+			path = Functions;
+			sourceTree = "<group>";
+		};
+		9E46C8391F68C90900EA2DED /* Connection Handler */ = {
+			isa = PBXGroup;
+			children = (
+				23A868FC18BF38800066E383 /* ConnectionHandler.h */,
+				23A868FD18BF38800066E383 /* ConnectionHandler.m */,
+				23A868FF18BF388D0066E383 /* TorrentFileHandler.h */,
+				23A8690018BF388D0066E383 /* TorrentFileHandler.m */,
+				23A8690118BF388D0066E383 /* TorrentJobChecker.h */,
+				23A8690218BF388D0066E383 /* TorrentJobChecker.m */,
+			);
+			path = "Connection Handler";
+			sourceTree = "<group>";
+		};
+		9E46C83C1F68CA6500EA2DED /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				23AC2B3F175D835600FCFA71 /* TorrentJobsTableViewController.h */,
+				23AC2B40175D835600FCFA71 /* TorrentJobsTableViewController.m */,
+				232B0FA3178C356700A7B3DC /* TorrentDetailViewController.h */,
+				232B0FA4178C356700A7B3DC /* TorrentDetailViewController.m */,
+				23F3E099189F236300A8105A /* TorrentClientTableViewController.h */,
+				23F3E09A189F236300A8105A /* TorrentClientTableViewController.m */,
+				23F3E09C189F30EF00A8105A /* AddTorrentClientTableViewController.h */,
+				23F3E09D189F30EF00A8105A /* AddTorrentClientTableViewController.m */,
+				23B35F841894A115002F6E37 /* ScanQRCodeViewController.h */,
+				23B35F851894A115002F6E37 /* ScanQRCodeViewController.m */,
+				232AE18C1891E40100D3F018 /* QueryTableViewController.h */,
+				232AE18D1891E40100D3F018 /* QueryTableViewController.m */,
+				232AE18F1891EE7400D3F018 /* AddQueryTableViewController.h */,
+				232AE1901891EE7400D3F018 /* AddQueryTableViewController.m */,
+				23A94F20183CD6B7004A3924 /* UINavigationControllerNoAutoRotation.h */,
+				23A94F21183CD6B7004A3924 /* UINavigationControllerNoAutoRotation.m */,
+				235527621872568D00A9E6BC /* AboutViewController.h */,
+				235527631872568D00A9E6BC /* AboutViewController.m */,
+				23AF74DE1796D5F700AC4ED5 /* StaticDataTableViewController.h */,
+				23AF74DF1796D5F700AC4ED5 /* StaticDataTableViewController.m */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		9E46C83D1F68CA8700EA2DED /* Custom UI */ = {
+			isa = PBXGroup;
+			children = (
+				23FC25D61788F1D500CCE434 /* TorrentJobCheckerCell.h */,
+				23FC25D71788F1D500CCE434 /* TorrentJobCheckerCell.m */,
+				232AE192189206C000D3F018 /* UITextField+UniqueString.h */,
+				232AE193189206C000D3F018 /* UITextField+UniqueString.m */,
+				2396C9291895EA88009BC6D3 /* UIFastProgressBar.h */,
+				2396C92A1895EA88009BC6D3 /* UIFastProgressBar.m */,
+				23A8692A18BF39BD0066E383 /* QueryCell.h */,
+				23A8692B18BF39BD0066E383 /* QueryCell.m */,
+			);
+			path = "Custom UI";
+			sourceTree = "<group>";
+		};
+		9E46C83E1F68CAB800EA2DED /* Torrent Interface */ = {
+			isa = PBXGroup;
+			children = (
+				23A8690518BF389D0066E383 /* TorrentDelegate.h */,
+				23A8690618BF389D0066E383 /* TorrentDelegate.m */,
+				23A8691118BF38C10066E383 /* TorrentClient.h */,
+				23A8691218BF38C10066E383 /* TorrentClient.m */,
+				9E46C83F1F68CAC900EA2DED /* Front End */,
+			);
+			path = "Torrent Interface";
+			sourceTree = "<group>";
+		};
+		9E46C83F1F68CAC900EA2DED /* Front End */ = {
+			isa = PBXGroup;
+			children = (
+				23A8691418BF38CC0066E383 /* Deluge.h */,
+				23A8691518BF38CC0066E383 /* Deluge.m */,
+				23A8691718BF38D40066E383 /* qBittorrent.h */,
+				23A8691818BF38D40066E383 /* qBittorrent.m */,
+				23A8691A18BF38DF0066E383 /* ruTorrent.h */,
+				23A8691B18BF38DF0066E383 /* ruTorrent.m */,
+				2379764019654B0400279520 /* ruTorrentHTTPRPC.h */,
+				2379763E19654AF500279520 /* ruTorrentHTTPRPC.m */,
+				23DF81CA18C1F4FA005BAB1C /* rTorrentXMLRPC.h */,
+				23DF81CB18C1F4FA005BAB1C /* rTorrentXMLRPC.m */,
+				23DF81CD18C2C71D005BAB1C /* SeedStuffSeedbox.h */,
+				23DF81CE18C2C71D005BAB1C /* SeedStuffSeedbox.m */,
+				23A8691D18BF38E90066E383 /* Synology.h */,
+				23A8691E18BF38E90066E383 /* Synology.m */,
+				23A8692018BF38F30066E383 /* Transmission.h */,
+				23A8692118BF38F30066E383 /* Transmission.m */,
+				23A8692318BF38FD0066E383 /* uTorrent.h */,
+				23A8692418BF38FD0066E383 /* uTorrent.m */,
+				23A8692618BF390A0066E383 /* VuzeRemoteUI.h */,
+				23A8692718BF390A0066E383 /* VuzeRemoteUI.m */,
+				9EA311861BB6515400A91454 /* XirvikSeedbox.h */,
+				9EA311871BB6515400A91454 /* XirvikSeedbox.m */,
+			);
+			path = "Front End";
+			sourceTree = "<group>";
+		};
+		9E46C8401F68CC0400EA2DED /* Bencode */ = {
+			isa = PBXGroup;
+			children = (
+				23A8690818BF38A90066E383 /* NSData+BEncode.h */,
+				23A8690918BF38A90066E383 /* NSData+BEncode.m */,
+			);
+			path = Bencode;
+			sourceTree = "<group>";
+		};
+		9E46C8421F68CD7800EA2DED /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				23314150177FE95E0062B0FE /* gear.png */,
+				23314151177FE95E0062B0FE /* gear@2x.png */,
+				2355275B18722A8600A9E6BC /* info.png */,
+				2355275C18722A8600A9E6BC /* info@2x.png */,
+				235527531871718300A9E6BC /* UIButtonBarPause.png */,
+				235527541871718300A9E6BC /* UIButtonBarPause@2x.png */,
+				235527551871718300A9E6BC /* UIButtonBarPlay.png */,
+				235527561871718300A9E6BC /* UIButtonBarPlay@2x.png */,
+				237570AF1877B742008217BF /* UIButtonBarStop.png */,
+				237570B01877B742008217BF /* UIButtonBarStop@2x.png */,
+				23E60FB51876D20400D2068B /* PlayPause.png */,
+				23E60FB61876D20400D2068B /* PlayPause@2x.png */,
+				237570B31877B874008217BF /* Gripper.png */,
+				237570B41877B874008217BF /* Gripper@2x.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		9E46C8431F68CD9200EA2DED /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9E46C8421F68CD7800EA2DED /* Images */,
+				23A8690E18BF38BA0066E383 /* StringHandler.h */,
+				23A8690F18BF38BA0066E383 /* StringHandler.m */,
+				23AC2B29175D835600FCFA71 /* BarMagnet-Info.plist */,
+				2346A5A318A8C2F0005EE9C0 /* AdBlocker.plist */,
+				23AC2B2A175D835600FCFA71 /* InfoPlist.strings */,
+				23AC2B2D175D835600FCFA71 /* main.m */,
+				23AC2B2F175D835600FCFA71 /* BarMagnet-Prefix.pch */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -880,6 +850,7 @@
 			files = (
 				23AC2B2E175D835600FCFA71 /* main.m in Sources */,
 				23A8691F18BF38E90066E383 /* Synology.m in Sources */,
+				9E46C83A1F68C9B600EA2DED /* TorrentDownloaderModalWebViewController.m in Sources */,
 				23A8691C18BF38DF0066E383 /* ruTorrent.m in Sources */,
 				23A8691618BF38CC0066E383 /* Deluge.m in Sources */,
 				23F0377F18C153BD00B4D289 /* SVWebViewControllerActivityChrome.m in Sources */,
@@ -887,7 +858,6 @@
 				235527701872901700A9E6BC /* TSMessage.m in Sources */,
 				23AC2B32175D835600FCFA71 /* AppDelegate.m in Sources */,
 				23AC2B41175D835600FCFA71 /* TorrentJobsTableViewController.m in Sources */,
-				23F0375918C14F9A00B4D289 /* TorrentDownloaderWebViewController.m in Sources */,
 				232B0FA5178C356700A7B3DC /* TorrentDetailViewController.m in Sources */,
 				2396C92B1895EA88009BC6D3 /* UIFastProgressBar.m in Sources */,
 				23F0378318C153BD00B4D289 /* SVWebViewControllerActivitySafari.m in Sources */,
@@ -901,12 +871,10 @@
 				23A94F22183CD6B7004A3924 /* UINavigationControllerNoAutoRotation.m in Sources */,
 				23AF74E01796D5F700AC4ED5 /* StaticDataTableViewController.m in Sources */,
 				23A8691318BF38C10066E383 /* TorrentClient.m in Sources */,
-				23A8690D18BF38B20066E383 /* NSData+Base64.m in Sources */,
 				232AE194189206C000D3F018 /* UITextField+UniqueString.m in Sources */,
 				23B35F861894A115002F6E37 /* ScanQRCodeViewController.m in Sources */,
 				23F3E09B189F236300A8105A /* TorrentClientTableViewController.m in Sources */,
 				238A94D217A121630081EF6D /* TSMessageView.m in Sources */,
-				23F0378B18C157E500B4D289 /* TorrentDownloaderModalWebViewController.m in Sources */,
 				23A8691918BF38D40066E383 /* qBittorrent.m in Sources */,
 				23FC25D81788F1D500CCE434 /* TorrentJobCheckerCell.m in Sources */,
 				2355276E1872864F00A9E6BC /* HexColor.m in Sources */,
@@ -916,6 +884,7 @@
 				23A8692218BF38F30066E383 /* Transmission.m in Sources */,
 				23A868FE18BF38800066E383 /* ConnectionHandler.m in Sources */,
 				23F0377A18C153BD00B4D289 /* SVModalWebViewController.m in Sources */,
+				9E46C83B1F68C9BE00EA2DED /* TorrentDownloaderWebViewController.m in Sources */,
 				2379763F19654AF500279520 /* ruTorrentHTTPRPC.m in Sources */,
 				235527641872568D00A9E6BC /* AboutViewController.m in Sources */,
 				232AE1911891EE7400D3F018 /* AddQueryTableViewController.m in Sources */,
@@ -1068,18 +1037,17 @@
 				DEVELOPMENT_TEAM = B52TY2Q6KY;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BarMagnet/BarMagnet-Prefix.pch";
+				GCC_PREFIX_HEADER = "Sources/Supporting Files/BarMagnet-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/NSBencodeSerialization/M13OrderedDictionary",
 					"$(SRCROOT)/NSBencodeSerialization/NSBencodeSerialization",
 				);
-				INFOPLIST_FILE = "BarMagnet/BarMagnet-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				INFOPLIST_FILE = "Sources/Supporting Files/BarMagnet-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/TestFlightSDK",
-					"$(SRCROOT)/BarMagnet",
+					"$(SRCROOT)/Sources",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/NSBencodeSerialization-ezakathubkhhsxayghzwbjqodwih/Build/Products/Debug-iphoneos",
 				);
 				ONLY_ACTIVE_ARCH = NO;
@@ -1106,17 +1074,16 @@
 				DEVELOPMENT_TEAM = B52TY2Q6KY;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BarMagnet/BarMagnet-Prefix.pch";
+				GCC_PREFIX_HEADER = "Sources/Supporting Files/BarMagnet-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/NSBencodeSerialization/M13OrderedDictionary",
 					"$(SRCROOT)/NSBencodeSerialization/NSBencodeSerialization",
 				);
-				INFOPLIST_FILE = "BarMagnet/BarMagnet-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				INFOPLIST_FILE = "Sources/Supporting Files/BarMagnet-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/TestFlightSDK",
-					"$(SRCROOT)/BarMagnet",
+					"$(SRCROOT)/Sources",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/NSBencodeSerialization-ezakathubkhhsxayghzwbjqodwih/Build/Products/Debug-iphoneos",
 				);
 				ONLY_ACTIVE_ARCH = NO;

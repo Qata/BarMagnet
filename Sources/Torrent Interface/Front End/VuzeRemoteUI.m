@@ -9,7 +9,6 @@
 #import "VuzeRemoteUI.h"
 #import "FileHandler.h"
 #import "ConnectionHandler.h"
-#import "NSData+Base64.h"
 
 
 @implementation VuzeRemoteUI
@@ -161,7 +160,7 @@
 
 - (NSURLRequest *)virtualHandleTorrentFile:(NSData *)fileData withURL:(NSURL *)fileURL
 {
-	NSMutableDictionary * arguments = [NSMutableDictionary dictionaryWithDictionary:@{@"metainfo":[fileData base64EncodedString]}];
+	NSMutableDictionary * arguments = [NSMutableDictionary dictionaryWithDictionary:@{@"metainfo":[fileData base64EncodedStringWithOptions:0]}];
 	NSString * directory = [[FileHandler.sharedInstance webDataValueForKey:@"directory"] orSome:@""];
 
 	if (directory.length)

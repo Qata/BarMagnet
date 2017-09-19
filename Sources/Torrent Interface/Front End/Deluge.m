@@ -9,8 +9,6 @@
 #import "Deluge.h"
 #import "FileHandler.h"
 
-#import "NSData+Base64.h"
-
 
 @implementation Deluge
 
@@ -196,7 +194,7 @@
 		options = @{@"download_location":path};
 	}
 	NSMutableURLRequest * request = [self universalPOSTSetting];
-	[request setHTTPBody:[NSJSONSerialization dataWithJSONObject:@{@"id":@([randomID intValue] + 1), @"method":@"core.add_torrent_file", @"params":@[[fileURL absoluteString], [fileData base64EncodedString], options]} options:0 error:nil]];
+	[request setHTTPBody:[NSJSONSerialization dataWithJSONObject:@{@"id":@([randomID intValue] + 1), @"method":@"core.add_torrent_file", @"params":@[[fileURL absoluteString], [fileData base64EncodedStringWithOptions:0], options]} options:0 error:nil]];
 	return request;
 }
 

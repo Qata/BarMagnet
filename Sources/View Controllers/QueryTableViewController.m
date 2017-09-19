@@ -74,8 +74,9 @@
 
 - (void)search:(NSString *)text withQuery:(NSDictionary *)query
 {
-    self.previousQuery = text;
-	TorrentDownloaderModalWebViewController *webViewController = [TorrentDownloaderModalWebViewController.alloc initWithAddress:[NSString stringWithFormat:@"%@%@", [query[@"query"] rangeOfString:@"https://"].location != NSNotFound ? @"" : @"http://", [query[@"query"] stringByReplacingOccurrencesOfString:@"%query%" withString:[text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]]];
+    NSString * trimmed = [text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    self.previousQuery = trimmed;
+	TorrentDownloaderModalWebViewController *webViewController = [TorrentDownloaderModalWebViewController.alloc initWithAddress:[NSString stringWithFormat:@"%@%@", [query[@"query"] rangeOfString:@"https://"].location != NSNotFound ? @"" : @"http://", [query[@"query"] stringByReplacingOccurrencesOfString:@"%query%" withString:[trimmed stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]]];
 	[self.navigationController presentViewController:webViewController animated:YES completion:nil];
 }
 

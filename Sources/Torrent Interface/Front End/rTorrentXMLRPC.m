@@ -59,7 +59,8 @@ enum
 		id value = param;
 		if ([param isKindOfClass:NSData.class])
 		{
-			value = [param base64Encoding];
+            
+			value = [param base64EncodedStringWithOptions:0];
 		}
 
         [RPCString appendFormat:@"<param><value><%@>%@</%@></value></param>", type, value, type];

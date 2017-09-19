@@ -13,7 +13,6 @@
 #import "TSMessage.h"
 #endif
 #import "TorrentClient.h"
-#import "NSData+Base64.h"
 #import "NSData+BEncode.h"
 #import "FileHandler.h"
 #import "NSBencodeSerialization.h"
