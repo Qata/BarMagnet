@@ -9,11 +9,10 @@
 #pragma once
 #import "TorrentClient.h"
 
-@interface uTorrent : TorrentClient
-{
-	NSString * storedURLString;
-	NSString * magnetString;
-	NSMutableURLRequest * storedRequest;
+@interface uTorrent : TorrentClient {
+  NSString *storedURLString;
+  NSString *magnetString;
+  NSMutableURLRequest *storedRequest;
 }
 
 @end

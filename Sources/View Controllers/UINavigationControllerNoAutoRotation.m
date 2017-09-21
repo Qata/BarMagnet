@@ -10,13 +10,11 @@
 
 @implementation UINavigationControllerNoAutoRotation
 
-- (BOOL)shouldAutorotate
-{
-	return NO;
+- (BOOL)shouldAutorotate {
+  return NO;
 }
 
-- (UIInterfaceOrientationMask)supportedInterfaceOrientations
-{
-	return UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPad ? UIInterfaceOrientationMaskAll : UIInterfaceOrientationMaskPortrait;
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+  return UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPad ? UIInterfaceOrientationMaskAll : UIInterfaceOrientationMaskPortrait;
 }
 @end

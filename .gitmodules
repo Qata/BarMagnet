@@ -7,3 +7,6 @@
 [submodule "MGSwipeTableCell"]
 	path = MGSwipeTableCell
 	url = https://github.com/MortimerGoro/MGSwipeTableCell.git
+[submodule "TSMessages"]
+	path = TSMessages
+	url = https://github.com/KrauseFx/TSMessages

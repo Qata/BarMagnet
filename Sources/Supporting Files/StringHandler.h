@@ -18,9 +18,10 @@
  */
 - (NSString *)transferRateString;
 /**
- * Returns an approximation of the size of the integer value of the string in bytes by checking the size in bytes against 2^(10*x). 
+ * Returns an approximation of the size of the integer value of the string in bytes by checking the size in bytes against 2^(10*x).
  * If x > 0 then a greedy function is run that checks if x > (a multiple of 2^(10 * x)) until it finds the largest size.
- * The function then divides x by the aforementioned size and returns a string with a size identifier appended. E.g. if the size is > 1024 but < 1048576 then it would return "x KiB".
+ * The function then divides x by the aforementioned size and returns a string with a size identifier appended. E.g. if the size is > 1024 but < 1048576 then it
+ * would return "x KiB".
  */
 - (NSString *)sizeString;
 /**

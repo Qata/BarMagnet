@@ -17,6 +17,6 @@
 - (BOOL)isNone;
 - (id)orSome:(id)other;
 
-@property (nonatomic, strong, readonly) id some;
+@property(nonatomic, strong, readonly) id some;
 
 @end

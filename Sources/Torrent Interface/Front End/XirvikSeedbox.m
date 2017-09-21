@@ -6,44 +6,38 @@
 //  Copyright © 2015 Charlotte Tortorella. All rights reserved.
 //
 
-#import "NSData+BEncode.h"
 #import "XirvikSeedbox.h"
+#import "NSData+BEncode.h"
 
 @implementation XirvikSeedbox
 
-+ (NSString *)name
-{
-	return @"Xirvik Seedbox";
++ (NSString *)name {
+  return @"Xirvik Seedbox";
 }
 
-+ (NSString *)defaultPort
-{
-	return @"443";
++ (NSString *)defaultPort {
+  return @"443";
 }
 
-+ (BOOL)supportsRelativePath
-{
-	return NO;
++ (BOOL)supportsRelativePath {
+  return NO;
 }
 
-- (NSURLRequest *)virtualHandleMagnetLink:(NSString *)magnetLink
-{
-	NSURL * url = [[NSURL URLWithString:self.getAppendedURL] URLByAppendingPathComponent:@"php/addtorrent.php"];
-	NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:url];
-	[request setHTTPMethod:@"POST"];
-	NSString * body = [NSString stringWithFormat:@"url=%@", [[magnetLink stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] encodeAmpersands]];
-	[request setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
-	return request;
+- (NSURLRequest *)virtualHandleMagnetLink:(NSString *)magnetLink {
+  NSURL *url = [[NSURL URLWithString:self.getAppendedURL] URLByAppendingPathComponent:@"php/addtorrent.php"];
+  NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+  [request setHTTPMethod:@"POST"];
+  NSString *body = [NSString stringWithFormat:@"url=%@", [[magnetLink stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] encodeAmpersands]];
+  [request setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
+  return request;
 }
 
-- (NSURLRequest *)virtualHandleTorrentFile:(NSData *)fileData withURL:(NSURL *)fileURL
-{
-	return [self virtualHandleMagnetLink:fileData.magnetLink];
+- (NSURLRequest *)virtualHandleTorrentFile:(NSData *)fileData withURL:(NSURL *)fileURL {
+  return [self virtualHandleMagnetLink:fileData.magnetLink];
 }
 
-- (NSString *)getUserFriendlyAppendedURL
-{
-	return [self.getBaseURL stringByAppendingPathComponent:@"rtorrent"];
+- (NSString *)getUserFriendlyAppendedURL {
+  return [self.getBaseURL stringByAppendingPathComponent:@"rtorrent"];
 }
 
 @end

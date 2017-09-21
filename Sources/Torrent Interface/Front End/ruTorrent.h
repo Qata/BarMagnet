@@ -8,10 +8,9 @@
 
 #import "TorrentClient.h"
 
-@interface ruTorrent : TorrentClient <NSXMLParserDelegate>
-{
-	NSUInteger externalIterator;
-	NSUInteger internalIterator;
-	NSMutableArray * jobsDataArray;
+@interface ruTorrent : TorrentClient <NSXMLParserDelegate> {
+  NSUInteger externalIterator;
+  NSUInteger internalIterator;
+  NSMutableArray *jobsDataArray;
 }
 @end

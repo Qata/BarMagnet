@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface UIFastProgressBar : UIView
-@property (nonatomic, assign) double progress;
-@property (nonatomic, strong) UIColor * progressTintColor;
+@property(nonatomic, assign) double progress;
+@property(nonatomic, strong) UIColor *progressTintColor;
 @end
