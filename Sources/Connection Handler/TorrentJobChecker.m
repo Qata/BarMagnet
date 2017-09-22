@@ -36,7 +36,7 @@ static TorrentJobChecker * sharedInstance;
 - (void)updateTorrentClientWithJobsData
 {
     [TorrentDelegate.sharedInstance.currentlySelectedClient handleTorrentJobs];
-    dispatch_sync(dispatch_get_main_queue(), ^{
+    dispatch_async(dispatch_get_main_queue(), ^{
         [NSNotificationCenter.defaultCenter postNotificationName:@"update_torrent_jobs_table" object:nil];
     });
 }
@@ -99,7 +99,7 @@ static TorrentJobChecker * sharedInstance;
 					[request setURL:[NSURL URLWithString:[TorrentDelegate.sharedInstance.currentlySelectedClient getUserFriendlyAppendedURL]]];
 					receivedData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
 				}
-				dispatch_sync(dispatch_get_main_queue(), ^{
+				dispatch_async(dispatch_get_main_queue(), ^{
 					[TorrentDelegate.sharedInstance.currentlySelectedClient setHostOnline:receivedData.length];
 					[NSNotificationCenter.defaultCenter postNotificationName:@"update_torrent_jobs_header" object:nil];
 				});
