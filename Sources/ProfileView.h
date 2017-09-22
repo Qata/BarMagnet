@@ -8,10 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LightPickerViewController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate>
-{
-    NSString * errorString;
+@interface LightPickerViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate> {
+  NSString *errorString;
 }
-@property (weak, nonatomic) IBOutlet UIPickerView *pickerViewOutlet;
+@property(weak, nonatomic) IBOutlet UIPickerView *pickerViewOutlet;
 
 @end

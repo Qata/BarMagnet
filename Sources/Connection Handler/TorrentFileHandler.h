@@ -8,9 +8,8 @@
 
 #import "ConnectionHandler.h"
 
-@interface TorrentFileHandler : ConnectionHandler
-{
-	NSMutableURLRequest * request;
+@interface TorrentFileHandler : ConnectionHandler {
+  NSMutableURLRequest *request;
 }
 
 - (void)downloadTorrentFile:(NSURL *)fileURL withDelegate:(id)delegate;

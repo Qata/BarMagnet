@@ -8,11 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ConnectionHandler : NSObject <NSURLConnectionDelegate>
-{
-	NSMutableData * responseData;
-	NSURLConnection * theConnection;
-	id theDelegate;
+@interface ConnectionHandler : NSObject <NSURLConnectionDelegate> {
+  NSMutableData *responseData;
+  NSURLConnection *theConnection;
+  id theDelegate;
 }
 
 - (void)sendURLRequest:(NSURLRequest *)request delegate:(id)delegate;

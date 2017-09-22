@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface UITextField_UniqueString : UITextField
-@property (nonatomic, strong) NSString * uniqueString;
+@property(nonatomic, strong) NSString *uniqueString;
 @end

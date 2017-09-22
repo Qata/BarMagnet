@@ -10,7 +10,7 @@
 #import "SVWebViewController.h"
 
 @interface SVModalWebViewController (WebViewController)
-@property (nonatomic, strong) SVWebViewController * webViewController;
+@property(nonatomic, strong) SVWebViewController *webViewController;
 @end
 
 @interface TorrentDownloaderModalWebViewController : SVModalWebViewController

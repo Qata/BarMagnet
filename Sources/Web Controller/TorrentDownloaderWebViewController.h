@@ -8,11 +8,11 @@
 
 #import "SVWebViewController.h"
 
-@interface SVWebViewController (WebViewDelegate)<UIWebViewDelegate>
-@property (nonatomic, strong) UIWebView * webView;
+@interface SVWebViewController (WebViewDelegate) <UIWebViewDelegate>
+@property(nonatomic, strong) UIWebView *webView;
 @end
 
-@interface TorrentDownloaderWebViewController : SVWebViewController<NSURLConnectionDataDelegate>
-@property (nonatomic, strong) NSArray *adKeys;
-@property (nonatomic, strong) NSMutableDictionary * torrents;
+@interface TorrentDownloaderWebViewController : SVWebViewController <NSURLConnectionDataDelegate>
+@property(nonatomic, strong) NSArray *adKeys;
+@property(nonatomic, strong) NSMutableDictionary *torrents;
 @end

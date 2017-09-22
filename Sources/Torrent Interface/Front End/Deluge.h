@@ -8,9 +8,8 @@
 
 #import "TorrentClient.h"
 
-@interface Deluge : TorrentClient
-{
-    NSNumber * randomID;
-    NSString * errorString;
+@interface Deluge : TorrentClient {
+  NSNumber *randomID;
+  NSString *errorString;
 }
 @end

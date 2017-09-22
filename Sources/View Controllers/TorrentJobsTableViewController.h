@@ -6,15 +6,14 @@
 //  Copyright (c) 2013 Charlotte Tortorella. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "TorrentClient.h"
 #import "TorrentDetailViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface TorrentJobsTableViewController : UITableViewController <UIViewControllerPreviewingDelegate>
-{
-	BOOL cancelNextRefresh;
+@interface TorrentJobsTableViewController : UITableViewController <UIViewControllerPreviewingDelegate> {
+  BOOL cancelNextRefresh;
 }
 
 - (IBAction)openUI:(id)sender;
-@property (nonatomic, assign) BOOL shouldRefresh;
+@property(nonatomic, assign) BOOL shouldRefresh;
 @end

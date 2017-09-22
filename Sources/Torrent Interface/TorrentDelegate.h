@@ -14,8 +14,8 @@
 - (void)handleMagnet:(NSString *)magnetLink;
 - (BOOL)handleTorrentFile:(NSString *)torrentFilePath;
 
-@property (nonatomic, strong) TorrentClient * currentlySelectedClient;
-@property (nonatomic, strong) NSArray * torrentClasses;
-@property (nonatomic, strong) NSDictionary * torrentDelegates;
+@property(nonatomic, strong) TorrentClient *currentlySelectedClient;
+@property(nonatomic, strong) NSArray *torrentClasses;
+@property(nonatomic, strong) NSDictionary *torrentDelegates;
 
 @end

@@ -9,8 +9,7 @@
 #pragma once
 #import "TorrentClient.h"
 
-@interface Transmission : TorrentClient
-{
-	NSMutableURLRequest * storedRequest;
+@interface Transmission : TorrentClient {
+  NSMutableURLRequest *storedRequest;
 }
 @end

@@ -10,15 +10,13 @@
 
 @interface StaticDataTableViewController : UITableViewController
 
-@property (nonatomic, assign) BOOL hideSectionsWithHiddenRows;
+@property(nonatomic, assign) BOOL hideSectionsWithHiddenRows;
 
+@property(nonatomic, assign) UITableViewRowAnimation insertTableViewRowAnimation;
 
-@property (nonatomic, assign) UITableViewRowAnimation insertTableViewRowAnimation;
+@property(nonatomic, assign) UITableViewRowAnimation deleteTableViewRowAnimation;
 
-@property (nonatomic, assign) UITableViewRowAnimation deleteTableViewRowAnimation;
-
-@property (nonatomic, assign) UITableViewRowAnimation reloadTableViewRowAnimation;
-
+@property(nonatomic, assign) UITableViewRowAnimation reloadTableViewRowAnimation;
 
 - (BOOL)cellIsHidden:(UITableViewCell *)cell;
 
