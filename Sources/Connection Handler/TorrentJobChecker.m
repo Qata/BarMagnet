@@ -32,7 +32,9 @@ static TorrentJobChecker *sharedInstance;
 
 - (void)updateTorrentClientWithJobsData {
   [TorrentDelegate.sharedInstance.currentlySelectedClient handleTorrentJobs];
-  [NSNotificationCenter.defaultCenter postNotificationName:@"update_torrent_jobs_table" object:nil];
+  dispatch_async(dispatch_get_main_queue(), ^{
+    [NSNotificationCenter.defaultCenter postNotificationName:@"update_torrent_jobs_table" object:nil];
+  });
 }
 
 - (void)jobCheckInvocation {

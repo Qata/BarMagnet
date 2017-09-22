@@ -84,7 +84,7 @@
 }
 
 - (NSString *)getURLAppendString {
-  return [[[FileHandler.sharedInstance webDataValueForKey:@"relative_path"] orSome:@""] stringByAppendingPathComponent:@"json"];
+  return [[[FileHandler.sharedInstance webDataValueForKey:@"relative_path"] orSome:@""] stringByAppendingPathComponent:@"/json"];
 }
 
 - (BOOL)receivedSuccessConditional:(NSData *)response {
