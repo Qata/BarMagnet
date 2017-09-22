@@ -355,7 +355,6 @@
 }
 
 - (NSString *)getAppendedURL {
-  NSLog(@"Base: %@", [[NSURL URLWithString:self.getBaseURL] URLByAppendingPathComponent:self.getURLAppendString].absoluteString);
   return [[NSURL URLWithString:self.getBaseURL] URLByAppendingPathComponent:self.getURLAppendString].absoluteString;
 }
 

@@ -162,7 +162,7 @@ enum { PAUSING = 0, STARTED = 1, PAUSED = 1 << 1, CHECKING = 1 << 2, HASHING = 1
 
 - (NSURLRequest *)virtualHandleTorrentFile:(NSData *)fileData withURL:(NSURL *)fileURL {
   [NSURLConnection
-      connectionWithRequest:[self RPCRequestWithMethodName:@"set_xmlrpc_size_limit" view:nil andParams:@[ @(fileData.base64Encoding.length + 1280) ]]
+      connectionWithRequest:[self RPCRequestWithMethodName:@"set_xmlrpc_size_limit" view:nil andParams:@[ @([fileData base64EncodedStringWithOptions:0].length + 1280) ]]
                    delegate:self];
   return [self RPCRequestWithMethodName:@"load_raw_start" view:nil andParams:@[ fileData ]];
 }

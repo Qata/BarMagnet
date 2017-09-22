@@ -143,9 +143,11 @@ enum ORDER { COMPLETED = 1, INCOMPLETE, DOWNLOAD_SPEED, UPLOAD_SPEED, ACTIVE, DO
 
 - (void)receiveUpdateTableNotification {
   if (!cancelNextRefresh) {
-    if (self.shouldRefresh && !self.tableView.isEditing && !self.tableView.isDragging && !self.tableView.isDecelerating) {
-      [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
-    }
+      dispatch_async(dispatch_get_main_queue(), ^{
+          if (self.shouldRefresh && !self.tableView.isEditing && !self.tableView.isDragging && !self.tableView.isDecelerating) {
+              [self.tableView reloadData];
+          }
+      });
   } else {
     cancelNextRefresh = NO;
   }
