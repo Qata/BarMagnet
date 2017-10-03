@@ -1,6 +1,6 @@
 # BarMagnet
 
-BarMagnet is a simple torrent remote controller for iOS 7 and above.
+BarMagnet is a simple torrent remote controller for iOS 9 and above.
 
 **BarMagnet features:**
 
