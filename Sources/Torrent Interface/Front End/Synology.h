@@ -9,9 +9,9 @@
 #import "TorrentClient.h"
 
 @interface Synology : TorrentClient {
-  NSMutableURLRequest *storedRequest;
-  NSDictionary *APIInfo;
-  NSString *sid;
+    NSMutableURLRequest *storedRequest;
+    NSDictionary *APIInfo;
+    NSString *sid;
 }
 
 @end

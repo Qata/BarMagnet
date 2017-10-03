@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface TorrentDetailViewController : UITableViewController {
-  NSDictionary *hashDict;
-  UITableView *torrentJobsView;
-  UITableView *selfView;
+    NSDictionary *hashDict;
+    UITableView *torrentJobsView;
+    UITableView *selfView;
 }
 
 @property(strong, nonatomic) NSString *hashString;

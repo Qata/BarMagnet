@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface FileHandler : NSObject {
-  NSMutableDictionary *masterDict;
+    NSMutableDictionary *masterDict;
 }
 + (FileHandler *)sharedInstance;
 

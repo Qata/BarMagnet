@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface LightPickerViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate> {
-  NSString *errorString;
+    NSString *errorString;
 }
 @property(weak, nonatomic) IBOutlet UIPickerView *pickerViewOutlet;
 

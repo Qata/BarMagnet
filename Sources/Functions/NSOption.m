@@ -13,46 +13,46 @@
 @synthesize some = _some;
 
 + (NSOption *)fromNil:(id)object {
-  return object ? [NSOption some:object] : [NSOption none];
+    return object ? [NSOption some:object] : [NSOption none];
 }
 
 + (NSOption *)some:(id)object {
-  return [[NSOption alloc] initWithSome:object];
+    return [[NSOption alloc] initWithSome:object];
 }
 
 - (NSOption *)initWithSome:(id)some {
-  if (self = [super init]) {
-    _some = some;
-  }
-  return self;
+    if (self = [super init]) {
+        _some = some;
+    }
+    return self;
 }
 
 - (id)orSome:(id)other {
-  return [self some] ? [self some] : other;
+    return [self some] ? [self some] : other;
 }
 
 + (NSOption *)none {
-  return [NSOption some:nil];
+    return [NSOption some:nil];
 }
 
 - (BOOL)isSome {
-  return [self some] != nil;
+    return [self some] != nil;
 }
 
 - (BOOL)isNone {
-  return [self some] == nil;
+    return [self some] == nil;
 }
 
 - (BOOL)isEqual:(id)object {
-  return object == nil || ![[object class] isEqual:self.class] ? NO : [self.some isEqual:((NSOption *)object).some];
+    return object == nil || ![[object class] isEqual:self.class] ? NO : [self.some isEqual:((NSOption *)object).some];
 }
 
 - (NSUInteger)hash {
-  return [[self some] hash];
+    return [[self some] hash];
 }
 
 - (NSString *)description {
-  return [NSString stringWithFormat:@"<%@ some: %@>", NSStringFromClass([self class]), self.some];
+    return [NSString stringWithFormat:@"<%@ some: %@>", NSStringFromClass([self class]), self.some];
 }
 
 @end

@@ -11,18 +11,19 @@
 @class TorrentFileHandler;
 #endif
 
-enum { WCS_ALL_FIELDS_HEIGHT = 165, WCS_RELATIVE_PATH_HEIGHT = 245 };
+enum { WCS_ALL_FIELDS_HEIGHT = 165,
+       WCS_RELATIVE_PATH_HEIGHT = 245 };
 
 @interface TorrentClient : NSObject <NSURLConnectionDelegate, NSURLConnectionDataDelegate> {
-  TorrentFileHandler *torrentFileHandler;
-  NSDictionary *previousJobs;
-  NSMutableDictionary *torrentJobsDict;
-  NSMutableArray *notificationJobs;
-  NSString *torrentName;
-  NSString *hashString;
-  NSMutableData *responseData;
-  NSURLConnection *theConnection;
-  BOOL hostOnline;
+    TorrentFileHandler *torrentFileHandler;
+    NSDictionary *previousJobs;
+    NSMutableDictionary *torrentJobsDict;
+    NSMutableArray *notificationJobs;
+    NSString *torrentName;
+    NSString *hashString;
+    NSMutableData *responseData;
+    NSURLConnection *theConnection;
+    BOOL hostOnline;
 }
 
 @property(nonatomic, strong) NSData *jobsData;

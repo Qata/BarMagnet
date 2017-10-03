@@ -13,14 +13,14 @@
 @implementation TorrentFileHandler
 
 - (void)downloadTorrentFile:(NSURL *)fileURL withDelegate:(id)delegate {
-  responseData = [NSMutableData new];
-  theDelegate = delegate;
-  request = [NSMutableURLRequest requestWithURL:fileURL];
-  theConnection = [NSURLConnection connectionWithRequest:request delegate:self];
+    responseData = [NSMutableData new];
+    theDelegate = delegate;
+    request = [NSMutableURLRequest requestWithURL:fileURL];
+    theConnection = [NSURLConnection connectionWithRequest:request delegate:self];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-  [TorrentDelegate.sharedInstance.currentlySelectedClient handleTorrentData:responseData withURL:request.URL];
+    [TorrentDelegate.sharedInstance.currentlySelectedClient handleTorrentData:responseData withURL:request.URL];
 }
 
 @end

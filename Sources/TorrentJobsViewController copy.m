@@ -22,77 +22,77 @@
 @implementation TorrentJobsViewController
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  static NSString *CellIdentifier = @"Prototype";
+    static NSString *CellIdentifier = @"Prototype";
 
-  TorrentJobCheckerCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-  if (cell == nil) {
-    NSLog(@"YOU FUCKED UP");
-    cell = [[TorrentJobCheckerCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-  }
-
-  imageView = (UIImageView *)[cell viewWithTag:IMAGE_TAG];
-  percentBar = (UIProgressView *)[cell viewWithTag:PERCENT_BAR_TAG];
-  torrentName = (UILabel *)[cell viewWithTag:NAME_TAG];
-  uploadSpeed = (UILabel *)[cell viewWithTag:UP_SPEED_TAG];
-  downloadSpeed = (UILabel *)[cell viewWithTag:DOWN_SPEED_TAG];
-  currentStatus = (UILabel *)[cell viewWithTag:STATUS_TAG];
-
-  // Set the data for this cell:
-  NSDictionary *jobsDict = [[[TorrentDelegate sharedInstance] currentlySelectedClient] getJobsDict];
-  NSArray *keysArray = [jobsDict allKeys];
-
-  NSDictionary *currentJob = [jobsDict objectForKey:[keysArray objectAtIndex:indexPath.row]];
-
-  if (![currentJob respondsToSelector:@selector(objectForKey:)]) {
-    currentJob = nil;
-  }
-
-  torrentName.text = [currentJob objectForKey:@"name"];
-
-  if ([[jobsDict objectForKey:[keysArray objectAtIndex:indexPath.row]] count] > 1) {
-    if ([[currentJob objectForKey:@"isPaused"] boolValue]) {
-      imageView.image = [UIImage imageNamed:@"paused"];
-    } else if ([[currentJob objectForKey:@"progress"] isEqual:[[[[TorrentDelegate sharedInstance] currentlySelectedClient] class] completeNumber]]) {
-      imageView.image = [UIImage imageNamed:@"upload"];
-    } else if (![[[[[TorrentDelegate sharedInstance] currentlySelectedClient] class] completeNumber] isEqual:[NSNumber numberWithInt:0]]) {
-      imageView.image = [UIImage imageNamed:@"download"];
+    TorrentJobCheckerCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        NSLog(@"YOU FUCKED UP");
+        cell = [[TorrentJobCheckerCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
-  }
 
-  downloadSpeed.text = [NSString stringWithFormat:@"Down: %@", [currentJob objectForKey:@"downloadSpeed"]];
-  uploadSpeed.text = [NSString stringWithFormat:@"Up: %@", [currentJob objectForKey:@"uploadSpeed"]];
+    imageView = (UIImageView *)[cell viewWithTag:IMAGE_TAG];
+    percentBar = (UIProgressView *)[cell viewWithTag:PERCENT_BAR_TAG];
+    torrentName = (UILabel *)[cell viewWithTag:NAME_TAG];
+    uploadSpeed = (UILabel *)[cell viewWithTag:UP_SPEED_TAG];
+    downloadSpeed = (UILabel *)[cell viewWithTag:DOWN_SPEED_TAG];
+    currentStatus = (UILabel *)[cell viewWithTag:STATUS_TAG];
 
-  double completeValue = [[[[[TorrentDelegate sharedInstance] currentlySelectedClient] class] completeNumber] floatValue];
-  if (completeValue) // Nobody likes dividing by zero
-  {
-    [percentBar setHidden:NO];
-    [percentBar setProgress:([[currentJob objectForKey:@"progress"] floatValue] / completeValue)];
-  } else {
-    [percentBar setHidden:YES];
-  }
+    // Set the data for this cell:
+    NSDictionary *jobsDict = [[[TorrentDelegate sharedInstance] currentlySelectedClient] getJobsDict];
+    NSArray *keysArray = [jobsDict allKeys];
 
-  if ([[currentJob objectForKey:@"isPaused"] boolValue]) {
-    currentStatus.text = @"Paused";
-  } else if ([[currentJob objectForKey:@"progress"] isEqual:[[[[TorrentDelegate sharedInstance] currentlySelectedClient] class] completeNumber]]) {
-    currentStatus.text = @"Seeding";
-  } else {
-    currentStatus.text = @"Downloading";
-  }
+    NSDictionary *currentJob = [jobsDict objectForKey:[keysArray objectAtIndex:indexPath.row]];
 
-  currentStatus.textAlignment = NSTextAlignmentRight;
+    if (![currentJob respondsToSelector:@selector(objectForKey:)]) {
+        currentJob = nil;
+    }
 
-  downloadSpeed.font = [UIFont fontWithName:@"Arial-BoldMT" size:10];
-  NSLog(@"%@", [UIFont fontNamesForFamilyName:@"Arial"]);
+    torrentName.text = [currentJob objectForKey:@"name"];
 
-  for (UILabel *label in @[ currentStatus, uploadSpeed ]) {
-    label.font = [UIFont fontWithName:@"Arial" size:10];
-  }
+    if ([[jobsDict objectForKey:[keysArray objectAtIndex:indexPath.row]] count] > 1) {
+        if ([[currentJob objectForKey:@"isPaused"] boolValue]) {
+            imageView.image = [UIImage imageNamed:@"paused"];
+        } else if ([[currentJob objectForKey:@"progress"] isEqual:[[[[TorrentDelegate sharedInstance] currentlySelectedClient] class] completeNumber]]) {
+            imageView.image = [UIImage imageNamed:@"upload"];
+        } else if (![[[[[TorrentDelegate sharedInstance] currentlySelectedClient] class] completeNumber] isEqual:[NSNumber numberWithInt:0]]) {
+            imageView.image = [UIImage imageNamed:@"download"];
+        }
+    }
 
-  return cell;
+    downloadSpeed.text = [NSString stringWithFormat:@"Down: %@", [currentJob objectForKey:@"downloadSpeed"]];
+    uploadSpeed.text = [NSString stringWithFormat:@"Up: %@", [currentJob objectForKey:@"uploadSpeed"]];
+
+    double completeValue = [[[[[TorrentDelegate sharedInstance] currentlySelectedClient] class] completeNumber] floatValue];
+    if (completeValue) // Nobody likes dividing by zero
+    {
+        [percentBar setHidden:NO];
+        [percentBar setProgress:([[currentJob objectForKey:@"progress"] floatValue] / completeValue)];
+    } else {
+        [percentBar setHidden:YES];
+    }
+
+    if ([[currentJob objectForKey:@"isPaused"] boolValue]) {
+        currentStatus.text = @"Paused";
+    } else if ([[currentJob objectForKey:@"progress"] isEqual:[[[[TorrentDelegate sharedInstance] currentlySelectedClient] class] completeNumber]]) {
+        currentStatus.text = @"Seeding";
+    } else {
+        currentStatus.text = @"Downloading";
+    }
+
+    currentStatus.textAlignment = NSTextAlignmentRight;
+
+    downloadSpeed.font = [UIFont fontWithName:@"Arial-BoldMT" size:10];
+    NSLog(@"%@", [UIFont fontNamesForFamilyName:@"Arial"]);
+
+    for (UILabel *label in @[ currentStatus, uploadSpeed ]) {
+        label.font = [UIFont fontWithName:@"Arial" size:10];
+    }
+
+    return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-  return [[[[[TorrentDelegate sharedInstance] currentlySelectedClient] getJobsDict] allKeys] count];
+    return [[[[[TorrentDelegate sharedInstance] currentlySelectedClient] getJobsDict] allKeys] count];
 }
 
 @end

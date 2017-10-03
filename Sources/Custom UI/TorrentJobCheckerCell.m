@@ -12,8 +12,8 @@
 @implementation TorrentJobCheckerCell
 
 - (void)setSwipeOffset:(CGFloat)newOffset {
-  [super setSwipeOffset:newOffset];
-  [self.table setShouldRefresh:newOffset == 0];
+    [super setSwipeOffset:newOffset];
+    [self.table setShouldRefresh:newOffset == 0];
 }
 
 @end

@@ -11,25 +11,25 @@
 @implementation NSArray (Functions)
 
 - (NSArray *)intersperse:(id)object {
-  if ([self count] > 1) {
-    NSMutableArray *retVal = [NSMutableArray arrayWithArray:self];
-    int iter = 0;
-    for (int i = 1; i < [self count]; i++) {
-      [retVal insertObject:object atIndex:i + iter];
-      ++iter;
+    if ([self count] > 1) {
+        NSMutableArray *retVal = [NSMutableArray arrayWithArray:self];
+        int iter = 0;
+        for (int i = 1; i < [self count]; i++) {
+            [retVal insertObject:object atIndex:i + iter];
+            ++iter;
+        }
+        return retVal;
     }
-    return retVal;
-  }
 
-  return self;
+    return self;
 }
 
 - (NSArray *)reverse {
-  NSMutableArray *retVal = [NSMutableArray new];
-  for (id obj in self) {
-    [retVal insertObject:obj atIndex:retVal.count];
-  }
-  return retVal;
+    NSMutableArray *retVal = [NSMutableArray new];
+    for (id obj in self) {
+        [retVal insertObject:obj atIndex:retVal.count];
+    }
+    return retVal;
 }
 
 @end

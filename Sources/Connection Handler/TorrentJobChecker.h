@@ -14,5 +14,6 @@
 - (void)jobCheckInvocation;
 - (void)updateTorrentClientWithJobsData;
 - (void)credentialsCheckInvocation;
+- (void)connectionCheckInvocation;
 
 @end

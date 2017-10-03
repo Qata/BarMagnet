@@ -10,6 +10,6 @@
 #import "TorrentClient.h"
 
 @interface Transmission : TorrentClient {
-  NSMutableURLRequest *storedRequest;
+    NSMutableURLRequest *storedRequest;
 }
 @end

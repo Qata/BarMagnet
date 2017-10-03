@@ -12,45 +12,45 @@
 @implementation SeedStuffSeedbox
 
 + (NSString *)name {
-  return @"SeedStuff Seedbox";
+    return @"SeedStuff Seedbox";
 }
 
 + (NSString *)defaultPort {
-  return @"443";
+    return @"443";
 }
 
 - (NSString *)getAppendedURL {
-  return [NSString stringWithFormat:@"%@/user/%@", self.getBaseURL, [[self getWebDataForKey:@"username"] orSome:@""]];
+    return [NSString stringWithFormat:@"%@/user/%@", self.getBaseURL, [[self getWebDataForKey:@"username"] orSome:@""]];
 }
 
 + (BOOL)supportsRelativePath {
-  return NO;
+    return NO;
 }
 
 - (NSString *)getBaseURL {
-  NSString *urlString = nil;
-  NSString *port = [self.class defaultPort];
-  NSString *username = [[[self getWebDataForKey:@"username"] orSome:@""] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-  NSString *password = [[[self getWebDataForKey:@"password"] orSome:@""] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-  NSString *url = [[self getWebDataForKey:@"url"] orSome:@"localhost"];
+    NSString *urlString = nil;
+    NSString *port = [self.class defaultPort];
+    NSString *username = [[[self getWebDataForKey:@"username"] orSome:@""] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
+    NSString *password = [[[self getWebDataForKey:@"password"] orSome:@""] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
+    NSString *url = [[self getWebDataForKey:@"url"] orSome:@"localhost"];
 
-  url = [url stringByReplacingOccurrencesOfString:@"http://" withString:@""];
-  url = [url stringByReplacingOccurrencesOfString:@"https://" withString:@""];
+    url = [url stringByReplacingOccurrencesOfString:@"http://" withString:@""];
+    url = [url stringByReplacingOccurrencesOfString:@"https://" withString:@""];
 
-  // Make sure both the username and the password are non-nil values, otherwise the ":" will prevent the URL from loading
-  if ([username length] && [password length]) {
-    urlString = [NSString stringWithFormat:@"https://%@:%@@%@:%@", username, password, url, port];
-  } else if ([username length] > 0) {
-    urlString = [NSString stringWithFormat:@"https://%@@%@:%@", username, url, port];
-  } else {
-    urlString = [NSString stringWithFormat:@"https://%@:%@", url, port];
-  }
+    // Make sure both the username and the password are non-nil values, otherwise the ":" will prevent the URL from loading
+    if ([username length] && [password length]) {
+        urlString = [NSString stringWithFormat:@"https://%@:%@@%@:%@", username, password, url, port];
+    } else if ([username length] > 0) {
+        urlString = [NSString stringWithFormat:@"https://%@@%@:%@", username, url, port];
+    } else {
+        urlString = [NSString stringWithFormat:@"https://%@:%@", url, port];
+    }
 
-  return urlString;
+    return urlString;
 }
 
 - (NSString *)getUserFriendlyAppendedURL {
-  return [self.getBaseURL stringByAppendingPathComponent:@"rutorrent"];
+    return [self.getBaseURL stringByAppendingPathComponent:@"rutorrent"];
 }
 
 @end

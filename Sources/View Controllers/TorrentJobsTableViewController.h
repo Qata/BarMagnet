@@ -11,7 +11,7 @@
 #import <UIKit/UIKit.h>
 
 @interface TorrentJobsTableViewController : UITableViewController <UIViewControllerPreviewingDelegate> {
-  BOOL cancelNextRefresh;
+    BOOL cancelNextRefresh;
 }
 
 - (IBAction)openUI:(id)sender;

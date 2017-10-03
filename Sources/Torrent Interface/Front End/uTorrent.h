@@ -10,9 +10,9 @@
 #import "TorrentClient.h"
 
 @interface uTorrent : TorrentClient {
-  NSString *storedURLString;
-  NSString *magnetString;
-  NSMutableURLRequest *storedRequest;
+    NSString *storedURLString;
+    NSString *magnetString;
+    NSMutableURLRequest *storedRequest;
 }
 
 @end
