@@ -1,6 +1,6 @@
 # BarMagnet
 
-BarMagnet is a simple torrent remote controller for iOS 5, 6 and 7.
+BarMagnet is a simple torrent remote controller for iOS 9 and above.
 
 **BarMagnet features:**
 
@@ -12,6 +12,8 @@ BarMagnet is a simple torrent remote controller for iOS 5, 6 and 7.
 ## Installation
 
 After downloading, cd to the root folder and run `git submodule update --init --recursive` to initialise all submodules used by this project and by the projects that this project uses (dizzying, isn't it?).
+
+You'll need a Mac running the latest Xcode to be able to build BarMagnet for your iOS device.
 
 ## Credits
 

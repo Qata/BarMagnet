@@ -19,7 +19,7 @@
 		23314152177FE95E0062B0FE /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 23314150177FE95E0062B0FE /* gear.png */; };
 		23314153177FE95E0062B0FE /* gear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23314151177FE95E0062B0FE /* gear@2x.png */; };
 		2346A5A418A8C2F0005EE9C0 /* AdBlocker.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2346A5A318A8C2F0005EE9C0 /* AdBlocker.plist */; };
-		2351200A1769C49000A3DE2C /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 235120071769C49000A3DE2C /* MainStoryboard_iPhone.storyboard */; };
+		2351200A1769C49000A3DE2C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 235120071769C49000A3DE2C /* Main.storyboard */; };
 		235527571871718300A9E6BC /* UIButtonBarPause.png in Resources */ = {isa = PBXBuildFile; fileRef = 235527531871718300A9E6BC /* UIButtonBarPause.png */; };
 		235527581871718300A9E6BC /* UIButtonBarPause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 235527541871718300A9E6BC /* UIButtonBarPause@2x.png */; };
 		235527591871718300A9E6BC /* UIButtonBarPlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 235527551871718300A9E6BC /* UIButtonBarPlay.png */; };
@@ -28,10 +28,6 @@
 		2355275E18722A8600A9E6BC /* info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2355275C18722A8600A9E6BC /* info@2x.png */; };
 		235527641872568D00A9E6BC /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 235527631872568D00A9E6BC /* AboutViewController.m */; };
 		235527661872723700A9E6BC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 235527651872723700A9E6BC /* Images.xcassets */; };
-		23552768187285B200A9E6BC /* TSMessagesDefaultDesign.json in Resources */ = {isa = PBXBuildFile; fileRef = 23552767187285B200A9E6BC /* TSMessagesDefaultDesign.json */; };
-		2355276B187285BE00A9E6BC /* TSBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2355276A187285BE00A9E6BC /* TSBlurView.m */; };
-		2355276E1872864F00A9E6BC /* HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2355276D1872864F00A9E6BC /* HexColor.m */; };
-		235527701872901700A9E6BC /* TSMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2355276F1872901700A9E6BC /* TSMessage.m */; };
 		2363424218C485A700F66225 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2363424118C485A700F66225 /* LICENSE.txt */; };
 		2374DD9E1796F23100F613EB /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2374DD9D1796F23100F613EB /* MessageUI.framework */; };
 		237570B11877B742008217BF /* UIButtonBarStop.png in Resources */ = {isa = PBXBuildFile; fileRef = 237570AF1877B742008217BF /* UIButtonBarStop.png */; };
@@ -39,23 +35,6 @@
 		237570B51877B874008217BF /* Gripper.png in Resources */ = {isa = PBXBuildFile; fileRef = 237570B31877B874008217BF /* Gripper.png */; };
 		237570B61877B874008217BF /* Gripper@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 237570B41877B874008217BF /* Gripper@2x.png */; };
 		2379763F19654AF500279520 /* ruTorrentHTTPRPC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2379763E19654AF500279520 /* ruTorrentHTTPRPC.m */; };
-		238A94C117A121630081EF6D /* NotificationBackgroundError.png in Resources */ = {isa = PBXBuildFile; fileRef = 238A94A417A121630081EF6D /* NotificationBackgroundError.png */; };
-		238A94C217A121630081EF6D /* NotificationBackgroundError@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 238A94A517A121630081EF6D /* NotificationBackgroundError@2x.png */; };
-		238A94C317A121630081EF6D /* NotificationBackgroundErrorIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 238A94A617A121630081EF6D /* NotificationBackgroundErrorIcon.png */; };
-		238A94C417A121630081EF6D /* NotificationBackgroundErrorIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 238A94A717A121630081EF6D /* NotificationBackgroundErrorIcon@2x.png */; };
-		238A94C517A121630081EF6D /* NotificationBackgroundMessage.png in Resources */ = {isa = PBXBuildFile; fileRef = 238A94A817A121630081EF6D /* NotificationBackgroundMessage.png */; };
-		238A94C617A121630081EF6D /* NotificationBackgroundMessage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 238A94A917A121630081EF6D /* NotificationBackgroundMessage@2x.png */; };
-		238A94C717A121630081EF6D /* NotificationBackgroundSuccess.png in Resources */ = {isa = PBXBuildFile; fileRef = 238A94AA17A121630081EF6D /* NotificationBackgroundSuccess.png */; };
-		238A94C817A121630081EF6D /* NotificationBackgroundSuccess@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 238A94AB17A121630081EF6D /* NotificationBackgroundSuccess@2x.png */; };
-		238A94C917A121630081EF6D /* NotificationBackgroundSuccessIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 238A94AC17A121630081EF6D /* NotificationBackgroundSuccessIcon.png */; };
-		238A94CA17A121630081EF6D /* NotificationBackgroundSuccessIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 238A94AD17A121630081EF6D /* NotificationBackgroundSuccessIcon@2x.png */; };
-		238A94CB17A121630081EF6D /* NotificationBackgroundWarning.png in Resources */ = {isa = PBXBuildFile; fileRef = 238A94AE17A121630081EF6D /* NotificationBackgroundWarning.png */; };
-		238A94CC17A121630081EF6D /* NotificationBackgroundWarning@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 238A94AF17A121630081EF6D /* NotificationBackgroundWarning@2x.png */; };
-		238A94CD17A121630081EF6D /* NotificationBackgroundWarningIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 238A94B017A121630081EF6D /* NotificationBackgroundWarningIcon.png */; };
-		238A94CE17A121630081EF6D /* NotificationBackgroundWarningIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 238A94B117A121630081EF6D /* NotificationBackgroundWarningIcon@2x.png */; };
-		238A94CF17A121630081EF6D /* NotificationButtonBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 238A94B217A121630081EF6D /* NotificationButtonBackground.png */; };
-		238A94D017A121630081EF6D /* NotificationButtonBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 238A94B317A121630081EF6D /* NotificationButtonBackground@2x.png */; };
-		238A94D217A121630081EF6D /* TSMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 238A94B717A121630081EF6D /* TSMessageView.m */; };
 		2396C92B1895EA88009BC6D3 /* UIFastProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2396C92A1895EA88009BC6D3 /* UIFastProgressBar.m */; };
 		23A868F218BF36F70066E383 /* libNSBencodeSerialization.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A868EF18BF36DB0066E383 /* libNSBencodeSerialization.a */; };
 		23A868F718BF383E0066E383 /* NSNumber+TransferRateFormatting.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A868F418BF383E0066E383 /* NSNumber+TransferRateFormatting.m */; };
@@ -66,7 +45,6 @@
 		23A8690418BF388D0066E383 /* TorrentJobChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A8690218BF388D0066E383 /* TorrentJobChecker.m */; };
 		23A8690718BF389D0066E383 /* TorrentDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A8690618BF389D0066E383 /* TorrentDelegate.m */; };
 		23A8690A18BF38A90066E383 /* NSData+BEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A8690918BF38A90066E383 /* NSData+BEncode.m */; };
-		23A8690D18BF38B20066E383 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A8690C18BF38B20066E383 /* NSData+Base64.m */; };
 		23A8691018BF38BA0066E383 /* StringHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A8690F18BF38BA0066E383 /* StringHandler.m */; };
 		23A8691318BF38C10066E383 /* TorrentClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A8691218BF38C10066E383 /* TorrentClient.m */; };
 		23A8691618BF38CC0066E383 /* Deluge.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A8691518BF38CC0066E383 /* Deluge.m */; };
@@ -88,13 +66,10 @@
 		23AC2B41175D835600FCFA71 /* TorrentJobsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AC2B40175D835600FCFA71 /* TorrentJobsTableViewController.m */; };
 		23AF74E01796D5F700AC4ED5 /* StaticDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AF74DF1796D5F700AC4ED5 /* StaticDataTableViewController.m */; };
 		23B35F861894A115002F6E37 /* ScanQRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B35F851894A115002F6E37 /* ScanQRCodeViewController.m */; };
-		23B84F0F17B60F4F008C9D17 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23B84F0D17B60F4F008C9D17 /* MainStoryboard_iPad.storyboard */; };
 		23DF81CC18C1F4FA005BAB1C /* rTorrentXMLRPC.m in Sources */ = {isa = PBXBuildFile; fileRef = 23DF81CB18C1F4FA005BAB1C /* rTorrentXMLRPC.m */; };
 		23DF81CF18C2C71D005BAB1C /* SeedStuffSeedbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 23DF81CE18C2C71D005BAB1C /* SeedStuffSeedbox.m */; };
 		23E60FB71876D20400D2068B /* PlayPause.png in Resources */ = {isa = PBXBuildFile; fileRef = 23E60FB51876D20400D2068B /* PlayPause.png */; };
 		23E60FB81876D20400D2068B /* PlayPause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23E60FB61876D20400D2068B /* PlayPause@2x.png */; };
-		23EBC8F518851BE800B0A281 /* donate.png in Resources */ = {isa = PBXBuildFile; fileRef = 23EBC8F418851BE800B0A281 /* donate.png */; };
-		23F0375918C14F9A00B4D289 /* TorrentDownloaderWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F0375818C14F9A00B4D289 /* TorrentDownloaderWebViewController.m */; };
 		23F0377918C153BD00B4D289 /* SVWebViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 23F0375C18C153BD00B4D289 /* SVWebViewController.strings */; };
 		23F0377A18C153BD00B4D289 /* SVModalWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F0376418C153BD00B4D289 /* SVModalWebViewController.m */; };
 		23F0377B18C153BD00B4D289 /* SVWebViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 23F0376518C153BD00B4D289 /* SVWebViewController.bundle */; };
@@ -108,13 +83,23 @@
 		23F0378318C153BD00B4D289 /* SVWebViewControllerActivitySafari.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F0377318C153BD00B4D289 /* SVWebViewControllerActivitySafari.m */; };
 		23F0378418C153BD00B4D289 /* SVWebViewControllerActivitySafari@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23F0377418C153BD00B4D289 /* SVWebViewControllerActivitySafari@2x.png */; };
 		23F0378518C153BD00B4D289 /* SVWebViewControllerActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F0377618C153BD00B4D289 /* SVWebViewControllerActivity.m */; };
-		23F0378B18C157E500B4D289 /* TorrentDownloaderModalWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F0378A18C157E500B4D289 /* TorrentDownloaderModalWebViewController.m */; };
 		23F0379518C163A400B4D289 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 23F0379418C163A400B4D289 /* README.md */; };
 		23F3E09B189F236300A8105A /* TorrentClientTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F3E09A189F236300A8105A /* TorrentClientTableViewController.m */; };
 		23F3E09E189F30EF00A8105A /* AddTorrentClientTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F3E09D189F30EF00A8105A /* AddTorrentClientTableViewController.m */; };
 		23F3E0A1189F59C700A8105A /* FileHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F3E0A0189F59C700A8105A /* FileHandler.m */; };
 		23FC25D81788F1D500CCE434 /* TorrentJobCheckerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FC25D71788F1D500CCE434 /* TorrentJobCheckerCell.m */; };
+		9E4357E71F75BA2D00D05DF0 /* TSMessagesDefaultDesign.json in Resources */ = {isa = PBXBuildFile; fileRef = 9E7231531F73441400023517 /* TSMessagesDefaultDesign.json */; };
+		9E46C83A1F68C9B600EA2DED /* TorrentDownloaderModalWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E46C8351F68C8CB00EA2DED /* TorrentDownloaderModalWebViewController.m */; };
+		9E46C83B1F68C9BE00EA2DED /* TorrentDownloaderWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E46C8341F68C8CB00EA2DED /* TorrentDownloaderWebViewController.m */; };
+		9E7231C61F73449300023517 /* HexColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E72317D1F73441400023517 /* HexColors.m */; };
+		9E7231C71F73449B00023517 /* TSBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7231571F73441400023517 /* TSBlurView.m */; };
+		9E7231C81F73449B00023517 /* TSMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7231591F73441400023517 /* TSMessage.m */; };
+		9E7231C91F73449B00023517 /* TSMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E72315B1F73441400023517 /* TSMessageView.m */; };
+		9EA17DB61F836A550032B9EA /* TransferTotal.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EA17DB51F836A550032B9EA /* TransferTotal.xib */; };
 		9EA311881BB6515400A91454 /* XirvikSeedbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EA311871BB6515400A91454 /* XirvikSeedbox.m */; };
+		9EC8645A1F83589A00E87E7E /* Safari@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EC864581F83589900E87E7E /* Safari@2x.png */; };
+		9EC8645B1F83589A00E87E7E /* Safari.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EC864591F83589A00E87E7E /* Safari.png */; };
+		9EEBC0D61F8374C400881126 /* TransferTotal.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EEBC0D51F8374C400881126 /* TransferTotal.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -170,9 +155,7 @@
 		232B0FA4178C356700A7B3DC /* TorrentDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TorrentDetailViewController.m; sourceTree = "<group>"; };
 		23314150177FE95E0062B0FE /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
 		23314151177FE95E0062B0FE /* gear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gear@2x.png"; sourceTree = "<group>"; };
-		233C9F9517B9E2E500405CA7 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		2346A5A318A8C2F0005EE9C0 /* AdBlocker.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AdBlocker.plist; sourceTree = "<group>"; };
-		235120081769C49000A3DE2C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = BarMagnet/en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		235527531871718300A9E6BC /* UIButtonBarPause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIButtonBarPause.png; sourceTree = "<group>"; };
 		235527541871718300A9E6BC /* UIButtonBarPause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIButtonBarPause@2x.png"; sourceTree = "<group>"; };
 		235527551871718300A9E6BC /* UIButtonBarPlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIButtonBarPlay.png; sourceTree = "<group>"; };
@@ -182,12 +165,6 @@
 		235527621872568D00A9E6BC /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		235527631872568D00A9E6BC /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		235527651872723700A9E6BC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		23552767187285B200A9E6BC /* TSMessagesDefaultDesign.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TSMessagesDefaultDesign.json; sourceTree = "<group>"; };
-		23552769187285BE00A9E6BC /* TSBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSBlurView.h; sourceTree = "<group>"; };
-		2355276A187285BE00A9E6BC /* TSBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSBlurView.m; sourceTree = "<group>"; };
-		2355276C1872864F00A9E6BC /* HexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HexColor.h; sourceTree = "<group>"; };
-		2355276D1872864F00A9E6BC /* HexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HexColor.m; sourceTree = "<group>"; };
-		2355276F1872901700A9E6BC /* TSMessage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSMessage.m; sourceTree = "<group>"; };
 		2363424118C485A700F66225 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		23704DF01880C6380029AB17 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2374DD9D1796F23100F613EB /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -197,30 +174,10 @@
 		237570B41877B874008217BF /* Gripper@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Gripper@2x.png"; sourceTree = "<group>"; };
 		2379763E19654AF500279520 /* ruTorrentHTTPRPC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ruTorrentHTTPRPC.m; sourceTree = "<group>"; };
 		2379764019654B0400279520 /* ruTorrentHTTPRPC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ruTorrentHTTPRPC.h; sourceTree = "<group>"; };
-		238A949817A121630081EF6D /* TSMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSMessage.h; sourceTree = "<group>"; };
-		238A94A417A121630081EF6D /* NotificationBackgroundError.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundError.png; sourceTree = "<group>"; };
-		238A94A517A121630081EF6D /* NotificationBackgroundError@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundError@2x.png"; sourceTree = "<group>"; };
-		238A94A617A121630081EF6D /* NotificationBackgroundErrorIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundErrorIcon.png; sourceTree = "<group>"; };
-		238A94A717A121630081EF6D /* NotificationBackgroundErrorIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundErrorIcon@2x.png"; sourceTree = "<group>"; };
-		238A94A817A121630081EF6D /* NotificationBackgroundMessage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundMessage.png; sourceTree = "<group>"; };
-		238A94A917A121630081EF6D /* NotificationBackgroundMessage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundMessage@2x.png"; sourceTree = "<group>"; };
-		238A94AA17A121630081EF6D /* NotificationBackgroundSuccess.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundSuccess.png; sourceTree = "<group>"; };
-		238A94AB17A121630081EF6D /* NotificationBackgroundSuccess@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundSuccess@2x.png"; sourceTree = "<group>"; };
-		238A94AC17A121630081EF6D /* NotificationBackgroundSuccessIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundSuccessIcon.png; sourceTree = "<group>"; };
-		238A94AD17A121630081EF6D /* NotificationBackgroundSuccessIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundSuccessIcon@2x.png"; sourceTree = "<group>"; };
-		238A94AE17A121630081EF6D /* NotificationBackgroundWarning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundWarning.png; sourceTree = "<group>"; };
-		238A94AF17A121630081EF6D /* NotificationBackgroundWarning@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundWarning@2x.png"; sourceTree = "<group>"; };
-		238A94B017A121630081EF6D /* NotificationBackgroundWarningIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundWarningIcon.png; sourceTree = "<group>"; };
-		238A94B117A121630081EF6D /* NotificationBackgroundWarningIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundWarningIcon@2x.png"; sourceTree = "<group>"; };
-		238A94B217A121630081EF6D /* NotificationButtonBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationButtonBackground.png; sourceTree = "<group>"; };
-		238A94B317A121630081EF6D /* NotificationButtonBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationButtonBackground@2x.png"; sourceTree = "<group>"; };
-		238A94B617A121630081EF6D /* TSMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSMessageView.h; sourceTree = "<group>"; };
-		238A94B717A121630081EF6D /* TSMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSMessageView.m; sourceTree = "<group>"; };
 		238A94D317A121B70081EF6D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		238A94D517A121C30081EF6D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		2396C9291895EA88009BC6D3 /* UIFastProgressBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFastProgressBar.h; sourceTree = "<group>"; };
 		2396C92A1895EA88009BC6D3 /* UIFastProgressBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFastProgressBar.m; sourceTree = "<group>"; };
-		23A868B218BF31E30066E383 /* libNSBencodeSerialization.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libNSBencodeSerialization.a; path = "../../Library/Developer/Xcode/DerivedData/NSBencodeSerialization-ezakathubkhhsxayghzwbjqodwih/Build/Products/Debug-iphoneos/libNSBencodeSerialization.a"; sourceTree = "<group>"; };
 		23A868EA18BF36DB0066E383 /* NSBencodeSerialization.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NSBencodeSerialization.xcodeproj; path = NSBencodeSerialization/NSBencodeSerialization.xcodeproj; sourceTree = "<group>"; };
 		23A868F318BF383E0066E383 /* NSNumber+TransferRateFormatting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+TransferRateFormatting.h"; sourceTree = "<group>"; };
 		23A868F418BF383E0066E383 /* NSNumber+TransferRateFormatting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+TransferRateFormatting.m"; sourceTree = "<group>"; };
@@ -238,8 +195,6 @@
 		23A8690618BF389D0066E383 /* TorrentDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TorrentDelegate.m; sourceTree = "<group>"; };
 		23A8690818BF38A90066E383 /* NSData+BEncode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+BEncode.h"; sourceTree = "<group>"; };
 		23A8690918BF38A90066E383 /* NSData+BEncode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+BEncode.m"; sourceTree = "<group>"; };
-		23A8690B18BF38B20066E383 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
-		23A8690C18BF38B20066E383 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
 		23A8690E18BF38BA0066E383 /* StringHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringHandler.h; sourceTree = "<group>"; };
 		23A8690F18BF38BA0066E383 /* StringHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringHandler.m; sourceTree = "<group>"; };
 		23A8691118BF38C10066E383 /* TorrentClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TorrentClient.h; sourceTree = "<group>"; };
@@ -278,23 +233,17 @@
 		23AC2B31175D835600FCFA71 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		23AC2B3F175D835600FCFA71 /* TorrentJobsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TorrentJobsTableViewController.h; sourceTree = "<group>"; };
 		23AC2B40175D835600FCFA71 /* TorrentJobsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TorrentJobsTableViewController.m; sourceTree = "<group>"; };
-		23AC2B53175D835600FCFA71 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		23AF74DE1796D5F700AC4ED5 /* StaticDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaticDataTableViewController.h; sourceTree = "<group>"; };
 		23AF74DF1796D5F700AC4ED5 /* StaticDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaticDataTableViewController.m; sourceTree = "<group>"; };
-		23B35F5F1894941A002F6E37 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 		23B35F841894A115002F6E37 /* ScanQRCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanQRCodeViewController.h; sourceTree = "<group>"; };
 		23B35F851894A115002F6E37 /* ScanQRCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanQRCodeViewController.m; sourceTree = "<group>"; };
 		23B6E23117A337C9003D3B7C /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
-		23B84F0E17B60F4F008C9D17 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		23DF81CA18C1F4FA005BAB1C /* rTorrentXMLRPC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rTorrentXMLRPC.h; sourceTree = "<group>"; };
 		23DF81CB18C1F4FA005BAB1C /* rTorrentXMLRPC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rTorrentXMLRPC.m; sourceTree = "<group>"; };
 		23DF81CD18C2C71D005BAB1C /* SeedStuffSeedbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeedStuffSeedbox.h; sourceTree = "<group>"; };
 		23DF81CE18C2C71D005BAB1C /* SeedStuffSeedbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeedStuffSeedbox.m; sourceTree = "<group>"; };
 		23E60FB51876D20400D2068B /* PlayPause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayPause.png; sourceTree = "<group>"; };
 		23E60FB61876D20400D2068B /* PlayPause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PlayPause@2x.png"; sourceTree = "<group>"; };
-		23EBC8F418851BE800B0A281 /* donate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = donate.png; sourceTree = "<group>"; };
-		23F0375718C14F9A00B4D289 /* TorrentDownloaderWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TorrentDownloaderWebViewController.h; path = BarMagnet/TorrentDownloaderWebViewController.h; sourceTree = SOURCE_ROOT; };
-		23F0375818C14F9A00B4D289 /* TorrentDownloaderWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TorrentDownloaderWebViewController.m; path = BarMagnet/TorrentDownloaderWebViewController.m; sourceTree = SOURCE_ROOT; };
 		23F0375D18C153BD00B4D289 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/SVWebViewController.strings; sourceTree = "<group>"; };
 		23F0375E18C153BD00B4D289 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SVWebViewController.strings; sourceTree = "<group>"; };
 		23F0375F18C153BD00B4D289 /* es-ES */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-ES"; path = "es-ES.lproj/SVWebViewController.strings"; sourceTree = "<group>"; };
@@ -320,8 +269,6 @@
 		23F0377618C153BD00B4D289 /* SVWebViewControllerActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVWebViewControllerActivity.m; sourceTree = "<group>"; };
 		23F0377718C153BD00B4D289 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SVWebViewController.strings"; sourceTree = "<group>"; };
 		23F0377818C153BD00B4D289 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/SVWebViewController.strings"; sourceTree = "<group>"; };
-		23F0378918C157E500B4D289 /* TorrentDownloaderModalWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TorrentDownloaderModalWebViewController.h; path = BarMagnet/TorrentDownloaderModalWebViewController.h; sourceTree = SOURCE_ROOT; };
-		23F0378A18C157E500B4D289 /* TorrentDownloaderModalWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TorrentDownloaderModalWebViewController.m; path = BarMagnet/TorrentDownloaderModalWebViewController.m; sourceTree = SOURCE_ROOT; };
 		23F0379418C163A400B4D289 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		23F3E099189F236300A8105A /* TorrentClientTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TorrentClientTableViewController.h; sourceTree = "<group>"; };
 		23F3E09A189F236300A8105A /* TorrentClientTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TorrentClientTableViewController.m; sourceTree = "<group>"; };
@@ -331,8 +278,44 @@
 		23F3E0A0189F59C700A8105A /* FileHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileHandler.m; sourceTree = "<group>"; };
 		23FC25D61788F1D500CCE434 /* TorrentJobCheckerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TorrentJobCheckerCell.h; sourceTree = "<group>"; };
 		23FC25D71788F1D500CCE434 /* TorrentJobCheckerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TorrentJobCheckerCell.m; sourceTree = "<group>"; };
+		9E46C8331F68C8CB00EA2DED /* TorrentDownloaderModalWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TorrentDownloaderModalWebViewController.h; sourceTree = "<group>"; };
+		9E46C8341F68C8CB00EA2DED /* TorrentDownloaderWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TorrentDownloaderWebViewController.m; sourceTree = "<group>"; };
+		9E46C8351F68C8CB00EA2DED /* TorrentDownloaderModalWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TorrentDownloaderModalWebViewController.m; sourceTree = "<group>"; };
+		9E46C8361F68C8CB00EA2DED /* TorrentDownloaderWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TorrentDownloaderWebViewController.h; sourceTree = "<group>"; };
+		9E7231421F73441400023517 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		9E7231431F73441400023517 /* NotificationBackgroundError.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundError.png; sourceTree = "<group>"; };
+		9E7231441F73441400023517 /* NotificationBackgroundError@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundError@2x.png"; sourceTree = "<group>"; };
+		9E7231451F73441400023517 /* NotificationBackgroundErrorIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundErrorIcon.png; sourceTree = "<group>"; };
+		9E7231461F73441400023517 /* NotificationBackgroundErrorIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundErrorIcon@2x.png"; sourceTree = "<group>"; };
+		9E7231471F73441400023517 /* NotificationBackgroundMessage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundMessage.png; sourceTree = "<group>"; };
+		9E7231481F73441400023517 /* NotificationBackgroundMessage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundMessage@2x.png"; sourceTree = "<group>"; };
+		9E7231491F73441400023517 /* NotificationBackgroundSuccess.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundSuccess.png; sourceTree = "<group>"; };
+		9E72314A1F73441400023517 /* NotificationBackgroundSuccess@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundSuccess@2x.png"; sourceTree = "<group>"; };
+		9E72314B1F73441400023517 /* NotificationBackgroundSuccessIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundSuccessIcon.png; sourceTree = "<group>"; };
+		9E72314C1F73441400023517 /* NotificationBackgroundSuccessIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundSuccessIcon@2x.png"; sourceTree = "<group>"; };
+		9E72314D1F73441400023517 /* NotificationBackgroundWarning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundWarning.png; sourceTree = "<group>"; };
+		9E72314E1F73441400023517 /* NotificationBackgroundWarning@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundWarning@2x.png"; sourceTree = "<group>"; };
+		9E72314F1F73441400023517 /* NotificationBackgroundWarningIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundWarningIcon.png; sourceTree = "<group>"; };
+		9E7231501F73441400023517 /* NotificationBackgroundWarningIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundWarningIcon@2x.png"; sourceTree = "<group>"; };
+		9E7231511F73441400023517 /* NotificationButtonBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationButtonBackground.png; sourceTree = "<group>"; };
+		9E7231521F73441400023517 /* NotificationButtonBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationButtonBackground@2x.png"; sourceTree = "<group>"; };
+		9E7231531F73441400023517 /* TSMessagesDefaultDesign.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TSMessagesDefaultDesign.json; sourceTree = "<group>"; };
+		9E7231561F73441400023517 /* TSBlurView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSBlurView.h; sourceTree = "<group>"; };
+		9E7231571F73441400023517 /* TSBlurView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSBlurView.m; sourceTree = "<group>"; };
+		9E7231581F73441400023517 /* TSMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSMessage.h; sourceTree = "<group>"; };
+		9E7231591F73441400023517 /* TSMessage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSMessage.m; sourceTree = "<group>"; };
+		9E72315A1F73441400023517 /* TSMessageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSMessageView.h; sourceTree = "<group>"; };
+		9E72315B1F73441400023517 /* TSMessageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSMessageView.m; sourceTree = "<group>"; };
+		9E72317C1F73441400023517 /* HexColors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HexColors.h; sourceTree = "<group>"; };
+		9E72317D1F73441400023517 /* HexColors.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HexColors.m; sourceTree = "<group>"; };
+		9EA17DB41F8361410032B9EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Sources/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9EA17DB51F836A550032B9EA /* TransferTotal.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransferTotal.xib; sourceTree = "<group>"; };
 		9EA311861BB6515400A91454 /* XirvikSeedbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XirvikSeedbox.h; sourceTree = "<group>"; };
 		9EA311871BB6515400A91454 /* XirvikSeedbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XirvikSeedbox.m; sourceTree = "<group>"; };
+		9EC864581F83589900E87E7E /* Safari@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Safari@2x.png"; sourceTree = "<group>"; };
+		9EC864591F83589A00E87E7E /* Safari.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Safari.png; sourceTree = "<group>"; };
+		9EEBC0D41F8374C400881126 /* TransferTotal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransferTotal.h; sourceTree = "<group>"; };
+		9EEBC0D51F8374C400881126 /* TransferTotal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TransferTotal.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -355,113 +338,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2324910A178E491500D5454E /* View Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				23AC2B3F175D835600FCFA71 /* TorrentJobsTableViewController.h */,
-				23AC2B40175D835600FCFA71 /* TorrentJobsTableViewController.m */,
-				232B0FA3178C356700A7B3DC /* TorrentDetailViewController.h */,
-				232B0FA4178C356700A7B3DC /* TorrentDetailViewController.m */,
-				23F3E099189F236300A8105A /* TorrentClientTableViewController.h */,
-				23F3E09A189F236300A8105A /* TorrentClientTableViewController.m */,
-				23F3E09C189F30EF00A8105A /* AddTorrentClientTableViewController.h */,
-				23F3E09D189F30EF00A8105A /* AddTorrentClientTableViewController.m */,
-				23B35F841894A115002F6E37 /* ScanQRCodeViewController.h */,
-				23B35F851894A115002F6E37 /* ScanQRCodeViewController.m */,
-				232AE18C1891E40100D3F018 /* QueryTableViewController.h */,
-				232AE18D1891E40100D3F018 /* QueryTableViewController.m */,
-				232AE18F1891EE7400D3F018 /* AddQueryTableViewController.h */,
-				232AE1901891EE7400D3F018 /* AddQueryTableViewController.m */,
-				23A94F20183CD6B7004A3924 /* UINavigationControllerNoAutoRotation.h */,
-				23A94F21183CD6B7004A3924 /* UINavigationControllerNoAutoRotation.m */,
-				235527621872568D00A9E6BC /* AboutViewController.h */,
-				235527631872568D00A9E6BC /* AboutViewController.m */,
-				23AF74DE1796D5F700AC4ED5 /* StaticDataTableViewController.h */,
-				23AF74DF1796D5F700AC4ED5 /* StaticDataTableViewController.m */,
-			);
-			name = "View Controllers";
-			sourceTree = "<group>";
-		};
-		2324910B178E492400D5454E /* Custom UI */ = {
-			isa = PBXGroup;
-			children = (
-				23FC25D61788F1D500CCE434 /* TorrentJobCheckerCell.h */,
-				23FC25D71788F1D500CCE434 /* TorrentJobCheckerCell.m */,
-				232AE192189206C000D3F018 /* UITextField+UniqueString.h */,
-				232AE193189206C000D3F018 /* UITextField+UniqueString.m */,
-				2396C9291895EA88009BC6D3 /* UIFastProgressBar.h */,
-				2396C92A1895EA88009BC6D3 /* UIFastProgressBar.m */,
-				23A8692A18BF39BD0066E383 /* QueryCell.h */,
-				23A8692B18BF39BD0066E383 /* QueryCell.m */,
-			);
-			name = "Custom UI";
-			sourceTree = "<group>";
-		};
-		238A949417A121630081EF6D /* TSMessages */ = {
-			isa = PBXGroup;
-			children = (
-				238A949717A121630081EF6D /* Classes */,
-				238A94A117A121630081EF6D /* Resources */,
-				238A94B517A121630081EF6D /* Views */,
-			);
-			name = TSMessages;
-			path = BarMagnet/TSMessages;
-			sourceTree = "<group>";
-		};
-		238A949717A121630081EF6D /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				2355276C1872864F00A9E6BC /* HexColor.h */,
-				2355276D1872864F00A9E6BC /* HexColor.m */,
-				238A949817A121630081EF6D /* TSMessage.h */,
-				2355276F1872901700A9E6BC /* TSMessage.m */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		238A94A117A121630081EF6D /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				23552767187285B200A9E6BC /* TSMessagesDefaultDesign.json */,
-				238A94A317A121630081EF6D /* Images */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		238A94A317A121630081EF6D /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				238A94A417A121630081EF6D /* NotificationBackgroundError.png */,
-				238A94A517A121630081EF6D /* NotificationBackgroundError@2x.png */,
-				238A94A617A121630081EF6D /* NotificationBackgroundErrorIcon.png */,
-				238A94A717A121630081EF6D /* NotificationBackgroundErrorIcon@2x.png */,
-				238A94A817A121630081EF6D /* NotificationBackgroundMessage.png */,
-				238A94A917A121630081EF6D /* NotificationBackgroundMessage@2x.png */,
-				238A94AA17A121630081EF6D /* NotificationBackgroundSuccess.png */,
-				238A94AB17A121630081EF6D /* NotificationBackgroundSuccess@2x.png */,
-				238A94AC17A121630081EF6D /* NotificationBackgroundSuccessIcon.png */,
-				238A94AD17A121630081EF6D /* NotificationBackgroundSuccessIcon@2x.png */,
-				238A94AE17A121630081EF6D /* NotificationBackgroundWarning.png */,
-				238A94AF17A121630081EF6D /* NotificationBackgroundWarning@2x.png */,
-				238A94B017A121630081EF6D /* NotificationBackgroundWarningIcon.png */,
-				238A94B117A121630081EF6D /* NotificationBackgroundWarningIcon@2x.png */,
-				238A94B217A121630081EF6D /* NotificationButtonBackground.png */,
-				238A94B317A121630081EF6D /* NotificationButtonBackground@2x.png */,
-			);
-			path = Images;
-			sourceTree = "<group>";
-		};
-		238A94B517A121630081EF6D /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				238A94B617A121630081EF6D /* TSMessageView.h */,
-				238A94B717A121630081EF6D /* TSMessageView.m */,
-				23552769187285BE00A9E6BC /* TSBlurView.h */,
-				2355276A187285BE00A9E6BC /* TSBlurView.m */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		23A868EB18BF36DB0066E383 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -489,9 +365,9 @@
 				2363424118C485A700F66225 /* LICENSE.txt */,
 				23A868EA18BF36DB0066E383 /* NSBencodeSerialization.xcodeproj */,
 				23F0375B18C153BD00B4D289 /* SVWebViewController */,
+				9E722FCD1F73441300023517 /* TSMessages */,
 				23A94D0F1A6CF11C00A255B7 /* MGSwipeTableCell */,
-				238A949417A121630081EF6D /* TSMessages */,
-				23AC2B27175D835600FCFA71 /* BarMagnet */,
+				23AC2B27175D835600FCFA71 /* Sources */,
 				23AC2B20175D835600FCFA71 /* Frameworks */,
 				23AC2B1F175D835600FCFA71 /* Products */,
 			);
@@ -508,187 +384,37 @@
 		23AC2B20175D835600FCFA71 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				23A868B218BF31E30066E383 /* libNSBencodeSerialization.a */,
-				23B35F5F1894941A002F6E37 /* libiconv.dylib */,
 				230C478318948FD7007D56FC /* AVFoundation.framework */,
 				230C478018948FC6007D56FC /* CoreMedia.framework */,
 				230C477E18948FBD007D56FC /* CoreVideo.framework */,
-				233C9F9517B9E2E500405CA7 /* libz.dylib */,
 				23B6E23117A337C9003D3B7C /* Accelerate.framework */,
 				238A94D517A121C30081EF6D /* OpenGLES.framework */,
 				238A94D317A121B70081EF6D /* QuartzCore.framework */,
 				2374DD9D1796F23100F613EB /* MessageUI.framework */,
 				23AC2B25175D835600FCFA71 /* CoreGraphics.framework */,
 				23AC2B23175D835600FCFA71 /* Foundation.framework */,
-				23AC2B53175D835600FCFA71 /* SenTestingKit.framework */,
 				23AC2B21175D835600FCFA71 /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		23AC2B27175D835600FCFA71 /* BarMagnet */ = {
+		23AC2B27175D835600FCFA71 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				23AC2B30175D835600FCFA71 /* AppDelegate.h */,
 				23AC2B31175D835600FCFA71 /* AppDelegate.m */,
-				23F0375A18C150DA00B4D289 /* Web Controller */,
-				23B1C026177C4ECE000A0B07 /* Functions */,
-				23B1C025177C4EC6000A0B07 /* ConnectionHandler */,
-				23B1C024177C4EA3000A0B07 /* TorrentDelegate */,
-				23B1C023177C4E8F000A0B07 /* Bencode */,
-				23B1C022177C4E86000A0B07 /* Base64 */,
-				23B1C021177C4E7C000A0B07 /* StringHandler */,
-				23AC2B82175D8A2700FCFA71 /* Torrent Interface Super */,
-				2324910A178E491500D5454E /* View Controllers */,
-				2324910B178E492400D5454E /* Custom UI */,
-				235120071769C49000A3DE2C /* MainStoryboard_iPhone.storyboard */,
-				23B84F0D17B60F4F008C9D17 /* MainStoryboard_iPad.storyboard */,
+				9E46C8321F68C8A600EA2DED /* Web Controller */,
+				9E46C8381F68C8E700EA2DED /* Functions */,
+				9E46C8391F68C90900EA2DED /* Connection Handler */,
+				9E46C8401F68CC0400EA2DED /* Bencode */,
+				9E46C83E1F68CAB800EA2DED /* Torrent Interface */,
+				9E46C83C1F68CA6500EA2DED /* View Controllers */,
+				9E46C83D1F68CA8700EA2DED /* Custom UI */,
+				235120071769C49000A3DE2C /* Main.storyboard */,
 				235527651872723700A9E6BC /* Images.xcassets */,
-				23AC2B28175D835600FCFA71 /* Supporting Files */,
+				9E46C8431F68CD9200EA2DED /* Supporting Files */,
 			);
-			path = BarMagnet;
-			sourceTree = "<group>";
-		};
-		23AC2B28175D835600FCFA71 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				23AC2B29175D835600FCFA71 /* BarMagnet-Info.plist */,
-				2346A5A318A8C2F0005EE9C0 /* AdBlocker.plist */,
-				23AC2B2A175D835600FCFA71 /* InfoPlist.strings */,
-				23AC2B2D175D835600FCFA71 /* main.m */,
-				23AC2B2F175D835600FCFA71 /* BarMagnet-Prefix.pch */,
-				23EBC8F418851BE800B0A281 /* donate.png */,
-				23314150177FE95E0062B0FE /* gear.png */,
-				23314151177FE95E0062B0FE /* gear@2x.png */,
-				2355275B18722A8600A9E6BC /* info.png */,
-				2355275C18722A8600A9E6BC /* info@2x.png */,
-				235527531871718300A9E6BC /* UIButtonBarPause.png */,
-				235527541871718300A9E6BC /* UIButtonBarPause@2x.png */,
-				235527551871718300A9E6BC /* UIButtonBarPlay.png */,
-				235527561871718300A9E6BC /* UIButtonBarPlay@2x.png */,
-				237570AF1877B742008217BF /* UIButtonBarStop.png */,
-				237570B01877B742008217BF /* UIButtonBarStop@2x.png */,
-				23E60FB51876D20400D2068B /* PlayPause.png */,
-				23E60FB61876D20400D2068B /* PlayPause@2x.png */,
-				237570B31877B874008217BF /* Gripper.png */,
-				237570B41877B874008217BF /* Gripper@2x.png */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		23AC2B82175D8A2700FCFA71 /* Torrent Interface Super */ = {
-			isa = PBXGroup;
-			children = (
-				23A8691118BF38C10066E383 /* TorrentClient.h */,
-				23A8691218BF38C10066E383 /* TorrentClient.m */,
-				23AC2B83175D8A4200FCFA71 /* Torrent Front-Ends */,
-			);
-			name = "Torrent Interface Super";
-			sourceTree = "<group>";
-		};
-		23AC2B83175D8A4200FCFA71 /* Torrent Front-Ends */ = {
-			isa = PBXGroup;
-			children = (
-				23A8691418BF38CC0066E383 /* Deluge.h */,
-				23A8691518BF38CC0066E383 /* Deluge.m */,
-				23A8691718BF38D40066E383 /* qBittorrent.h */,
-				23A8691818BF38D40066E383 /* qBittorrent.m */,
-				23A8691A18BF38DF0066E383 /* ruTorrent.h */,
-				23A8691B18BF38DF0066E383 /* ruTorrent.m */,
-				2379764019654B0400279520 /* ruTorrentHTTPRPC.h */,
-				2379763E19654AF500279520 /* ruTorrentHTTPRPC.m */,
-				23DF81CA18C1F4FA005BAB1C /* rTorrentXMLRPC.h */,
-				23DF81CB18C1F4FA005BAB1C /* rTorrentXMLRPC.m */,
-				23DF81CD18C2C71D005BAB1C /* SeedStuffSeedbox.h */,
-				23DF81CE18C2C71D005BAB1C /* SeedStuffSeedbox.m */,
-				23A8691D18BF38E90066E383 /* Synology.h */,
-				23A8691E18BF38E90066E383 /* Synology.m */,
-				23A8692018BF38F30066E383 /* Transmission.h */,
-				23A8692118BF38F30066E383 /* Transmission.m */,
-				23A8692318BF38FD0066E383 /* uTorrent.h */,
-				23A8692418BF38FD0066E383 /* uTorrent.m */,
-				23A8692618BF390A0066E383 /* VuzeRemoteUI.h */,
-				23A8692718BF390A0066E383 /* VuzeRemoteUI.m */,
-				9EA311861BB6515400A91454 /* XirvikSeedbox.h */,
-				9EA311871BB6515400A91454 /* XirvikSeedbox.m */,
-			);
-			name = "Torrent Front-Ends";
-			sourceTree = "<group>";
-		};
-		23B1C021177C4E7C000A0B07 /* StringHandler */ = {
-			isa = PBXGroup;
-			children = (
-				23A8690E18BF38BA0066E383 /* StringHandler.h */,
-				23A8690F18BF38BA0066E383 /* StringHandler.m */,
-			);
-			name = StringHandler;
-			sourceTree = "<group>";
-		};
-		23B1C022177C4E86000A0B07 /* Base64 */ = {
-			isa = PBXGroup;
-			children = (
-				23A8690B18BF38B20066E383 /* NSData+Base64.h */,
-				23A8690C18BF38B20066E383 /* NSData+Base64.m */,
-			);
-			name = Base64;
-			sourceTree = "<group>";
-		};
-		23B1C023177C4E8F000A0B07 /* Bencode */ = {
-			isa = PBXGroup;
-			children = (
-				23A8690818BF38A90066E383 /* NSData+BEncode.h */,
-				23A8690918BF38A90066E383 /* NSData+BEncode.m */,
-			);
-			name = Bencode;
-			sourceTree = "<group>";
-		};
-		23B1C024177C4EA3000A0B07 /* TorrentDelegate */ = {
-			isa = PBXGroup;
-			children = (
-				23A8690518BF389D0066E383 /* TorrentDelegate.h */,
-				23A8690618BF389D0066E383 /* TorrentDelegate.m */,
-			);
-			name = TorrentDelegate;
-			sourceTree = "<group>";
-		};
-		23B1C025177C4EC6000A0B07 /* ConnectionHandler */ = {
-			isa = PBXGroup;
-			children = (
-				23A868FC18BF38800066E383 /* ConnectionHandler.h */,
-				23A868FD18BF38800066E383 /* ConnectionHandler.m */,
-				23A868FF18BF388D0066E383 /* TorrentFileHandler.h */,
-				23A8690018BF388D0066E383 /* TorrentFileHandler.m */,
-				23A8690118BF388D0066E383 /* TorrentJobChecker.h */,
-				23A8690218BF388D0066E383 /* TorrentJobChecker.m */,
-			);
-			name = ConnectionHandler;
-			sourceTree = "<group>";
-		};
-		23B1C026177C4ECE000A0B07 /* Functions */ = {
-			isa = PBXGroup;
-			children = (
-				23A868F318BF383E0066E383 /* NSNumber+TransferRateFormatting.h */,
-				23A868F418BF383E0066E383 /* NSNumber+TransferRateFormatting.m */,
-				23A868F518BF383E0066E383 /* NSOption.h */,
-				23A868F618BF383E0066E383 /* NSOption.m */,
-				23F3E09F189F59C700A8105A /* FileHandler.h */,
-				23F3E0A0189F59C700A8105A /* FileHandler.m */,
-				23A868F918BF38750066E383 /* NSArray+Functions.h */,
-				23A868FA18BF38750066E383 /* NSArray+Functions.m */,
-			);
-			name = Functions;
-			sourceTree = "<group>";
-		};
-		23F0375A18C150DA00B4D289 /* Web Controller */ = {
-			isa = PBXGroup;
-			children = (
-				23F0375718C14F9A00B4D289 /* TorrentDownloaderWebViewController.h */,
-				23F0375818C14F9A00B4D289 /* TorrentDownloaderWebViewController.m */,
-				23F0378918C157E500B4D289 /* TorrentDownloaderModalWebViewController.h */,
-				23F0378A18C157E500B4D289 /* TorrentDownloaderModalWebViewController.m */,
-			);
-			name = "Web Controller";
-			path = SVWebViewController;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		23F0375B18C153BD00B4D289 /* SVWebViewController */ = {
@@ -741,6 +467,259 @@
 			path = Safari;
 			sourceTree = "<group>";
 		};
+		9E46C8321F68C8A600EA2DED /* Web Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9E46C8331F68C8CB00EA2DED /* TorrentDownloaderModalWebViewController.h */,
+				9E46C8351F68C8CB00EA2DED /* TorrentDownloaderModalWebViewController.m */,
+				9E46C8361F68C8CB00EA2DED /* TorrentDownloaderWebViewController.h */,
+				9E46C8341F68C8CB00EA2DED /* TorrentDownloaderWebViewController.m */,
+			);
+			path = "Web Controller";
+			sourceTree = "<group>";
+		};
+		9E46C8381F68C8E700EA2DED /* Functions */ = {
+			isa = PBXGroup;
+			children = (
+				23A868F318BF383E0066E383 /* NSNumber+TransferRateFormatting.h */,
+				23A868F418BF383E0066E383 /* NSNumber+TransferRateFormatting.m */,
+				23A868F518BF383E0066E383 /* NSOption.h */,
+				23A868F618BF383E0066E383 /* NSOption.m */,
+				23F3E09F189F59C700A8105A /* FileHandler.h */,
+				23F3E0A0189F59C700A8105A /* FileHandler.m */,
+				23A868F918BF38750066E383 /* NSArray+Functions.h */,
+				23A868FA18BF38750066E383 /* NSArray+Functions.m */,
+			);
+			path = Functions;
+			sourceTree = "<group>";
+		};
+		9E46C8391F68C90900EA2DED /* Connection Handler */ = {
+			isa = PBXGroup;
+			children = (
+				23A868FC18BF38800066E383 /* ConnectionHandler.h */,
+				23A868FD18BF38800066E383 /* ConnectionHandler.m */,
+				23A868FF18BF388D0066E383 /* TorrentFileHandler.h */,
+				23A8690018BF388D0066E383 /* TorrentFileHandler.m */,
+				23A8690118BF388D0066E383 /* TorrentJobChecker.h */,
+				23A8690218BF388D0066E383 /* TorrentJobChecker.m */,
+			);
+			path = "Connection Handler";
+			sourceTree = "<group>";
+		};
+		9E46C83C1F68CA6500EA2DED /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				23AC2B3F175D835600FCFA71 /* TorrentJobsTableViewController.h */,
+				23AC2B40175D835600FCFA71 /* TorrentJobsTableViewController.m */,
+				232B0FA3178C356700A7B3DC /* TorrentDetailViewController.h */,
+				232B0FA4178C356700A7B3DC /* TorrentDetailViewController.m */,
+				23F3E099189F236300A8105A /* TorrentClientTableViewController.h */,
+				23F3E09A189F236300A8105A /* TorrentClientTableViewController.m */,
+				23F3E09C189F30EF00A8105A /* AddTorrentClientTableViewController.h */,
+				23F3E09D189F30EF00A8105A /* AddTorrentClientTableViewController.m */,
+				23B35F841894A115002F6E37 /* ScanQRCodeViewController.h */,
+				23B35F851894A115002F6E37 /* ScanQRCodeViewController.m */,
+				232AE18C1891E40100D3F018 /* QueryTableViewController.h */,
+				232AE18D1891E40100D3F018 /* QueryTableViewController.m */,
+				232AE18F1891EE7400D3F018 /* AddQueryTableViewController.h */,
+				232AE1901891EE7400D3F018 /* AddQueryTableViewController.m */,
+				23A94F20183CD6B7004A3924 /* UINavigationControllerNoAutoRotation.h */,
+				23A94F21183CD6B7004A3924 /* UINavigationControllerNoAutoRotation.m */,
+				235527621872568D00A9E6BC /* AboutViewController.h */,
+				235527631872568D00A9E6BC /* AboutViewController.m */,
+				23AF74DE1796D5F700AC4ED5 /* StaticDataTableViewController.h */,
+				23AF74DF1796D5F700AC4ED5 /* StaticDataTableViewController.m */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		9E46C83D1F68CA8700EA2DED /* Custom UI */ = {
+			isa = PBXGroup;
+			children = (
+				9EA17DB51F836A550032B9EA /* TransferTotal.xib */,
+				9EEBC0D41F8374C400881126 /* TransferTotal.h */,
+				9EEBC0D51F8374C400881126 /* TransferTotal.m */,
+				23FC25D61788F1D500CCE434 /* TorrentJobCheckerCell.h */,
+				23FC25D71788F1D500CCE434 /* TorrentJobCheckerCell.m */,
+				232AE192189206C000D3F018 /* UITextField+UniqueString.h */,
+				232AE193189206C000D3F018 /* UITextField+UniqueString.m */,
+				2396C9291895EA88009BC6D3 /* UIFastProgressBar.h */,
+				2396C92A1895EA88009BC6D3 /* UIFastProgressBar.m */,
+				23A8692A18BF39BD0066E383 /* QueryCell.h */,
+				23A8692B18BF39BD0066E383 /* QueryCell.m */,
+			);
+			path = "Custom UI";
+			sourceTree = "<group>";
+		};
+		9E46C83E1F68CAB800EA2DED /* Torrent Interface */ = {
+			isa = PBXGroup;
+			children = (
+				23A8690518BF389D0066E383 /* TorrentDelegate.h */,
+				23A8690618BF389D0066E383 /* TorrentDelegate.m */,
+				23A8691118BF38C10066E383 /* TorrentClient.h */,
+				23A8691218BF38C10066E383 /* TorrentClient.m */,
+				9E46C83F1F68CAC900EA2DED /* Front End */,
+			);
+			path = "Torrent Interface";
+			sourceTree = "<group>";
+		};
+		9E46C83F1F68CAC900EA2DED /* Front End */ = {
+			isa = PBXGroup;
+			children = (
+				23A8691418BF38CC0066E383 /* Deluge.h */,
+				23A8691518BF38CC0066E383 /* Deluge.m */,
+				23A8691718BF38D40066E383 /* qBittorrent.h */,
+				23A8691818BF38D40066E383 /* qBittorrent.m */,
+				23A8691A18BF38DF0066E383 /* ruTorrent.h */,
+				23A8691B18BF38DF0066E383 /* ruTorrent.m */,
+				2379764019654B0400279520 /* ruTorrentHTTPRPC.h */,
+				2379763E19654AF500279520 /* ruTorrentHTTPRPC.m */,
+				23DF81CA18C1F4FA005BAB1C /* rTorrentXMLRPC.h */,
+				23DF81CB18C1F4FA005BAB1C /* rTorrentXMLRPC.m */,
+				23DF81CD18C2C71D005BAB1C /* SeedStuffSeedbox.h */,
+				23DF81CE18C2C71D005BAB1C /* SeedStuffSeedbox.m */,
+				23A8691D18BF38E90066E383 /* Synology.h */,
+				23A8691E18BF38E90066E383 /* Synology.m */,
+				23A8692018BF38F30066E383 /* Transmission.h */,
+				23A8692118BF38F30066E383 /* Transmission.m */,
+				23A8692318BF38FD0066E383 /* uTorrent.h */,
+				23A8692418BF38FD0066E383 /* uTorrent.m */,
+				23A8692618BF390A0066E383 /* VuzeRemoteUI.h */,
+				23A8692718BF390A0066E383 /* VuzeRemoteUI.m */,
+				9EA311861BB6515400A91454 /* XirvikSeedbox.h */,
+				9EA311871BB6515400A91454 /* XirvikSeedbox.m */,
+			);
+			path = "Front End";
+			sourceTree = "<group>";
+		};
+		9E46C8401F68CC0400EA2DED /* Bencode */ = {
+			isa = PBXGroup;
+			children = (
+				23A8690818BF38A90066E383 /* NSData+BEncode.h */,
+				23A8690918BF38A90066E383 /* NSData+BEncode.m */,
+			);
+			path = Bencode;
+			sourceTree = "<group>";
+		};
+		9E46C8421F68CD7800EA2DED /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				23314150177FE95E0062B0FE /* gear.png */,
+				23314151177FE95E0062B0FE /* gear@2x.png */,
+				2355275B18722A8600A9E6BC /* info.png */,
+				2355275C18722A8600A9E6BC /* info@2x.png */,
+				235527531871718300A9E6BC /* UIButtonBarPause.png */,
+				235527541871718300A9E6BC /* UIButtonBarPause@2x.png */,
+				235527551871718300A9E6BC /* UIButtonBarPlay.png */,
+				235527561871718300A9E6BC /* UIButtonBarPlay@2x.png */,
+				237570AF1877B742008217BF /* UIButtonBarStop.png */,
+				237570B01877B742008217BF /* UIButtonBarStop@2x.png */,
+				23E60FB51876D20400D2068B /* PlayPause.png */,
+				23E60FB61876D20400D2068B /* PlayPause@2x.png */,
+				9EC864591F83589A00E87E7E /* Safari.png */,
+				9EC864581F83589900E87E7E /* Safari@2x.png */,
+				237570B31877B874008217BF /* Gripper.png */,
+				237570B41877B874008217BF /* Gripper@2x.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		9E46C8431F68CD9200EA2DED /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9E46C8421F68CD7800EA2DED /* Images */,
+				23A8690E18BF38BA0066E383 /* StringHandler.h */,
+				23A8690F18BF38BA0066E383 /* StringHandler.m */,
+				23AC2B29175D835600FCFA71 /* BarMagnet-Info.plist */,
+				2346A5A318A8C2F0005EE9C0 /* AdBlocker.plist */,
+				23AC2B2A175D835600FCFA71 /* InfoPlist.strings */,
+				23AC2B2D175D835600FCFA71 /* main.m */,
+				23AC2B2F175D835600FCFA71 /* BarMagnet-Prefix.pch */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9E722FCD1F73441300023517 /* TSMessages */ = {
+			isa = PBXGroup;
+			children = (
+				9E7231401F73441400023517 /* Pod */,
+				9E7231781F73441400023517 /* Submodules */,
+			);
+			path = TSMessages;
+			sourceTree = "<group>";
+		};
+		9E7231401F73441400023517 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				9E7231411F73441400023517 /* Assets */,
+				9E7231541F73441400023517 /* Classes */,
+			);
+			path = Pod;
+			sourceTree = "<group>";
+		};
+		9E7231411F73441400023517 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				9E7231421F73441400023517 /* .gitkeep */,
+				9E7231431F73441400023517 /* NotificationBackgroundError.png */,
+				9E7231441F73441400023517 /* NotificationBackgroundError@2x.png */,
+				9E7231451F73441400023517 /* NotificationBackgroundErrorIcon.png */,
+				9E7231461F73441400023517 /* NotificationBackgroundErrorIcon@2x.png */,
+				9E7231471F73441400023517 /* NotificationBackgroundMessage.png */,
+				9E7231481F73441400023517 /* NotificationBackgroundMessage@2x.png */,
+				9E7231491F73441400023517 /* NotificationBackgroundSuccess.png */,
+				9E72314A1F73441400023517 /* NotificationBackgroundSuccess@2x.png */,
+				9E72314B1F73441400023517 /* NotificationBackgroundSuccessIcon.png */,
+				9E72314C1F73441400023517 /* NotificationBackgroundSuccessIcon@2x.png */,
+				9E72314D1F73441400023517 /* NotificationBackgroundWarning.png */,
+				9E72314E1F73441400023517 /* NotificationBackgroundWarning@2x.png */,
+				9E72314F1F73441400023517 /* NotificationBackgroundWarningIcon.png */,
+				9E7231501F73441400023517 /* NotificationBackgroundWarningIcon@2x.png */,
+				9E7231511F73441400023517 /* NotificationButtonBackground.png */,
+				9E7231521F73441400023517 /* NotificationButtonBackground@2x.png */,
+				9E7231531F73441400023517 /* TSMessagesDefaultDesign.json */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		9E7231541F73441400023517 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				9E7231561F73441400023517 /* TSBlurView.h */,
+				9E7231571F73441400023517 /* TSBlurView.m */,
+				9E7231581F73441400023517 /* TSMessage.h */,
+				9E7231591F73441400023517 /* TSMessage.m */,
+				9E72315A1F73441400023517 /* TSMessageView.h */,
+				9E72315B1F73441400023517 /* TSMessageView.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		9E7231781F73441400023517 /* Submodules */ = {
+			isa = PBXGroup;
+			children = (
+				9E7231791F73441400023517 /* HexColors */,
+			);
+			path = Submodules;
+			sourceTree = "<group>";
+		};
+		9E7231791F73441400023517 /* HexColors */ = {
+			isa = PBXGroup;
+			children = (
+				9E72317B1F73441400023517 /* Classes */,
+			);
+			path = HexColors;
+			sourceTree = "<group>";
+		};
+		9E72317B1F73441400023517 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				9E72317C1F73441400023517 /* HexColors.h */,
+				9E72317D1F73441400023517 /* HexColors.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -770,8 +749,13 @@
 		23AC2B16175D835600FCFA71 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Charlotte Tortorella";
+				TargetAttributes = {
+					23AC2B1D175D835600FCFA71 = {
+						DevelopmentTeam = B52TY2Q6KY;
+					};
+				};
 			};
 			buildConfigurationList = 23AC2B19175D835600FCFA71 /* Build configuration list for PBXProject "BarMagnet" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -823,50 +807,35 @@
 				235527581871718300A9E6BC /* UIButtonBarPause@2x.png in Resources */,
 				235527661872723700A9E6BC /* Images.xcassets in Resources */,
 				23E60FB81876D20400D2068B /* PlayPause@2x.png in Resources */,
-				238A94CC17A121630081EF6D /* NotificationBackgroundWarning@2x.png in Resources */,
 				2346A5A418A8C2F0005EE9C0 /* AdBlocker.plist in Resources */,
 				23F0377E18C153BD00B4D289 /* SVWebViewControllerActivityChrome-iPad@2x.png in Resources */,
 				23F0378118C153BD00B4D289 /* SVWebViewControllerActivitySafari-iPad.png in Resources */,
 				23AC2B2C175D835600FCFA71 /* InfoPlist.strings in Resources */,
 				23F0379518C163A400B4D289 /* README.md in Resources */,
 				23314153177FE95E0062B0FE /* gear@2x.png in Resources */,
-				238A94D017A121630081EF6D /* NotificationButtonBackground@2x.png in Resources */,
-				238A94C617A121630081EF6D /* NotificationBackgroundMessage@2x.png in Resources */,
 				23F0377D18C153BD00B4D289 /* SVWebViewControllerActivityChrome-iPad.png in Resources */,
 				237570B61877B874008217BF /* Gripper@2x.png in Resources */,
-				238A94C117A121630081EF6D /* NotificationBackgroundError.png in Resources */,
+				9EA17DB61F836A550032B9EA /* TransferTotal.xib in Resources */,
 				237570B11877B742008217BF /* UIButtonBarStop.png in Resources */,
-				238A94CA17A121630081EF6D /* NotificationBackgroundSuccessIcon@2x.png in Resources */,
 				23F0377918C153BD00B4D289 /* SVWebViewController.strings in Resources */,
-				238A94C517A121630081EF6D /* NotificationBackgroundMessage.png in Resources */,
-				238A94CF17A121630081EF6D /* NotificationButtonBackground.png in Resources */,
-				238A94CB17A121630081EF6D /* NotificationBackgroundWarning.png in Resources */,
+				9EC8645A1F83589A00E87E7E /* Safari@2x.png in Resources */,
 				2355275A1871718300A9E6BC /* UIButtonBarPlay@2x.png in Resources */,
-				23EBC8F518851BE800B0A281 /* donate.png in Resources */,
 				23314152177FE95E0062B0FE /* gear.png in Resources */,
-				238A94C317A121630081EF6D /* NotificationBackgroundErrorIcon.png in Resources */,
-				238A94CD17A121630081EF6D /* NotificationBackgroundWarningIcon.png in Resources */,
-				238A94CE17A121630081EF6D /* NotificationBackgroundWarningIcon@2x.png in Resources */,
 				235527591871718300A9E6BC /* UIButtonBarPlay.png in Resources */,
-				23B84F0F17B60F4F008C9D17 /* MainStoryboard_iPad.storyboard in Resources */,
-				2351200A1769C49000A3DE2C /* MainStoryboard_iPhone.storyboard in Resources */,
-				23552768187285B200A9E6BC /* TSMessagesDefaultDesign.json in Resources */,
+				2351200A1769C49000A3DE2C /* Main.storyboard in Resources */,
+				9EC8645B1F83589A00E87E7E /* Safari.png in Resources */,
 				23F0378418C153BD00B4D289 /* SVWebViewControllerActivitySafari@2x.png in Resources */,
 				237570B51877B874008217BF /* Gripper.png in Resources */,
-				238A94C417A121630081EF6D /* NotificationBackgroundErrorIcon@2x.png in Resources */,
 				2355275D18722A8600A9E6BC /* info.png in Resources */,
 				2355275E18722A8600A9E6BC /* info@2x.png in Resources */,
-				238A94C817A121630081EF6D /* NotificationBackgroundSuccess@2x.png in Resources */,
+				9E4357E71F75BA2D00D05DF0 /* TSMessagesDefaultDesign.json in Resources */,
 				237570B21877B742008217BF /* UIButtonBarStop@2x.png in Resources */,
-				238A94C217A121630081EF6D /* NotificationBackgroundError@2x.png in Resources */,
-				238A94C717A121630081EF6D /* NotificationBackgroundSuccess.png in Resources */,
 				2363424218C485A700F66225 /* LICENSE.txt in Resources */,
 				235527571871718300A9E6BC /* UIButtonBarPause.png in Resources */,
 				23F0378218C153BD00B4D289 /* SVWebViewControllerActivitySafari-iPad@2x.png in Resources */,
 				23F0377B18C153BD00B4D289 /* SVWebViewController.bundle in Resources */,
 				23E60FB71876D20400D2068B /* PlayPause.png in Resources */,
 				23F0378018C153BD00B4D289 /* SVWebViewControllerActivityChrome@2x.png in Resources */,
-				238A94C917A121630081EF6D /* NotificationBackgroundSuccessIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -879,20 +848,19 @@
 			files = (
 				23AC2B2E175D835600FCFA71 /* main.m in Sources */,
 				23A8691F18BF38E90066E383 /* Synology.m in Sources */,
+				9E46C83A1F68C9B600EA2DED /* TorrentDownloaderModalWebViewController.m in Sources */,
+				9EEBC0D61F8374C400881126 /* TransferTotal.m in Sources */,
 				23A8691C18BF38DF0066E383 /* ruTorrent.m in Sources */,
 				23A8691618BF38CC0066E383 /* Deluge.m in Sources */,
 				23F0377F18C153BD00B4D289 /* SVWebViewControllerActivityChrome.m in Sources */,
 				9EA311881BB6515400A91454 /* XirvikSeedbox.m in Sources */,
-				235527701872901700A9E6BC /* TSMessage.m in Sources */,
 				23AC2B32175D835600FCFA71 /* AppDelegate.m in Sources */,
 				23AC2B41175D835600FCFA71 /* TorrentJobsTableViewController.m in Sources */,
-				23F0375918C14F9A00B4D289 /* TorrentDownloaderWebViewController.m in Sources */,
 				232B0FA5178C356700A7B3DC /* TorrentDetailViewController.m in Sources */,
 				2396C92B1895EA88009BC6D3 /* UIFastProgressBar.m in Sources */,
 				23F0378318C153BD00B4D289 /* SVWebViewControllerActivitySafari.m in Sources */,
 				23A94D141A6CF11C00A255B7 /* MGSwipeButton.m in Sources */,
 				23F3E0A1189F59C700A8105A /* FileHandler.m in Sources */,
-				2355276B187285BE00A9E6BC /* TSBlurView.m in Sources */,
 				23A8692518BF38FD0066E383 /* uTorrent.m in Sources */,
 				23A868FB18BF38750066E383 /* NSArray+Functions.m in Sources */,
 				23DF81CF18C2C71D005BAB1C /* SeedStuffSeedbox.m in Sources */,
@@ -900,21 +868,20 @@
 				23A94F22183CD6B7004A3924 /* UINavigationControllerNoAutoRotation.m in Sources */,
 				23AF74E01796D5F700AC4ED5 /* StaticDataTableViewController.m in Sources */,
 				23A8691318BF38C10066E383 /* TorrentClient.m in Sources */,
-				23A8690D18BF38B20066E383 /* NSData+Base64.m in Sources */,
 				232AE194189206C000D3F018 /* UITextField+UniqueString.m in Sources */,
 				23B35F861894A115002F6E37 /* ScanQRCodeViewController.m in Sources */,
 				23F3E09B189F236300A8105A /* TorrentClientTableViewController.m in Sources */,
-				238A94D217A121630081EF6D /* TSMessageView.m in Sources */,
-				23F0378B18C157E500B4D289 /* TorrentDownloaderModalWebViewController.m in Sources */,
 				23A8691918BF38D40066E383 /* qBittorrent.m in Sources */,
 				23FC25D81788F1D500CCE434 /* TorrentJobCheckerCell.m in Sources */,
-				2355276E1872864F00A9E6BC /* HexColor.m in Sources */,
 				23A8691018BF38BA0066E383 /* StringHandler.m in Sources */,
 				23DF81CC18C1F4FA005BAB1C /* rTorrentXMLRPC.m in Sources */,
 				23F3E09E189F30EF00A8105A /* AddTorrentClientTableViewController.m in Sources */,
 				23A8692218BF38F30066E383 /* Transmission.m in Sources */,
+				9E7231C81F73449B00023517 /* TSMessage.m in Sources */,
 				23A868FE18BF38800066E383 /* ConnectionHandler.m in Sources */,
 				23F0377A18C153BD00B4D289 /* SVModalWebViewController.m in Sources */,
+				9E7231C91F73449B00023517 /* TSMessageView.m in Sources */,
+				9E46C83B1F68C9BE00EA2DED /* TorrentDownloaderWebViewController.m in Sources */,
 				2379763F19654AF500279520 /* ruTorrentHTTPRPC.m in Sources */,
 				235527641872568D00A9E6BC /* AboutViewController.m in Sources */,
 				232AE1911891EE7400D3F018 /* AddQueryTableViewController.m in Sources */,
@@ -927,8 +894,10 @@
 				232AE18E1891E40100D3F018 /* QueryTableViewController.m in Sources */,
 				23A868F818BF383E0066E383 /* NSOption.m in Sources */,
 				23A8690A18BF38A90066E383 /* NSData+BEncode.m in Sources */,
+				9E7231C61F73449300023517 /* HexColors.m in Sources */,
 				23A94D151A6CF11C00A255B7 /* MGSwipeTableCell.m in Sources */,
 				23A868F718BF383E0066E383 /* NSNumber+TransferRateFormatting.m in Sources */,
+				9E7231C71F73449B00023517 /* TSBlurView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -943,12 +912,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		235120071769C49000A3DE2C /* MainStoryboard_iPhone.storyboard */ = {
+		235120071769C49000A3DE2C /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				235120081769C49000A3DE2C /* en */,
+				9EA17DB41F8361410032B9EA /* Base */,
 			);
-			name = MainStoryboard_iPhone.storyboard;
+			name = Main.storyboard;
 			path = ..;
 			sourceTree = "<group>";
 		};
@@ -959,14 +928,6 @@
 				23704DF01880C6380029AB17 /* it */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		23B84F0D17B60F4F008C9D17 /* MainStoryboard_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				23B84F0E17B60F4F008C9D17 /* en */,
-			);
-			name = MainStoryboard_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 		23F0375C18C153BD00B4D289 /* SVWebViewController.strings */ = {
@@ -991,31 +952,47 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Carlo Tortorella (F688N26J6J)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Carlo Tortorella (F688N26J6J)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Charlotte Tortorella (F688N26J6J)";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/Source/External/functionalkit/src";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "e5cda7f7-7ac7-4fac-a278-679cbc8b8aea";
 				SDKROOT = iphoneos;
@@ -1028,23 +1005,39 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Carlo Tortorella (P7852E8EWD)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Carlo Tortorella (P7852E8EWD)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Charlotte Tortorella (P7852E8EWD)";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/Source/External/functionalkit/src";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "c3e858bc-db73-4e41-83c2-2fdd29c1d414";
 				SDKROOT = iphoneos;
@@ -1058,30 +1051,29 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_RESOURCE_RULES_PATH = "$(SDKROOT)/ResourceRules.plist";
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = B52TY2Q6KY;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BarMagnet/BarMagnet-Prefix.pch";
+				GCC_PREFIX_HEADER = "Sources/Supporting Files/BarMagnet-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/NSBencodeSerialization/M13OrderedDictionary",
 					"$(SRCROOT)/NSBencodeSerialization/NSBencodeSerialization",
 				);
-				INFOPLIST_FILE = "BarMagnet/BarMagnet-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				INFOPLIST_FILE = "Sources/Supporting Files/BarMagnet-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/TestFlightSDK",
-					"$(SRCROOT)/BarMagnet",
+					"$(SRCROOT)/Sources",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/NSBencodeSerialization-ezakathubkhhsxayghzwbjqodwih/Build/Products/Debug-iphoneos",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = Quarter.BarMagnet;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Qata.BarMagnet;
 				PRODUCT_NAME = BarMagnet;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -1094,30 +1086,29 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_RESOURCE_RULES_PATH = "$(SDKROOT)/ResourceRules.plist";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = B52TY2Q6KY;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BarMagnet/BarMagnet-Prefix.pch";
+				GCC_PREFIX_HEADER = "Sources/Supporting Files/BarMagnet-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/NSBencodeSerialization/M13OrderedDictionary",
 					"$(SRCROOT)/NSBencodeSerialization/NSBencodeSerialization",
 				);
-				INFOPLIST_FILE = "BarMagnet/BarMagnet-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				INFOPLIST_FILE = "Sources/Supporting Files/BarMagnet-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/TestFlightSDK",
-					"$(SRCROOT)/BarMagnet",
+					"$(SRCROOT)/Sources",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/NSBencodeSerialization-ezakathubkhhsxayghzwbjqodwih/Build/Products/Debug-iphoneos",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = Quarter.BarMagnet;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Qata.BarMagnet;
 				PRODUCT_NAME = BarMagnet;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
