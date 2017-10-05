@@ -33,8 +33,7 @@ enum ORDER { COMPLETED = 1,
              DATE_ADDED,
              DATE_FINISHED };
 
-@interface TorrentJobsTableViewController () <UIActionSheetDelegate, UIAlertViewDelegate, UISearchBarDelegate, UISearchDisplayDelegate, UIScrollViewDelegate,
-                                              NSFileManagerDelegate>
+@interface TorrentJobsTableViewController () <UIActionSheetDelegate, UIAlertViewDelegate, UISearchControllerDelegate, UISearchResultsUpdating, UIScrollViewDelegate, NSFileManagerDelegate>
 @property(nonatomic, weak) UIActionSheet *controlSheet;
 @property(nonatomic, weak) UIActionSheet *deleteTorrentSheet;
 @property(nonatomic, strong) UIActionSheet *sortBySheet;
@@ -45,6 +44,7 @@ enum ORDER { COMPLETED = 1,
 @property(nonatomic, strong) NSArray *sortedKeys;
 @property(nonatomic, strong) NSMutableOrderedDictionary *sortByDictionary;
 @property(nonatomic, strong) TransferTotal * transferTotalView;
+@property(nonatomic, strong) UISearchController *searchController;
 @end
 
 @implementation TorrentJobsTableViewController
@@ -57,8 +57,20 @@ enum ORDER { COMPLETED = 1,
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
     self.title = [FileHandler.sharedInstance settingsValueForKey:@"server_name"];
     [self.tableView accessibilityScroll:UIAccessibilityScrollDirectionDown];
-    self.tableView.contentOffset = CGPointMake(0.0, self.searchDisplayController.searchBar.frame.size.height);
 
+    self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+    self.searchController.delegate = self;
+    self.searchController.searchResultsUpdater = self;
+    self.searchController.dimsBackgroundDuringPresentation = NO;
+    self.searchController.hidesNavigationBarDuringPresentation = YES;
+    self.definesPresentationContext = YES;
+    if (@available(iOS 11.0, *)) {
+        self.tableView.tableHeaderView = nil;
+        self.navigationItem.searchController = self.searchController;
+    } else {
+        self.tableView.tableHeaderView = self.searchController.searchBar;
+    }
+    
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(receiveUpdateTableNotification) name:@"update_torrent_jobs_table" object:nil];
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(receiveUpdateHeaderNotification) name:@"update_torrent_jobs_header" object:nil];
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(changedClient) name:@"ChangedClient" object:nil];
@@ -76,7 +88,7 @@ enum ORDER { COMPLETED = 1,
     if (path) {
         NSDictionary *currentJob = nil;
 
-        if (self.tableView == self.searchDisplayController.searchResultsTableView)
+        if (self.searchController.active)
             currentJob = self.filteredArray[path.row];
         else
             currentJob = self.sortedKeys[path.row];
@@ -112,7 +124,7 @@ enum ORDER { COMPLETED = 1,
                                                                    @"Progress", @"Date Added", @"Date Finished", @"Download Speed", @"Upload Speed", @"Active",
                                                                    @"Name", @"Size", @"Ratio", @"Downloading", @"Seeding", @"Paused"
                                                                ]];
-    self.tableView.rowHeight = self.searchDisplayController.searchResultsTableView.rowHeight =
+    self.tableView.rowHeight =
         [[self.tableView dequeueReusableCellWithIdentifier:@"Compact"] frame].size.height;
     [self receiveUpdateTableNotification];
 }
@@ -158,17 +170,13 @@ enum ORDER { COMPLETED = 1,
     }
 }
 
-- (void)searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller {
+- (void)willPresentSearchController:(UISearchController *)searchController {
     self.shouldRefresh = NO;
 }
 
-- (void)searchDisplayControllerWillEndSearch:(UISearchDisplayController *)controller {
+- (void)willDismissSearchController:(UISearchController *)searchController {
     self.shouldRefresh = YES;
     [self receiveUpdateTableNotification];
-}
-
-- (void)searchDisplayController:(UISearchDisplayController *)controller didLoadSearchResultsTableView:(UITableView *)tableView {
-    tableView.rowHeight = [[self.tableView dequeueReusableCellWithIdentifier:@"Compact"] frame].size.height;
 }
 
 - (IBAction)addTorrentPopup:(id)sender {
@@ -474,7 +482,7 @@ enum ORDER { COMPLETED = 1,
     }
     NSDictionary *currentJob = nil;
 
-    if (tableView == self.searchDisplayController.searchResultsTableView) {
+    if (self.searchController.active) {
         currentJob = self.filteredArray[indexPath.row];
     } else {
         currentJob = self.sortedKeys[indexPath.row];
@@ -601,7 +609,7 @@ enum ORDER { COMPLETED = 1,
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (tableView == self.searchDisplayController.searchResultsTableView) {
+    if (self.searchController.active) {
         return self.filteredArray.count;
     }
     return [[[TorrentDelegate.sharedInstance.currentlySelectedClient getJobsDict] allKeys] count];
@@ -625,25 +633,21 @@ enum ORDER { COMPLETED = 1,
     return [[[TorrentDelegate.sharedInstance.currentlySelectedClient getJobsDict] allKeys] count] ? YES : NO;
 }
 
-- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
-    [self filterContentForSearchText:searchString
-                               scope:[[self.searchDisplayController.searchBar scopeButtonTitles]
-                                         objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
-    return YES;
+- (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
+    [self filterContentForSearchText:searchController.searchBar.text];
+    [self.tableView reloadData];
 }
 
-- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption {
-    [self filterContentForSearchText:self.searchDisplayController.searchBar.text
-                               scope:[[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:searchOption]];
-    return YES;
-}
-
-- (void)filterContentForSearchText:(NSString *)searchText scope:(NSString *)scope {
-    self.filteredArray = NSMutableArray.new;
+- (void)filterContentForSearchText:(NSString *)searchText {
     NSDictionary *jobs = [TorrentDelegate.sharedInstance.currentlySelectedClient getJobsDict];
-    for (NSDictionary *job in jobs.allValues) {
-        if ([[job[@"name"] lowercaseString] rangeOfString:[searchText lowercaseString]].location != NSNotFound) {
-            [self.filteredArray addObject:job];
+    if (searchText.length == 0) {
+        self.filteredArray = [NSMutableArray arrayWithArray:jobs.allValues];
+    } else {
+        self.filteredArray = NSMutableArray.new;
+        for (NSDictionary *job in jobs.allValues) {
+            if ([[job[@"name"] lowercaseString] rangeOfString:[searchText lowercaseString]].location != NSNotFound) {
+                [self.filteredArray addObject:job];
+            }
         }
     }
     [self sortArray:self.filteredArray];
