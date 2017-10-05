@@ -457,9 +457,37 @@ enum ORDER { COMPLETED = 1,
     [self presentViewController:deleteController animated:YES completion:nil];
 }
 
+- (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSDictionary *currentJob = nil;
+    if (self.searchController.active) {
+        currentJob = self.filteredArray[indexPath.row];
+    } else {
+        currentJob = self.sortedKeys[indexPath.row];
+    }
+    
+    UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"Delete" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+        [self showDeletePopupForHash:[currentJob[@"hash"] hash] atIndexPath:indexPath];
+    }];
+    
+    UITableViewRowAction *resumeOrPauseAction;
+    
+    if ([currentJob[@"status"] isEqualToString:@"Paused"]) {
+        resumeOrPauseAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"Resume" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+            [TorrentDelegate.sharedInstance.currentlySelectedClient resumeTorrent:currentJob[@"hash"]];
+        }];
+        resumeOrPauseAction.backgroundColor = [UIColor greenColor];
+    } else {
+        resumeOrPauseAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"Pause" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+            [TorrentDelegate.sharedInstance.currentlySelectedClient pauseTorrent:currentJob[@"hash"]];
+        }];
+        resumeOrPauseAction.backgroundColor = [UIColor lightGrayColor];
+    }
+    
+    return @[resumeOrPauseAction, deleteAction];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TorrentJobCheckerCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Compact"];
-    cell.table = self;
     if ([cell.subviews.firstObject isKindOfClass:UIScrollView.class]) {
         [cell.subviews.firstObject setDelegate:self];
     }
@@ -487,33 +515,6 @@ enum ORDER { COMPLETED = 1,
         cell.ETA.text = @"";
     }
     cell.downloadSpeed.text = [NSString stringWithFormat:@"%@ ↓", currentJob[@"downloadSpeed"]];
-
-    MGSwipeButton *delete = [MGSwipeButton buttonWithTitle:@"Delete"
-                                           backgroundColor:[UIColor redColor]
-                                                  callback:^BOOL(MGSwipeTableCell *sender) {
-                                                      [self showDeletePopupForHash:[currentJob[@"hash"] hash] atIndexPath:indexPath];
-                                                      return YES;
-                                                  }];
-
-    if ([currentJob[@"status"] isEqualToString:@"Paused"]) {
-        cell.rightButtons = @[
-            delete, [MGSwipeButton buttonWithTitle:@"Resume"
-                                   backgroundColor:[UIColor greenColor]
-                                          callback:^BOOL(MGSwipeTableCell *sender) {
-                                            [TorrentDelegate.sharedInstance.currentlySelectedClient resumeTorrent:currentJob[@"hash"]];
-                                            return YES;
-                                          }]
-        ];
-    } else {
-        cell.rightButtons = @[
-            delete, [MGSwipeButton buttonWithTitle:@"Pause"
-                                   backgroundColor:[UIColor lightGrayColor]
-                                          callback:^BOOL(MGSwipeTableCell *sender) {
-                                            [TorrentDelegate.sharedInstance.currentlySelectedClient pauseTorrent:currentJob[@"hash"]];
-                                            return YES;
-                                          }]
-        ];
-    }
 
     if ([currentJob[@"status"] isEqualToString:@"Seeding"]) {
         cell.percentBar.progressTintColor = [UIColor colorWithRed:0 green:1 blue:.4 alpha:1];
