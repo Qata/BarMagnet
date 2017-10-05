@@ -33,12 +33,7 @@ enum ORDER { COMPLETED = 1,
              DATE_ADDED,
              DATE_FINISHED };
 
-@interface TorrentJobsTableViewController () <UIActionSheetDelegate, UIAlertViewDelegate, UISearchControllerDelegate, UISearchResultsUpdating, UIScrollViewDelegate, NSFileManagerDelegate>
-@property(nonatomic, weak) UIActionSheet *controlSheet;
-@property(nonatomic, weak) UIActionSheet *deleteTorrentSheet;
-@property(nonatomic, strong) UIActionSheet *sortBySheet;
-@property(nonatomic, strong) UIActionSheet *orderBySheet;
-@property(nonatomic, strong) UIActionSheet *sortAndOrderSheet;
+@interface TorrentJobsTableViewController () <UISearchControllerDelegate, UISearchResultsUpdating, UIScrollViewDelegate, NSFileManagerDelegate>
 @property(nonatomic, strong) NSMutableArray *filteredArray;
 @property(nonatomic, strong) UILabel *header;
 @property(nonatomic, strong) NSArray *sortedKeys;
@@ -177,158 +172,129 @@ enum ORDER { COMPLETED = 1,
 }
 
 - (IBAction)addTorrentPopup:(id)sender {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
-                                                    message:nil
-                                                   delegate:self
-                                          cancelButtonTitle:@"Cancel"
-                                          otherButtonTitles:@"Open URL", @"Search via Queries", @"Scan QR Code", nil];
-    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
-    [alert show];
-}
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (alertView.alertViewStyle == UIAlertViewStylePlainTextInput) {
-        [[alertView textFieldAtIndex:0] resignFirstResponder];
-        NSString *text = [[alertView textFieldAtIndex:0] text];
-        switch (buttonIndex) {
-        case 1: {
-            if ([text length]) {
-                NSString *magnet = @"magnet:";
-                if (text.length > magnet.length && [[text substringWithRange:NSMakeRange(0, magnet.length)] isEqual:magnet]) {
-                    [[TorrentDelegate sharedInstance] handleMagnet:text];
-                    [self.navigationController popViewControllerAnimated:YES];
-                } else if ([text rangeOfString:@".torrent"].location != NSNotFound) {
-                    [[TorrentDelegate sharedInstance] handleTorrentFile:text];
-                    [self.navigationController popViewControllerAnimated:YES];
-                } else {
-                    if ([text rangeOfString:@"https://"].location != NSNotFound || [text rangeOfString:@"http://"].location != NSNotFound) {
-                        SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithAddress:text];
-                        [self.navigationController presentViewController:webViewController animated:YES completion:nil];
-                    } else {
-                        SVModalWebViewController *webViewController = [[SVModalWebViewController alloc]
-                            initWithAddress:[@"http://" stringByAppendingString:[text stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]]]];
-                        [self.navigationController presentViewController:webViewController animated:YES completion:nil];
-                    }
-                }
-            }
-            break;
+    UIAlertController *addTorrentAlert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleAlert];
+    [addTorrentAlert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    [addTorrentAlert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        
+    }];
+    [addTorrentAlert addAction:[UIAlertAction actionWithTitle:@"Open URL" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NSString *text = addTorrentAlert.textFields.firstObject.text;
+        if (text.length == 0) {
+            return;
         }
-        case 2: {
-            [self performSegueWithIdentifier:@"query" sender:nil];
-            break;
-        }
-        case 3: {
-            if (([[UIDevice.currentDevice.systemVersion componentsSeparatedByString:@"."].firstObject integerValue] >= 7)) {
-                [self performSegueWithIdentifier:@"scan" sender:nil];
+        NSString *magnet = @"magnet:";
+        if (text.length > magnet.length && [[text substringWithRange:NSMakeRange(0, magnet.length)] isEqual:magnet]) {
+            [[TorrentDelegate sharedInstance] handleMagnet:text];
+            [self.navigationController popViewControllerAnimated:YES];
+        } else if ([text rangeOfString:@".torrent"].location != NSNotFound) {
+            [[TorrentDelegate sharedInstance] handleTorrentFile:text];
+            [self.navigationController popViewControllerAnimated:YES];
+        } else {
+            if ([text rangeOfString:@"https://"].location != NSNotFound || [text rangeOfString:@"http://"].location != NSNotFound) {
+                SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithAddress:text];
+                [self.navigationController presentViewController:webViewController animated:YES completion:nil];
             } else {
-                [[UIAlertView.alloc initWithTitle:@"Unsupported Feature"
-                                          message:@"QR code scanning is not supported on devices running a build earlier than 7.0"
-                                         delegate:nil
-                                cancelButtonTitle:@"Okay"
-                                otherButtonTitles:nil] show];
+                SVModalWebViewController *webViewController = [[SVModalWebViewController alloc]
+                                                               initWithAddress:[@"http://" stringByAppendingString:[text stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]]]];
+                [self.navigationController presentViewController:webViewController animated:YES completion:nil];
             }
-            break;
         }
-        }
-    }
+    }]];
+    [addTorrentAlert addAction:[UIAlertAction actionWithTitle:@"Search via Queries" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self performSegueWithIdentifier:@"query" sender:nil];
+    }]];
+    [addTorrentAlert addAction:[UIAlertAction actionWithTitle:@"Scan QR Core" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self performSegueWithIdentifier:@"scan" sender:nil];
+    }]];
+    [self presentViewController:addTorrentAlert animated:YES completion:nil];
 }
 
 - (IBAction)showListOfControlOptions:(id)sender {
-    [[self.controlSheet = UIActionSheet.alloc initWithTitle:nil
-                                                   delegate:self
-                                          cancelButtonTitle:@"Cancel"
-                                     destructiveButtonTitle:nil
-                                          otherButtonTitles:@"Resume All", @"Pause All", nil] showFromToolbar:self.navigationController.toolbar];
+    UIAlertController *controller = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    [controller addAction:[UIAlertAction actionWithTitle:@"Resume All" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [TorrentDelegate.sharedInstance.currentlySelectedClient resumeAllTorrents];
+    }]];
+    [controller addAction:[UIAlertAction actionWithTitle:@"Pause All" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [TorrentDelegate.sharedInstance.currentlySelectedClient pauseAllTorrents];
+    }]];
+    [controller addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    controller.popoverPresentationController.sourceView = sender;
+    [self presentViewController:controller animated:YES completion:nil];
 }
 
 - (void)showSortBySheet {
-    self.sortBySheet = [UIActionSheet.alloc initWithTitle:@"Sort By" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
+    UIAlertController *sortController = [UIAlertController alertControllerWithTitle:@"Sort By" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
     for (NSString *string in self.sortByDictionary.allKeys) {
-        [self.sortBySheet addButtonWithTitle:string];
+        [sortController addAction:[UIAlertAction actionWithTitle:string style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [FileHandler.sharedInstance setSettingsValue:string forKey:@"sort_by"];
+            [self.tableView reloadData];
+        }]];
     }
-    [self.sortBySheet addButtonWithTitle:@"Cancel"];
-    self.sortBySheet.cancelButtonIndex = self.sortByDictionary.count;
-    [self.sortBySheet showFromToolbar:self.navigationController.toolbar];
+
+    [sortController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    
+    sortController.popoverPresentationController.sourceView = self.navigationController.toolbar;
+    [self presentViewController:sortController animated:YES completion:nil];
 }
 
 - (void)showOrderBySheet {
-    self.orderBySheet = [UIActionSheet.alloc initWithTitle:@"Order As"
-                                                  delegate:self
-                                         cancelButtonTitle:@"Cancel"
-                                    destructiveButtonTitle:nil
-                                         otherButtonTitles:@"Ascending", @"Descending", nil];
-    [self.orderBySheet showFromToolbar:self.navigationController.toolbar];
+    UIAlertController *orderByController = [UIAlertController alertControllerWithTitle:@"Order As" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    [orderByController addAction:[UIAlertAction actionWithTitle:@"Ascending" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [FileHandler.sharedInstance setSettingsValue:@-1 forKey:@"order_by"];
+        [self.tableView reloadData];
+    }]];
+    [orderByController addAction:[UIAlertAction actionWithTitle:@"Descending" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [FileHandler.sharedInstance setSettingsValue:@1 forKey:@"order_by"];
+        [self.tableView reloadData];
+    }]];
+    
+    [orderByController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    
+    orderByController.popoverPresentationController.sourceView = self.navigationController.toolbar;
+    [self presentViewController:orderByController animated:YES completion:nil];
 }
 
 - (IBAction)sortAndOrder:(id)sender {
     NSInteger orderBy = [[FileHandler.sharedInstance settingsValueForKey:@"order_by"] integerValue];
-    self.sortAndOrderSheet = [UIActionSheet.alloc initWithTitle:[NSString stringWithFormat:@"%@, %@", [FileHandler.sharedInstance settingsValueForKey:@"sort_by"],
-                                                                                           orderBy != NSOrderedAscending ? @"Descending" : @"Ascending"]
-                                                       delegate:self
-                                              cancelButtonTitle:@"Cancel"
-                                         destructiveButtonTitle:nil
-                                              otherButtonTitles:@"Order As", @"Sort By", nil];
-    [self.sortAndOrderSheet showFromToolbar:self.navigationController.toolbar];
+    NSString *title = [NSString stringWithFormat:@"%@, %@", [FileHandler.sharedInstance settingsValueForKey:@"sort_by"],
+                       orderBy != NSOrderedAscending ? @"Descending" : @"Ascending"];
+    UIAlertController *sortAndOrderController = [UIAlertController alertControllerWithTitle:title message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    [sortAndOrderController addAction:[UIAlertAction actionWithTitle:@"Order As" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self showOrderBySheet];
+    }]];
+    [sortAndOrderController addAction:[UIAlertAction actionWithTitle:@"Sort By" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self showSortBySheet];
+    }]];
+    
+    [sortAndOrderController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    
+    sortAndOrderController.popoverPresentationController.sourceView = self.navigationController.toolbar;
+    [self presentViewController:sortAndOrderController animated:YES completion:nil];
 }
 
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (buttonIndex != actionSheet.cancelButtonIndex) {
-        if (actionSheet == self.sortAndOrderSheet) {
-            switch (buttonIndex) {
-            case 0:
-                [self showOrderBySheet];
-                break;
-            case 1:
-                [self showSortBySheet];
-                break;
-            }
-        } else if (actionSheet == self.sortBySheet) {
-            [FileHandler.sharedInstance setSettingsValue:[actionSheet buttonTitleAtIndex:buttonIndex] forKey:@"sort_by"];
-            [self.tableView reloadData];
-        } else if (actionSheet == self.orderBySheet) {
-            switch (buttonIndex) {
-            case 0:
-                [FileHandler.sharedInstance setSettingsValue:@-1 forKey:@"order_by"];
-                break;
-            case 1:
-                [FileHandler.sharedInstance setSettingsValue:@1 forKey:@"order_by"];
-                break;
-            }
-            [self.tableView reloadData];
-        } else if (actionSheet == self.controlSheet) {
-            switch (buttonIndex) {
-            case 0:
-                [TorrentDelegate.sharedInstance.currentlySelectedClient resumeAllTorrents];
-                break;
-            case 1:
-                [TorrentDelegate.sharedInstance.currentlySelectedClient pauseAllTorrents];
-                break;
-            }
-        } else if (actionSheet == self.deleteTorrentSheet) {
-            if (buttonIndex != [actionSheet cancelButtonIndex]) {
-                self.shouldRefresh = NO;
-                NSString *hashString = nil;
-                NSUInteger index = 0;
-                for (NSDictionary *dict in self.sortedKeys) {
-                    if ([dict[@"hash"] hash] == actionSheet.tag) {
-                        hashString = dict[@"hash"];
-                        index = [self.sortedKeys indexOfObject:dict];
-                        break;
-                    }
-                }
-
-                if (hashString) {
-                    [NSNotificationCenter.defaultCenter postNotificationName:@"cancel_refresh" object:nil];
-                    [TorrentDelegate.sharedInstance.currentlySelectedClient addTemporaryDeletedJob:4 forKey:hashString];
-                    [TorrentDelegate.sharedInstance.currentlySelectedClient removeTorrent:hashString removeData:buttonIndex == 0];
-                    [self.tableView deleteRowsAtIndexPaths:@[ [NSIndexPath indexPathForRow:index inSection:0] ] withRowAnimation:UITableViewRowAnimationAutomatic];
-                }
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-                  self.shouldRefresh = YES;
-                });
-            }
+- (void)deleteTorrentWithHash:(NSUInteger)hash removeData:(BOOL)removeData {
+    self.shouldRefresh = NO;
+    NSString *hashString = nil;
+    NSUInteger index = 0;
+    for (NSDictionary *dict in self.sortedKeys) {
+        if ([dict[@"hash"] hash] == hash) {
+            hashString = dict[@"hash"];
+            index = [self.sortedKeys indexOfObject:dict];
+            break;
         }
     }
+    
+    if (hashString) {
+        [NSNotificationCenter.defaultCenter postNotificationName:@"cancel_refresh" object:nil];
+        [TorrentDelegate.sharedInstance.currentlySelectedClient addTemporaryDeletedJob:4 forKey:hashString];
+        [TorrentDelegate.sharedInstance.currentlySelectedClient removeTorrent:hashString removeData:removeData];
+        [self.tableView deleteRowsAtIndexPaths:@[ [NSIndexPath indexPathForRow:index inSection:0] ] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        self.shouldRefresh = YES;
+    });
 }
 
 - (IBAction)openUI:(id)sender {
@@ -471,6 +437,26 @@ enum ORDER { COMPLETED = 1,
     [progressView setNeedsDisplay];
 }
 
+- (void)showDeletePopupForHash:(NSUInteger)hash atIndexPath:(NSIndexPath *)indexPath {
+    BOOL supportsDelete = TorrentDelegate.sharedInstance.currentlySelectedClient.supportsEraseChoice;
+    NSString *title = supportsDelete ? @"Also delete data?" : @"Are you sure?";
+    
+    UIAlertController *deleteController = [UIAlertController alertControllerWithTitle:title message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    [deleteController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    if (supportsDelete) {
+        [deleteController addAction:[UIAlertAction actionWithTitle:@"Delete data" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+            [self deleteTorrentWithHash:hash removeData:YES];
+        }]];
+    }
+    
+    [deleteController addAction:[UIAlertAction actionWithTitle:@"Delete torrent" style:supportsDelete ? UIAlertActionStyleDefault : UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        [self deleteTorrentWithHash:hash removeData:NO];
+    }]];
+    deleteController.popoverPresentationController.sourceView = [self.tableView cellForRowAtIndexPath:indexPath];
+    deleteController.popoverPresentationController.sourceRect = [self.tableView rectForRowAtIndexPath:indexPath];
+    [self presentViewController:deleteController animated:YES completion:nil];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TorrentJobCheckerCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Compact"];
     cell.table = self;
@@ -505,24 +491,8 @@ enum ORDER { COMPLETED = 1,
     MGSwipeButton *delete = [MGSwipeButton buttonWithTitle:@"Delete"
                                            backgroundColor:[UIColor redColor]
                                                   callback:^BOOL(MGSwipeTableCell *sender) {
-                                                    UIActionSheet *popupQuery = nil;
-                                                    if (TorrentDelegate.sharedInstance.currentlySelectedClient.supportsEraseChoice) {
-                                                        popupQuery = [[UIActionSheet alloc] initWithTitle:@"Also delete data?"
-                                                                                                 delegate:self
-                                                                                        cancelButtonTitle:@"Cancel"
-                                                                                   destructiveButtonTitle:@"Delete data"
-                                                                                        otherButtonTitles:@"Delete torrent", nil];
-                                                    } else {
-                                                        popupQuery = [[UIActionSheet alloc] initWithTitle:@"Are you sure?"
-                                                                                                 delegate:self
-                                                                                        cancelButtonTitle:@"Cancel"
-                                                                                   destructiveButtonTitle:@"Delete torrent"
-                                                                                        otherButtonTitles:nil];
-                                                    }
-                                                    self.deleteTorrentSheet = popupQuery;
-                                                    popupQuery.tag = [currentJob[@"hash"] hash];
-                                                    [popupQuery showFromToolbar:self.navigationController.toolbar];
-                                                    return YES;
+                                                      [self showDeletePopupForHash:[currentJob[@"hash"] hash] atIndexPath:indexPath];
+                                                      return YES;
                                                   }];
 
     if ([currentJob[@"status"] isEqualToString:@"Paused"]) {
@@ -574,23 +544,6 @@ enum ORDER { COMPLETED = 1,
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     self.tableView = tableView;
-    UIActionSheet *popupQuery = nil;
-    if (TorrentDelegate.sharedInstance.currentlySelectedClient.supportsEraseChoice) {
-        popupQuery = [[UIActionSheet alloc] initWithTitle:@"Also delete data?"
-                                                 delegate:self
-                                        cancelButtonTitle:@"Cancel"
-                                   destructiveButtonTitle:@"Delete data"
-                                        otherButtonTitles:@"Delete torrent", nil];
-    } else {
-        popupQuery = [[UIActionSheet alloc] initWithTitle:@"Are you sure?"
-                                                 delegate:self
-                                        cancelButtonTitle:@"Cancel"
-                                   destructiveButtonTitle:@"Delete torrent"
-                                        otherButtonTitles:nil];
-    }
-    self.deleteTorrentSheet = popupQuery;
-    popupQuery.tag = indexPath.row;
-    [popupQuery showFromToolbar:self.navigationController.toolbar];
 }
 
 - (CGFloat)sizeForDevice {
