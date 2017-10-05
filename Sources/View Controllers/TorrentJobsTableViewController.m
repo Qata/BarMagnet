@@ -75,10 +75,7 @@ enum ORDER { COMPLETED = 1,
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(receiveUpdateHeaderNotification) name:@"update_torrent_jobs_header" object:nil];
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(changedClient) name:@"ChangedClient" object:nil];
 
-    if ([NSProcessInfo instancesRespondToSelector:@selector(isOperatingSystemAtLeastVersion:)] &&
-        [[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:(NSOperatingSystemVersion){9, 0, 0}]) {
-        [self registerForPreviewingWithDelegate:self sourceView:self.tableView];
-    }
+    [self registerForPreviewingWithDelegate:self sourceView:self.tableView];
 }
 
 - (nullable UIViewController *)previewingContext:(id<UIViewControllerPreviewing>)previewingContext viewControllerForLocation:(CGPoint)location {
