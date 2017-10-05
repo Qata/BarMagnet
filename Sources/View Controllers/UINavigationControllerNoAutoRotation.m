@@ -10,6 +10,14 @@
 
 @implementation UINavigationControllerNoAutoRotation
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    if (@available(iOS 11.0, *)) {
+        self.navigationBar.prefersLargeTitles = YES;
+    }
+}
+
 - (BOOL)shouldAutorotate {
     return NO;
 }
