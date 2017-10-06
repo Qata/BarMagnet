@@ -101,7 +101,6 @@ enum ORDER { COMPLETED = 1,
 
 - (void)initialiseUploadDownloadLabels {
     self.transferTotalView = [[NSBundle mainBundle] loadNibNamed:@"TransferTotal" owner:self options:nil][0];
-    NSLog(@"%@", self.transferTotalView.subviews);
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.transferTotalView];
 }
 
