@@ -121,13 +121,13 @@
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="TaI-5p-LlI"/>
-                        <barButtonItem image="Gripper.png" style="plain" id="9ce-9Q-yfE">
+                        <barButtonItem image="Sorting.png" style="plain" id="9ce-9Q-yfE">
                             <connections>
                                 <action selector="sortAndOrder:" destination="zWV-0Y-d6N" id="Bqp-S4-5fE"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="azT-uy-7RU"/>
-                        <barButtonItem image="PlayPause.png" style="plain" id="jmv-DX-kWA">
+                        <barButtonItem image="Signal.png" style="plain" id="jmv-DX-kWA">
                             <connections>
                                 <action selector="showListOfControlOptions:" destination="zWV-0Y-d6N" id="kuQ-9w-uXb"/>
                             </connections>
@@ -1406,9 +1406,9 @@ e.g. "http://www.google.com/q=%query%"</string>
         </scene>
     </scenes>
     <resources>
-        <image name="Gripper.png" width="30" height="24"/>
-        <image name="PlayPause.png" width="30" height="17"/>
         <image name="Safari.png" width="30" height="30"/>
+        <image name="Signal.png" width="30" height="30"/>
+        <image name="Sorting.png" width="30" height="30"/>
         <image name="UIButtonBarPlay.png" width="15" height="18"/>
         <image name="UIButtonBarStop.png" width="17" height="17"/>
         <image name="gear.png" width="30" height="30"/>
