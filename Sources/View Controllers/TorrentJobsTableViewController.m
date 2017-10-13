@@ -86,7 +86,7 @@ enum ORDER { COMPLETED = 1,
             currentJob = self.sortedKeys[path.row];
 
         UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:path];
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         TorrentDetailViewController *previewController = [storyboard instantiateViewControllerWithIdentifier:@"detail"];
         [previewController setHashString:currentJob[@"hash"]];
         previewingContext.sourceRect = [self.view convertRect:cell.frame fromView:self.tableView];
@@ -505,7 +505,7 @@ enum ORDER { COMPLETED = 1,
     double completeValue = [TorrentDelegate.sharedInstance.currentlySelectedClient.class completeNumber].doubleValue;
     cell.percentBar.progress = completeValue ? [currentJob[@"progress"] doubleValue] / completeValue : 0;
 
-    if ([currentJob[@"ETA"] length] &&
+    if ([currentJob[@"ETA"] isKindOfClass:[NSString class]] && [currentJob[@"ETA"] length] &&
         [currentJob[@"progress"] doubleValue] != [[TorrentDelegate.sharedInstance.currentlySelectedClient.class completeNumber] doubleValue]) {
         cell.ETA.text = [NSString stringWithFormat:@"ETA: %@", currentJob[@"ETA"]];
     } else if (currentJob[@"ratio"]) {
