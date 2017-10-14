@@ -9,4 +9,7 @@
 #import "TorrentClient.h"
 
 @interface qBittorrent : TorrentClient
+{
+    BOOL didLogin;
+}
 @end
