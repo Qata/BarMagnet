@@ -9,5 +9,6 @@
 #import "TorrentClient.h"
 
 @interface ruTorrentHTTPRPC : TorrentClient
-
+- (NSMutableURLRequest *)universalPOSTSetting;
+- (NSMutableURLRequest *)RPCRequestWithMethodName:(NSString *)methodName;
 @end

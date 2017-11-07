@@ -1,5 +1,5 @@
 //
-//  XirvikSeedbox.h
+//  Xirvik_rTorrent.h
 //  BarMagnet
 //
 //  Created by Charlotte Tortorella on 26/09/2015.
@@ -8,6 +8,6 @@
 
 #import "ruTorrentHTTPRPC.h"
 
-@interface XirvikSeedbox : ruTorrentHTTPRPC
+@interface Xirvik_rTorrent : ruTorrentHTTPRPC
 
 @end

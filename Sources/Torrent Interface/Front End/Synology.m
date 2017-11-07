@@ -125,12 +125,7 @@
 }
 
 - (void)becameActive {
-    theConnection = [NSURLConnection
-        connectionWithRequest:[NSURLRequest
-                                  requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@query.cgi?api=SYNO.API.Info&version=1&method=query&query="
-                                                                                                 @"SYNO.API.Auth,SYNO.API.Info,SYNO.DownloadStation.Task",
-                                                                                                 self.getAppendedURLWithoutAuth]]]
-                     delegate:self];
+    theConnection = [NSURLConnection connectionWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@query.cgi?api=SYNO.API.Info&version=1&method=query&query=SYNO.API.Auth,SYNO.API.Info,SYNO.DownloadStation.Task", self.getAppendedURLWithoutAuth]]] delegate:self];
 }
 
 - (void)becameIdle {

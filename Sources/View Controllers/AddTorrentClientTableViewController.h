@@ -23,12 +23,14 @@
 @property(strong, nonatomic) IBOutlet UITextField *directoryField;
 @property(strong, nonatomic) IBOutlet UITextField *labelField;
 
+@property (weak, nonatomic) IBOutlet UITableViewCell *usernameCell;
 @property(strong, nonatomic) IBOutlet UITableViewCell *relativePathCell;
 @property(strong, nonatomic) IBOutlet UITableViewCell *directoryCell;
 @property(strong, nonatomic) IBOutlet UITableViewCell *labelCell;
 @property(strong, nonatomic) IBOutlet UITableViewCell *useSSLCell;
 @property(strong, nonatomic) IBOutlet UITableViewCell *portCell;
 @property(strong, nonatomic) IBOutlet UITableViewCell *seedStuffCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *scanQRCell;
 @property(nonatomic, strong) NSDictionary *clientDictionary;
 
 @end

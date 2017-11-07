@@ -92,9 +92,11 @@
 		9E7231C81F73449B00023517 /* TSMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7231591F73441400023517 /* TSMessage.m */; };
 		9E7231C91F73449B00023517 /* TSMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E72315B1F73441400023517 /* TSMessageView.m */; };
 		9EA17DB61F836A550032B9EA /* TransferTotal.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EA17DB51F836A550032B9EA /* TransferTotal.xib */; };
-		9EA311881BB6515400A91454 /* XirvikSeedbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EA311871BB6515400A91454 /* XirvikSeedbox.m */; };
+		9EA311881BB6515400A91454 /* Xirvik_rTorrent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EA311871BB6515400A91454 /* Xirvik_rTorrent.m */; };
 		9EA8DB161F87390300B852A6 /* Signal.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EA8DB141F87390100B852A6 /* Signal.png */; };
 		9EA8DB171F87390300B852A6 /* Signal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EA8DB151F87390200B852A6 /* Signal@2x.png */; };
+		9EC45B651FAD5AA900B966C6 /* Xirvik_Deluge.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EC45B641FAD5AA900B966C6 /* Xirvik_Deluge.m */; };
+		9EC45B681FAD857200B966C6 /* XirvikQRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EC45B671FAD857200B966C6 /* XirvikQRCodeViewController.m */; };
 		9EC8645A1F83589A00E87E7E /* Safari@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EC864581F83589900E87E7E /* Safari@2x.png */; };
 		9EC8645B1F83589A00E87E7E /* Safari.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EC864591F83589A00E87E7E /* Safari.png */; };
 		9EEBC0D61F8374C400881126 /* TransferTotal.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EEBC0D51F8374C400881126 /* TransferTotal.m */; };
@@ -302,10 +304,14 @@
 		9E72317D1F73441400023517 /* HexColors.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HexColors.m; sourceTree = "<group>"; };
 		9EA17DB41F8361410032B9EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Sources/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9EA17DB51F836A550032B9EA /* TransferTotal.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransferTotal.xib; sourceTree = "<group>"; };
-		9EA311861BB6515400A91454 /* XirvikSeedbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XirvikSeedbox.h; sourceTree = "<group>"; };
-		9EA311871BB6515400A91454 /* XirvikSeedbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XirvikSeedbox.m; sourceTree = "<group>"; };
+		9EA311861BB6515400A91454 /* Xirvik_rTorrent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Xirvik_rTorrent.h; sourceTree = "<group>"; };
+		9EA311871BB6515400A91454 /* Xirvik_rTorrent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Xirvik_rTorrent.m; sourceTree = "<group>"; };
 		9EA8DB141F87390100B852A6 /* Signal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Signal.png; sourceTree = "<group>"; };
 		9EA8DB151F87390200B852A6 /* Signal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Signal@2x.png"; sourceTree = "<group>"; };
+		9EC45B631FAD5AA900B966C6 /* Xirvik_Deluge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Xirvik_Deluge.h; sourceTree = "<group>"; };
+		9EC45B641FAD5AA900B966C6 /* Xirvik_Deluge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Xirvik_Deluge.m; sourceTree = "<group>"; };
+		9EC45B661FAD857200B966C6 /* XirvikQRCodeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XirvikQRCodeViewController.h; sourceTree = "<group>"; };
+		9EC45B671FAD857200B966C6 /* XirvikQRCodeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XirvikQRCodeViewController.m; sourceTree = "<group>"; };
 		9EC864581F83589900E87E7E /* Safari@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Safari@2x.png"; sourceTree = "<group>"; };
 		9EC864591F83589A00E87E7E /* Safari.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Safari.png; sourceTree = "<group>"; };
 		9EEBC0D41F8374C400881126 /* TransferTotal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransferTotal.h; sourceTree = "<group>"; };
@@ -500,6 +506,8 @@
 				23F3E09D189F30EF00A8105A /* AddTorrentClientTableViewController.m */,
 				23B35F841894A115002F6E37 /* ScanQRCodeViewController.h */,
 				23B35F851894A115002F6E37 /* ScanQRCodeViewController.m */,
+				9EC45B661FAD857200B966C6 /* XirvikQRCodeViewController.h */,
+				9EC45B671FAD857200B966C6 /* XirvikQRCodeViewController.m */,
 				232AE18C1891E40100D3F018 /* QueryTableViewController.h */,
 				232AE18D1891E40100D3F018 /* QueryTableViewController.m */,
 				232AE18F1891EE7400D3F018 /* AddQueryTableViewController.h */,
@@ -567,8 +575,10 @@
 				23A8692418BF38FD0066E383 /* uTorrent.m */,
 				23A8692618BF390A0066E383 /* VuzeRemoteUI.h */,
 				23A8692718BF390A0066E383 /* VuzeRemoteUI.m */,
-				9EA311861BB6515400A91454 /* XirvikSeedbox.h */,
-				9EA311871BB6515400A91454 /* XirvikSeedbox.m */,
+				9EA311861BB6515400A91454 /* Xirvik_rTorrent.h */,
+				9EA311871BB6515400A91454 /* Xirvik_rTorrent.m */,
+				9EC45B631FAD5AA900B966C6 /* Xirvik_Deluge.h */,
+				9EC45B641FAD5AA900B966C6 /* Xirvik_Deluge.m */,
 			);
 			path = "Front End";
 			sourceTree = "<group>";
@@ -734,7 +744,7 @@
 				ORGANIZATIONNAME = "Charlotte Tortorella";
 				TargetAttributes = {
 					23AC2B1D175D835600FCFA71 = {
-                        DevelopmentTeam = B52TY2Q6KY;
+						DevelopmentTeam = B52TY2Q6KY;
 					};
 				};
 			};
@@ -828,13 +838,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				23AC2B2E175D835600FCFA71 /* main.m in Sources */,
+				9EC45B681FAD857200B966C6 /* XirvikQRCodeViewController.m in Sources */,
 				23A8691F18BF38E90066E383 /* Synology.m in Sources */,
 				9E46C83A1F68C9B600EA2DED /* TorrentDownloaderModalWebViewController.m in Sources */,
 				9EEBC0D61F8374C400881126 /* TransferTotal.m in Sources */,
 				23A8691C18BF38DF0066E383 /* ruTorrent.m in Sources */,
 				23A8691618BF38CC0066E383 /* Deluge.m in Sources */,
 				23F0377F18C153BD00B4D289 /* SVWebViewControllerActivityChrome.m in Sources */,
-				9EA311881BB6515400A91454 /* XirvikSeedbox.m in Sources */,
+				9EA311881BB6515400A91454 /* Xirvik_rTorrent.m in Sources */,
 				23AC2B32175D835600FCFA71 /* AppDelegate.m in Sources */,
 				23AC2B41175D835600FCFA71 /* TorrentJobsTableViewController.m in Sources */,
 				232B0FA5178C356700A7B3DC /* TorrentDetailViewController.m in Sources */,
@@ -853,6 +864,7 @@
 				23F3E09B189F236300A8105A /* TorrentClientTableViewController.m in Sources */,
 				23A8691918BF38D40066E383 /* qBittorrent.m in Sources */,
 				23FC25D81788F1D500CCE434 /* TorrentJobCheckerCell.m in Sources */,
+				9EC45B651FAD5AA900B966C6 /* Xirvik_Deluge.m in Sources */,
 				23A8691018BF38BA0066E383 /* StringHandler.m in Sources */,
 				23DF81CC18C1F4FA005BAB1C /* rTorrentXMLRPC.m in Sources */,
 				23F3E09E189F30EF00A8105A /* AddTorrentClientTableViewController.m in Sources */,
@@ -1035,7 +1047,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_RESOURCE_RULES_PATH = "$(SDKROOT)/ResourceRules.plist";
 				DEBUG_INFORMATION_FORMAT = dwarf;
-                DEVELOPMENT_TEAM = B52TY2Q6KY;
+				DEVELOPMENT_TEAM = B52TY2Q6KY;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Sources/Supporting Files/BarMagnet-Prefix.pch";
@@ -1071,7 +1083,7 @@
 				CODE_SIGN_RESOURCE_RULES_PATH = "$(SDKROOT)/ResourceRules.plist";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-                DEVELOPMENT_TEAM = B52TY2Q6KY;
+				DEVELOPMENT_TEAM = B52TY2Q6KY;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Sources/Supporting Files/BarMagnet-Prefix.pch";

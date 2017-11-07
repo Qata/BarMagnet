@@ -105,10 +105,10 @@ enum { PAUSING = 0,
     [label length] ? [requestAppend addObject:[NSString stringWithFormat:@"label=%@", [label stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]]]]
                    : nil;
 
-    NSURL *url = [[NSURL URLWithString:self.getAppendedURL]
-        URLByAppendingPathComponent:[@"php/addtorrent.php?" stringByAppendingString:[requestAppend componentsJoinedByString:@"&"]]];
-
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    NSURLComponents * components = [NSURLComponents componentsWithString:self.getAppendedURL];
+    components.path = [components.path stringByAppendingPathComponent:@"php/addtorrent.php"];
+    components.query = [requestAppend componentsJoinedByString:@"&"];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:components.URL];
     [request setHTTPMethod:@"POST"];
 
     return request;
@@ -128,7 +128,6 @@ enum { PAUSING = 0,
     NSString *label = [[FileHandler.sharedInstance webDataValueForKey:@"label"] orSome:@""];
     NSString *boundary = [NSString stringWithFormat:@"AJAX-----------------------%f", [[NSDate new] timeIntervalSince1970]];
     NSMutableData *body = [NSMutableData new];
-    [request setHTTPMethod:@"POST"];
     [request addValue:[NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary] forHTTPHeaderField:@"Content-Type"];
 
     if ([dir length]) {
@@ -192,6 +191,7 @@ enum { PAUSING = 0,
 }
 
 - (NSString *)parseTorrentFailure:(NSData *)response {
+    NSLog(@"%@", response.toUTF8String);
     return @"An unexpected error occurred";
 }
 

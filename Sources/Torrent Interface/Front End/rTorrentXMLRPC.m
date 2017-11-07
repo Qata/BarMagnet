@@ -32,8 +32,7 @@ enum { PAUSING = 0,
     return self;
 }
 
-- (NSMutableURLRequest *)RPCRequestWithMethodName:(NSString *)methodName view:(NSString *)view andParams:(NSArray *)params;
-{
+- (NSMutableURLRequest *)RPCRequestWithMethodName:(NSString *)methodName view:(NSString *)view andParams:(NSArray *)params {
     NSMutableString *RPCString =
         [NSMutableString stringWithFormat:@"<?xml version=\"1.0\" encoding=\"UTF-8\"?><methodCall><methodName>%@</methodName><params>", methodName];
     if (view) {

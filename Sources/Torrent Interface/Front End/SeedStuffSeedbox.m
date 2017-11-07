@@ -27,6 +27,10 @@
     return NO;
 }
 
++ (BOOL)isSeedbox {
+    return YES;
+}
+
 - (NSString *)getBaseURL {
     NSString *urlString = nil;
     NSString *port = [self.class defaultPort];

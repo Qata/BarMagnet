@@ -14,6 +14,7 @@
 #import "TorrentJobChecker.h"
 #import "rTorrentXMLRPC.h"
 #import "ruTorrent.h"
+#import "XirvikQRCodeViewController.h"
 
 @interface AddTorrentClientTableViewController () <UIPickerViewDataSource, UIPickerViewDelegate, UIAlertViewDelegate>
 @property(nonatomic, strong) NSArray *cellNames;
@@ -53,12 +54,7 @@
     self.sortedArray = [[TorrentDelegate.sharedInstance.torrentDelegates allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
     [self.pickerView selectRow:[self.sortedArray indexOfObject:[SeedStuffSeedbox.class name]] inComponent:0 animated:NO];
     self.selectedClient = [SeedStuffSeedbox.class name];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self.navigationController setToolbarHidden:NO animated:NO];
-
+    
     if (self.clientDictionary) {
         if ([self.sortedArray containsObject:self.clientDictionary[@"type"]]) {
             [self.pickerView selectRow:[self.sortedArray indexOfObject:self.clientDictionary[@"type"]] inComponent:0 animated:NO];
@@ -78,6 +74,11 @@
     }
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setToolbarHidden:NO animated:NO];
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self hideCells];
@@ -85,9 +86,11 @@
 
 - (void)hideCells {
     Class torrentDelegate = TorrentDelegate.sharedInstance.torrentDelegates[self.selectedClient];
-    [self cell:self.portCell setHidden:[torrentDelegate isEqual:SeedStuffSeedbox.class]];
-    [self cell:self.useSSLCell setHidden:[torrentDelegate isEqual:SeedStuffSeedbox.class]];
+    [self cell:self.portCell setHidden:[torrentDelegate isSeedbox]];
+    [self cell:self.useSSLCell setHidden:[torrentDelegate isSeedbox]];
     [self cell:self.seedStuffCell setHidden:![torrentDelegate isEqual:SeedStuffSeedbox.class]];
+    [self cell:self.scanQRCell setHidden:![torrentDelegate hasQR]];
+    [self cell:self.usernameCell setHidden:![torrentDelegate showsUsername]];
     [self cell:self.labelCell setHidden:![torrentDelegate isEqual:ruTorrent.class]];
     [self cell:self.directoryCell setHidden:![torrentDelegate supportsDirectoryChoice]];
     [self cell:self.relativePathCell setHidden:![torrentDelegate supportsRelativePath]];
@@ -188,6 +191,12 @@
         [self.navigationController popViewControllerAnimated:YES];
     } else {
         [self dismissViewControllerAnimated:YES completion:nil];
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.destinationViewController isKindOfClass:[XirvikQRCodeViewController class]]) {
+        ((XirvikQRCodeViewController *)segue.destinationViewController).delegate = self;
     }
 }
 

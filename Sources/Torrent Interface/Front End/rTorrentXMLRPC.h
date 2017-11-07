@@ -9,5 +9,5 @@
 #import "TorrentClient.h"
 
 @interface rTorrentXMLRPC : TorrentClient
-
+- (NSMutableURLRequest *)RPCRequestWithMethodName:(NSString *)methodName view:(NSString *)view andParams:(NSArray *)params;
 @end

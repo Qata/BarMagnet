@@ -38,6 +38,9 @@ enum { WCS_ALL_FIELDS_HEIGHT = 165,
 + (BOOL)supportsRelativePath;
 + (BOOL)supportsLabels;
 + (BOOL)supportsDirectoryChoice;
++ (BOOL)isSeedbox;
++ (BOOL)hasQR;
++ (BOOL)showsUsername;
 - (BOOL)isValidJobsData:(NSData *)data;
 - (NSMutableURLRequest *)checkTorrentJobs;
 - (NSInteger)windowChangeHeightValue;

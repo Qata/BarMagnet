@@ -13,6 +13,7 @@
 #import "TorrentDelegate.h"
 #import "TorrentJobChecker.h"
 #import <CoreMotion/CoreMotion.h>
+@import UserNotifications;
 
 @implementation AppDelegate
 
@@ -24,6 +25,8 @@
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [[UNUserNotificationCenter currentNotificationCenter] requestAuthorizationWithOptions:(UNAuthorizationOptionAlert) completionHandler:^(BOOL _, NSError * _Nullable error) {}];
+
     if ([UIApplication.sharedApplication respondsToSelector:@selector(setMinimumBackgroundFetchInterval:)]) {
         [UIApplication.sharedApplication setMinimumBackgroundFetchInterval:60];
     }
@@ -99,7 +102,7 @@
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
-    [UIApplication.sharedApplication cancelAllLocalNotifications];
+    [UNUserNotificationCenter.currentNotificationCenter removeAllPendingNotificationRequests];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {

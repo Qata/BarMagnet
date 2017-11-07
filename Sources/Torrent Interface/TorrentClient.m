@@ -16,6 +16,7 @@
 #import "NSBencodeSerialization.h"
 #import "NSData+BEncode.h"
 #import "TorrentClient.h"
+@import UserNotifications;
 
 #define TSDURATION 1.85
 
@@ -308,15 +309,27 @@
             }
         }
     }
-
-    for (NSString *name in notificationJobs) {
-        UILocalNotification *localNotification = UILocalNotification.new;
-        localNotification.fireDate = NSDate.date;
-        localNotification.alertBody = [NSString stringWithFormat:@"%@ finished downloading", name];
-        localNotification.soundName = UILocalNotificationDefaultSoundName;
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [UIApplication.sharedApplication scheduleLocalNotification:localNotification];
-        });
+    
+    NSString * title = nil;
+    NSString * body = nil;
+    switch (notificationJobs.count) {
+        case 0:
+            break;
+        case 1:
+            title = @"Download finished";
+            body = [NSString stringWithFormat:@"%@ finished downloading", notificationJobs[0]];
+            break;
+        default:
+            title = [NSString stringWithFormat:@"%lu downloads finished", (unsigned long)notificationJobs.count];
+            body = [NSString stringWithFormat:@"%@ and %@ finished downloading", [[notificationJobs subarrayWithRange:NSMakeRange(0, notificationJobs.count - 1)] componentsJoinedByString:@", "], notificationJobs.lastObject];
+            break;
+    }
+    
+    if (title && body) {
+        UNMutableNotificationContent * notificationContent = [UNMutableNotificationContent new];
+        notificationContent.title = title;
+        notificationContent.body = body;
+        [[UNUserNotificationCenter currentNotificationCenter] addNotificationRequest:[UNNotificationRequest requestWithIdentifier:@"Notification" content:notificationContent trigger:nil] withCompletionHandler:^(NSError * _Nullable error) {}];
     }
 }
 
@@ -371,6 +384,8 @@
 
     url = [url stringByReplacingOccurrencesOfString:@"http://" withString:@""];
     url = [url stringByReplacingOccurrencesOfString:@"https://" withString:@""];
+    
+    NSLog(@"%@", [NSString stringWithFormat:@"%@%@:%@%@", [self getHyperTextString], url, port, self.getURLAppendString]);
 
     return [NSString stringWithFormat:@"%@%@:%@%@", [self getHyperTextString], url, port, self.getURLAppendString];
 }
@@ -423,6 +438,18 @@
 
 - (BOOL)supportsCompletedDate {
     return NO;
+}
+
++ (BOOL)isSeedbox {
+    return NO;
+}
+
++ (BOOL)hasQR {
+    return NO;
+}
+
++ (BOOL)showsUsername {
+    return YES;
 }
 
 - (BOOL)isHostOnline {
