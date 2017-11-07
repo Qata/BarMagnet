@@ -1083,7 +1083,7 @@ To find out more, tap this message.</string>
             </objects>
             <point key="canvasLocation" x="4253.6000000000004" y="286.69950738916259"/>
         </scene>
-        <!--Join #barmagnet on irc.krono.net-->
+        <!--Join gitter.im/BarMagnet_iOS-->
         <scene sceneID="M7p-TN-kNE">
             <objects>
                 <tableViewController hidesBottomBarWhenPushed="YES" id="pml-eH-yYW" sceneMemberID="viewController">
@@ -1367,7 +1367,7 @@ e.g. "http://www.google.com/q=%query%"</string>
                             <outlet property="delegate" destination="pml-eH-yYW" id="i99-l5-r7j"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Join #barmagnet on irc.krono.net" id="EbD-SJ-rsp"/>
+                    <navigationItem key="navigationItem" title="Join gitter.im/BarMagnet_iOS" id="EbD-SJ-rsp"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GuO-ky-5dM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -76,7 +76,7 @@ static TorrentJobChecker *sharedInstance;
             NSMutableURLRequest *request =
                 [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[TorrentDelegate.sharedInstance.currentlySelectedClient getAppendedURL]]];
             [request setTimeoutInterval:0x20];
-            if (request) {
+            if (request && request.URL) {
                 NSData *receivedData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
                 if (![receivedData length]) {
                     [request setURL:[NSURL URLWithString:[TorrentDelegate.sharedInstance.currentlySelectedClient getUserFriendlyAppendedURL]]];
