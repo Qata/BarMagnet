@@ -43,6 +43,8 @@ static TorrentJobChecker *sharedInstance;
         @autoreleasepool {
             double t = clock();
             NSMutableURLRequest *request = [TorrentDelegate.sharedInstance.currentlySelectedClient checkTorrentJobs];
+            NSLog(@"%@", request.URL.absoluteString);
+            NSLog(@"%@", request.allHTTPHeaderFields);
             [request setTimeoutInterval:0x20];
             if (request) {
                 //[NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:request.URL.host];

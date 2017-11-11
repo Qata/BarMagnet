@@ -37,7 +37,6 @@
     [request setValue:@"gzip" forHTTPHeaderField:@"Accept-Encoding"];
     [request setValue:@"Basic Og==" forHTTPHeaderField:@"Authorization"];
     [request setValue:[[self getWebDataForKey:@"password"] orSome:@""] forHTTPHeaderField:@"X-QR-Auth"];
-    NSLog(@"%@", request.URL.absoluteString);
     return request;
 }
 

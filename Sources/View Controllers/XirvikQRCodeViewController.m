@@ -17,7 +17,7 @@
 
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection {
     NSArray * elements = [[metadataObjects.firstObject stringValue] componentsSeparatedByString:@"\n"];
-    if (elements.count == 3 && [elements[1] isEqual:@"P"] && !self.dismissing) {
+    if (elements.count == 3 && !self.dismissing) {
         self.dismissing = YES;
         self.delegate.hostnameField.text = elements[0];
         self.delegate.passwordField.text = elements[2];
