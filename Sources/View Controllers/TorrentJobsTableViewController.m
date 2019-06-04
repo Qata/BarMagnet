@@ -130,7 +130,7 @@ enum ORDER { COMPLETED = 1,
 
 - (void)initialiseHeader {
     self.header = [UILabel.alloc initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, [self sizeForDevice])];
-    self.header.backgroundColor = [UIColor colorWithRed:0 green:0.9 blue:.2 alpha:.85];
+    self.header.backgroundColor = [UIColor colorWithRed:0 green:.9 blue:.4 alpha:1];
     self.header.textColor = [UIColor whiteColor];
     self.header.text = @"Attempting Connection";
     self.header.font = [UIFont fontWithName:@"Arial" size:self.sizeForDevice - 6];
@@ -474,7 +474,7 @@ enum ORDER { COMPLETED = 1,
         resumeOrPauseAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"Resume" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
             [TorrentDelegate.sharedInstance.currentlySelectedClient resumeTorrent:currentJob[@"hash"]];
         }];
-        resumeOrPauseAction.backgroundColor = [UIColor greenColor];
+        resumeOrPauseAction.backgroundColor = [UIColor colorWithRed:0 green:.9 blue:.4 alpha:1];
     } else {
         resumeOrPauseAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"Pause" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
             [TorrentDelegate.sharedInstance.currentlySelectedClient pauseTorrent:currentJob[@"hash"]];
@@ -516,7 +516,7 @@ enum ORDER { COMPLETED = 1,
     cell.downloadSpeed.text = [NSString stringWithFormat:@"%@ ↓", currentJob[@"downloadSpeed"]];
 
     if ([currentJob[@"status"] isEqualToString:@"Seeding"]) {
-        cell.percentBar.progressTintColor = [UIColor colorWithRed:0 green:1 blue:.4 alpha:1];
+        cell.percentBar.progressTintColor = [UIColor colorWithRed:0 green:.9 blue:.4 alpha:1];
     } else if ([currentJob[@"status"] isEqualToString:@"Downloading"]) {
         cell.percentBar.progressTintColor = [UIColor colorWithRed:0 green:.478 blue:1 alpha:1];
     } else {
