@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Zb0-tx-VhR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Zb0-tx-VhR">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Arial.ttf">
-            <string>ArialMT</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Torrent Jobs Table View Controller-->
         <scene sceneID="r3n-XC-82q">
@@ -34,7 +27,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="283476564" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gqI-gC-jvO">
-                                            <rect key="frame" x="16" y="0.0" width="343.66666666666669" height="15.666666666666666"/>
+                                            <rect key="frame" x="16" y="0.0" width="343" height="15.666666666666666"/>
                                             <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="14"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -45,26 +38,26 @@
                                                 <constraint firstAttribute="height" constant="2" id="EOQ-kf-i9r"/>
                                             </constraints>
                                         </view>
-                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Q2R-VP-icM">
-                                            <rect key="frame" x="16" y="21.666666666666668" width="343.66666666666669" height="18.000000000000004"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="128462083" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Download Queued" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="102.7" translatesAutoresizingMaskIntoConstraints="NO" id="HbO-La-vZr">
+                                            <rect key="frame" x="16" y="25" width="83" height="11.333333333333336"/>
+                                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="10"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="128462083" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ETA: 1m0s" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wc1-Vq-gEd">
+                                            <rect key="frame" x="310" y="25" width="49" height="11.333333333333336"/>
+                                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="10"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="dRa-Jb-MEp">
+                                            <rect key="frame" x="119.33333333333333" y="25" width="136.33333333333337" height="11.333333333333336"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="128462083" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Downloading" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HbO-La-vZr">
-                                                    <rect key="frame" x="0.0" y="3.333333333333333" width="80" height="11.333333333333336"/>
-                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="10"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="358979323" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1024.9 KiB/s ↓" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Di-Pp-fcX">
-                                                    <rect key="frame" x="88" y="3.333333333333333" width="80" height="11.333333333333336"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="64.666666666666671" height="11.333333333333334"/>
                                                     <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="10"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="846264338" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="↑ 1024.9 KiB/s" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BIE-cH-WTt">
-                                                    <rect key="frame" x="176" y="3.333333333333333" width="79.666666666666686" height="11.333333333333336"/>
-                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="10"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="128462083" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ETA: 52m53s" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wc1-Vq-gEd">
-                                                    <rect key="frame" x="263.66666666666669" y="3.333333333333333" width="80" height="11.333333333333336"/>
+                                                    <rect key="frame" x="71.666666666666657" y="0.0" width="64.666666666666657" height="11.333333333333334"/>
                                                     <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="10"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -72,16 +65,20 @@
                                         </stackView>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="dRa-Jb-MEp" firstAttribute="leading" relation="lessThanOrEqual" secondItem="HbO-La-vZr" secondAttribute="trailing" constant="20.333333333333329" id="Apc-Sh-Oga"/>
+                                        <constraint firstItem="wc1-Vq-gEd" firstAttribute="trailing" secondItem="MCQ-z0-kar" secondAttribute="trailing" id="FEc-ln-isP"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="gqI-gC-jvO" secondAttribute="trailing" id="Gnq-hG-gbZ"/>
+                                        <constraint firstItem="wc1-Vq-gEd" firstAttribute="leading" relation="lessThanOrEqual" secondItem="BIE-cH-WTt" secondAttribute="trailing" constant="54.333333333333343" id="I9F-f2-y8q"/>
                                         <constraint firstItem="gqI-gC-jvO" firstAttribute="top" secondItem="ttq-yW-b1e" secondAttribute="top" id="ITh-vj-o22"/>
-                                        <constraint firstItem="Q2R-VP-icM" firstAttribute="top" secondItem="MCQ-z0-kar" secondAttribute="bottom" constant="2" id="OxU-nm-SEy"/>
+                                        <constraint firstItem="wc1-Vq-gEd" firstAttribute="top" secondItem="MCQ-z0-kar" secondAttribute="bottom" constant="5.3333333333333321" id="WMb-S9-mII"/>
+                                        <constraint firstItem="HbO-La-vZr" firstAttribute="top" secondItem="MCQ-z0-kar" secondAttribute="bottom" constant="5.3333333333333321" id="Wjc-uV-nSy"/>
+                                        <constraint firstItem="dRa-Jb-MEp" firstAttribute="centerX" secondItem="MCQ-z0-kar" secondAttribute="centerX" id="bnv-el-wmv"/>
                                         <constraint firstItem="MCQ-z0-kar" firstAttribute="leading" secondItem="ttq-yW-b1e" secondAttribute="leadingMargin" id="cRk-i6-Thd"/>
-                                        <constraint firstAttribute="bottom" secondItem="Q2R-VP-icM" secondAttribute="bottom" id="fKY-ia-wC2"/>
                                         <constraint firstItem="gqI-gC-jvO" firstAttribute="leading" secondItem="ttq-yW-b1e" secondAttribute="leadingMargin" id="gI6-jj-YKj"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="MCQ-z0-kar" secondAttribute="trailing" id="hIX-z8-PJh"/>
                                         <constraint firstItem="MCQ-z0-kar" firstAttribute="top" secondItem="gqI-gC-jvO" secondAttribute="bottom" constant="2" id="mWI-F3-zTb"/>
-                                        <constraint firstItem="Q2R-VP-icM" firstAttribute="leading" secondItem="MCQ-z0-kar" secondAttribute="leading" id="oGy-d9-tKP"/>
-                                        <constraint firstItem="Q2R-VP-icM" firstAttribute="trailing" secondItem="MCQ-z0-kar" secondAttribute="trailing" id="wQm-Xb-Fas"/>
+                                        <constraint firstItem="MCQ-z0-kar" firstAttribute="leading" secondItem="HbO-La-vZr" secondAttribute="leading" id="xdm-c3-HU1"/>
+                                        <constraint firstItem="dRa-Jb-MEp" firstAttribute="top" secondItem="MCQ-z0-kar" secondAttribute="bottom" constant="5.3333333333333357" id="zTq-SQ-Wls"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -142,7 +139,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CCc-9c-cEk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2078.4000000000001" y="-197.9010494752624"/>
+            <point key="canvasLocation" x="2077.5999999999999" y="-198.02955665024632"/>
         </scene>
         <!--Torrent Detail View Controller-->
         <scene sceneID="0Al-cP-Sxb">
@@ -154,7 +151,7 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RegularCell" textLabel="nZm-mH-FfZ" style="IBUITableViewCellStyleDefault" id="lFO-XC-OG5">
-                                <rect key="frame" x="0.0" y="55.333333333333336" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="55.333333333333343" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lFO-XC-OG5" id="y6l-h0-mtP">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -383,7 +380,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="kGm-1q-hKT">
-                        <rect key="frame" x="0.0" y="729.5" width="375" height="49"/>
+                        <rect key="frame" x="0.0" y="729" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
@@ -507,7 +504,7 @@
                                                     </connections>
                                                 </textField>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Query Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jl8-su-6T9">
-                                                    <rect key="frame" x="16" y="12" width="96" height="21"/>
+                                                    <rect key="frame" x="16" y="11.666666666666664" width="96" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="96" id="rd6-UC-rMr"/>
                                                     </constraints>
@@ -534,7 +531,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Query URL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZM-js-4dX">
-                                                    <rect key="frame" x="16" y="12" width="96" height="21"/>
+                                                    <rect key="frame" x="16" y="11.666666666666664" width="96" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="96" id="3X7-bS-sXJ"/>
                                                     </constraints>
@@ -571,7 +568,7 @@
                                                     <rect key="frame" x="310" y="6.6666666666666679" width="51" height="31.000000000000004"/>
                                                 </switch>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uses %query%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VT6-AK-wu5">
-                                                    <rect key="frame" x="16" y="12" width="113" height="21"/>
+                                                    <rect key="frame" x="16.000000000000007" y="11.666666666666664" width="114.66666666666669" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -703,7 +700,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iwp-l2-1rE">
-                                                    <rect key="frame" x="137" y="6" width="100" height="30"/>
+                                                    <rect key="frame" x="137.66666666666666" y="7" width="100" height="30"/>
                                                     <state key="normal" title="Scan QR Code"/>
                                                     <connections>
                                                         <segue destination="Lyj-rM-o0W" kind="show" id="6Z3-eW-gB3"/>
@@ -802,7 +799,7 @@
                                                     </connections>
                                                 </textField>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Port" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KgL-iH-x1E">
-                                                    <rect key="frame" x="28" y="11" width="76" height="18"/>
+                                                    <rect key="frame" x="28" y="11.333333333333336" width="76" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="76" id="1pz-LP-1KB"/>
                                                     </constraints>
@@ -836,7 +833,7 @@
                                                     </connections>
                                                 </textField>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="00w-Af-hEp">
-                                                    <rect key="frame" x="28" y="12" width="76" height="18"/>
+                                                    <rect key="frame" x="28" y="12.333333333333336" width="76" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="76" id="EVF-6s-ucw"/>
                                                     </constraints>
@@ -862,7 +859,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mYy-fC-o1k">
-                                                    <rect key="frame" x="28" y="12" width="73" height="18"/>
+                                                    <rect key="frame" x="28" y="12.333333333333336" width="73" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="73" id="M9Q-4O-WZM"/>
                                                     </constraints>
@@ -926,7 +923,7 @@
                                                     </connections>
                                                 </textField>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Relative Path" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Opx-zk-6xO">
-                                                    <rect key="frame" x="28" y="13" width="89" height="18"/>
+                                                    <rect key="frame" x="28" y="13.333333333333336" width="89" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -957,7 +954,7 @@
                                                     </connections>
                                                 </textField>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Directory" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iiq-oD-DvA">
-                                                    <rect key="frame" x="28" y="13" width="64" height="18"/>
+                                                    <rect key="frame" x="28" y="13.333333333333336" width="64" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -980,7 +977,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Vq-5B-PjI">
-                                                    <rect key="frame" x="28" y="13" width="38" height="18"/>
+                                                    <rect key="frame" x="28" y="13.333333333333336" width="38" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1021,7 +1018,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bsw-yJ-HWY">
-                                                    <rect key="frame" x="28" y="67.666666666666671" width="319" height="33.333333333333329"/>
+                                                    <rect key="frame" x="28" y="50.666666666666657" width="319" height="50.333333333333343"/>
                                                     <string key="text">You can rent a seedbox from SeedStuff, it's the easiest way to set up a torrenting server.
 To find out more, tap this message.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1102,7 +1099,7 @@ To find out more, tap this message.</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Need a setup guide?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kTQ-Gx-dA2">
-                                                    <rect key="frame" x="16" y="4" width="176" height="21.666666666666668"/>
+                                                    <rect key="frame" x="16" y="4" width="175.66666666666666" height="21.666666666666668"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1221,7 +1218,7 @@ e.g. "http://www.google.com/q=%query%"</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Directory" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="98g-e7-ouN">
-                                                    <rect key="frame" x="20" y="7" width="72" height="21"/>
+                                                    <rect key="frame" x="20" y="7" width="88" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1283,61 +1280,10 @@ e.g. "http://www.google.com/q=%query%"</string>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="ruTorrent" id="11I-Qa-dHy">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="77" id="H4a-DG-h6z">
-                                        <rect key="frame" x="0.0" y="788" width="375" height="77"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="H4a-DG-h6z" id="HXL-gd-Seg">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="76.666666666666671"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="It says &quot;Host Online&quot; but..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xp4-37-1tG">
-                                                    <rect key="frame" x="20" y="7" width="208" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You're probably missing rpc.php, if you can add torrents but you can't see them." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zfh-Re-Pgp">
-                                                    <rect key="frame" x="20" y="36" width="280" height="36"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="128" id="gna-8k-Uv0">
-                                        <rect key="frame" x="0.0" y="865" width="375" height="128"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gna-8k-Uv0" id="2ej-5Z-lM5">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="127.66666666666667"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I'm using rpc.php, but I can't see or do anything" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="03d-Sx-7ej">
-                                                    <rect key="frame" x="20" y="0.0" width="280" height="45"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p4k-fZ-HDP">
-                                                    <rect key="frame" x="20" y="53" width="280" height="67"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <string key="text">You need to set the relative path for ruTorrent. Every other client has their usual defaults as a placeholder, but ruTorrent is special, since no value is a valid value.</string>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
                             <tableViewSection headerTitle="µTorrent" id="DY3-7K-CDO">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="72" id="VAc-3g-gQZ">
-                                        <rect key="frame" x="0.0" y="1015" width="375" height="72"/>
+                                        <rect key="frame" x="0.0" y="788" width="375" height="72"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VAc-3g-gQZ" id="r3H-yT-eGd">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="71.666666666666671"/>
@@ -1371,7 +1317,7 @@ e.g. "http://www.google.com/q=%query%"</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GuO-ky-5dM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5020" y="287"/>
+            <point key="canvasLocation" x="5020" y="286.69950738916259"/>
         </scene>
         <!--Navigation Controller No Auto Rotation-->
         <scene sceneID="6Mc-ao-bZv">
@@ -1428,8 +1374,8 @@ e.g. "http://www.google.com/q=%query%"</string>
         <image name="Safari.png" width="30" height="30"/>
         <image name="Signal.png" width="30" height="30"/>
         <image name="Sorting.png" width="30" height="30"/>
-        <image name="UIButtonBarPlay.png" width="15" height="18"/>
-        <image name="UIButtonBarStop.png" width="17" height="17"/>
+        <image name="UIButtonBarPlay.png" width="15.5" height="18.5"/>
+        <image name="UIButtonBarStop.png" width="17.5" height="17.5"/>
         <image name="gear.png" width="30" height="30"/>
         <image name="info.png" width="30" height="30"/>
     </resources>
