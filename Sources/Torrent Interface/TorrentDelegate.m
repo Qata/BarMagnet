@@ -83,17 +83,16 @@ static TorrentDelegate *sharedInstance;
 }
 
 - (BOOL)handleTorrentFile:(NSString *)fileName {
-    BOOL retVal = NO;
-
     if ([fileName length] && [fileName rangeOfString:@".torrent"].location != NSNotFound) {
         if ([[fileName substringWithRange:NSMakeRange(0, 4)] isEqualToString:@"http"]) {
             [self.currentlySelectedClient handleTorrentURL:[NSURL URLWithString:[fileName stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]]]];
         } else {
             [self.currentlySelectedClient handleTorrentFile:fileName];
         }
-        retVal = YES;
+        return YES;
+    } else {
+        return NO;
     }
-    return retVal;
 }
 
 @end

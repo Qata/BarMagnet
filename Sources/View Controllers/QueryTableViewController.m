@@ -12,8 +12,9 @@
 #import "SVModalWebViewController.h"
 #import "TorrentDelegate.h"
 #import "TorrentDownloaderModalWebViewController.h"
+@import MobileCoreServices;
 
-@interface QueryTableViewController () <UITextFieldDelegate, UIAlertViewDelegate>
+@interface QueryTableViewController () <UITextFieldDelegate, UIAlertViewDelegate, UIDocumentPickerDelegate, UIDocumentMenuDelegate>
 @property(nonatomic, strong) UIAlertView *alertView;
 @property(nonatomic, strong) NSString *previousQuery;
 @end
@@ -23,6 +24,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)documentPicker:(UIDocumentPickerViewController *)controller didPickDocumentAtURL:(NSURL *)url {
+    NSLog("%@", url);
+    [[TorrentDelegate sharedInstance] handleTorrentFile:url.absoluteString];
+}
+
+- (void)documentMenu:(UIDocumentMenuViewController *)documentMenu didPickDocumentPicker:(UIDocumentPickerViewController *)documentPicker {
+    documentPicker.delegate = self;
+    [self presentViewController:documentPicker animated:YES completion:nil];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField_UniqueString *)textField {
@@ -91,14 +102,14 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     switch (section) {
-    case 0:
-        return 2;
-    case 1:
-        return [[NSUserDefaults.standardUserDefaults objectForKey:@"queries"] count];
-    case 2:
-        return 1;
-    default:
-        return 0;
+        case 0:
+            return 3;
+        case 1:
+            return [[NSUserDefaults.standardUserDefaults objectForKey:@"queries"] count];
+        case 2:
+            return 1;
+        default:
+            return 0;
     }
 }
 
@@ -111,7 +122,7 @@
         cell.queryDictionary = query;
     } else if (!indexPath.section) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"System"];
-        cell.textLabel.text = @[ @"Open URL", @"Scan QR Code" ][indexPath.row];
+        cell.textLabel.text = @[ @"Open URL", @"Scan QR Code", @"Browse Files" ][indexPath.row];
     } else {
         cell = [tableView dequeueReusableCellWithIdentifier:@"Add"];
     }
@@ -136,41 +147,39 @@
             if (self.previousQuery) {
                 textField.text = self.previousQuery;
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                  [textField selectAll:nil];
+                    [textField selectAll:nil];
                 });
             }
             [self.alertView show];
         } else {
             NSString *query = [NSUserDefaults.standardUserDefaults objectForKey:@"queries"][indexPath.row][@"query"];
             TorrentDownloaderModalWebViewController *webViewController = [TorrentDownloaderModalWebViewController.alloc
-                initWithAddress:[NSString stringWithFormat:@"%@%@", [query rangeOfString:@"https://"].location != NSNotFound ? @"" : @"http://", query]];
+                                                                          initWithAddress:[NSString stringWithFormat:@"%@%@", [query rangeOfString:@"https://"].location != NSNotFound ? @"" : @"http://", query]];
             [self.navigationController presentViewController:webViewController animated:YES completion:nil];
         }
-    } else if (!indexPath.section) {
+    } else if (indexPath.section == 0) {
         switch (indexPath.row) {
-        case 0: {
-            self.alertView = [UIAlertView.alloc initWithTitle:@"Open URL" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Open", nil];
-            self.alertView.tag = -1;
-            self.alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
-            [self.alertView textFieldAtIndex:0].keyboardType = UIKeyboardTypeURL;
-            [self.alertView textFieldAtIndex:0].returnKeyType = UIReturnKeyGo;
-            [self.alertView textFieldAtIndex:0].delegate = self;
-            [self.alertView show];
-            break;
-        }
-        case 1: {
-
-            if ([[UIDevice.currentDevice.systemVersion componentsSeparatedByString:@"."].firstObject integerValue] >= 7) {
-                [self performSegueWithIdentifier:@"scanQRCode" sender:self];
-            } else {
-                [[UIAlertView.alloc initWithTitle:@"Unsupported Feature"
-                                          message:@"This feature is only supported on devices running 7.0 or greater"
-                                         delegate:nil
-                                cancelButtonTitle:@"Okay"
-                                otherButtonTitles:nil] show];
+            case 0: {
+                self.alertView = [UIAlertView.alloc initWithTitle:@"Open URL" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Open", nil];
+                self.alertView.tag = -1;
+                self.alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+                [self.alertView textFieldAtIndex:0].keyboardType = UIKeyboardTypeURL;
+                [self.alertView textFieldAtIndex:0].returnKeyType = UIReturnKeyGo;
+                [self.alertView textFieldAtIndex:0].delegate = self;
+                [self.alertView show];
+                break;
             }
-            break;
-        }
+            case 1: {
+                [self performSegueWithIdentifier:@"scanQRCode" sender:self];
+                break;
+            }
+            case 2: {
+                UIDocumentMenuViewController * picker = [[UIDocumentMenuViewController alloc] initWithDocumentTypes:@[(__bridge NSString *)kUTTypeTIFF] inMode: UIDocumentPickerModeOpen];
+                picker.delegate = self;
+                picker.modalPresentationStyle = UIModalPresentationFormSheet;
+                [self presentViewController:picker animated:YES completion:nil];
+                break;
+            }
         }
     }
 }
@@ -223,8 +232,8 @@
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView
-    targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
-                         toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath {
+targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
+       toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath {
     if (proposedDestinationIndexPath.section < 1) {
         return [NSIndexPath indexPathForRow:0 inSection:1];
     } else if (proposedDestinationIndexPath.section > 1) {
