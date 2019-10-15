@@ -40,7 +40,11 @@
     [super viewWillAppear:animated];
     [self.navigationController setToolbarHidden:YES animated:NO];
     [self selectCurrentClient];
-    [self.tableView reloadData];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -161,6 +165,7 @@
             [segue.destinationViewController setClientDictionary:sender];
         }
     }
+    segue.destinationViewController.modalPresentationStyle = UIModalPresentationFullScreen;
 }
 
 @end

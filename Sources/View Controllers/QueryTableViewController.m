@@ -27,7 +27,6 @@
 }
 
 - (void)documentPicker:(UIDocumentPickerViewController *)controller didPickDocumentAtURL:(NSURL *)url {
-    NSLog("%@", url);
     [[TorrentDelegate sharedInstance] handleTorrentFile:url viewController:self];
 }
 
@@ -79,9 +78,9 @@
     [self.navigationController presentViewController:webViewController animated:YES completion:nil];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationNone];
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -254,6 +253,7 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
             [segue.destinationViewController setQueryDictionary:[sender queryDictionary]];
         }
     }
+    segue.destinationViewController.modalPresentationStyle = UIModalPresentationFullScreen;
 }
 
 @end
