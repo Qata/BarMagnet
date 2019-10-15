@@ -82,12 +82,23 @@ static TorrentDelegate *sharedInstance;
     [self.currentlySelectedClient handleMagnetLink:magnetLink];
 }
 
-- (BOOL)handleTorrentFile:(NSString *)fileName {
-    if ([fileName length] && [fileName rangeOfString:@".torrent"].location != NSNotFound) {
-        if ([[fileName substringWithRange:NSMakeRange(0, 4)] isEqualToString:@"http"]) {
-            [self.currentlySelectedClient handleTorrentURL:[NSURL URLWithString:[fileName stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]]]];
+- (BOOL)handleTorrentFile:(NSURL *)url viewController:(UIViewController *)vc {
+    if ([url.absoluteString rangeOfString:@".torrent"].location != NSNotFound) {
+        if ([[url.scheme substringWithRange:NSMakeRange(0, 4)] isEqualToString:@"http"]) {
+            [self.currentlySelectedClient handleTorrentURL:url];
         } else {
-            [self.currentlySelectedClient handleTorrentFile:fileName];
+            [url startAccessingSecurityScopedResource];
+            NSFileCoordinator *coordinator = [[NSFileCoordinator alloc] init];
+            __block NSData *data;
+            [coordinator coordinateReadingItemAtURL:url options:0 error:nil byAccessor:^(NSURL *newURL) {
+                data = [NSData dataWithContentsOfURL:url];
+            }];
+            [url stopAccessingSecurityScopedResource];
+            if (data) {
+                [self.currentlySelectedClient handleTorrentData:data withURL:url];
+                [self.currentlySelectedClient showNotification:vc];
+                [self.currentlySelectedClient showSuccessMessage];
+            }
         }
         return YES;
     } else {

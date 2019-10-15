@@ -28,7 +28,7 @@
 
 - (void)documentPicker:(UIDocumentPickerViewController *)controller didPickDocumentAtURL:(NSURL *)url {
     NSLog("%@", url);
-    [[TorrentDelegate sharedInstance] handleTorrentFile:url.absoluteString];
+    [[TorrentDelegate sharedInstance] handleTorrentFile:url viewController:self];
 }
 
 - (void)documentMenu:(UIDocumentMenuViewController *)documentMenu didPickDocumentPicker:(UIDocumentPickerViewController *)documentPicker {
@@ -41,7 +41,7 @@
     if ([text length]) {
         [self.alertView dismissWithClickedButtonIndex:self.alertView.cancelButtonIndex animated:YES];
         if (self.alertView && self.alertView.tag == -1) {
-            [self openURL:text];
+            [self openURL:[NSURL URLWithString:text]];
         } else if (self.alertView) {
             [self search:[self.alertView textFieldAtIndex:0].text withQuery:[NSUserDefaults.standardUserDefaults objectForKey:@"queries"][self.alertView.tag]];
         }
@@ -49,21 +49,19 @@
     return [textField resignFirstResponder];
 }
 
-- (void)openURL:(NSString *)text {
+- (void)openURL:(NSURL *)url {
     NSString *magnet = @"magnet:";
-    if (text.length > magnet.length && [[text substringWithRange:NSMakeRange(0, magnet.length)] isEqual:magnet]) {
-        [[TorrentDelegate sharedInstance] handleMagnet:text];
-        [self.navigationController popViewControllerAnimated:YES];
-    } else if ([text rangeOfString:@".torrent"].location != NSNotFound) {
-        [[TorrentDelegate sharedInstance] handleTorrentFile:text];
-        [self.navigationController popViewControllerAnimated:YES];
+    if ([url.scheme isEqual:magnet]) {
+        [[TorrentDelegate sharedInstance] handleMagnet:url.absoluteString];
+    } else if ([url.path hasSuffix:@".torrent"]) {
+        [[TorrentDelegate sharedInstance] handleTorrentFile:url viewController:self];
     } else {
-        if ([text rangeOfString:@"https://"].location != NSNotFound || [text rangeOfString:@"http://"].location != NSNotFound) {
-            TorrentDownloaderModalWebViewController *webViewController = [TorrentDownloaderModalWebViewController.alloc initWithAddress:text];
+        if ([url.scheme isEqualToString:@"http"] || [url.scheme isEqualToString:@"https"]) {
+            TorrentDownloaderModalWebViewController *webViewController = [TorrentDownloaderModalWebViewController.alloc initWithURL:url];
             [self.navigationController presentViewController:webViewController animated:YES completion:nil];
-        } else {
+        } else if (url) {
             TorrentDownloaderModalWebViewController *webViewController = [TorrentDownloaderModalWebViewController.alloc
-                initWithAddress:[@"http://" stringByAppendingString:[text stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]]]];
+                initWithURL:url];
             [self.navigationController presentViewController:webViewController animated:YES completion:nil];
         }
     }
@@ -174,7 +172,7 @@
                 break;
             }
             case 2: {
-                UIDocumentMenuViewController * picker = [[UIDocumentMenuViewController alloc] initWithDocumentTypes:@[(__bridge NSString *)kUTTypeTIFF] inMode: UIDocumentPickerModeOpen];
+                UIDocumentMenuViewController * picker = [[UIDocumentMenuViewController alloc] initWithDocumentTypes:@[@"public.data"] inMode: UIDocumentPickerModeOpen];
                 picker.delegate = self;
                 picker.modalPresentationStyle = UIModalPresentationFormSheet;
                 [self presentViewController:picker animated:YES completion:nil];

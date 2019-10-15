@@ -55,7 +55,7 @@ enum { WCS_ALL_FIELDS_HEIGHT = 165,
 
 - (id)noJobImplementation;
 - (void)handleMagnetLink:(NSString *)magnetLink;
-- (void)handleTorrentFile:(NSString *)filePath;
+- (void)handleTorrentFile:(NSURL *)url;
 - (void)handleTorrentURL:(NSURL *)fileURL;
 - (void)handleTorrentData:(NSData *)data withURL:(NSURL *)fileURL;
 - (void)pauseTorrent:(NSString *)hash;
@@ -64,7 +64,7 @@ enum { WCS_ALL_FIELDS_HEIGHT = 165,
 - (void)pauseAllTorrents;
 - (void)resumeAllTorrents;
 - (void)handleTorrentJobs;
-- (void)showNotification:(UIViewController *)viewController;
+- (void)showSuccessMessage;
 - (void)insertTorrentJobsDictWithArray:(NSArray *)array intoDict:(NSMutableDictionary *)dict;
 
 - (NSString *)getBaseURL;

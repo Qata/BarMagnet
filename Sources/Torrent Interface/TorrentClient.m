@@ -224,8 +224,8 @@
     }
 }
 
-- (void)handleTorrentFile:(NSString *)filePath {
-    [self handleTorrentData:[[NSFileManager defaultManager] contentsAtPath:filePath] withURL:nil];
+- (void)handleTorrentFile:(NSURL *)url {
+    [self handleTorrentData:[[NSFileManager defaultManager] contentsAtPath:url.absoluteString] withURL:nil];
 }
 
 - (void)handleTorrentURL:(NSURL *)fileURL {
@@ -493,22 +493,26 @@
     }
 }
 
+- (void)showSuccessMessage {
+    if (self.notificationViewController) {
+        [TSMessage showNotificationInViewController:self.notificationViewController
+                                              title:@"Torrent added successfully"
+                                           subtitle:torrentName
+                                              image:nil
+                                               type:TSMessageNotificationTypeSuccess
+                                           duration:TSDURATION
+                                           callback:nil
+                                        buttonTitle:nil
+                                     buttonCallback:nil
+                                         atPosition:TSMessageNotificationPositionTop
+                               canBeDismissedByUser:YES];
+    }
+}
+
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     [UIApplication.sharedApplication setNetworkActivityIndicatorVisible:NO];
     if ([self receivedSuccessConditional:responseData]) {
-        if (self.notificationViewController) {
-            [TSMessage showNotificationInViewController:self.notificationViewController
-                                                  title:@"Torrent added successfully"
-                                               subtitle:torrentName
-                                                  image:nil
-                                                   type:TSMessageNotificationTypeSuccess
-                                               duration:TSDURATION
-                                               callback:nil
-                                            buttonTitle:nil
-                                         buttonCallback:nil
-                                             atPosition:TSMessageNotificationPositionTop
-                                   canBeDismissedByUser:YES];
-        }
+        [self showSuccessMessage];
     } else if ([[responseData toUTF8String] length] > 1) {
         if (self.notificationViewController) {
             [TSMessage showNotificationInViewController:self.notificationViewController

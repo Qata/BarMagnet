@@ -12,7 +12,7 @@
 + (TorrentDelegate *)sharedInstance;
 - (TorrentClient *)currentlySelectedClient;
 - (void)handleMagnet:(NSString *)magnetLink;
-- (BOOL)handleTorrentFile:(NSString *)torrentFilePath;
+- (BOOL)handleTorrentFile:(NSURL *)url viewController:(UIViewController *)vc;
 
 @property(nonatomic, strong) TorrentClient *currentlySelectedClient;
 @property(nonatomic, strong) NSArray *torrentClasses;

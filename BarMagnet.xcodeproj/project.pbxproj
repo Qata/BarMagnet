@@ -308,6 +308,7 @@
 		9EA311871BB6515400A91454 /* Xirvik_rTorrent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Xirvik_rTorrent.m; sourceTree = "<group>"; };
 		9EA8DB141F87390100B852A6 /* Signal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Signal.png; sourceTree = "<group>"; };
 		9EA8DB151F87390200B852A6 /* Signal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Signal@2x.png"; sourceTree = "<group>"; };
+		9EBFE8842355B4CA0039AF5B /* BarMagnet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BarMagnet.entitlements; sourceTree = "<group>"; };
 		9EC45B631FAD5AA900B966C6 /* Xirvik_Deluge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Xirvik_Deluge.h; sourceTree = "<group>"; };
 		9EC45B641FAD5AA900B966C6 /* Xirvik_Deluge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Xirvik_Deluge.m; sourceTree = "<group>"; };
 		9EC45B661FAD857200B966C6 /* XirvikQRCodeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XirvikQRCodeViewController.h; sourceTree = "<group>"; };
@@ -349,6 +350,7 @@
 		23AC2B15175D835600FCFA71 = {
 			isa = PBXGroup;
 			children = (
+				9EBFE8842355B4CA0039AF5B /* BarMagnet.entitlements */,
 				23F0379418C163A400B4D289 /* README.md */,
 				2363424118C485A700F66225 /* LICENSE.txt */,
 				23A868EA18BF36DB0066E383 /* NSBencodeSerialization.xcodeproj */,
@@ -753,6 +755,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				da,
 				"es-ES",
@@ -1043,6 +1046,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = BarMagnet.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_RESOURCE_RULES_PATH = "$(SDKROOT)/ResourceRules.plist";
@@ -1064,7 +1068,7 @@
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/NSBencodeSerialization-ezakathubkhhsxayghzwbjqodwih/Build/Products/Debug-iphoneos",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Qata.BarMagnet;
+				PRODUCT_BUNDLE_IDENTIFIER = consulting.monadic.BarMagnet;
 				PRODUCT_NAME = BarMagnet;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -1078,6 +1082,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = BarMagnet.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_RESOURCE_RULES_PATH = "$(SDKROOT)/ResourceRules.plist";
@@ -1099,7 +1104,7 @@
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/NSBencodeSerialization-ezakathubkhhsxayghzwbjqodwih/Build/Products/Debug-iphoneos",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Qata.BarMagnet;
+				PRODUCT_BUNDLE_IDENTIFIER = consulting.monadic.BarMagnet;
 				PRODUCT_NAME = BarMagnet;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;

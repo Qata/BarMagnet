@@ -170,44 +170,6 @@ enum ORDER { COMPLETED = 1,
     [self receiveUpdateTableNotification];
 }
 
-- (IBAction)addTorrentPopup:(id)sender {
-    UIAlertController *addTorrentAlert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleAlert];
-    [addTorrentAlert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
-    [addTorrentAlert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-        
-    }];
-    [addTorrentAlert addAction:[UIAlertAction actionWithTitle:@"Open URL" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        NSString *text = addTorrentAlert.textFields.firstObject.text;
-        if (text.length == 0) {
-            return;
-        }
-        NSString *magnet = @"magnet:";
-        if (text.length > magnet.length && [[text substringWithRange:NSMakeRange(0, magnet.length)] isEqual:magnet]) {
-            [[TorrentDelegate sharedInstance] handleMagnet:text];
-            [self.navigationController popViewControllerAnimated:YES];
-        } else if ([text rangeOfString:@".torrent"].location != NSNotFound) {
-            [[TorrentDelegate sharedInstance] handleTorrentFile:text];
-            [self.navigationController popViewControllerAnimated:YES];
-        } else {
-            if ([text rangeOfString:@"https://"].location != NSNotFound || [text rangeOfString:@"http://"].location != NSNotFound) {
-                SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithAddress:text];
-                [self.navigationController presentViewController:webViewController animated:YES completion:nil];
-            } else {
-                SVModalWebViewController *webViewController = [[SVModalWebViewController alloc]
-                                                               initWithAddress:[@"http://" stringByAppendingString:[text stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]]]];
-                [self.navigationController presentViewController:webViewController animated:YES completion:nil];
-            }
-        }
-    }]];
-    [addTorrentAlert addAction:[UIAlertAction actionWithTitle:@"Search via Queries" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self performSegueWithIdentifier:@"query" sender:nil];
-    }]];
-    [addTorrentAlert addAction:[UIAlertAction actionWithTitle:@"Scan QR Core" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self performSegueWithIdentifier:@"scan" sender:nil];
-    }]];
-    [self presentViewController:addTorrentAlert animated:YES completion:nil];
-}
-
 - (IBAction)showListOfControlOptions:(id)sender {
     UIAlertController *controller = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     [controller addAction:[UIAlertAction actionWithTitle:@"Resume All" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
