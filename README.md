@@ -1,5 +1,7 @@
 # BarMagnet
 
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+
 BarMagnet is a simple torrent remote controller for iOS 9 and above.
 
 **BarMagnet features:**
