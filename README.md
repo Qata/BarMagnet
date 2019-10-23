@@ -15,6 +15,8 @@ After downloading, cd to the root folder and run `git submodule update --init --
 
 You'll need a Mac running the latest Xcode to be able to build BarMagnet for your iOS device.
 
+Alternatively you can use one of the [pre-built binaries](https://github.com/Qata/BarMagnet/releases) after resigning it with [iOS App Signer](https://dantheman827.github.io/ios-app-signer/).
+
 ## Credits
 
 BarMagnet is brought to you by Charlotte Tortorella and [contributors to the project](https://github.com/Qata/BarMagnet/contributors). If you have feature suggestions or bug reports, feel free to help out by sending pull requests or by [creating new issues](https://github.com/Qata/BarMagnet/issues/new).
