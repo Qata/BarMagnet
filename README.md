@@ -3,6 +3,7 @@
 [![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
 
 BarMagnet is a simple torrent remote controller for iOS 9 and above.
+This project will eventually be superseded by [Magnetar](https://github.com/Qata/Magnetar), at which point this project will be considered end of life.
 
 **BarMagnet features:**
 
